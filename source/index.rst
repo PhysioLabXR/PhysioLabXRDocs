@@ -22,10 +22,17 @@ Quick Start
 
 Download the project from `RealityNavigation's repo page <https://github.com/ApocalyVec/RealityNavigation>`_.::
 
-   print 'hello'
-   >> hello
+RealityNavigation App requires python3.7+.
+Navigation to the root folder of the downloaded repo, install all the prerequisites with the following command.::
+
+   pip install -r requirements.txt
+
+Run main.py to start the app.::
+
+   python main.py
 
 - Recording File format
+   Recording files created by RealityNavigation uses .dats file format. (placeholder)
 
 - Cross platform support
    The App supports Windows 10, MacOS, and most Linux distros (tested on Ubuntu 18.x, 20.04 and Fedora 33).::
