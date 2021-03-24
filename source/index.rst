@@ -40,13 +40,14 @@ Run main.py to start the app.::
 For developers
 ^^^^^^^^^^^^^^
 
-Other Information
+Further Information
 ^^^^^^^^^^^^^^^^^
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
 
    LICENSE
+   FileFormat
 
 
 Indices and tables
