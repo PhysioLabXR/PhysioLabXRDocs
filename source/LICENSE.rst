@@ -677,4 +677,4 @@ Public License instead of this License.  But first, please read
 
 Contact
 =======
-Question? Please reach out to zl2990@columbia.edu
+Question? Please reach out to zl2990@columbia.edu.
