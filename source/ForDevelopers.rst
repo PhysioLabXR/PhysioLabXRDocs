@@ -1,4 +1,4 @@
-.DATS File Format
+For Developers
 =================
 
 .. image:: images/RN_Stream.png

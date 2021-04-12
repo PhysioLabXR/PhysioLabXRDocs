@@ -8,26 +8,24 @@ Welcome to RealityNavigation's documentation!
 
 About Reality Navigation
 ========================
-Reality Navigation is a Python-based App for visualizing, recording, and processing (i.e., make prediction) on lab data streams in real-time.::
-
-
-
+Reality Navigation is a Python-based App for visualizing, recording, and processing (i.e., make prediction) on lab data streams in real-time.
 
 Quick Start
-^^^^^^^^^^^
+-----------
 
 .. note::
    This App is still in alpha development build. Currently there's no packaged executable. Please follow the guide below
-   to learn how to build and run the App.::
+   to learn how to build and run the App.
 
-Download the project from `RealityNavigation's repo page <https://github.com/ApocalyVec/RealityNavigation>`_.::
+Download the project from `RealityNavigation's repo page <https://github.com/ApocalyVec/RealityNavigation>`_.
 
 RealityNavigation App requires python3.7+.
-Navigation to the root folder of the downloaded repo, install all the prerequisites with the following command.::
+
+Navigation to the root folder of the downloaded repo, install all the prerequisites with the following command::
 
    pip install -r requirements.txt
 
-Run main.py to start the app.::
+Run main.py to start the app::
 
    python main.py
 
@@ -35,19 +33,23 @@ Run main.py to start the app.::
    Recording files created by RealityNavigation uses .dats file format. (placeholder)
 
 - Cross platform support
-   The App supports Windows 10, MacOS, and most Linux distros (tested on Ubuntu 18.x, 20.04 and Fedora 33).::
+   The App supports Windows 10, MacOS, and most Linux distros (tested on Ubuntu 20.04 and Fedora 33).::
+   You will need to install the headless version of cv2 if you encountered xcb platform plugin not found problem, install with::
 
-For developers
-^^^^^^^^^^^^^^
+      pip install opencv-python-headless
+
+
 
 Further Information
-^^^^^^^^^^^^^^^^^
+-------------------
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
 
+   Recording
+   SupportedSensors
+   ForDevelopers
    LICENSE
-   FileFormat
 
 
 Indices and tables
