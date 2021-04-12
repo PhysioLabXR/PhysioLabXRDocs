@@ -8,7 +8,7 @@ Welcome to RealityNavigation's documentation!
 
 About Reality Navigation
 ========================
-Reality Navigation (RNApp) is a Python-based App for visualizing, synchronize, recording, and processing (i.e., make prediction)
+Reality Navigation (RNApp) is a Python-based App for visualizing, synchronizing, recording, and processing (i.e., make prediction)
 on lab data streams, camera, and screen capture in real-time.
 
 RNApp is powered by `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_
