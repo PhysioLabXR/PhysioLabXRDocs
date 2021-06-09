@@ -90,6 +90,7 @@ Further Information
    Recording
    SupportedSensors
    ForDevelopers
+   ViewInMatlab
    LICENSE
 
 
