@@ -14,12 +14,12 @@ good tool for managing virtual environment. We will use it here.
 - Install the required packages using the command `pip install -r requirements.txt`
 - Run the script ParseRNStreamToMatlab.py with 2 arguments - dats file path and the output directory::
 
-    python offline\ParseDataRNStream.py <pathToTheRecordingFileToConvertToMATLABFormat> <pathToTheOutputDirectory>
+    python offline\ParseRNStreamToMatlab.py <pathToTheRecordingFileToConvertToMATLABFormat> <pathToTheOutputDirectory>
 
 For example, if the recording file we wish to be convert to MATLAB format is at **C:/Recordings/05_24_2021_13_31_12-Exp_myexperiment-Sbj_someone-Ssn_0.dats**.
 And the place we wish the MATLAB data file to be saved is at **C:/Recordings**::
 
-    python offline\ParseDataRNStream.py C:/Recordings/05_24_2021_13_31_12-Exp_myexperiment-Sbj_someone-Ssn_0.dats C:/Recordings
+    python offline\ParseRNStreamToMatlab.py C:/Recordings/05_24_2021_13_31_12-Exp_myexperiment-Sbj_someone-Ssn_0.dats C:/Recordings
 
 - Import the converted .mat file into MATLAB that was saved to the output directory from the previous step.
 
