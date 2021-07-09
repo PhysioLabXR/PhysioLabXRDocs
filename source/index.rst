@@ -89,6 +89,8 @@ Further Information
 
    Recording
    SupportedSensors
+   ForDevelopers
+   ViewInMatlab
    ContributeToThisDoc
    LICENSE
 
