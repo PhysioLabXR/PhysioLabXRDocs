@@ -3,17 +3,19 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to RealityNavigation's documentation!
+Welcome to RenaLabApp's documentation!
 =================================================
 
-About Reality Navigation
+About RenaLabApp
 ========================
-Reality Navigation (RNApp) is a Python-based App for visualizing, synchronizing, recording, and processing (i.e., make prediction)
-on lab data streams, camera, and screen capture in real-time.
+RenaLabApp (Rena stands for reality navigation, our vision for this app is to help user navigate all sorts of real-time
+data in the real world) is a Python-based App for visualizing, synchronizing, recording, and processing (i.e., make prediction)
+data streams, camera, and screen capture in real-time.
 
-RNApp is powered by `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_
-in network communication, with which users may easily integrate RNApp into their data analysis pipeline if
-they are already using LSL.
+RenaLabApp Users may easily integrate RenaLabApp into their data pipeline if
+they are already using `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_ or ZMQ
+to stream their data.
+
 
 Quick Start
 -----------
@@ -88,6 +90,8 @@ Further Information
    :caption: Contents:
 
    Recording
+   Replaying
+   Scripting
    SupportedSensors
    ForDevelopers
    ViewInMatlab
