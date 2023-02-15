@@ -5,7 +5,7 @@ RenaLabApp's recording API lets you record multi-stream data with synchronized t
 
 Record data
 ########
-After you added data source in the
+You can record the data sources that are added to the stream tab `Stream Page`_.
 In the recording options, you may change where to save the file, and what file format to save the data in.
 
 Working with recorded data

@@ -16,27 +16,13 @@ RenaLabApp Users may easily integrate RenaLabApp into their data pipeline if
 they are already using `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_ or ZMQ
 to stream their data.
 
-
-Quick Start
+Download
 -----------
 
-.. note::
-   This App is still in alpha development build. Currently there's no packaged executable. Please follow this guide below
-   to learn how to build and run the App.
 
-Download the project from `RealityNavigation's repo page <https://github.com/ApocalyVec/RealityNavigation>`_.
 
-RealityNavigation App requires python3.7+.
 
-Navigation to the root folder of the downloaded repo, install all the prerequisites with the following command::
-
-   pip install -r requirements.txt
-
-Run main.py to start the app::
-
-   python main.py
-
-On launching, the landing page of the App is:
+On launching, the landing page of the RenaLabApp is:
 
 .. image:: media/RN_landing_page.png
     :width: 500
