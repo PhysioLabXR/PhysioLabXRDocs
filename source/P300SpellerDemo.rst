@@ -19,6 +19,11 @@ bioinformation acquisition devices.
 The purpose of this demo is to demonstrate the flexibility of RenaLabApp and
 take a glance on how to customize your own experiment paradigm.
 
+Both **RenaScript** and **Unity** act as a state machine that follows the following state diagrams.
+The communication between two applications were done by using LabStreamLayer(LSL)
+which transform the event markers and synchronize the data stream and event streams.
+
+
 For the detailed software implementation, please check the source script (P300SpellerScript.py) and Unity Repository.
 
     **Note**: Please refer to the RenaLabApp Setup page and Scripting Page for downloading the software and basic functionalities of Scripting.
@@ -94,24 +99,30 @@ State Diagram
 
 Practice
 ************
-
 .. image:: media/ScriptingDemo/P300Speller/UnityPracticeDiagram.png
     :width: 1080
 
 
 Train
 ************
-.. image:: media/ScriptingDemo/P300Speller/UnityPracticeDiagram.png
+.. image:: media/ScriptingDemo/P300Speller/UnityTrainDiagram.png
     :width: 1080
 
 
 Test
 ************
-.. image:: media/ScriptingDemo/P300Speller/UnityPracticeDiagram.png
+
+.. image:: media/ScriptingDemo/P300Speller/UnityTestDiagram.png
     :width: 1080
 
 
-    Please Refer to the source code for more detailed implementation.
+Flash
+***********
+.. image:: media/ScriptingDemo/P300Speller/UnityBoardFlashDiagram.png
+    :width: 1080
+
+
+*Please Refer to the source code for more detailed implementation.*
 
 
 
@@ -146,6 +157,31 @@ P300 Speller Game RenaScript LSL Configuration:
 State Diagram
 =======
 
+Overview
+***********
+.. image:: media/ScriptingDemo/P300Speller/RenaScript.png
+    :width: 1080
+
+
+Collect Data
+***********
+.. image:: media/ScriptingDemo/P300Speller/RenaScriptCollectData.png
+    :width: 1080
+
+
+
+Callback Function
+***********
+.. image:: media/ScriptingDemo/P300Speller/RenaScriptCallBack.png
+    :width: 1080
+
+
+Post Processing
+***********
+.. image:: media/ScriptingDemo/P300Speller/RenaScriptPostProcessing.png
+    :width: 1080
+
+
 
 
 *************
@@ -175,11 +211,6 @@ Requirements
     3. Hardware: OpenBCI Cyton (8 Channels)
         Channel Selection: Fz, Cz, Pz, C3, C4, P3, P4, O1.
 
-Both **RenaScript** and **Unity** act as a state machine that follows the following state diagrams.
-The communication between two applications were done by using LabStreamLayer(LSL)
-which transform the event markers and synchronize the data stream and event streams.
-
-TODO: Sequentail Diagram
 
 
 =======
