@@ -83,6 +83,7 @@ Further Information
    ViewInMatlab
    ContributeToThisDoc
    LICENSE
+   PsychoPy
 
 
 Indices and tables
