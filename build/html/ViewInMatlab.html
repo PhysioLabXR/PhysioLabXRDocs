@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>View DATS data in MATLAB &#8212; RealityNavigationDocs 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contribute to this Doc" href="ContributeToThisDoc.html" />
+    <link rel="prev" title="Supported Sensor Stream and Add Your Stream" href="SupportedSensors.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ContributeToThisDoc.html" title="Contribute to this Doc"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="SupportedSensors.html" title="Supported Sensor Stream and Add Your Stream"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RealityNavigationDocs 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">View DATS data in MATLAB</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="view-dats-data-in-matlab">
+<h1>View DATS data in MATLAB<a class="headerlink" href="#view-dats-data-in-matlab" title="Permalink to this headline">¶</a></h1>
+<p>To access recorded DATS data in MATLAB follow these steps.</p>
+<p>First we will need to create a environment for running the format converter script. You could
+install the necessary packages in your native environment. But we recommend creating a virtual
+environment to help isolate different packages needed for different projects. <a href="#id1"><span class="problematic" id="id2">MiniConda_</span></a> is a
+good tool for managing virtual environment. We will use it here.</p>
+<ul>
+<li><p>Install <a href="#id3"><span class="problematic" id="id4">MiniConda_</span></a> if it not installed in your system.</p></li>
+<li><p><a class="reference external" href=":https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands">Create</a> a new conda environment with the command <cite>conda create –name rena</cite>.</p></li>
+<li><p>Activate the conda env using the command <cite>conda activate rena</cite></p></li>
+<li><p>Install the required packages using the command <cite>pip install -r requirements.txt</cite></p></li>
+<li><p>Run the script ParseRNStreamToMatlab.py with 2 arguments - dats file path and the output directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">offline</span>\<span class="n">ParseRNStreamToMatlab</span><span class="o">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">pathToTheRecordingFileToConvertToMATLABFormat</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">pathToTheOutputDirectory</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>For example, if the recording file we wish to be convert to MATLAB format is at <strong>C:/Recordings/05_24_2021_13_31_12-Exp_myexperiment-Sbj_someone-Ssn_0.dats</strong>.
+And the place we wish the MATLAB data file to be saved is at <strong>C:/Recordings</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">offline</span>\<span class="n">ParseRNStreamToMatlab</span><span class="o">.</span><span class="n">py</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Recordings</span><span class="o">/</span><span class="mi">05_24_2021_13_31_12</span><span class="o">-</span><span class="n">Exp_myexperiment</span><span class="o">-</span><span class="n">Sbj_someone</span><span class="o">-</span><span class="n">Ssn_0</span><span class="o">.</span><span class="n">dats</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Recordings</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Import the converted .mat file into MATLAB that was saved to the output directory from the previous step.</p></li>
+</ul>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="SupportedSensors.html"
+                          title="previous chapter">Supported Sensor Stream and Add Your Stream</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="ContributeToThisDoc.html"
+                          title="next chapter">Contribute to this Doc</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ViewInMatlab.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ContributeToThisDoc.html" title="Contribute to this Doc"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="SupportedSensors.html" title="Supported Sensor Stream and Add Your Stream"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RealityNavigationDocs 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">View DATS data in MATLAB</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Ziheng (Leo) Li.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>

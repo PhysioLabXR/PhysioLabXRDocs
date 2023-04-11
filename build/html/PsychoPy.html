@@ -1,0 +1,935 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Example use &#8212; RealityNavigationDocs 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="License Information" href="LICENSE.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="LICENSE.html" title="License Information"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RealityNavigationDocs 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Example use</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="example-use">
+<h1><a class="toc-backref" href="#id1">Example use</a><a class="headerlink" href="#example-use" title="Permalink to this headline">¶</a></h1>
+<section id="using-renalabapp-to-stream-fnirs-data-from-psychopy-and-nirx">
+<h2><a class="toc-backref" href="#id2">Using RenaLabApp to stream fNIRS data from PsychoPy and NIRx</a><a class="headerlink" href="#using-renalabapp-to-stream-fnirs-data-from-psychopy-and-nirx" title="Permalink to this headline">¶</a></h2>
+<div class="contents topic" id="overview">
+<p class="topic-title">Overview</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#example-use" id="id1">Example use</a></p>
+<ul>
+<li><p><a class="reference internal" href="#using-renalabapp-to-stream-fnirs-data-from-psychopy-and-nirx" id="id2">Using RenaLabApp to stream fNIRS data from PsychoPy and NIRx</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction" id="id3">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#generate-script-using-psychopy" id="id4">Generate script using PsychoPy</a></p></li>
+<li><p><a class="reference internal" href="#add-event-markers-to-the-generated-script" id="id5">Add Event Markers to the Generated Script</a></p></li>
+<li><p><a class="reference internal" href="#setting-up-nirx" id="id6">Setting up NIRx</a></p></li>
+<li><p><a class="reference internal" href="#use-renalabapp-to-stream-data" id="id7">Use RenaLabApp to Stream data</a></p></li>
+<li><p><a class="reference internal" href="#use-the-recorded-data-for-processing" id="id8">Use the recorded data for processing</a></p></li>
+<li><p><a class="reference internal" href="#further-information" id="id9">Further Information</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="introduction">
+<h3><a class="toc-backref" href="#id3">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we use RenaLabApp to stream a classic fNIRS Stroop effect experiment. Stroop effect experiment let participant input their judgment when experiencing color stroop. This will cause an effect in the prefrontal cortex, whereas the hypothesis is that when text and color are not congruent, there will be activation in the prefrontal region.</p>
+<p>In each experiment, we want to have six trails. In each trial there are six cases where we ask participants to input the color of the displayed text. The cases can be:</p>
+<ul class="simple">
+<li><p><strong>Congruent</strong> : the text is congruent with the text color. For example: <code class="docutils literal notranslate"><span class="pre">red</span></code> (color in red).</p></li>
+<li><p><strong>Incongruent</strong> : the text is incongruent with the text color. For example:  <code class="docutils literal notranslate"><span class="pre">red</span></code> (color in green).</p></li>
+</ul>
+<p>There is a 50% congruent rate.</p>
+</section>
+<section id="generate-script-using-psychopy">
+<h3><a class="toc-backref" href="#id4">Generate script using PsychoPy</a><a class="headerlink" href="#generate-script-using-psychopy" title="Permalink to this headline">¶</a></h3>
+<section id="install-psychopy">
+<h4>Install PsychoPy<a class="headerlink" href="#install-psychopy" title="Permalink to this headline">¶</a></h4>
+<p>Install PsychoPy from the <a class="reference external" href="https://www.psychopy.org/download.html">download page</a> accoording to the instructions.</p>
+</section>
+<section id="create-experiment-using-pyschopy">
+<h4>Create experiment using PyschoPy<a class="headerlink" href="#create-experiment-using-pyschopy" title="Permalink to this headline">¶</a></h4>
+<section id="setting-trail">
+<h5>Setting Trail<a class="headerlink" href="#setting-trail" title="Permalink to this headline">¶</a></h5>
+<p>In PsychoPy, create an experiment routine by first setting up the trail.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">components</span></code> part at the right side panel, select <code class="docutils literal notranslate"><span class="pre">Text</span></code> to create a fixed text to control the time for each trial. This ensures the functionality to have rest time between each trail.</p>
+<p>Add another <code class="docutils literal notranslate"><span class="pre">Text</span></code> to display the prompt, to make the word change every trail, create a excel that contains all the conditions we want in each trail.</p>
+<p>A sample list is this:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 31%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>word</p></th>
+<th class="head"><p>color</p></th>
+<th class="head"><p>congruent</p></th>
+<th class="head"><p>corAns</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>red</p></td>
+<td><p>red</p></td>
+<td><p>1</p></td>
+<td><p>r</p></td>
+</tr>
+<tr class="row-odd"><td><p>red</p></td>
+<td><p>green</p></td>
+<td><p>0</p></td>
+<td><p>g</p></td>
+</tr>
+<tr class="row-even"><td><p>green</p></td>
+<td><p>green</p></td>
+<td><p>1</p></td>
+<td><p>g</p></td>
+</tr>
+<tr class="row-odd"><td><p>green</p></td>
+<td><p>blue</p></td>
+<td><p>0</p></td>
+<td><p>b</p></td>
+</tr>
+<tr class="row-even"><td><p>blue</p></td>
+<td><p>blue</p></td>
+<td><p>1</p></td>
+<td><p>b</p></td>
+</tr>
+<tr class="row-odd"><td><p>blue</p></td>
+<td><p>red</p></td>
+<td><p>0</p></td>
+<td><p>r</p></td>
+</tr>
+</tbody>
+</table>
+<p>Load the list to PsychoPy, set the text as <code class="docutils literal notranslate"><span class="pre">$word</span></code> and the color as <code class="docutils literal notranslate"><span class="pre">$color</span></code>, repeat the trail for 6 times by clicking the <code class="docutils literal notranslate"><span class="pre">insert</span> <span class="pre">loop</span></code> button. This will enable us to display text with different colors.</p>
+<p>Next is to add a <code class="docutils literal notranslate"><span class="pre">keyboard</span></code> to record the keyboard response. The keyboard response is set to be the same time as the text display, set the allowed keys to be <code class="docutils literal notranslate"><span class="pre">'left'</span></code>,``’right’<code class="docutils literal notranslate"><span class="pre">,</span></code>’down’`` and in the next tab, set the correct answer to be <code class="docutils literal notranslate"><span class="pre">$corrAns</span></code>.</p>
+<p>The sample trial looks like this in PsychoPy:</p>
+<a class="reference internal image-reference" href="_images/Trail.png"><img alt="_images/Trail.png" src="_images/Trail.png" style="width: 1080px;" /></a>
+</section>
+<section id="setting-introduction-and-delay">
+<h5>Setting Introduction and Delay<a class="headerlink" href="#setting-introduction-and-delay" title="Permalink to this headline">¶</a></h5>
+<p>Add an introduction section to the experiment by clicking <code class="docutils literal notranslate"><span class="pre">Insert</span> <span class="pre">Routine</span></code>.  Add <code class="docutils literal notranslate"><span class="pre">text</span></code> and set the time to be 5 seconds, display the instruction of this experiment as the text portion.</p>
+<p>Next add a 10 second delay to the experiment routine at the end to give time for RenaLabApp to stop streaming. Similar to the adding of the introduction section, add a block call delay and add fixed text for 10 seconds.</p>
+<p>The sample routine looks like this:</p>
+<a class="reference internal image-reference" href="_images/Routine.png"><img alt="_images/Routine.png" src="_images/Routine.png" style="width: 1080px;" /></a>
+</section>
+<section id="generate-python-script">
+<h5>Generate python script<a class="headerlink" href="#generate-python-script" title="Permalink to this headline">¶</a></h5>
+<p>At this point, we created a stroop experiment using PsychoPy, we can run the experiment directly in PsychoPy to see the workflow, but in order to be able to add triggers, we need to generate a python script from the PyschoPy GUI.</p>
+<p>Click the <code class="docutils literal notranslate"><span class="pre">Complie</span> <span class="pre">to</span> <span class="pre">Python</span> <span class="pre">Script</span></code> button at the top of the application, a PyshcoPy coder will open up, and a python file will appear in the destinated folder. In the next part, we will add event markers using the Lab Streaming Layer(lsl) and incorporate it with the streaming of RenaLabApp.</p>
+</section>
+</section>
+</section>
+<section id="add-event-markers-to-the-generated-script">
+<h3><a class="toc-backref" href="#id5">Add Event Markers to the Generated Script</a><a class="headerlink" href="#add-event-markers-to-the-generated-script" title="Permalink to this headline">¶</a></h3>
+<p>Event markers are necessary and important parts in the experiments as they indicate the timestamp at which the event happens. Therefore, it is crucial to add correct event markers to the correct place during the experiment and record the event markers when streaming the data.</p>
+<section id="identify-the-event-marker">
+<h4>Identify the Event Marker<a class="headerlink" href="#identify-the-event-marker" title="Permalink to this headline">¶</a></h4>
+<p>In this experiment, six types of event markers were set. They are:</p>
+<ul>
+<li><p><strong>Experiment start</strong>: value set to be 20, indicating the start of the experiment</p></li>
+<li><p><strong>Trail Start</strong>: indicates the start of the trail</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Congruent</strong>: value set to be 1. Indicating the appeared prompt is congruent (color is same as the text)</p></li>
+<li><p><strong>Incongruent</strong>: value set to be 2. Indicating the appeared prompt is incongruent (color is different as the text)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Response</strong>: indicates user input something, reaction received.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Correct</strong>: value set to be 3. Indicating the input answer align with the ground truth (the answer is correct)</p></li>
+<li><p><strong>Incorrect</strong>: value set to be 4. Indicating the input answer does not align with the ground truth (the answer is incorrect)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Trail End</strong>: value set to be 15, indicate the time set for a single trail has passed.</p></li>
+<li><p><strong>Experiment End</strong>: value set to be 21. Indicating the end of the experiment with the fact that all of the trails has being completed.</p></li>
+</ul>
+<p>An illustration of all the event markers are show below:</p>
+<a class="reference internal image-reference" href="_images/Event_Marker.png"><img alt="_images/Event_Marker.png" src="_images/Event_Marker.png" style="width: 1080px;" /></a>
+</section>
+<section id="add-event-marker">
+<h4>Add Event Marker<a class="headerlink" href="#add-event-marker" title="Permalink to this headline">¶</a></h4>
+<p>After configure the event markers that needed to add to the script, we add the trigger to the script. This is archived by using the Lab Streaming Layer (LSL).</p>
+<section id="import-lsl">
+<h5>Import LSL<a class="headerlink" href="#import-lsl" title="Permalink to this headline">¶</a></h5>
+<p>Install LSL by doing this in the terminal:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pylsl</span>
+</pre></div>
+</div>
+<p>Import LSL by adding the following command at the import section in the generated script:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylsl</span> <span class="kn">import</span> <span class="n">StreamInfo</span><span class="p">,</span> <span class="n">StreamOutlet</span>
+</pre></div>
+</div>
+</section>
+<section id="setting-up-lsl">
+<h5>Setting up lsl<a class="headerlink" href="#setting-up-lsl" title="Permalink to this headline">¶</a></h5>
+<p>Add the following code to set up the lsl:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="n">StreamInfo</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;psylsl&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Markers&#39;</span><span class="p">,</span> <span class="n">channel_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="n">channel_format</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">,</span> <span class="n">source_id</span><span class="o">=</span><span class="s1">&#39;uniqueid12345&#39;</span><span class="p">)</span>
+<span class="c1"># Initialize the stream.</span>
+<span class="n">outlet</span> <span class="o">=</span> <span class="n">StreamOutlet</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The name is displayed as the channel name in RenaLabApp.</p>
+</section>
+<section id="add-triggers">
+<h5>Add triggers<a class="headerlink" href="#add-triggers" title="Permalink to this headline">¶</a></h5>
+<p>The next step is to find when the event happens with the corresponding triggers.</p>
+<p>We first create a dictionary:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stroop_marker_dict</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s1">&#39;stroop&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+<span class="s1">&#39;nonstroop&#39;</span><span class="p">:</span><span class="mi">2</span>
+<span class="p">}</span>
+<span class="n">user_answer_dict</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s1">&#39;correct&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+<span class="s1">&#39;incorrect&#39;</span><span class="p">:</span><span class="mi">4</span>
+<span class="p">}</span>
+<span class="n">trail_start_marker</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">trail_end_marker</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">experiment_start_marker</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">end_start_marker</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">noresponse_marker</span> <span class="o">=</span> <span class="mi">15</span>
+</pre></div>
+</div>
+<p>For each event markers:</p>
+<ul class="simple">
+<li><p><strong>Experiment start</strong>:</p></li>
+</ul>
+<p>We want this event marker push signal when the experiment start, so we add</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">experiment_start_marker</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">---</span> <span class="pre">Run</span> <span class="pre">Routine</span> <span class="pre">&quot;Instruction&quot;</span> <span class="pre">—</span></code> part. Thus it appears as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">continueRoutine</span> <span class="ow">and</span> <span class="n">routineTimer</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">5.0</span><span class="p">:</span>
+    <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">experiment_start_marker</span><span class="p">])</span>
+    <span class="c1"># get current time</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">routineTimer</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span>
+    <span class="n">tThisFlip</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">getFutureFlipTime</span><span class="p">(</span><span class="n">clock</span><span class="o">=</span><span class="n">routineTimer</span><span class="p">)</span>
+    <span class="n">tThisFlipGlobal</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">getFutureFlipTime</span><span class="p">(</span><span class="n">clock</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">frameN</span> <span class="o">=</span> <span class="n">frameN</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># number of completed frames (so 0 is the first frame)</span>
+    <span class="c1"># update/draw components on each frame</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Trail Start</strong>:</p></li>
+</ul>
+<p>This part happens when the text are generated, so we add triggers at each trail  when the text are generated, so the code appears here:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">NOT_STARTED</span> <span class="ow">and</span> <span class="n">tThisFlip</span> <span class="o">&gt;=</span> <span class="mf">0.4</span><span class="o">-</span><span class="n">frameTolerance</span><span class="p">:</span>
+            <span class="c1"># keep track of start time/frame for later</span>
+            <span class="n">text</span><span class="o">.</span><span class="n">frameNStart</span> <span class="o">=</span> <span class="n">frameN</span>  <span class="c1"># exact frame index</span>
+            <span class="n">text</span><span class="o">.</span><span class="n">tStart</span> <span class="o">=</span> <span class="n">t</span>  <span class="c1"># local t and not account for scr refresh</span>
+            <span class="n">text</span><span class="o">.</span><span class="n">tStartRefresh</span> <span class="o">=</span> <span class="n">tThisFlipGlobal</span>  <span class="c1"># on global time</span>
+            <span class="n">win</span><span class="o">.</span><span class="n">timeOnFlip</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;tStartRefresh&#39;</span><span class="p">)</span>  <span class="c1"># time at next scr refresh</span>
+            <span class="c1"># add timestamp to datafile</span>
+            <span class="n">thisExp</span><span class="o">.</span><span class="n">timestampOnFlip</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s1">&#39;text.started&#39;</span><span class="p">)</span>
+
+
+            <span class="k">if</span> <span class="n">congruent</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">stroop_marker_dict</span><span class="p">[</span><span class="s1">&#39;stroop&#39;</span><span class="p">]])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">stroop_marker_dict</span><span class="p">[</span><span class="s1">&#39;nonstroop&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Response</strong>:</p></li>
+</ul>
+<p>This happens when we receive a response, so we add this line of code in the  `` # — Ending Routine “trial” —`` section:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">key_resp</span><span class="o">.</span><span class="n">corr</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">user_answer_dict</span><span class="p">[</span><span class="s1">&#39;correct&#39;</span><span class="p">]])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">user_answer_dict</span><span class="p">[</span><span class="s1">&#39;incorrect&#39;</span><span class="p">]])</span>
+    <span class="k">if</span> <span class="n">key_resp</span><span class="o">.</span><span class="n">keys</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># we had a response</span>
+        <span class="n">trials</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">&#39;key_resp.rt&#39;</span><span class="p">,</span> <span class="n">key_resp</span><span class="o">.</span><span class="n">rt</span><span class="p">)</span>
+    <span class="c1"># using non-slip timing so subtract the expected duration of this Routine (unless ended on request)</span>
+    <span class="k">if</span> <span class="n">routineForceEnded</span><span class="p">:</span>
+        <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">noresponse_marker</span><span class="p">])</span>
+        <span class="n">routineTimer</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">noresponse_marker</span><span class="p">])</span>
+        <span class="n">routineTimer</span><span class="o">.</span><span class="n">addTime</span><span class="p">(</span><span class="o">-</span><span class="mf">4.400000</span><span class="p">)</span>
+    <span class="n">thisExp</span><span class="o">.</span><span class="n">nextEntry</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Trail End</strong>:</p></li>
+</ul>
+<p>Trail end markers happens at the end of each trail, we add it at the time when correctness are generated because it means the trial ends and a reponse is recieved.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">key_resp</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">STARTED</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">waitOnFlip</span><span class="p">:</span>
+            <span class="n">theseKeys</span> <span class="o">=</span> <span class="n">key_resp</span><span class="o">.</span><span class="n">getKeys</span><span class="p">(</span><span class="n">keyList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">waitRelease</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">_key_resp_allKeys</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">theseKeys</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_key_resp_allKeys</span><span class="p">):</span>
+                <span class="n">key_resp</span><span class="o">.</span><span class="n">keys</span> <span class="o">=</span> <span class="n">_key_resp_allKeys</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>  <span class="c1"># just the last key pressed</span>
+                <span class="n">key_resp</span><span class="o">.</span><span class="n">rt</span> <span class="o">=</span> <span class="n">_key_resp_allKeys</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">rt</span>
+                <span class="c1"># was this correct?</span>
+                <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">trail_end_marker</span><span class="p">])</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">key_resp</span><span class="o">.</span><span class="n">keys</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">corAns</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="n">key_resp</span><span class="o">.</span><span class="n">keys</span> <span class="o">==</span> <span class="n">corAns</span><span class="p">):</span>
+                    <span class="n">key_resp</span><span class="o">.</span><span class="n">corr</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">key_resp</span><span class="o">.</span><span class="n">corr</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="c1"># a response ends the routine</span>
+                <span class="n">continueRoutine</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Experiment End</strong>:</p></li>
+</ul>
+<p>Added at the end of the experiment.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># completed 6.0 repeats of &#39;trials&#39;</span>
+<span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">end_start_marker</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Thus we finished modifying the script.</p>
+</section>
+</section>
+</section>
+<section id="setting-up-nirx">
+<h3><a class="toc-backref" href="#id6">Setting up NIRx</a><a class="headerlink" href="#setting-up-nirx" title="Permalink to this headline">¶</a></h3>
+<p>The system that we used for recording the fNIRS data is NIRx’s NIRScout XP fNIRS system.
+Download NIRStar, the acquisition software for the system, setting up the system according to the instruction. We used prefrontal 8*8 montage and calibrated signal.</p>
+<p>In the hardware configuration panel, select Data Streaming tab. In the panel, check Lab Streaming Later (LSL) by clicking <code class="docutils literal notranslate"><span class="pre">Enable</span> <span class="pre">LSL</span> <span class="pre">Streaming</span></code>,  select data type and confirm the data stream order.</p>
+</section>
+<section id="use-renalabapp-to-stream-data">
+<h3><a class="toc-backref" href="#id7">Use RenaLabApp to Stream data</a><a class="headerlink" href="#use-renalabapp-to-stream-data" title="Permalink to this headline">¶</a></h3>
+<section id="stream-data">
+<h4>Stream Data<a class="headerlink" href="#stream-data" title="Permalink to this headline">¶</a></h4>
+<p>Open RenaLabApp, In the visualization panel, add the stream <code class="docutils literal notranslate"><span class="pre">NIRStar</span></code>, this will pop up a stream that can stream data from NIRx.
+Add another stream <code class="docutils literal notranslate"><span class="pre">psylsl</span></code> to RenaLabApp, this will show the event markers.
+Under the Preset folder, we can create a json file with the same name as the channel name to setting up the channel.
+Open the experiment script from PsychoPy and start stream from NIRStar, click <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">stream</span></code> on both NIRStar and psylsl to start stream data.</p>
+</section>
+<section id="record-data">
+<h4>Record Data<a class="headerlink" href="#record-data" title="Permalink to this headline">¶</a></h4>
+<p>At the top panel, go to the second tab <code class="docutils literal notranslate"><span class="pre">Recording</span></code>. Enter information for <code class="docutils literal notranslate"><span class="pre">Experiment</span> <span class="pre">Name</span></code>, <code class="docutils literal notranslate"><span class="pre">Participant</span> <span class="pre">Tag</span></code> and  <code class="docutils literal notranslate"><span class="pre">Session</span> <span class="pre">tag</span></code> , and click <code class="docutils literal notranslate"><span class="pre">Start</span> <span class="pre">Recording</span></code>. The file will be saved to the location displayed on the GUI.</p>
+</section>
+</section>
+<section id="use-the-recorded-data-for-processing">
+<h3><a class="toc-backref" href="#id8">Use the recorded data for processing</a><a class="headerlink" href="#use-the-recorded-data-for-processing" title="Permalink to this headline">¶</a></h3>
+<section id="import-data-in-python-script">
+<h4>Import data in python script<a class="headerlink" href="#import-data-in-python-script" title="Permalink to this headline">¶</a></h4>
+<p>With the recorded data, we can use the data for the processing. The data is saved in a data file. To import the recorded data, first import <code class="docutils literal notranslate"><span class="pre">RNStream</span></code> by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rena.utils.data_utils</span> <span class="kn">import</span> <span class="n">RNStream</span>
+</pre></div>
+</div>
+<p>The full import list is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">scipy</span>
+
+<span class="kn">from</span> <span class="nn">rena.utils.data_utils</span> <span class="kn">import</span> <span class="n">RNStream</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">figure</span>
+<span class="kn">from</span> <span class="nn">mne.decoding</span> <span class="kn">import</span> <span class="n">UnsupervisedSpatialFilter</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span><span class="p">,</span> <span class="n">FastICA</span>
+
+<span class="kn">import</span> <span class="nn">mne</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">params</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">mne.time_frequency</span> <span class="kn">import</span> <span class="n">tfr_morlet</span>
+<span class="kn">from</span> <span class="nn">mne.stats</span> <span class="kn">import</span> <span class="p">(</span><span class="n">ttest_1samp_no_p</span><span class="p">,</span> <span class="n">bonferroni_correction</span><span class="p">,</span> <span class="n">fdr_correction</span><span class="p">,</span>
+                      <span class="n">permutation_t_test</span><span class="p">,</span> <span class="n">permutation_cluster_1samp_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next import the data to the file by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import data and declare variables#############################################################</span>
+<span class="c1"># Import data</span>
+<span class="n">datapath</span> <span class="o">=</span> <span class="s2">&quot;/Users/Exampledat/Participant1_0101_test.dats&quot;</span>
+<span class="n">SampleData_rn</span> <span class="o">=</span> <span class="n">RNStream</span><span class="p">(</span><span class="n">datapath</span><span class="p">)</span>
+<span class="n">SampleData_data</span> <span class="o">=</span> <span class="n">SampleData_rn</span><span class="o">.</span><span class="n">stream_in</span><span class="p">(</span><span class="n">jitter_removal</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">nirs_data</span> <span class="o">=</span> <span class="n">SampleData_data</span><span class="p">[</span><span class="s1">&#39;NIRStar&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">41</span><span class="p">:</span><span class="mi">81</span><span class="p">]</span>
+<span class="n">nirs_timestamp</span> <span class="o">=</span> <span class="n">SampleData_data</span><span class="p">[</span><span class="s1">&#39;NIRStar&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Declare the channel by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># in Hertz</span>
+<span class="n">ch_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;1-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbO&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;4-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-6 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;6-4 HbO&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;6-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;6-6 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;7-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;7-7 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;8-6 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;8-7 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;1-1 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;1-2 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1 HbR&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;2-3 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;3-2 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;3-3 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;3-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-5 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;5-3 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;5-4 HbR&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;5-6 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;6-4 HbR&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;6-5 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;6-6 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;7-5 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;7-7 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;8-6 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;8-7 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;event_marker&#39;</span><span class="p">]</span>
+<span class="n">ch_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;stim&#39;</span><span class="p">]</span>
+
+<span class="n">sampling_freq</span> <span class="o">=</span> <span class="n">SampleData_data</span><span class="p">[</span><span class="s1">&#39;NIRStar&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">SampleData_data</span><span class="p">[</span><span class="s1">&#39;NIRStar&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">SampleData_data</span><span class="p">[</span><span class="s1">&#39;NIRStar&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">create_info</span><span class="p">(</span><span class="n">ch_names</span><span class="o">=</span><span class="n">ch_names</span><span class="p">,</span> <span class="n">ch_types</span><span class="o">=</span><span class="n">ch_types</span><span class="p">,</span> <span class="n">sfreq</span><span class="o">=</span><span class="n">sampling_freq</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="process-the-data">
+<h4>Process the data<a class="headerlink" href="#process-the-data" title="Permalink to this headline">¶</a></h4>
+<section id="generating-event-markers">
+<h5>generating event markers<a class="headerlink" href="#generating-event-markers" title="Permalink to this headline">¶</a></h5>
+<p>The generated event markers are:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">event markers:</span>
+<span class="sd">1: congruent</span>
+<span class="sd">2: incongruent</span>
+<span class="sd">3: correct response</span>
+<span class="sd">4: incorrect response</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1"># define key inputs</span>
+<span class="n">eoi</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">event_markers</span> <span class="o">=</span> <span class="n">SampleData_data</span><span class="p">[</span><span class="s1">&#39;psylsl&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">event_markers_timestamps</span> <span class="o">=</span> <span class="n">SampleData_data</span><span class="p">[</span><span class="s1">&#39;psylsl&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">data_shape</span> <span class="o">=</span> <span class="n">nirs_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># generating event makers</span>
+<span class="n">stim_array</span> <span class="o">=</span> <span class="n">make_markers</span><span class="p">(</span><span class="n">eoi</span><span class="p">,</span><span class="n">event_markers</span><span class="p">,</span><span class="n">event_markers_timestamps</span><span class="p">,</span><span class="n">data_shape</span><span class="p">,</span><span class="n">nirs_timestamp</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">nirs_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">nirs_data</span><span class="p">,</span> <span class="n">stim_array</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Where the function <code class="docutils literal notranslate"><span class="pre">make_markers</span></code> is defined as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_markers</span><span class="p">(</span><span class="n">eoi</span><span class="p">,</span><span class="n">event_markers</span><span class="p">,</span><span class="n">event_markers_timestamps</span><span class="p">,</span><span class="n">data_shape</span><span class="p">,</span><span class="n">nirs_timestamp</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   take input of:</span>
+<span class="sd">   - eoi: list. event of interest (e.g: [1,2])</span>
+<span class="sd">   - event_markers: ndarray. Data for event markers</span>
+<span class="sd">   - event_markers_timestamps: ndarray.</span>
+<span class="sd">   - data_shape: nirs_data.shape</span>
+<span class="sd">   - nirs_timestamp: same length as data_shape</span>
+
+<span class="sd">   generating stim arrays.ndarray.Which can be concatenated to the data using</span>
+<span class="sd">   (nirs_data = np.concatenate([nirs_data, stim_array], axis=0))</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">stim_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">data_shape</span><span class="p">))</span>
+   <span class="k">for</span> <span class="n">event_index</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">event_markers</span> <span class="o">==</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">eoi</span><span class="p">]))):</span>
+       <span class="n">this_event_timestamp</span> <span class="o">=</span> <span class="n">event_markers_timestamps</span><span class="p">[</span><span class="n">event_index</span><span class="p">]</span>
+       <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+           <span class="nb">print</span><span class="p">(</span>
+               <span class="sa">f</span><span class="s2">&quot;closest nirs data for event </span><span class="si">{</span><span class="n">event_markers</span><span class="p">[</span><span class="n">event_index</span><span class="p">]</span><span class="si">}</span><span class="s2"> timestamp is </span><span class="si">{</span><span class="n">nirs_timestamp</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nirs_timestamp</span> <span class="o">-</span> <span class="n">this_event_timestamp</span><span class="p">))]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+       <span class="n">stim_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nirs_timestamp</span> <span class="o">-</span> <span class="n">this_event_timestamp</span><span class="p">))</span>
+
+       <span class="k">try</span><span class="p">:</span>
+           <span class="k">assert</span> <span class="p">(</span><span class="n">stim_marker</span> <span class="o">:=</span> <span class="n">stim_array</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">stim_index</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+       <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+           <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+               <span class="sa">f</span><span class="s2">&quot;Cannot insert eventmarker, stim channel index </span><span class="si">{</span><span class="n">stim_index</span><span class="si">}</span><span class="s2"> already has marker </span><span class="si">{</span><span class="n">stim_marker</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+       <span class="n">stim_array</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">stim_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">event_markers</span><span class="p">[</span><span class="n">event_index</span><span class="p">]</span>
+   <span class="k">return</span> <span class="n">stim_array</span>
+</pre></div>
+</div>
+</section>
+<section id="process-raw-data-using-mne">
+<h5>process raw data using mne<a class="headerlink" href="#process-raw-data-using-mne" title="Permalink to this headline">¶</a></h5>
+<p>The data is processed using mne by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span> <span class="o">=</span> <span class="n">preprocess_data</span><span class="p">(</span><span class="n">nirs_data</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">info</span><span class="p">,</span> <span class="n">is_filter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">l_trans_bandwidth</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">h_trans_bandwidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">draw</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">preprocess_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">is_filter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mf">0.012</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">h_trans_bandwidth</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">l_trans_bandwidth</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">draw</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   plot raw data</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">raw</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">RawArray</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">info</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">draw</span><span class="p">:</span>
+       <span class="n">fig</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">compute_psd</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">average</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+       <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Before filtering&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
+       <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.88</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">is_filter</span><span class="p">:</span>
+       <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">h_trans_bandwidth</span><span class="o">=</span><span class="n">h_trans_bandwidth</span><span class="p">,</span>
+                           <span class="n">l_trans_bandwidth</span><span class="o">=</span><span class="n">l_trans_bandwidth</span><span class="p">)</span>
+       <span class="k">if</span> <span class="n">draw</span><span class="p">:</span>
+           <span class="n">fig</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">plot_psd</span><span class="p">(</span><span class="n">average</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+           <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;After filtering&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
+           <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.88</span><span class="p">)</span>
+   <span class="k">return</span> <span class="n">raw</span>
+</pre></div>
+</div>
+</section>
+<section id="find-events">
+<h5>find events<a class="headerlink" href="#find-events" title="Permalink to this headline">¶</a></h5>
+<p>The next step is to find the events:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># find events</span>
+<span class="n">events</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">find_events</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">stim_channel</span><span class="o">=</span><span class="s1">&#39;event_marker&#39;</span><span class="p">)</span>
+<span class="n">event_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;congruent&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+             <span class="s1">&#39;incongruent&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+             <span class="p">}</span>
+<span class="p">(</span><span class="n">events_from_annot</span><span class="p">,</span><span class="n">event_dict</span><span class="p">)</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">events_from_annotations</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">event_id</span><span class="o">=</span><span class="n">event_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="plot-signal">
+<h5>plot signal<a class="headerlink" href="#plot-signal" title="Permalink to this headline">¶</a></h5>
+<p>The signal is plot by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot_signal</span>
+<span class="n">plot_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">events</span><span class="p">,</span> <span class="n">event_dict</span><span class="p">,</span> <span class="n">raw_signal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visual_event</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">plot_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">events</span><span class="p">,</span> <span class="n">event_dict</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">show_scrollbars</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scalings</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">raw_signal</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">visual_event</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+   <span class="k">if</span> <span class="n">raw_signal</span><span class="p">:</span>
+       <span class="n">raw</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_channels</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">ch_names</span><span class="p">),</span>
+                   <span class="n">duration</span><span class="o">=</span><span class="n">duration</span><span class="p">,</span> <span class="n">show_scrollbars</span><span class="o">=</span><span class="n">show_scrollbars</span><span class="p">,</span> <span class="n">scalings</span><span class="o">=</span><span class="n">scalings</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">visual_event</span><span class="p">:</span>
+       <span class="n">fig</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">plot_events</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">event_id</span><span class="o">=</span><span class="n">event_dict</span><span class="p">,</span>
+                                 <span class="n">sfreq</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">])</span>
+       <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">right</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>  <span class="c1"># make room for the legend</span>
+   <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</section>
+<section id="plot-epoch">
+<h5>plot epoch<a class="headerlink" href="#plot-epoch" title="Permalink to this headline">¶</a></h5>
+<p>We then separate the signal to different epochs based on the event markers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># produce epoch ########################################################################</span>
+<span class="n">reject_criteria</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">hbo</span><span class="o">=</span><span class="mf">60e-2</span><span class="p">)</span>
+<span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span>
+<span class="n">baseline</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">pick_event</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="n">produce_epoch</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span><span class="n">events</span><span class="p">,</span><span class="n">event_dict</span><span class="p">,</span><span class="n">reject_criteria</span><span class="p">,</span> <span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">baseline</span><span class="p">,</span><span class="n">pick_event</span><span class="p">,</span><span class="n">drop_log</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">produce_epoch</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span><span class="n">events</span><span class="p">,</span><span class="n">event_dict</span><span class="p">,</span><span class="n">reject_criteria</span><span class="p">,</span> <span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">baseline</span><span class="p">,</span> <span class="n">pick_event</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">drop_log</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+   <span class="n">epochs</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">Epochs</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">events</span><span class="p">,</span> <span class="n">event_id</span><span class="o">=</span><span class="n">event_dict</span><span class="p">,</span>
+                       <span class="n">tmin</span><span class="o">=</span><span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="n">tmax</span><span class="p">,</span>
+                       <span class="n">reject</span><span class="o">=</span><span class="n">reject_criteria</span><span class="p">,</span> <span class="n">reject_by_annotation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                       <span class="n">proj</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">baseline</span><span class="o">=</span><span class="n">baseline</span><span class="p">,</span> <span class="n">preload</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                       <span class="n">detrend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">drop_log</span><span class="p">:</span>
+       <span class="n">epochs</span><span class="o">.</span><span class="n">plot_drop_log</span><span class="p">()</span>
+   <span class="n">catch_trials_and_buttonpresses</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">pick_events</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="n">pick_event</span><span class="p">)</span>
+   <span class="k">return</span> <span class="n">epochs</span>
+</pre></div>
+</div>
+<p>And the epochs can be plot by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ch</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;1-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-6 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;6-4 HbO&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;6-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;6-6 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;7-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;7-7 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;8-6 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;8-7 HbO&#39;</span><span class="p">,</span><span class="s1">&#39;1-1 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;1-2 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;2-3 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;3-2 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;3-3 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;3-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-5 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;5-3 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;5-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;5-6 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;6-4 HbR&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;6-5 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;6-6 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;7-5 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;7-7 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;8-6 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;8-7 HbR&#39;</span><span class="p">]</span>
+
+<span class="n">ch2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-1 HbO&#39;</span><span class="p">,</span>  <span class="s1">&#39;2-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-3 HbO&#39;</span><span class="p">,</span>  <span class="s1">&#39;3-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-5 HbO&#39;</span><span class="p">,</span>  <span class="s1">&#39;5-4 HbO&#39;</span><span class="p">,</span>  <span class="s1">&#39;6-4 HbO&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;6-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;1-1 HbR&#39;</span><span class="p">,</span>  <span class="s1">&#39;2-1 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;2-3 HbR&#39;</span><span class="p">,</span>  <span class="s1">&#39;3-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-5 HbR&#39;</span><span class="p">,</span>  <span class="s1">&#39;5-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;6-4 HbR&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;6-5 HbR&#39;</span><span class="p">]</span>
+
+<span class="n">vis_datas</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">ch2</span><span class="p">,</span> <span class="n">event_dict</span><span class="p">,</span> <span class="n">single_channel</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">average_channel</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">average_plot_no_std</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">vis_datas</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">event_dict</span><span class="p">,</span> <span class="n">single_channel</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">average_channel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">average_plot_no_std</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+             <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#AA3377&#39;</span><span class="p">,</span> <span class="s1">&#39;#F9C3F7&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;#C3F9F9&#39;</span><span class="p">]):</span>
+   <span class="n">color_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">HbO</span><span class="o">=</span><span class="s1">&#39;#AA3377&#39;</span><span class="p">,</span> <span class="n">HbR</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">congruent</span><span class="o">=</span><span class="s1">&#39;#AA3377&#39;</span><span class="p">,</span> <span class="n">incongruent</span><span class="o">=</span><span class="s1">&#39;#F9C3F7&#39;</span><span class="p">,</span> <span class="n">congruentR</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span>
+                     <span class="n">incongruentR</span><span class="o">=</span><span class="s1">&#39;#C3F9F9&#39;</span><span class="p">)</span>
+   <span class="n">styles_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">incongruent</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">congruent</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">single_channel</span><span class="p">:</span>
+       <span class="n">visualize_single_channel</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="n">ch</span><span class="p">,</span> <span class="n">event_groups</span><span class="o">=</span><span class="n">event_dict</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">color_dict</span><span class="p">,</span> <span class="n">styles</span><span class="o">=</span><span class="n">styles_dict</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">average_channel</span><span class="p">:</span>
+       <span class="n">visualize_average</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="n">ch</span><span class="p">,</span> <span class="n">event_groups</span><span class="o">=</span><span class="n">event_dict</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">color_dict</span><span class="p">,</span> <span class="n">styles</span><span class="o">=</span><span class="n">styles_dict</span><span class="p">)</span>
+
+       <span class="n">color_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">HbO</span><span class="o">=</span><span class="s1">&#39;#AA3377&#39;</span><span class="p">,</span> <span class="n">HbR</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">incongruent</span><span class="o">=</span><span class="s1">&#39;#AA3377&#39;</span><span class="p">,</span> <span class="n">congruent</span><span class="o">=</span><span class="s1">&#39;#F9C3F7&#39;</span><span class="p">,</span> <span class="n">incongruentR</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span>
+                         <span class="n">congruentR</span><span class="o">=</span><span class="s1">&#39;#C3F9F9&#39;</span><span class="p">)</span>
+       <span class="n">styles_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">congruent</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">incongruent</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">)</span>
+       <span class="n">visualize_average</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="n">ch</span><span class="p">,</span> <span class="n">event_groups</span><span class="o">=</span><span class="n">event_dict</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">color_dict</span><span class="p">,</span> <span class="n">styles</span><span class="o">=</span><span class="n">styles_dict</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">average_plot_no_std</span><span class="p">:</span>
+       <span class="n">evoked_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;incongruent/HbO&#39;</span><span class="p">:</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;incongruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pick_channels</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">picks</span><span class="o">=</span><span class="s1">&#39;hbo&#39;</span><span class="p">),</span>
+                      <span class="s1">&#39;incongruent/HbR&#39;</span><span class="p">:</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;incongruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pick_channels</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">picks</span><span class="o">=</span><span class="s1">&#39;hbr&#39;</span><span class="p">)</span>
+                      <span class="p">}</span>
+
+       <span class="k">for</span> <span class="n">condition</span> <span class="ow">in</span> <span class="n">evoked_dict</span><span class="p">:</span>
+           <span class="n">evoked_dict</span><span class="p">[</span><span class="n">condition</span><span class="p">]</span><span class="o">.</span><span class="n">rename_channels</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
+
+       <span class="n">color_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">HbO</span><span class="o">=</span><span class="s1">&#39;#AA3377&#39;</span><span class="p">,</span> <span class="n">HbR</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+       <span class="n">styles_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">incongruent</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">))</span>
+
+       <span class="n">mne</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">plot_compare_evokeds</span><span class="p">(</span><span class="n">evoked_dict</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span>
+                                    <span class="n">colors</span><span class="o">=</span><span class="n">color_dict</span><span class="p">,</span> <span class="n">styles</span><span class="o">=</span><span class="n">styles_dict</span><span class="p">)</span>
+
+       <span class="n">evoked_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Congruent/HbO&#39;</span><span class="p">:</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;congruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pick_channels</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">picks</span><span class="o">=</span><span class="s1">&#39;hbo&#39;</span><span class="p">),</span>
+                      <span class="s1">&#39;Congruent/HbR&#39;</span><span class="p">:</span> <span class="n">epochs</span><span class="p">[</span><span class="s1">&#39;congruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pick_channels</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">picks</span><span class="o">=</span><span class="s1">&#39;hbr&#39;</span><span class="p">),</span>
+                      <span class="p">}</span>
+
+       <span class="k">for</span> <span class="n">condition</span> <span class="ow">in</span> <span class="n">evoked_dict</span><span class="p">:</span>
+           <span class="n">evoked_dict</span><span class="p">[</span><span class="n">condition</span><span class="p">]</span><span class="o">.</span><span class="n">rename_channels</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
+
+       <span class="n">color_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">HbO</span><span class="o">=</span><span class="s1">&#39;#AA3377&#39;</span><span class="p">,</span> <span class="n">HbR</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+       <span class="c1"># styles_dict = dict(congruent=dict(linestyle=&#39;dashed&#39;))</span>
+
+       <span class="n">mne</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">plot_compare_evokeds</span><span class="p">(</span><span class="n">evoked_dict</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span>
+                                    <span class="n">colors</span><span class="o">=</span><span class="n">color_dict</span><span class="p">)</span>
+
+   <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</section>
+<section id="statistic-analysis">
+<h5>Statistic analysis<a class="headerlink" href="#statistic-analysis" title="Permalink to this headline">¶</a></h5>
+<p>A t-test and ANOVA is performed:
+The t-test is performed by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># perform t test ######################################################</span>
+<span class="n">t_test_plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span><span class="n">event_name</span><span class="o">=</span><span class="s1">&#39;congruent&#39;</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="n">ch2</span><span class="p">,</span> <span class="n">is_plot_1sample</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_plot_2sample</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">is_plot_2sample_allch</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">t_test_plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">event_name</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">out_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+                        <span class="n">is_plot_1sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">is_plot_2sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">is_plot_2sample_allch</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+   <span class="n">mne</span><span class="o">.</span><span class="n">set_log_level</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+   <span class="c1">#plt.rcParams[&quot;figure.figsize&quot;] = fig_size</span>
+
+   <span class="n">cho</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;6-4 HbO&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;6-5 HbO&#39;</span><span class="p">]</span>
+   <span class="nb">chr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-1 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;2-3 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;3-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-5 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;5-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;6-4 HbR&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;6-5 HbR&#39;</span><span class="p">]</span>
+   <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+   <span class="k">if</span> <span class="n">is_plot_1sample</span><span class="p">:</span>
+       <span class="n">picks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hbo&#39;</span><span class="p">,</span><span class="s1">&#39;hbr&#39;</span><span class="p">]</span>
+       <span class="k">for</span> <span class="n">pi</span> <span class="ow">in</span> <span class="n">picks</span><span class="p">:</span>
+           <span class="n">x1</span> <span class="o">=</span> <span class="n">epochs</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">tmin_eeg_viz</span><span class="p">,</span> <span class="n">tmax_eeg_viz</span><span class="p">)[</span><span class="n">event_name</span><span class="p">]</span><span class="o">.</span><span class="n">pick_channels</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="o">.</span><span class="n">average</span><span class="p">(</span>
+               <span class="n">picks</span><span class="o">=</span><span class="n">pi</span><span class="p">)</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+
+           <span class="n">out</span> <span class="o">=</span> <span class="n">ttest_1samp_no_p</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+           <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+           <span class="n">time_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">tmin_eeg_viz</span><span class="p">,</span> <span class="n">tmax_eeg_viz</span><span class="p">,</span> <span class="n">x1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+
+           <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_vector</span><span class="p">,</span><span class="n">out</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">, </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">event_name</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+
+           <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (sec)&#39;</span><span class="p">)</span>
+           <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+           <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+           <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+           <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;T-test on average Channel&quot;</span><span class="p">)</span>
+
+       <span class="k">if</span> <span class="n">out_dir</span><span class="p">:</span>
+           <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> - Channel </span><span class="si">{1}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">ch</span><span class="p">)))</span>
+           <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+       <span class="k">else</span><span class="p">:</span>
+           <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+   <span class="k">if</span> <span class="n">is_plot_2sample</span><span class="p">:</span>
+       <span class="n">picks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">]</span>
+       <span class="k">for</span> <span class="n">pi</span> <span class="ow">in</span> <span class="n">picks</span><span class="p">:</span>
+           <span class="n">x1</span> <span class="o">=</span> <span class="n">epochs</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">tmin_eeg_viz</span><span class="p">,</span> <span class="n">tmax_eeg_viz</span><span class="p">)[</span><span class="s1">&#39;congruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pick_channels</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="o">.</span><span class="n">average</span><span class="p">(</span>
+               <span class="n">picks</span><span class="o">=</span><span class="n">pi</span><span class="p">)</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+           <span class="n">xmean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+           <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;xmean before= &#39;</span><span class="p">,</span> <span class="n">xmean</span><span class="p">)</span>
+           <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+               <span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+           <span class="c1">#x1 = preprocessing.normalize(x1)</span>
+           <span class="n">xmean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+           <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;xmean= &#39;</span><span class="p">,</span> <span class="n">xmean</span><span class="p">)</span>
+
+           <span class="n">x2</span> <span class="o">=</span> <span class="n">epochs</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">tmin_eeg_viz</span><span class="p">,</span> <span class="n">tmax_eeg_viz</span><span class="p">)[</span><span class="s1">&#39;incongruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pick_channels</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="o">.</span><span class="n">average</span><span class="p">(</span>
+               <span class="n">picks</span><span class="o">=</span><span class="n">pi</span><span class="p">)</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+           <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+               <span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+           <span class="c1">#x2 = scipy.stats.zscore(x2)</span>
+           <span class="c1">#x2 = preprocessing.normalize(x2)</span>
+
+           <span class="n">out</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">)</span>
+           <span class="c1">#print(out)</span>
+
+           <span class="n">time_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">tmin_eeg_viz</span><span class="p">,</span> <span class="n">tmax_eeg_viz</span><span class="p">,</span> <span class="n">x1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+           <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+           <span class="n">cax</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">out</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+           <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+
+           <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (sec)&#39;</span><span class="p">)</span>
+           <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+           <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+           <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+           <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;T-test on average Channel </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>
+
+
+           <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+           <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+           <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+           <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_vector</span><span class="p">,</span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;t value&#39;</span><span class="p">)</span>
+           <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_vector</span><span class="p">,</span> <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;p value&#39;</span><span class="p">)</span>
+           <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (sec)&#39;</span><span class="p">)</span>
+           <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39; p value&#39;</span><span class="p">)</span>
+           <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39; t value&#39;</span><span class="p">)</span>
+           <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;t value&#39;</span><span class="p">])</span>
+           <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;p value&#39;</span><span class="p">])</span>
+
+
+           <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;T-test on average Channel </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>
+           <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+   <span class="k">if</span> <span class="n">is_plot_2sample_allch</span><span class="p">:</span>
+       <span class="n">picks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">]</span>
+       <span class="n">channelsele</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cho&#39;</span><span class="p">,</span><span class="s1">&#39;chr&#39;</span><span class="p">]</span>
+       <span class="k">for</span> <span class="n">pi</span> <span class="ow">in</span> <span class="n">picks</span><span class="p">:</span>
+           <span class="k">if</span> <span class="n">pi</span> <span class="o">==</span> <span class="s1">&#39;hbo&#39;</span><span class="p">:</span>
+               <span class="n">channelc</span> <span class="o">=</span> <span class="n">cho</span>
+           <span class="k">else</span><span class="p">:</span>
+               <span class="n">channelc</span> <span class="o">=</span> <span class="nb">chr</span>
+           <span class="k">for</span> <span class="n">ch1</span> <span class="ow">in</span> <span class="n">channelc</span><span class="p">:</span>
+               <span class="n">x1</span> <span class="o">=</span> <span class="n">epochs</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">tmin_eeg_viz</span><span class="p">,</span> <span class="n">tmax_eeg_viz</span><span class="p">)[</span><span class="s1">&#39;congruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pick_channels</span><span class="p">([</span><span class="n">ch1</span><span class="p">])</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+               <span class="n">xmean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+               <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;xmean before= &#39;</span><span class="p">,</span> <span class="n">xmean</span><span class="p">)</span>
+               <span class="c1">#x1 = scipy.stats.zscore(x1)</span>
+               <span class="n">x1</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+               <span class="n">xmean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+               <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;xmean= &#39;</span><span class="p">,</span><span class="n">xmean</span><span class="p">)</span>
+
+               <span class="n">x2</span> <span class="o">=</span> <span class="n">epochs</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">tmin_eeg_viz</span><span class="p">,</span> <span class="n">tmax_eeg_viz</span><span class="p">)[</span><span class="s1">&#39;incongruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pick_channels</span><span class="p">([</span><span class="n">ch1</span><span class="p">])</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+               <span class="c1">#x2 = scipy.stats.zscore(x2)</span>
+               <span class="n">x2</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+
+               <span class="n">out</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">)</span>
+               <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+               <span class="n">time_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">tmin_eeg_viz</span><span class="p">,</span> <span class="n">tmax_eeg_viz</span><span class="p">,</span> <span class="n">x1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+               <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+               <span class="n">cax</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">out</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+               <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+
+               <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (sec)&#39;</span><span class="p">)</span>
+               <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+               <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+               <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+               <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;T-test on average Channel </span><span class="si">{0}</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch1</span><span class="p">))</span>
+
+
+               <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+               <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+               <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+               <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_vector</span><span class="p">,</span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;t value&#39;</span><span class="p">)</span>
+               <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_vector</span><span class="p">,</span> <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;p value&#39;</span><span class="p">)</span>
+               <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (sec)&#39;</span><span class="p">)</span>
+               <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39; p value&#39;</span><span class="p">)</span>
+               <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39; t value&#39;</span><span class="p">)</span>
+               <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;t value&#39;</span><span class="p">])</span>
+               <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;p value&#39;</span><span class="p">])</span>
+
+
+               <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;T-test on average Channel </span><span class="si">{0}</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ch1</span><span class="p">))</span>
+               <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+           <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+   <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>The anova is performed by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># perform ANOVA#######################################################</span>
+<span class="n">anova_plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">pi</span><span class="o">=</span><span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="n">ch2</span><span class="p">,</span> <span class="n">is_mat_plot</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">is_plot_2sample</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">anova_plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">out_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+                        <span class="n">is_plot_2sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">is_mat_plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gaze_behavior</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+   <span class="n">mne</span><span class="o">.</span><span class="n">set_log_level</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+   <span class="c1">#plt.rcParams[&quot;figure.figsize&quot;] = fig_size</span>
+
+   <span class="n">cho</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;6-4 HbO&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;6-5 HbO&#39;</span><span class="p">]</span>
+   <span class="nb">chr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-1 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;2-3 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;3-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-5 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;5-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;6-4 HbR&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;6-5 HbR&#39;</span><span class="p">]</span>
+   <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+   <span class="k">if</span> <span class="n">is_plot_2sample</span><span class="p">:</span>
+       <span class="n">picks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">]</span>
+       <span class="k">for</span> <span class="n">pi</span> <span class="ow">in</span> <span class="n">picks</span><span class="p">:</span>
+           <span class="n">x1</span> <span class="o">=</span> <span class="n">epochs</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">tmin_eeg_viz</span><span class="p">,</span> <span class="n">tmax_eeg_viz</span><span class="p">)[</span><span class="s1">&#39;congruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pick_channels</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="o">.</span><span class="n">average</span><span class="p">(</span>
+               <span class="n">picks</span><span class="o">=</span><span class="n">pi</span><span class="p">)</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+
+
+           <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+               <span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+
+
+
+           <span class="n">x2</span> <span class="o">=</span> <span class="n">epochs</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">tmin_eeg_viz</span><span class="p">,</span> <span class="n">tmax_eeg_viz</span><span class="p">)[</span><span class="s1">&#39;incongruent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pick_channels</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="o">.</span><span class="n">average</span><span class="p">(</span>
+               <span class="n">picks</span><span class="o">=</span><span class="n">pi</span><span class="p">)</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+           <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+               <span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+
+           <span class="n">out</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+           <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+
+
+           <span class="n">time_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">tmin_eeg_viz</span><span class="p">,</span> <span class="n">tmax_eeg_viz</span><span class="p">,</span> <span class="n">x1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+           <span class="k">if</span> <span class="n">is_mat_plot</span><span class="p">:</span>
+               <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+               <span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+               <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+
+               <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (sec)&#39;</span><span class="p">)</span>
+               <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+               <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+               <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+               <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;ANOVA on average Channel </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>
+
+               <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+           <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+           <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+           <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_vector</span><span class="p">,</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;t value&#39;</span><span class="p">)</span>
+           <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_vector</span><span class="p">,</span> <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;p value&#39;</span><span class="p">)</span>
+           <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (sec)&#39;</span><span class="p">)</span>
+           <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39; p value&#39;</span><span class="p">)</span>
+           <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39; F&#39;</span><span class="p">)</span>
+           <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;F&#39;</span><span class="p">])</span>
+           <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;p value&#39;</span><span class="p">])</span>
+
+           <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;ANOVA on average Channel </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>
+           <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="further-information">
+<h3><a class="toc-backref" href="#id9">Further Information</a><a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Recording.html">Recording Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SupportedSensors.html">Supported Sensor Stream and Add Your Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ViewInMatlab.html">View DATS data in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ContributeToThisDoc.html">Contribute to this Doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LICENSE.html">License Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LICENSE.html#contact">Contact</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example use</a></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Example use</a><ul>
+<li><a class="reference internal" href="#using-renalabapp-to-stream-fnirs-data-from-psychopy-and-nirx">Using RenaLabApp to stream fNIRS data from PsychoPy and NIRx</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#generate-script-using-psychopy">Generate script using PsychoPy</a><ul>
+<li><a class="reference internal" href="#install-psychopy">Install PsychoPy</a></li>
+<li><a class="reference internal" href="#create-experiment-using-pyschopy">Create experiment using PyschoPy</a><ul>
+<li><a class="reference internal" href="#setting-trail">Setting Trail</a></li>
+<li><a class="reference internal" href="#setting-introduction-and-delay">Setting Introduction and Delay</a></li>
+<li><a class="reference internal" href="#generate-python-script">Generate python script</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#add-event-markers-to-the-generated-script">Add Event Markers to the Generated Script</a><ul>
+<li><a class="reference internal" href="#identify-the-event-marker">Identify the Event Marker</a></li>
+<li><a class="reference internal" href="#add-event-marker">Add Event Marker</a><ul>
+<li><a class="reference internal" href="#import-lsl">Import LSL</a></li>
+<li><a class="reference internal" href="#setting-up-lsl">Setting up lsl</a></li>
+<li><a class="reference internal" href="#add-triggers">Add triggers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#setting-up-nirx">Setting up NIRx</a></li>
+<li><a class="reference internal" href="#use-renalabapp-to-stream-data">Use RenaLabApp to Stream data</a><ul>
+<li><a class="reference internal" href="#stream-data">Stream Data</a></li>
+<li><a class="reference internal" href="#record-data">Record Data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#use-the-recorded-data-for-processing">Use the recorded data for processing</a><ul>
+<li><a class="reference internal" href="#import-data-in-python-script">Import data in python script</a></li>
+<li><a class="reference internal" href="#process-the-data">Process the data</a><ul>
+<li><a class="reference internal" href="#generating-event-markers">generating event markers</a></li>
+<li><a class="reference internal" href="#process-raw-data-using-mne">process raw data using mne</a></li>
+<li><a class="reference internal" href="#find-events">find events</a></li>
+<li><a class="reference internal" href="#plot-signal">plot signal</a></li>
+<li><a class="reference internal" href="#plot-epoch">plot epoch</a></li>
+<li><a class="reference internal" href="#statistic-analysis">Statistic analysis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#further-information">Further Information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="LICENSE.html"
+                          title="previous chapter">License Information</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/PsychoPy.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="LICENSE.html" title="License Information"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RealityNavigationDocs 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Example use</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Ziheng (Leo) Li.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>
