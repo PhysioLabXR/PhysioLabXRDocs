@@ -1,0 +1,150 @@
+{
+ "version": "auto-py-to-exe-configuration_v1",
+ "pyinstallerOptions": [
+  {
+   "optionDest": "noconfirm",
+   "value": true
+  },
+  {
+   "optionDest": "filenames",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/main.py"
+  },
+  {
+   "optionDest": "onefile",
+   "value": false
+  },
+  {
+   "optionDest": "console",
+   "value": true
+  },
+  {
+   "optionDest": "ascii",
+   "value": false
+  },
+  {
+   "optionDest": "clean_build",
+   "value": false
+  },
+  {
+   "optionDest": "strip",
+   "value": false
+  },
+  {
+   "optionDest": "noupx",
+   "value": false
+  },
+  {
+   "optionDest": "disable_windowed_traceback",
+   "value": false
+  },
+  {
+   "optionDest": "embed_manifest",
+   "value": true
+  },
+  {
+   "optionDest": "uac_admin",
+   "value": false
+  },
+  {
+   "optionDest": "uac_uiaccess",
+   "value": false
+  },
+  {
+   "optionDest": "win_private_assemblies",
+   "value": false
+  },
+  {
+   "optionDest": "win_no_prefer_redirects",
+   "value": false
+  },
+  {
+   "optionDest": "bootloader_ignore_signals",
+   "value": false
+  },
+  {
+   "optionDest": "argv_emulation",
+   "value": false
+  },
+  {
+   "optionDest": "binaries",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/venv/Lib/site-packages/pylsl/lib/lsl.dll;pylsl/lib"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/scripting;scripting/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/exceptions;exceptions/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/media;media/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/Presets;Presets/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/resource;resource/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/venv;venv/"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/arduino"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/deprecated"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/examples"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/interfaces"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/scripting"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/sub_process"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/tests"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/threadings"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/ui"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/utils"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/ui;ui/"
+  }
+ ],
+ "nonPyinstallerOptions": {
+  "increaseRecursionLimit": true,
+  "manualArguments": ""
+ }
+}
+
