@@ -47,9 +47,43 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "classic"
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+extensions = ["sphinx_immaterial"]
+default_dark_mode = False
+
+html_theme = 'sphinx_immaterial'
+
+html_theme_options = {
+    'color_primary': 'blue',
+    'color_accent': 'light-blue',
+    "palette": [
+        {
+            "media": "(prefers-color-scheme: light)",
+            "scheme": "default",
+            "toggle": {
+                "icon": "material/toggle-switch-off-outline",
+                "name": "Switch to dark mode",
+            }
+        },
+        {
+            "media": "(prefers-color-scheme: dark)",
+            "scheme": "slate",
+            "toggle": {
+                "icon": "material/toggle-switch",
+                "name": "Switch to light mode",
+            }
+        },
+    ],
+
+    "repo_url":{"https://github.com/ApocalyVec/RenaLabApp"},
+    "icon": {
+        "repo": "fontawesome/brands/github",
+        "edit": "material/file-edit-outline",
+    }
+}
+

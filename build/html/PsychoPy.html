@@ -1,48 +1,1205 @@
 
-<!DOCTYPE html>
 
-<html>
+<!doctype html>
+<html lang="en" class="no-js">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Example use &#8212; RealityNavigationDocs 0.0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="">
     
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="License Information" href="LICENSE.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="LICENSE.html" title="License Information"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RealityNavigationDocs 0.0.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Example use</a></li> 
-      </ul>
-    </div>  
+    
+      
+        <title>Example use - RealityNavigationDocs 0.0.1 documentation</title>
+      
+    
+    
+      
+        
+        
+      
+      
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+    
+    
+    
+      
+        
+        
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="_static/sphinx_immaterial_theme.8118e13f191069ea1.min.css" />
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-renalabapp-to-stream-fnirs-data-from-psychopy-and-nirx" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="RealityNavigationDocs 0.0.1 documentation" class="md-header__button md-logo" aria-label="RealityNavigationDocs 0.0.1 documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RealityNavigationDocs 0.0.1 documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
-  <section id="example-use">
-<h1><a class="toc-backref" href="#id1">Example use</a><a class="headerlink" href="#example-use" title="Permalink to this headline">¶</a></h1>
-<section id="using-renalabapp-to-stream-fnirs-data-from-psychopy-and-nirx">
-<h2><a class="toc-backref" href="#id2">Using RenaLabApp to stream fNIRS data from PsychoPy and NIRx</a><a class="headerlink" href="#using-renalabapp-to-stream-fnirs-data-from-psychopy-and-nirx" title="Permalink to this headline">¶</a></h2>
-<div class="contents topic" id="overview">
+              Example use
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="{'https://github.com/ApocalyVec/RenaLabApp'}" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    None
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="RealityNavigationDocs 0.0.1 documentation" class="md-nav__button md-logo" aria-label="RealityNavigationDocs 0.0.1 documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+    </a>
+    RealityNavigationDocs 0.0.1 documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="{'https://github.com/ApocalyVec/RenaLabApp'}" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    None
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          <span class="md-ellipsis">Contents:<wbr></span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contents:" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">Contents:<wbr></span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Recording.html" class="md-nav__link">
+        <span class="md-ellipsis">Recording Data</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Scripting.html" class="md-nav__link">
+        <span class="md-ellipsis">Scripting</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SupportedSensors.html" class="md-nav__link">
+        <span class="md-ellipsis">Supported Sensor Stream and Add Your Stream</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ViewInMatlab.html" class="md-nav__link">
+        <span class="md-ellipsis">View DATS data in MATLAB</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ContributeToThisDoc.html" class="md-nav__link">
+        <span class="md-ellipsis">Contribute to this Doc</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LICENSE.html" class="md-nav__link">
+        <span class="md-ellipsis">License Information</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LICENSE.html#contact" class="md-nav__link">
+        <span class="md-ellipsis">Contact</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+    
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__current-nested md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" checked>
+      
+      
+      
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="#"><span class="md-ellipsis">Example use</span></a>
+          
+            <label for="__nav_1_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Example use" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_8">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">Example use</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1" type="checkbox" id="__nav_1_8_1" >
+      
+      
+      
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="#using-renalabapp-to-stream-fnirs-data-from-psychopy-and-nirx"><span class="md-ellipsis">Using Rena<wbr>Lab<wbr>App to stream f<wbr>NIRS data from Psycho<wbr>Py and NIRx</span></a>
+          
+            <label for="__nav_1_8_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Using RenaLabApp to stream fNIRS data from PsychoPy and NIRx" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">Using Rena<wbr>Lab<wbr>App to stream f<wbr>NIRS data from Psycho<wbr>Py and NIRx</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8_1_1" type="checkbox" id="__nav_1_8_1_1" >
+      
+      
+      
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="#further-information"><span class="md-ellipsis">Further Information</span></a>
+          
+            <label for="__nav_1_8_1_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Further Information" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_8_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">Further Information</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Recording.html" class="md-nav__link">
+        <span class="md-ellipsis">Recording Data</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Scripting.html" class="md-nav__link">
+        <span class="md-ellipsis">Scripting</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SupportedSensors.html" class="md-nav__link">
+        <span class="md-ellipsis">Supported Sensor Stream and Add Your Stream</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ViewInMatlab.html" class="md-nav__link">
+        <span class="md-ellipsis">View DATS data in MATLAB</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ContributeToThisDoc.html" class="md-nav__link">
+        <span class="md-ellipsis">Contribute to this Doc</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LICENSE.html" class="md-nav__link">
+        <span class="md-ellipsis">License Information</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LICENSE.html#contact" class="md-nav__link">
+        <span class="md-ellipsis">Contact</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+      
+    <li class="md-nav__item md-nav__item--active md-nav__current-toc">
+      
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          <span class="md-ellipsis">Example use</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        <span class="md-ellipsis">Example use</span>
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-renalabapp-to-stream-fnirs-data-from-psychopy-and-nirx" class="md-nav__link">
+    <span class="md-ellipsis">Using Rena<wbr>Lab<wbr>App to stream f<wbr>NIRS data from Psycho<wbr>Py and NIRx</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using RenaLabApp to stream fNIRS data from PsychoPy and NIRx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">Introduction</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-script-using-psychopy" class="md-nav__link">
+    <span class="md-ellipsis">Generate script using Psycho<wbr>Py</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generate script using PsychoPy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-psychopy" class="md-nav__link">
+    <span class="md-ellipsis">Install Psycho<wbr>Py</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-experiment-using-pyschopy" class="md-nav__link">
+    <span class="md-ellipsis">Create experiment using Pyscho<wbr>Py</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create experiment using PyschoPy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-trail" class="md-nav__link">
+    <span class="md-ellipsis">Setting Trail</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-introduction-and-delay" class="md-nav__link">
+    <span class="md-ellipsis">Setting Introduction and Delay</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-python-script" class="md-nav__link">
+    <span class="md-ellipsis">Generate python script</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-event-markers-to-the-generated-script" class="md-nav__link">
+    <span class="md-ellipsis">Add Event Markers to the Generated Script</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Event Markers to the Generated Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identify-the-event-marker" class="md-nav__link">
+    <span class="md-ellipsis">Identify the Event Marker</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-event-marker" class="md-nav__link">
+    <span class="md-ellipsis">Add Event Marker</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Event Marker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import-lsl" class="md-nav__link">
+    <span class="md-ellipsis">Import LSL</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-lsl" class="md-nav__link">
+    <span class="md-ellipsis">Setting up lsl</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-triggers" class="md-nav__link">
+    <span class="md-ellipsis">Add triggers</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-nirx" class="md-nav__link">
+    <span class="md-ellipsis">Setting up NIRx</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-renalabapp-to-stream-data" class="md-nav__link">
+    <span class="md-ellipsis">Use Rena<wbr>Lab<wbr>App to Stream data</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use RenaLabApp to Stream data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stream-data" class="md-nav__link">
+    <span class="md-ellipsis">Stream Data</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#record-data" class="md-nav__link">
+    <span class="md-ellipsis">Record Data</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-recorded-data-for-processing" class="md-nav__link">
+    <span class="md-ellipsis">Use the recorded data for processing</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use the recorded data for processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import-data-in-python-script" class="md-nav__link">
+    <span class="md-ellipsis">Import data in python script</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-the-data" class="md-nav__link">
+    <span class="md-ellipsis">Process the data</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process the data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generating-event-markers" class="md-nav__link">
+    <span class="md-ellipsis">generating event markers</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-raw-data-using-mne" class="md-nav__link">
+    <span class="md-ellipsis">process raw data using mne</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-events" class="md-nav__link">
+    <span class="md-ellipsis">find events</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-signal" class="md-nav__link">
+    <span class="md-ellipsis">plot signal</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-epoch" class="md-nav__link">
+    <span class="md-ellipsis">plot epoch</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statistic-analysis" class="md-nav__link">
+    <span class="md-ellipsis">Statistic analysis</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-information" class="md-nav__link">
+    <span class="md-ellipsis">Further Information</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Further Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="Recording.html" class="md-nav__link">
+    <span class="md-ellipsis">Recording Data</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="Scripting.html" class="md-nav__link">
+    <span class="md-ellipsis">Scripting</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="SupportedSensors.html" class="md-nav__link">
+    <span class="md-ellipsis">Supported Sensor Stream and Add Your Stream</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="ViewInMatlab.html" class="md-nav__link">
+    <span class="md-ellipsis">View DATS data in MATLAB</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="ContributeToThisDoc.html" class="md-nav__link">
+    <span class="md-ellipsis">Contribute to this Doc</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="LICENSE.html" class="md-nav__link">
+    <span class="md-ellipsis">License Information</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="LICENSE.html#contact" class="md-nav__link">
+    <span class="md-ellipsis">Contact</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-renalabapp-to-stream-fnirs-data-from-psychopy-and-nirx" class="md-nav__link">
+    <span class="md-ellipsis">Using Rena<wbr>Lab<wbr>App to stream f<wbr>NIRS data from Psycho<wbr>Py and NIRx</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using RenaLabApp to stream fNIRS data from PsychoPy and NIRx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">Introduction</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-script-using-psychopy" class="md-nav__link">
+    <span class="md-ellipsis">Generate script using Psycho<wbr>Py</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generate script using PsychoPy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-psychopy" class="md-nav__link">
+    <span class="md-ellipsis">Install Psycho<wbr>Py</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-experiment-using-pyschopy" class="md-nav__link">
+    <span class="md-ellipsis">Create experiment using Pyscho<wbr>Py</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create experiment using PyschoPy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-trail" class="md-nav__link">
+    <span class="md-ellipsis">Setting Trail</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-introduction-and-delay" class="md-nav__link">
+    <span class="md-ellipsis">Setting Introduction and Delay</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-python-script" class="md-nav__link">
+    <span class="md-ellipsis">Generate python script</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-event-markers-to-the-generated-script" class="md-nav__link">
+    <span class="md-ellipsis">Add Event Markers to the Generated Script</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Event Markers to the Generated Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identify-the-event-marker" class="md-nav__link">
+    <span class="md-ellipsis">Identify the Event Marker</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-event-marker" class="md-nav__link">
+    <span class="md-ellipsis">Add Event Marker</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Event Marker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import-lsl" class="md-nav__link">
+    <span class="md-ellipsis">Import LSL</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-lsl" class="md-nav__link">
+    <span class="md-ellipsis">Setting up lsl</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-triggers" class="md-nav__link">
+    <span class="md-ellipsis">Add triggers</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-nirx" class="md-nav__link">
+    <span class="md-ellipsis">Setting up NIRx</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-renalabapp-to-stream-data" class="md-nav__link">
+    <span class="md-ellipsis">Use Rena<wbr>Lab<wbr>App to Stream data</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use RenaLabApp to Stream data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stream-data" class="md-nav__link">
+    <span class="md-ellipsis">Stream Data</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#record-data" class="md-nav__link">
+    <span class="md-ellipsis">Record Data</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-recorded-data-for-processing" class="md-nav__link">
+    <span class="md-ellipsis">Use the recorded data for processing</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use the recorded data for processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import-data-in-python-script" class="md-nav__link">
+    <span class="md-ellipsis">Import data in python script</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-the-data" class="md-nav__link">
+    <span class="md-ellipsis">Process the data</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process the data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generating-event-markers" class="md-nav__link">
+    <span class="md-ellipsis">generating event markers</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-raw-data-using-mne" class="md-nav__link">
+    <span class="md-ellipsis">process raw data using mne</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-events" class="md-nav__link">
+    <span class="md-ellipsis">find events</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-signal" class="md-nav__link">
+    <span class="md-ellipsis">plot signal</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-epoch" class="md-nav__link">
+    <span class="md-ellipsis">plot epoch</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statistic-analysis" class="md-nav__link">
+    <span class="md-ellipsis">Statistic analysis</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-information" class="md-nav__link">
+    <span class="md-ellipsis">Further Information</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset" role="main">
+                  
+
+
+<h1 id="example-use"><a class="toc-backref" href="#id1" role="doc-backlink">Example use</a><a class="headerlink" href="#example-use" title="Permalink to this heading">¶</a></h1>
+<h2 id="using-renalabapp-to-stream-fnirs-data-from-psychopy-and-nirx"><a class="toc-backref" href="#id2" role="doc-backlink">Using RenaLabApp to stream fNIRS data from PsychoPy and NIRx</a><a class="headerlink" href="#using-renalabapp-to-stream-fnirs-data-from-psychopy-and-nirx" title="Permalink to this heading">¶</a></h2>
+<nav class="contents" id="overview">
 <p class="topic-title">Overview</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#example-use" id="id1">Example use</a></p>
@@ -61,9 +1218,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<section id="introduction">
-<h3><a class="toc-backref" href="#id3">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+</nav>
+<h3 id="introduction"><a class="toc-backref" href="#id3" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h3>
 <p>In this example, we use RenaLabApp to stream a classic fNIRS Stroop effect experiment. Stroop effect experiment let participant input their judgment when experiencing color stroop. This will cause an effect in the prefrontal cortex, whereas the hypothesis is that when text and color are not congruent, there will be activation in the prefrontal region.</p>
 <p>In each experiment, we want to have six trails. In each trial there are six cases where we ask participants to input the color of the displayed text. The cases can be:</p>
 <ul class="simple">
@@ -71,28 +1227,16 @@
 <li><p><strong>Incongruent</strong> : the text is incongruent with the text color. For example:  <code class="docutils literal notranslate"><span class="pre">red</span></code> (color in green).</p></li>
 </ul>
 <p>There is a 50% congruent rate.</p>
-</section>
-<section id="generate-script-using-psychopy">
-<h3><a class="toc-backref" href="#id4">Generate script using PsychoPy</a><a class="headerlink" href="#generate-script-using-psychopy" title="Permalink to this headline">¶</a></h3>
-<section id="install-psychopy">
-<h4>Install PsychoPy<a class="headerlink" href="#install-psychopy" title="Permalink to this headline">¶</a></h4>
+<h3 id="generate-script-using-psychopy"><a class="toc-backref" href="#id4" role="doc-backlink">Generate script using PsychoPy</a><a class="headerlink" href="#generate-script-using-psychopy" title="Permalink to this heading">¶</a></h3>
+<h4 id="install-psychopy">Install PsychoPy<a class="headerlink" href="#install-psychopy" title="Permalink to this heading">¶</a></h4>
 <p>Install PsychoPy from the <a class="reference external" href="https://www.psychopy.org/download.html">download page</a> accoording to the instructions.</p>
-</section>
-<section id="create-experiment-using-pyschopy">
-<h4>Create experiment using PyschoPy<a class="headerlink" href="#create-experiment-using-pyschopy" title="Permalink to this headline">¶</a></h4>
-<section id="setting-trail">
-<h5>Setting Trail<a class="headerlink" href="#setting-trail" title="Permalink to this headline">¶</a></h5>
+<h4 id="create-experiment-using-pyschopy">Create experiment using PyschoPy<a class="headerlink" href="#create-experiment-using-pyschopy" title="Permalink to this heading">¶</a></h4>
+<h5 id="setting-trail">Setting Trail<a class="headerlink" href="#setting-trail" title="Permalink to this heading">¶</a></h5>
 <p>In PsychoPy, create an experiment routine by first setting up the trail.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">components</span></code> part at the right side panel, select <code class="docutils literal notranslate"><span class="pre">Text</span></code> to create a fixed text to control the time for each trial. This ensures the functionality to have rest time between each trail.</p>
 <p>Add another <code class="docutils literal notranslate"><span class="pre">Text</span></code> to display the prompt, to make the word change every trail, create a excel that contains all the conditions we want in each trail.</p>
 <p>A sample list is this:</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 23%" />
-<col style="width: 31%" />
-<col style="width: 23%" />
-</colgroup>
+<table class="docutils data align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>word</p></th>
 <th class="head"><p>color</p></th>
@@ -137,26 +1281,17 @@
 <p>Next is to add a <code class="docutils literal notranslate"><span class="pre">keyboard</span></code> to record the keyboard response. The keyboard response is set to be the same time as the text display, set the allowed keys to be <code class="docutils literal notranslate"><span class="pre">'left'</span></code>,``’right’<code class="docutils literal notranslate"><span class="pre">,</span></code>’down’`` and in the next tab, set the correct answer to be <code class="docutils literal notranslate"><span class="pre">$corrAns</span></code>.</p>
 <p>The sample trial looks like this in PsychoPy:</p>
 <a class="reference internal image-reference" href="_images/Trail.png"><img alt="_images/Trail.png" src="_images/Trail.png" style="width: 1080px;" /></a>
-</section>
-<section id="setting-introduction-and-delay">
-<h5>Setting Introduction and Delay<a class="headerlink" href="#setting-introduction-and-delay" title="Permalink to this headline">¶</a></h5>
+<h5 id="setting-introduction-and-delay">Setting Introduction and Delay<a class="headerlink" href="#setting-introduction-and-delay" title="Permalink to this heading">¶</a></h5>
 <p>Add an introduction section to the experiment by clicking <code class="docutils literal notranslate"><span class="pre">Insert</span> <span class="pre">Routine</span></code>.  Add <code class="docutils literal notranslate"><span class="pre">text</span></code> and set the time to be 5 seconds, display the instruction of this experiment as the text portion.</p>
 <p>Next add a 10 second delay to the experiment routine at the end to give time for RenaLabApp to stop streaming. Similar to the adding of the introduction section, add a block call delay and add fixed text for 10 seconds.</p>
 <p>The sample routine looks like this:</p>
 <a class="reference internal image-reference" href="_images/Routine.png"><img alt="_images/Routine.png" src="_images/Routine.png" style="width: 1080px;" /></a>
-</section>
-<section id="generate-python-script">
-<h5>Generate python script<a class="headerlink" href="#generate-python-script" title="Permalink to this headline">¶</a></h5>
+<h5 id="generate-python-script">Generate python script<a class="headerlink" href="#generate-python-script" title="Permalink to this heading">¶</a></h5>
 <p>At this point, we created a stroop experiment using PsychoPy, we can run the experiment directly in PsychoPy to see the workflow, but in order to be able to add triggers, we need to generate a python script from the PyschoPy GUI.</p>
 <p>Click the <code class="docutils literal notranslate"><span class="pre">Complie</span> <span class="pre">to</span> <span class="pre">Python</span> <span class="pre">Script</span></code> button at the top of the application, a PyshcoPy coder will open up, and a python file will appear in the destinated folder. In the next part, we will add event markers using the Lab Streaming Layer(lsl) and incorporate it with the streaming of RenaLabApp.</p>
-</section>
-</section>
-</section>
-<section id="add-event-markers-to-the-generated-script">
-<h3><a class="toc-backref" href="#id5">Add Event Markers to the Generated Script</a><a class="headerlink" href="#add-event-markers-to-the-generated-script" title="Permalink to this headline">¶</a></h3>
+<h3 id="add-event-markers-to-the-generated-script"><a class="toc-backref" href="#id5" role="doc-backlink">Add Event Markers to the Generated Script</a><a class="headerlink" href="#add-event-markers-to-the-generated-script" title="Permalink to this heading">¶</a></h3>
 <p>Event markers are necessary and important parts in the experiments as they indicate the timestamp at which the event happens. Therefore, it is crucial to add correct event markers to the correct place during the experiment and record the event markers when streaming the data.</p>
-<section id="identify-the-event-marker">
-<h4>Identify the Event Marker<a class="headerlink" href="#identify-the-event-marker" title="Permalink to this headline">¶</a></h4>
+<h4 id="identify-the-event-marker">Identify the Event Marker<a class="headerlink" href="#identify-the-event-marker" title="Permalink to this heading">¶</a></h4>
 <p>In this experiment, six types of event markers were set. They are:</p>
 <ul>
 <li><p><strong>Experiment start</strong>: value set to be 20, indicating the start of the experiment</p></li>
@@ -181,37 +1316,30 @@
 </ul>
 <p>An illustration of all the event markers are show below:</p>
 <a class="reference internal image-reference" href="_images/Event_Marker.png"><img alt="_images/Event_Marker.png" src="_images/Event_Marker.png" style="width: 1080px;" /></a>
-</section>
-<section id="add-event-marker">
-<h4>Add Event Marker<a class="headerlink" href="#add-event-marker" title="Permalink to this headline">¶</a></h4>
+<h4 id="add-event-marker">Add Event Marker<a class="headerlink" href="#add-event-marker" title="Permalink to this heading">¶</a></h4>
 <p>After configure the event markers that needed to add to the script, we add the trigger to the script. This is archived by using the Lab Streaming Layer (LSL).</p>
-<section id="import-lsl">
-<h5>Import LSL<a class="headerlink" href="#import-lsl" title="Permalink to this headline">¶</a></h5>
+<h5 id="import-lsl">Import LSL<a class="headerlink" href="#import-lsl" title="Permalink to this heading">¶</a></h5>
 <p>Install LSL by doing this in the terminal:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pylsl</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="n">pylsl</span>
+</code></pre></div>
 </div>
 <p>Import LSL by adding the following command at the import section in the generated script:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylsl</span> <span class="kn">import</span> <span class="n">StreamInfo</span><span class="p">,</span> <span class="n">StreamOutlet</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pylsl</span> <span class="kn">import</span> <span class="n">StreamInfo</span><span class="p">,</span> <span class="n">StreamOutlet</span>
+</code></pre></div>
 </div>
-</section>
-<section id="setting-up-lsl">
-<h5>Setting up lsl<a class="headerlink" href="#setting-up-lsl" title="Permalink to this headline">¶</a></h5>
+<h5 id="setting-up-lsl">Setting up lsl<a class="headerlink" href="#setting-up-lsl" title="Permalink to this heading">¶</a></h5>
 <p>Add the following code to set up the lsl:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="n">StreamInfo</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;psylsl&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Markers&#39;</span><span class="p">,</span> <span class="n">channel_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="n">info</span> <span class="o">=</span> <span class="n">StreamInfo</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;psylsl&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Markers&#39;</span><span class="p">,</span> <span class="n">channel_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                   <span class="n">channel_format</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">,</span> <span class="n">source_id</span><span class="o">=</span><span class="s1">&#39;uniqueid12345&#39;</span><span class="p">)</span>
 <span class="c1"># Initialize the stream.</span>
 <span class="n">outlet</span> <span class="o">=</span> <span class="n">StreamOutlet</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 </div>
 <p>The name is displayed as the channel name in RenaLabApp.</p>
-</section>
-<section id="add-triggers">
-<h5>Add triggers<a class="headerlink" href="#add-triggers" title="Permalink to this headline">¶</a></h5>
+<h5 id="add-triggers">Add triggers<a class="headerlink" href="#add-triggers" title="Permalink to this heading">¶</a></h5>
 <p>The next step is to find when the event happens with the corresponding triggers.</p>
 <p>We first create a dictionary:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stroop_marker_dict</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="n">stroop_marker_dict</span> <span class="o">=</span> <span class="p">{</span>
 <span class="s1">&#39;stroop&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
 <span class="s1">&#39;nonstroop&#39;</span><span class="p">:</span><span class="mi">2</span>
 <span class="p">}</span>
@@ -224,18 +1352,18 @@
 <span class="n">experiment_start_marker</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">end_start_marker</span> <span class="o">=</span> <span class="mi">21</span>
 <span class="n">noresponse_marker</span> <span class="o">=</span> <span class="mi">15</span>
-</pre></div>
+</code></pre></div>
 </div>
 <p>For each event markers:</p>
 <ul class="simple">
 <li><p><strong>Experiment start</strong>:</p></li>
 </ul>
 <p>We want this event marker push signal when the experiment start, so we add</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">experiment_start_marker</span><span class="p">])</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">experiment_start_marker</span><span class="p">])</span>
+</code></pre></div>
 </div>
 <p>In the <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">---</span> <span class="pre">Run</span> <span class="pre">Routine</span> <span class="pre">&quot;Instruction&quot;</span> <span class="pre">—</span></code> part. Thus it appears as:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">continueRoutine</span> <span class="ow">and</span> <span class="n">routineTimer</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">5.0</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="n">continueRoutine</span> <span class="ow">and</span> <span class="n">routineTimer</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">5.0</span><span class="p">:</span>
     <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">experiment_start_marker</span><span class="p">])</span>
     <span class="c1"># get current time</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">routineTimer</span><span class="o">.</span><span class="n">getTime</span><span class="p">()</span>
@@ -243,13 +1371,13 @@
     <span class="n">tThisFlipGlobal</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">getFutureFlipTime</span><span class="p">(</span><span class="n">clock</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="n">frameN</span> <span class="o">=</span> <span class="n">frameN</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># number of completed frames (so 0 is the first frame)</span>
     <span class="c1"># update/draw components on each frame</span>
-</pre></div>
+</code></pre></div>
 </div>
 <ul class="simple">
 <li><p><strong>Trail Start</strong>:</p></li>
 </ul>
 <p>This part happens when the text are generated, so we add triggers at each trail  when the text are generated, so the code appears here:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">NOT_STARTED</span> <span class="ow">and</span> <span class="n">tThisFlip</span> <span class="o">&gt;=</span> <span class="mf">0.4</span><span class="o">-</span><span class="n">frameTolerance</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">NOT_STARTED</span> <span class="ow">and</span> <span class="n">tThisFlip</span> <span class="o">&gt;=</span> <span class="mf">0.4</span><span class="o">-</span><span class="n">frameTolerance</span><span class="p">:</span>
             <span class="c1"># keep track of start time/frame for later</span>
             <span class="n">text</span><span class="o">.</span><span class="n">frameNStart</span> <span class="o">=</span> <span class="n">frameN</span>  <span class="c1"># exact frame index</span>
             <span class="n">text</span><span class="o">.</span><span class="n">tStart</span> <span class="o">=</span> <span class="n">t</span>  <span class="c1"># local t and not account for scr refresh</span>
@@ -263,13 +1391,13 @@
                 <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">stroop_marker_dict</span><span class="p">[</span><span class="s1">&#39;stroop&#39;</span><span class="p">]])</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">stroop_marker_dict</span><span class="p">[</span><span class="s1">&#39;nonstroop&#39;</span><span class="p">]])</span>
-</pre></div>
+</code></pre></div>
 </div>
 <ul class="simple">
 <li><p><strong>Response</strong>:</p></li>
 </ul>
 <p>This happens when we receive a response, so we add this line of code in the  `` # — Ending Routine “trial” —`` section:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">key_resp</span><span class="o">.</span><span class="n">corr</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">key_resp</span><span class="o">.</span><span class="n">corr</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
         <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">user_answer_dict</span><span class="p">[</span><span class="s1">&#39;correct&#39;</span><span class="p">]])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">user_answer_dict</span><span class="p">[</span><span class="s1">&#39;incorrect&#39;</span><span class="p">]])</span>
@@ -283,13 +1411,13 @@
         <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">noresponse_marker</span><span class="p">])</span>
         <span class="n">routineTimer</span><span class="o">.</span><span class="n">addTime</span><span class="p">(</span><span class="o">-</span><span class="mf">4.400000</span><span class="p">)</span>
     <span class="n">thisExp</span><span class="o">.</span><span class="n">nextEntry</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 </div>
 <ul class="simple">
 <li><p><strong>Trail End</strong>:</p></li>
 </ul>
 <p>Trail end markers happens at the end of each trail, we add it at the time when correctness are generated because it means the trial ends and a reponse is recieved.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">key_resp</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">STARTED</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">waitOnFlip</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">key_resp</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">STARTED</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">waitOnFlip</span><span class="p">:</span>
             <span class="n">theseKeys</span> <span class="o">=</span> <span class="n">key_resp</span><span class="o">.</span><span class="n">getKeys</span><span class="p">(</span><span class="n">keyList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">waitRelease</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="n">_key_resp_allKeys</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">theseKeys</span><span class="p">)</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_key_resp_allKeys</span><span class="p">):</span>
@@ -303,50 +1431,37 @@
                     <span class="n">key_resp</span><span class="o">.</span><span class="n">corr</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="c1"># a response ends the routine</span>
                 <span class="n">continueRoutine</span> <span class="o">=</span> <span class="kc">False</span>
-</pre></div>
+</code></pre></div>
 </div>
 <ul class="simple">
 <li><p><strong>Experiment End</strong>:</p></li>
 </ul>
 <p>Added at the end of the experiment.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># completed 6.0 repeats of &#39;trials&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># completed 6.0 repeats of &#39;trials&#39;</span>
 <span class="n">outlet</span><span class="o">.</span><span class="n">push_sample</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">end_start_marker</span><span class="p">])</span>
-</pre></div>
+</code></pre></div>
 </div>
 <p>Thus we finished modifying the script.</p>
-</section>
-</section>
-</section>
-<section id="setting-up-nirx">
-<h3><a class="toc-backref" href="#id6">Setting up NIRx</a><a class="headerlink" href="#setting-up-nirx" title="Permalink to this headline">¶</a></h3>
+<h3 id="setting-up-nirx"><a class="toc-backref" href="#id6" role="doc-backlink">Setting up NIRx</a><a class="headerlink" href="#setting-up-nirx" title="Permalink to this heading">¶</a></h3>
 <p>The system that we used for recording the fNIRS data is NIRx’s NIRScout XP fNIRS system.
 Download NIRStar, the acquisition software for the system, setting up the system according to the instruction. We used prefrontal 8*8 montage and calibrated signal.</p>
 <p>In the hardware configuration panel, select Data Streaming tab. In the panel, check Lab Streaming Later (LSL) by clicking <code class="docutils literal notranslate"><span class="pre">Enable</span> <span class="pre">LSL</span> <span class="pre">Streaming</span></code>,  select data type and confirm the data stream order.</p>
-</section>
-<section id="use-renalabapp-to-stream-data">
-<h3><a class="toc-backref" href="#id7">Use RenaLabApp to Stream data</a><a class="headerlink" href="#use-renalabapp-to-stream-data" title="Permalink to this headline">¶</a></h3>
-<section id="stream-data">
-<h4>Stream Data<a class="headerlink" href="#stream-data" title="Permalink to this headline">¶</a></h4>
+<h3 id="use-renalabapp-to-stream-data"><a class="toc-backref" href="#id7" role="doc-backlink">Use RenaLabApp to Stream data</a><a class="headerlink" href="#use-renalabapp-to-stream-data" title="Permalink to this heading">¶</a></h3>
+<h4 id="stream-data">Stream Data<a class="headerlink" href="#stream-data" title="Permalink to this heading">¶</a></h4>
 <p>Open RenaLabApp, In the visualization panel, add the stream <code class="docutils literal notranslate"><span class="pre">NIRStar</span></code>, this will pop up a stream that can stream data from NIRx.
 Add another stream <code class="docutils literal notranslate"><span class="pre">psylsl</span></code> to RenaLabApp, this will show the event markers.
 Under the Preset folder, we can create a json file with the same name as the channel name to setting up the channel.
 Open the experiment script from PsychoPy and start stream from NIRStar, click <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">stream</span></code> on both NIRStar and psylsl to start stream data.</p>
-</section>
-<section id="record-data">
-<h4>Record Data<a class="headerlink" href="#record-data" title="Permalink to this headline">¶</a></h4>
+<h4 id="record-data">Record Data<a class="headerlink" href="#record-data" title="Permalink to this heading">¶</a></h4>
 <p>At the top panel, go to the second tab <code class="docutils literal notranslate"><span class="pre">Recording</span></code>. Enter information for <code class="docutils literal notranslate"><span class="pre">Experiment</span> <span class="pre">Name</span></code>, <code class="docutils literal notranslate"><span class="pre">Participant</span> <span class="pre">Tag</span></code> and  <code class="docutils literal notranslate"><span class="pre">Session</span> <span class="pre">tag</span></code> , and click <code class="docutils literal notranslate"><span class="pre">Start</span> <span class="pre">Recording</span></code>. The file will be saved to the location displayed on the GUI.</p>
-</section>
-</section>
-<section id="use-the-recorded-data-for-processing">
-<h3><a class="toc-backref" href="#id8">Use the recorded data for processing</a><a class="headerlink" href="#use-the-recorded-data-for-processing" title="Permalink to this headline">¶</a></h3>
-<section id="import-data-in-python-script">
-<h4>Import data in python script<a class="headerlink" href="#import-data-in-python-script" title="Permalink to this headline">¶</a></h4>
+<h3 id="use-the-recorded-data-for-processing"><a class="toc-backref" href="#id8" role="doc-backlink">Use the recorded data for processing</a><a class="headerlink" href="#use-the-recorded-data-for-processing" title="Permalink to this heading">¶</a></h3>
+<h4 id="import-data-in-python-script">Import data in python script<a class="headerlink" href="#import-data-in-python-script" title="Permalink to this heading">¶</a></h4>
 <p>With the recorded data, we can use the data for the processing. The data is saved in a data file. To import the recorded data, first import <code class="docutils literal notranslate"><span class="pre">RNStream</span></code> by:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rena.utils.data_utils</span> <span class="kn">import</span> <span class="n">RNStream</span>
-</pre></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">rena.utils.data_utils</span> <span class="kn">import</span> <span class="n">RNStream</span>
+</code></pre></div>
 </div>
 <p>The full import list is:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">import</span> <span class="nn">scipy</span>
 
@@ -363,20 +1478,20 @@ Open the experiment script from PsychoPy and start stream from NIRStar, click <c
 <span class="kn">from</span> <span class="nn">mne.time_frequency</span> <span class="kn">import</span> <span class="n">tfr_morlet</span>
 <span class="kn">from</span> <span class="nn">mne.stats</span> <span class="kn">import</span> <span class="p">(</span><span class="n">ttest_1samp_no_p</span><span class="p">,</span> <span class="n">bonferroni_correction</span><span class="p">,</span> <span class="n">fdr_correction</span><span class="p">,</span>
                       <span class="n">permutation_t_test</span><span class="p">,</span> <span class="n">permutation_cluster_1samp_test</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 </div>
 <p>Next import the data to the file by:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import data and declare variables#############################################################</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># Import data and declare variables#############################################################</span>
 <span class="c1"># Import data</span>
 <span class="n">datapath</span> <span class="o">=</span> <span class="s2">&quot;/Users/Exampledat/Participant1_0101_test.dats&quot;</span>
 <span class="n">SampleData_rn</span> <span class="o">=</span> <span class="n">RNStream</span><span class="p">(</span><span class="n">datapath</span><span class="p">)</span>
 <span class="n">SampleData_data</span> <span class="o">=</span> <span class="n">SampleData_rn</span><span class="o">.</span><span class="n">stream_in</span><span class="p">(</span><span class="n">jitter_removal</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">nirs_data</span> <span class="o">=</span> <span class="n">SampleData_data</span><span class="p">[</span><span class="s1">&#39;NIRStar&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">41</span><span class="p">:</span><span class="mi">81</span><span class="p">]</span>
 <span class="n">nirs_timestamp</span> <span class="o">=</span> <span class="n">SampleData_data</span><span class="p">[</span><span class="s1">&#39;NIRStar&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 </div>
 <p>Declare the channel by:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># in Hertz</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># in Hertz</span>
 <span class="n">ch_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;1-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbO&#39;</span><span class="p">,</span>
            <span class="s1">&#39;4-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-6 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;6-4 HbO&#39;</span><span class="p">,</span>
            <span class="s1">&#39;6-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;6-6 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;7-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;7-7 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;8-6 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;8-7 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;1-1 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;1-2 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1 HbR&#39;</span><span class="p">,</span>
@@ -390,15 +1505,12 @@ Open the experiment script from PsychoPy and start stream from NIRStar, click <c
 
 <span class="n">sampling_freq</span> <span class="o">=</span> <span class="n">SampleData_data</span><span class="p">[</span><span class="s1">&#39;NIRStar&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">SampleData_data</span><span class="p">[</span><span class="s1">&#39;NIRStar&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">SampleData_data</span><span class="p">[</span><span class="s1">&#39;NIRStar&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">info</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">create_info</span><span class="p">(</span><span class="n">ch_names</span><span class="o">=</span><span class="n">ch_names</span><span class="p">,</span> <span class="n">ch_types</span><span class="o">=</span><span class="n">ch_types</span><span class="p">,</span> <span class="n">sfreq</span><span class="o">=</span><span class="n">sampling_freq</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 </div>
-</section>
-<section id="process-the-data">
-<h4>Process the data<a class="headerlink" href="#process-the-data" title="Permalink to this headline">¶</a></h4>
-<section id="generating-event-markers">
-<h5>generating event markers<a class="headerlink" href="#generating-event-markers" title="Permalink to this headline">¶</a></h5>
+<h4 id="process-the-data">Process the data<a class="headerlink" href="#process-the-data" title="Permalink to this heading">¶</a></h4>
+<h5 id="generating-event-markers">generating event markers<a class="headerlink" href="#generating-event-markers" title="Permalink to this heading">¶</a></h5>
 <p>The generated event markers are:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">event markers:</span>
 <span class="sd">1: congruent</span>
 <span class="sd">2: incongruent</span>
@@ -414,11 +1526,11 @@ Open the experiment script from PsychoPy and start stream from NIRStar, click <c
 <span class="c1"># generating event makers</span>
 <span class="n">stim_array</span> <span class="o">=</span> <span class="n">make_markers</span><span class="p">(</span><span class="n">eoi</span><span class="p">,</span><span class="n">event_markers</span><span class="p">,</span><span class="n">event_markers_timestamps</span><span class="p">,</span><span class="n">data_shape</span><span class="p">,</span><span class="n">nirs_timestamp</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">nirs_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">nirs_data</span><span class="p">,</span> <span class="n">stim_array</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 </div>
 <p>Where the function <code class="docutils literal notranslate"><span class="pre">make_markers</span></code> is defined as:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_markers</span><span class="p">(</span><span class="n">eoi</span><span class="p">,</span><span class="n">event_markers</span><span class="p">,</span><span class="n">event_markers_timestamps</span><span class="p">,</span><span class="n">data_shape</span><span class="p">,</span><span class="n">nirs_timestamp</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-   <span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">make_markers</span><span class="p">(</span><span class="n">eoi</span><span class="p">,</span><span class="n">event_markers</span><span class="p">,</span><span class="n">event_markers_timestamps</span><span class="p">,</span><span class="n">data_shape</span><span class="p">,</span><span class="n">nirs_timestamp</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">   take input of:</span>
 <span class="sd">   - eoi: list. event of interest (e.g: [1,2])</span>
 <span class="sd">   - event_markers: ndarray. Data for event markers</span>
@@ -434,7 +1546,7 @@ Open the experiment script from PsychoPy and start stream from NIRStar, click <c
        <span class="n">this_event_timestamp</span> <span class="o">=</span> <span class="n">event_markers_timestamps</span><span class="p">[</span><span class="n">event_index</span><span class="p">]</span>
        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
            <span class="nb">print</span><span class="p">(</span>
-               <span class="sa">f</span><span class="s2">&quot;closest nirs data for event </span><span class="si">{</span><span class="n">event_markers</span><span class="p">[</span><span class="n">event_index</span><span class="p">]</span><span class="si">}</span><span class="s2"> timestamp is </span><span class="si">{</span><span class="n">nirs_timestamp</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nirs_timestamp</span> <span class="o">-</span> <span class="n">this_event_timestamp</span><span class="p">))]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+               <span class="sa">f</span><span class="s2">&quot;closest nirs data for event </span><span class="si">{</span><span class="n">event_markers</span><span class="p">[</span><span class="n">event_index</span><span class="p">]</span><span class="si">}</span><span class="s2"> timestamp is </span><span class="si">{</span><span class="n">nirs_timestamp</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nirs_timestamp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">this_event_timestamp</span><span class="p">))]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
        <span class="n">stim_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nirs_timestamp</span> <span class="o">-</span> <span class="n">this_event_timestamp</span><span class="p">))</span>
 
        <span class="k">try</span><span class="p">:</span>
@@ -445,16 +1557,14 @@ Open the experiment script from PsychoPy and start stream from NIRStar, click <c
 
        <span class="n">stim_array</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">stim_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">event_markers</span><span class="p">[</span><span class="n">event_index</span><span class="p">]</span>
    <span class="k">return</span> <span class="n">stim_array</span>
-</pre></div>
+</code></pre></div>
 </div>
-</section>
-<section id="process-raw-data-using-mne">
-<h5>process raw data using mne<a class="headerlink" href="#process-raw-data-using-mne" title="Permalink to this headline">¶</a></h5>
+<h5 id="process-raw-data-using-mne">process raw data using mne<a class="headerlink" href="#process-raw-data-using-mne" title="Permalink to this heading">¶</a></h5>
 <p>The data is processed using mne by:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span> <span class="o">=</span> <span class="n">preprocess_data</span><span class="p">(</span><span class="n">nirs_data</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">info</span><span class="p">,</span> <span class="n">is_filter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">l_trans_bandwidth</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">h_trans_bandwidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">draw</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="n">raw</span> <span class="o">=</span> <span class="n">preprocess_data</span><span class="p">(</span><span class="n">nirs_data</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">info</span><span class="p">,</span> <span class="n">is_filter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">l_trans_bandwidth</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">h_trans_bandwidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">draw</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">preprocess_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">is_filter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mf">0.012</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">h_trans_bandwidth</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">l_trans_bandwidth</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">draw</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-   <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">   plot raw data</span>
 <span class="sd">   &quot;&quot;&quot;</span>
    <span class="n">raw</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">RawArray</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">info</span><span class="p">)</span>
@@ -470,25 +1580,21 @@ Open the experiment script from PsychoPy and start stream from NIRStar, click <c
            <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;After filtering&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
            <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.88</span><span class="p">)</span>
    <span class="k">return</span> <span class="n">raw</span>
-</pre></div>
+</code></pre></div>
 </div>
-</section>
-<section id="find-events">
-<h5>find events<a class="headerlink" href="#find-events" title="Permalink to this headline">¶</a></h5>
+<h5 id="find-events">find events<a class="headerlink" href="#find-events" title="Permalink to this heading">¶</a></h5>
 <p>The next step is to find the events:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># find events</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># find events</span>
 <span class="n">events</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">find_events</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">stim_channel</span><span class="o">=</span><span class="s1">&#39;event_marker&#39;</span><span class="p">)</span>
 <span class="n">event_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;congruent&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
              <span class="s1">&#39;incongruent&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
              <span class="p">}</span>
 <span class="p">(</span><span class="n">events_from_annot</span><span class="p">,</span><span class="n">event_dict</span><span class="p">)</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">events_from_annotations</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">event_id</span><span class="o">=</span><span class="n">event_dict</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 </div>
-</section>
-<section id="plot-signal">
-<h5>plot signal<a class="headerlink" href="#plot-signal" title="Permalink to this headline">¶</a></h5>
+<h5 id="plot-signal">plot signal<a class="headerlink" href="#plot-signal" title="Permalink to this heading">¶</a></h5>
 <p>The signal is plot by:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot_signal</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># plot_signal</span>
 <span class="n">plot_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">events</span><span class="p">,</span> <span class="n">event_dict</span><span class="p">,</span> <span class="n">raw_signal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visual_event</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">plot_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">events</span><span class="p">,</span> <span class="n">event_dict</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">show_scrollbars</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scalings</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">raw_signal</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">visual_event</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -500,13 +1606,11 @@ Open the experiment script from PsychoPy and start stream from NIRStar, click <c
                                  <span class="n">sfreq</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">])</span>
        <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">right</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>  <span class="c1"># make room for the legend</span>
    <span class="k">return</span> <span class="mi">0</span>
-</pre></div>
+</code></pre></div>
 </div>
-</section>
-<section id="plot-epoch">
-<h5>plot epoch<a class="headerlink" href="#plot-epoch" title="Permalink to this headline">¶</a></h5>
+<h5 id="plot-epoch">plot epoch<a class="headerlink" href="#plot-epoch" title="Permalink to this heading">¶</a></h5>
 <p>We then separate the signal to different epochs based on the event markers:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># produce epoch ########################################################################</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># produce epoch ########################################################################</span>
 <span class="n">reject_criteria</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">hbo</span><span class="o">=</span><span class="mf">60e-2</span><span class="p">)</span>
 <span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span>
 <span class="n">baseline</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
@@ -523,10 +1627,10 @@ Open the experiment script from PsychoPy and start stream from NIRStar, click <c
        <span class="n">epochs</span><span class="o">.</span><span class="n">plot_drop_log</span><span class="p">()</span>
    <span class="n">catch_trials_and_buttonpresses</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">pick_events</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="n">pick_event</span><span class="p">)</span>
    <span class="k">return</span> <span class="n">epochs</span>
-</pre></div>
+</code></pre></div>
 </div>
 <p>And the epochs can be plot by:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ch</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;1-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-6 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;6-4 HbO&#39;</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="n">ch</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;1-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;2-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;3-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;4-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-3 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-4 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;5-6 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;6-4 HbO&#39;</span><span class="p">,</span>
            <span class="s1">&#39;6-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;6-6 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;7-5 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;7-7 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;8-6 HbO&#39;</span><span class="p">,</span> <span class="s1">&#39;8-7 HbO&#39;</span><span class="p">,</span><span class="s1">&#39;1-1 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;1-2 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;2-1 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;2-3 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;3-2 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;3-3 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;3-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-2 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;4-5 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;5-3 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;5-4 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;5-6 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;6-4 HbR&#39;</span><span class="p">,</span>
            <span class="s1">&#39;6-5 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;6-6 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;7-5 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;7-7 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;8-6 HbR&#39;</span><span class="p">,</span> <span class="s1">&#39;8-7 HbR&#39;</span><span class="p">]</span>
 
@@ -578,14 +1682,12 @@ Open the experiment script from PsychoPy and start stream from NIRStar, click <c
                                     <span class="n">colors</span><span class="o">=</span><span class="n">color_dict</span><span class="p">)</span>
 
    <span class="k">return</span> <span class="mi">0</span>
-</pre></div>
+</code></pre></div>
 </div>
-</section>
-<section id="statistic-analysis">
-<h5>Statistic analysis<a class="headerlink" href="#statistic-analysis" title="Permalink to this headline">¶</a></h5>
+<h5 id="statistic-analysis">Statistic analysis<a class="headerlink" href="#statistic-analysis" title="Permalink to this heading">¶</a></h5>
 <p>A t-test and ANOVA is performed:
 The t-test is performed by:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># perform t test ######################################################</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># perform t test ######################################################</span>
 <span class="n">t_test_plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span><span class="n">event_name</span><span class="o">=</span><span class="s1">&#39;congruent&#39;</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="n">ch2</span><span class="p">,</span> <span class="n">is_plot_1sample</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_plot_2sample</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">is_plot_2sample_allch</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">t_test_plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">event_name</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">out_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
@@ -735,10 +1837,10 @@ The t-test is performed by:</p>
                <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
            <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
    <span class="k">return</span> <span class="mi">0</span>
-</pre></div>
+</code></pre></div>
 </div>
 <p>The anova is performed by:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># perform ANOVA#######################################################</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># perform ANOVA#######################################################</span>
 <span class="n">anova_plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">pi</span><span class="o">=</span><span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="n">ch2</span><span class="p">,</span> <span class="n">is_mat_plot</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">is_plot_2sample</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">anova_plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">out_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
@@ -804,13 +1906,9 @@ The t-test is performed by:</p>
 
            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;ANOVA on average Channel </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>
            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 </div>
-</section>
-</section>
-</section>
-<section id="further-information">
-<h3><a class="toc-backref" href="#id9">Further Information</a><a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h3>
+<h3 id="further-information"><a class="toc-backref" href="#id9" role="doc-backlink">Further Information</a><a class="headerlink" href="#further-information" title="Permalink to this heading">¶</a></h3>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
@@ -824,112 +1922,78 @@ The t-test is performed by:</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Example use</a></li>
 </ul>
 </div>
-</section>
-</section>
-</section>
 
 
-            <div class="clearer"></div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="LICENSE.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: License Information" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Example use</a><ul>
-<li><a class="reference internal" href="#using-renalabapp-to-stream-fnirs-data-from-psychopy-and-nirx">Using RenaLabApp to stream fNIRS data from PsychoPy and NIRx</a><ul>
-<li><a class="reference internal" href="#introduction">Introduction</a></li>
-<li><a class="reference internal" href="#generate-script-using-psychopy">Generate script using PsychoPy</a><ul>
-<li><a class="reference internal" href="#install-psychopy">Install PsychoPy</a></li>
-<li><a class="reference internal" href="#create-experiment-using-pyschopy">Create experiment using PyschoPy</a><ul>
-<li><a class="reference internal" href="#setting-trail">Setting Trail</a></li>
-<li><a class="reference internal" href="#setting-introduction-and-delay">Setting Introduction and Delay</a></li>
-<li><a class="reference internal" href="#generate-python-script">Generate python script</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#add-event-markers-to-the-generated-script">Add Event Markers to the Generated Script</a><ul>
-<li><a class="reference internal" href="#identify-the-event-marker">Identify the Event Marker</a></li>
-<li><a class="reference internal" href="#add-event-marker">Add Event Marker</a><ul>
-<li><a class="reference internal" href="#import-lsl">Import LSL</a></li>
-<li><a class="reference internal" href="#setting-up-lsl">Setting up lsl</a></li>
-<li><a class="reference internal" href="#add-triggers">Add triggers</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#setting-up-nirx">Setting up NIRx</a></li>
-<li><a class="reference internal" href="#use-renalabapp-to-stream-data">Use RenaLabApp to Stream data</a><ul>
-<li><a class="reference internal" href="#stream-data">Stream Data</a></li>
-<li><a class="reference internal" href="#record-data">Record Data</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#use-the-recorded-data-for-processing">Use the recorded data for processing</a><ul>
-<li><a class="reference internal" href="#import-data-in-python-script">Import data in python script</a></li>
-<li><a class="reference internal" href="#process-the-data">Process the data</a><ul>
-<li><a class="reference internal" href="#generating-event-markers">generating event markers</a></li>
-<li><a class="reference internal" href="#process-raw-data-using-mne">process raw data using mne</a></li>
-<li><a class="reference internal" href="#find-events">find events</a></li>
-<li><a class="reference internal" href="#plot-signal">plot signal</a></li>
-<li><a class="reference internal" href="#plot-epoch">plot epoch</a></li>
-<li><a class="reference internal" href="#statistic-analysis">Statistic analysis</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#further-information">Further Information</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="LICENSE.html"
-                          title="previous chapter">License Information</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/PsychoPy.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="LICENSE.html" title="License Information"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">RealityNavigationDocs 0.0.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Example use</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              License Information
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
         &#169; Copyright 2021, Ziheng (Leo) Li.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+        
     </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    6.2.1.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+      
+        <script src="_static/sphinx_immaterial_theme.cea6a0c1d5b0618cf.min.js"></script>
+    
   </body>
 </html>
