@@ -81,6 +81,7 @@ Further Information
    SupportedSensors
    ForDevelopers
    ViewInMatlab
+   BuildGuide
    ContributeToThisDoc
    LICENSE
 
