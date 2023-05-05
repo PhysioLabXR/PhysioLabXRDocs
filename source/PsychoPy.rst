@@ -46,7 +46,7 @@ In PsychoPy, create an experiment routine by first setting up the trail.
 
 In the ``components`` part at the right side panel, select ``Text`` to create a fixed text to control the time for each trial. This ensures the functionality to have rest time between each trail.
 
-Add another ``Text`` to display the prompt, to make the word change every trail, create a excel that contains all the conditions we want in each trail.
+Add another ``Text`` to display prompt, to make the word change every trail, create a excel that contains all the conditions we want in each trail.
 
 A sample list is this:
 
