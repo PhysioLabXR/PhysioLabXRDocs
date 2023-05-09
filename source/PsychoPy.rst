@@ -7,8 +7,6 @@ Example use
 Using RenaLabApp to stream fNIRS data from PsychoPy and NIRx
 ..................................................................
 
-.. contents:: Overview
-   :depth: 3
 
 ===================
 Introduction

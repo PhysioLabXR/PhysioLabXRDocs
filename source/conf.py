@@ -78,7 +78,8 @@ html_theme_options = {
         },
     ],
 
-    "repo_url":{"https://github.com/ApocalyVec/RenaLabApp"},
+    "repo_url": "https://github.com/ApocalyVec/RenaLabApp/",
+    "repo_name":"RenaLabApp",
     "icon": {
         "repo": "fontawesome/brands/github",
         "edit": "material/file-edit-outline",
