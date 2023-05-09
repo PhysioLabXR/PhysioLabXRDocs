@@ -59,8 +59,6 @@ default_dark_mode = False
 html_theme = 'sphinx_immaterial'
 
 html_theme_options = {
-    'color_primary': 'blue',
-    'color_accent': 'light-blue',
     "palette": [
         {
             "media": "(prefers-color-scheme: light)",

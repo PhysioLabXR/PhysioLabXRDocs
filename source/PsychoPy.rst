@@ -3,9 +3,9 @@
 Example use
 """""""""""""""""
 
-...........
+..................................................................
 Using RenaLabApp to stream fNIRS data from PsychoPy and NIRx
-...........
+..................................................................
 
 .. contents:: Overview
    :depth: 3
@@ -25,9 +25,9 @@ There is a 50% congruent rate.
 
 
 
-===================
+======================================
 Generate script using PsychoPy
-===================
+======================================
 
 ----------------------
 Install PsychoPy
@@ -36,9 +36,9 @@ Install PsychoPy
 Install PsychoPy from the `download page <https://www.psychopy.org/download.html>`_ accoording to the instructions.
 
 
-----------------------
+--------------------------------------------
 Create experiment using PyschoPy
-----------------------
+--------------------------------------------
 
 Setting Trail
 --------------------------
@@ -77,7 +77,7 @@ The sample trial looks like this in PsychoPy:
 
 
 Setting Introduction and Delay
---------------------------
+----------------------------------------------------
 Add an introduction section to the experiment by clicking ``Insert Routine``.  Add ``text`` and set the time to be 5 seconds, display the instruction of this experiment as the text portion.
 
 Next add a 10 second delay to the experiment routine at the end to give time for RenaLabApp to stop streaming. Similar to the adding of the introduction section, add a block call delay and add fixed text for 10 seconds.
@@ -94,17 +94,17 @@ At this point, we created a stroop experiment using PsychoPy, we can run the exp
 Click the ``Complie to Python Script`` button at the top of the application, a PyshcoPy coder will open up, and a python file will appear in the destinated folder. In the next part, we will add event markers using the Lab Streaming Layer(lsl) and incorporate it with the streaming of RenaLabApp.
 
 
-===================
+=========================================================
 Add Event Markers to the Generated Script
-===================
+=========================================================
 
 Event markers are necessary and important parts in the experiments as they indicate the timestamp at which the event happens. Therefore, it is crucial to add correct event markers to the correct place during the experiment and record the event markers when streaming the data.
 
 
 
-----------------------
+--------------------------------------------
 Identify the Event Marker
-----------------------
+--------------------------------------------
 In this experiment, six types of event markers were set. They are:
 
 - **Experiment start**: value set to be 20, indicating the start of the experiment
@@ -120,6 +120,7 @@ In this experiment, six types of event markers were set. They are:
 
 - **Trail End**: value set to be 15, indicate the time set for a single trail has passed.
 - **Experiment End**: value set to be 21. Indicating the end of the experiment with the fact that all of the trails has being completed.
+
 An illustration of all the event markers are show below:
 
 .. image:: media/Event_Marker.png
@@ -184,7 +185,8 @@ We first create a dictionary:
 For each event markers:
 
 - **Experiment start**:
-We want this event marker push signal when the experiment start, so we add
+
+We want this event marker push signal when the experiment start, so we add the following code:
 
 .. code:: python
 
@@ -251,7 +253,9 @@ This happens when we receive a response, so we add this line of code in the  `` 
 
 
 - **Trail End**:
+
 Trail end markers happens at the end of each trail, we add it at the time when correctness are generated because it means the trial ends and a reponse is recieved.
+
 
 .. code:: python
 
@@ -294,9 +298,9 @@ Download NIRStar, the acquisition software for the system, setting up the system
 In the hardware configuration panel, select Data Streaming tab. In the panel, check Lab Streaming Later (LSL) by clicking ``Enable LSL Streaming``,  select data type and confirm the data stream order.
 
 
-===================
+======================================
 Use RenaLabApp to Stream data
-===================
+======================================
 
 -----------------
 Stream Data
@@ -313,13 +317,13 @@ Record Data
 At the top panel, go to the second tab ``Recording``. Enter information for ``Experiment Name``, ``Participant Tag`` and  ``Session tag`` , and click ``Start Recording``. The file will be saved to the location displayed on the GUI.
 
 
-===================
+======================================
 Use the recorded data for processing
-===================
+======================================
 
------------------
+----------------------------------
 Import data in python script
------------------
+----------------------------------
 With the recorded data, we can use the data for the processing. The data is saved in a data file. To import the recorded data, first import ``RNStream`` by:
 
 .. code:: python
@@ -822,11 +826,12 @@ Further Information
    :caption: Contents:
 
    Recording
-   Replaying
+   Replay
    Scripting
    SupportedSensors
-   ForDevelopers
+   Developer
+   Stream
    ViewInMatlab
    ContributeToThisDoc
    LICENSE
-   PsychoPy
+

@@ -76,10 +76,11 @@ Further Information
    :caption: Contents:
 
    Recording
-   Replaying
+   Replay
    Scripting
    SupportedSensors
-   ForDevelopers
+   Developer
+   Stream
    ViewInMatlab
    ContributeToThisDoc
    LICENSE
