@@ -14,17 +14,22 @@ on how to make changes and compile them
 3.Go to <PathToTheClonedRepo>/source, you can edit existing pages here or add new pages. You could include a new
 page in "Further Information" in index.rst for easier navigation.
 
-4.Install the package need for compiling the webpage
+4.Navigate to the root directory of the cloned repo and install the packages need for compiling the webpage
 
    .. code-block::
 
-        pip install sphinx
+        pip install -r requirements.txt
 
 5.In the root directory of the project, compile the html using the command
 
+* MacOS/Linux:
    .. code-block::
 
         make html
+* Windows:
+   .. code-block::
+
+        ./make.bat html
 
 6.View your changes by openning <PathToTheClonedRepo>/build/html/index.html
 

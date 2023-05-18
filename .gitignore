@@ -1,5 +1,5 @@
-__pycache__/
 # Byte-compiled / optimized / DLL files
+__pycache__/
 *.py[cod]
 *$py.class
 
@@ -152,3 +152,6 @@ UserConfig.json
 # Haowen
 /John_EEG_Project/
 
+
+# IDE
+.idea

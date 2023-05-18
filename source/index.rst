@@ -76,19 +76,15 @@ Further Information
    :caption: Contents:
 
    Recording
-   Replaying
+   Replay
    Scripting
    SupportedSensors
-   ForDevelopers
+   Developer
+   Stream
    ViewInMatlab
    BuildGuide
    ContributeToThisDoc
    LICENSE
+   PsychoPy
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
