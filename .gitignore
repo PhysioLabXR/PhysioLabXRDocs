@@ -3,15 +3,26 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Distribution / packaging
+build/
+dist/
+downloads/
+.Python
+wheels/
+MANIFEST
+
+# Sphinx documentation
+docs/_buidl/
+.DS_Store
+
+# IDE
+.idea
+
 # C extensions
 *.so
 
 # Distribution / packaging
-.Python
-build/
 develop-eggs/
-dist/
-downloads/
 eggs/
 .eggs/
 lib/
@@ -19,12 +30,10 @@ lib64/
 parts/
 sdist/
 var/
-wheels/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -142,6 +151,7 @@ UserConfig.json
 
 # Haowen
 /John_EEG_Project/
+
 
 # IDE
 .idea

@@ -82,6 +82,7 @@ Further Information
    Developer
    Stream
    ViewInMatlab
+   BuildGuide
    ContributeToThisDoc
    LICENSE
    PsychoPy
