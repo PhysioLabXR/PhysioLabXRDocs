@@ -1,2 +1,2 @@
-sphinx == 6.2.1
-sphinx_immaterial == 0.11.3
+sphinx
+sphinx_immaterial
