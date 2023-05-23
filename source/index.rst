@@ -81,10 +81,11 @@ Further Information
    SupportedSensors
    Developer
    Stream
+   DataStreamAPI
    ViewInMatlab
+   PsychoPy
    BuildGuide
    ContributeToThisDoc
    LICENSE
-   PsychoPy
 
 
