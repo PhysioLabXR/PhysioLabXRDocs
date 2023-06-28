@@ -18,7 +18,40 @@ How to build an executable
 
 #. Import the following build configuration. You can download the file here :download:`build_configuration.json <build_configuration.json>`
 
-   .. literalinclude:: build_configuration.json
+.. raw:: html
+
+   <form id="myForm">
+     <label for="path">Enter Path:</label>
+     <input type="text" id="path" name="path">
+     <input type="submit" value="Submit">
+   </form>
+   <script>
+   document.getElementById('myForm').addEventListener('Download', function(event) {
+     event.preventDefault(); // Prevent form submission
+
+     // Get the entered path
+     var path = document.getElementById('path').value;
+
+     // Replace the path with JSON template
+     var jsonTemplate = { "path": path }; // Replace with your JSON template
+     var modifiedJson = JSON.stringify(jsonTemplate);
+
+     // Create a download link for the modified JSON
+     var element = document.createElement('a');
+     element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(modifiedJson));
+     element.setAttribute('download', 'modified.json');
+     element.style.display = 'none';
+     document.body.appendChild(element);
+     element.click();
+     document.body.removeChild(element);
+   });
+   </script>
+
+
+.. note::
+    you should also replace the Script Location in the auto-py-to-exe GUI or the filenames in the json file to be the main.py path on your machine
+
+.. literalinclude:: build_configuration.json
 
 #. Select appropriate output directory and script location, and click on the “Convert .Py to Exe” button.
 
