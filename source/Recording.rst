@@ -86,4 +86,4 @@ Finally, the data array itself, along with the accompanying time stamp array, is
 Developer
 #########
 
-`Go To Developer Page <Developer.rst>`_
+`Go To Developer Page <Developer.html>`_
