@@ -18,22 +18,22 @@ Record data
    :height: 3ex
 
 .. |ico3| image:: /media/recording_option.png
-   :height: 4ex
+   :height: 3.5ex
 
 .. |ico4| image:: /media/start_recording.png
-   :height: 3.3ex
+   :height: 3ex
 
 .. |ico5| image:: /media/stop_recording.png
-   :height: 3.3ex
+   :height: 3ex
 
 
 Steps to record data
-    1. Add streams you want to record to the stream tab |ico0| located in the main window.
-    2. After stream windows show up, click the 'start stream' |ico1| button.
-    3. Now navigate to the recording tab |ico2| located on the upper left corner in the main window.
-    4. (Optional) Click the recording options button |ico3| , you can modify the file Path you want to store your data and the data format you want to store.
-    5. Click Start recording button |ico4| , the app will start recording the streams, and you can see the recorded time and file size in real time below.
-    6. Click Stop recording button |ico5| , the app will stop recording and store the recorded data to the path you specified.
+    1. Add streams you want to record to the **stream tab** |ico0| located in the main window.
+    2. After stream windows show up, click the **start stream** |ico1| button.
+    3. Now navigate to the **recording tab** |ico2| located on the upper left corner in the main window.
+    4. (Optional) Click the **recording options** button |ico3| , you can modify the file Path you want to store your data and the data format you want to store.
+    5. Click **Start recording** button |ico4| , the app will start recording the streams, and you can see the recorded time and file size in real time below.
+    6. Click **Stop recording** button |ico5| , the app will stop recording and store the recorded data to the path you specified.
 
 .. note::
     Loading .dats and .csv files can be slow
@@ -86,4 +86,4 @@ Finally, the data array itself, along with the accompanying time stamp array, is
 Developer
 #########
 
-:ref:`Go to <../developer.rst>`
+`Go To Developer Page <Developer.rst>`_
