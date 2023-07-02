@@ -7,7 +7,7 @@
   },
   {
    "optionDest": "filenames",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/main.py"
+   "value": "Your/Project/Root/Path/rena/main.py"
   },
   {
    "optionDest": "onefile",
@@ -67,79 +67,79 @@
   },
   {
    "optionDest": "binaries",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/venv/Lib/site-packages/pylsl/lib/lsl.dll;pylsl/lib"
+   "value": "Your/Project/Root/Path/venv/Lib/site-packages/pylsl/lib/lsl.dll;pylsl/lib"
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/scripting;scripting/"
+   "value": "Your/Project/Root/Path/rena/scripting;scripting/"
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/exceptions;exceptions/"
+   "value": "Your/Project/Root/Path/exceptions;exceptions/"
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/media;media/"
+   "value": "Your/Project/Root/Path/media;media/"
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/Presets;Presets/"
+   "value": "Your/Project/Root/Path/Presets;Presets/"
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/resource;resource/"
+   "value": "Your/Project/Root/Path/resource;resource/"
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/venv;venv/"
+   "value": "Your/Project/Root/Path/venv;venv/"
   },
   {
    "optionDest": "pathex",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/arduino"
+   "value": "Your/Project/Root/Path/rena/arduino"
   },
   {
    "optionDest": "pathex",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/deprecated"
+   "value": "Your/Project/Root/Path/rena/deprecated"
   },
   {
    "optionDest": "pathex",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/examples"
+   "value": "Your/Project/Root/Path/rena/examples"
   },
   {
    "optionDest": "pathex",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/interfaces"
+   "value": "Your/Project/Root/Path/rena/interfaces"
   },
   {
    "optionDest": "pathex",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/scripting"
+   "value": "Your/Project/Root/Path/rena/scripting"
   },
   {
    "optionDest": "pathex",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/sub_process"
+   "value": "Your/Project/Root/Path/rena/sub_process"
   },
   {
    "optionDest": "pathex",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/tests"
+   "value": "Your/Project/Root/Path/rena/tests"
   },
   {
    "optionDest": "pathex",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/threadings"
+   "value": "Your/Project/Root/Path/rena/threadings"
   },
   {
    "optionDest": "pathex",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/ui"
+   "value": "Your/Project/Root/Path/rena/ui"
   },
   {
    "optionDest": "pathex",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/utils"
+   "value": "Your/Project/Root/Path/rena/utils"
   },
   {
    "optionDest": "pathex",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena"
+   "value": "Your/Project/Root/Path/rena"
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/jpsuh/PycharmProjects/RenaLabApp/rena/ui;ui/"
+   "value": "Your/Project/Root/Path/rena/ui;ui/"
   }
  ],
  "nonPyinstallerOptions": {
