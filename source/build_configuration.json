@@ -7,7 +7,7 @@
   },
   {
    "optionDest": "filenames",
-   "value": "Your/Project/Root/Path/rena/main.py"
+   "value": "<Your/Project/Root/Path>/rena/main.py"
   },
   {
    "optionDest": "onefile",
@@ -67,79 +67,79 @@
   },
   {
    "optionDest": "binaries",
-   "value": "Your/Project/Root/Path/venv/Lib/site-packages/pylsl/lib/lsl.dll;pylsl/lib"
+   "value": "<Your/Project/Root/Path>/venv/Lib/site-packages/pylsl/lib/lsl.dll;pylsl/lib"
   },
   {
    "optionDest": "datas",
-   "value": "Your/Project/Root/Path/rena/scripting;scripting/"
+   "value": "<Your/Project/Root/Path>/rena/scripting;scripting/"
   },
   {
    "optionDest": "datas",
-   "value": "Your/Project/Root/Path/exceptions;exceptions/"
+   "value": "<Your/Project/Root/Path>/exceptions;exceptions/"
   },
   {
    "optionDest": "datas",
-   "value": "Your/Project/Root/Path/media;media/"
+   "value": "<Your/Project/Root/Path>/media;media/"
   },
   {
    "optionDest": "datas",
-   "value": "Your/Project/Root/Path/Presets;Presets/"
+   "value": "<Your/Project/Root/Path>/Presets;Presets/"
   },
   {
    "optionDest": "datas",
-   "value": "Your/Project/Root/Path/resource;resource/"
+   "value": "<Your/Project/Root/Path>/resource;resource/"
   },
   {
    "optionDest": "datas",
-   "value": "Your/Project/Root/Path/venv;venv/"
+   "value": "<Your/Project/Root/Path>/venv;venv/"
   },
   {
    "optionDest": "pathex",
-   "value": "Your/Project/Root/Path/rena/arduino"
+   "value": "<Your/Project/Root/Path>/rena/arduino"
   },
   {
    "optionDest": "pathex",
-   "value": "Your/Project/Root/Path/rena/deprecated"
+   "value": "<Your/Project/Root/Path>/rena/deprecated"
   },
   {
    "optionDest": "pathex",
-   "value": "Your/Project/Root/Path/rena/examples"
+   "value": "<Your/Project/Root/Path>/rena/examples"
   },
   {
    "optionDest": "pathex",
-   "value": "Your/Project/Root/Path/rena/interfaces"
+   "value": "<Your/Project/Root/Path>/rena/interfaces"
   },
   {
    "optionDest": "pathex",
-   "value": "Your/Project/Root/Path/rena/scripting"
+   "value": "<Your/Project/Root/Path>/rena/scripting"
   },
   {
    "optionDest": "pathex",
-   "value": "Your/Project/Root/Path/rena/sub_process"
+   "value": "<Your/Project/Root/Path>/rena/sub_process"
   },
   {
    "optionDest": "pathex",
-   "value": "Your/Project/Root/Path/rena/tests"
+   "value": "<Your/Project/Root/Path>/rena/tests"
   },
   {
    "optionDest": "pathex",
-   "value": "Your/Project/Root/Path/rena/threadings"
+   "value": "<Your/Project/Root/Path>/rena/threadings"
   },
   {
    "optionDest": "pathex",
-   "value": "Your/Project/Root/Path/rena/ui"
+   "value": "<Your/Project/Root/Path>/rena/ui"
   },
   {
    "optionDest": "pathex",
-   "value": "Your/Project/Root/Path/rena/utils"
+   "value": "<Your/Project/Root/Path>/rena/utils"
   },
   {
    "optionDest": "pathex",
-   "value": "Your/Project/Root/Path/rena"
+   "value": "<Your/Project/Root/Path>/rena"
   },
   {
    "optionDest": "datas",
-   "value": "Your/Project/Root/Path/rena/ui;ui/"
+   "value": "<Your/Project/Root/Path>/rena/ui;ui/"
   }
  ],
  "nonPyinstallerOptions": {

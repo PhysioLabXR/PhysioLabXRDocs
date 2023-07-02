@@ -45,7 +45,7 @@ How to build an executable
                         }
                     }
                 }
-                replaceValue(jsonData, "Your/Project/Root/Path");
+                replaceValue(jsonData, "<Your/Project/Root/Path>");
                 var modifiedJson = JSON.stringify(jsonData, null, 2);
 
                 // Create a download link for the modified JSON

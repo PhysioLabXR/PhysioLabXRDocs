@@ -65,23 +65,26 @@ Advanced
 
 .dats serialization and Eviction Interval
 *************
-The recording is enabled by serialization interface (RNStream) optimized for data with timestamps from multiple
+The recording is enabled by a serialization interface (RNStream) optimized for data with timestamps from multiple
 sources (i.e., EEG, eyetracking and video recorded simultaneously)
 
-Recording files created by RealityNavigation uses .dats file format. .dats (dictionary of array and timestamps) is a binary file format used by RealityNavitaion to log the recorded data.
+Recording files is created by RealityNavigation uses .dats file format. .dats (dictionary of array and timestamps) is a binary file format used by RealityNavitaion to log the recorded data.
 The structure of .dats is shown in the figure below
 
 .. image:: media/RN_Stream.png
     :width: 1080
 
-The .dats data consists of multiple chunks of data samples, each chunk containing different types of stream packets. ReNaLabApp supports various types of data stream packets, including EEG
-packets, event marker packets, and screen capture packets. All these streams of data is recorded in a fixed time window called Eviction Interval. Once the data has been recorded for this
-specified duration, the information stored in the memory buffer will be transferred to the disk.
+The file content is first segmented by eviction intervals. Within each interval, each type-length-
+value (TLV) packet contains the data for individual streams. The figure shows the anatomy of a TLV packet. Starting with a delimiter sequence
+called magic, the packet contains the data array and timestamps preceded by meta information: stream name, data type, number of dimensions, and
+the shape of the data. When loading .dats back, the loader uses the dimension information to determine the number of bytes to read as data and
+timestamp
 
-Within data packets, each packet is composed of seven domains. Firstly, a magic code is used to distinguish different data packets, followed by a 32-byte domain of stream name.
-(In that sense, the stream name is constrained to be less than 32 charactors). Next, we have a 1 byte domain representing
-data type and 1 byte representing number of dimensions. Subsequently, the actual dimensions of the data array are provided, and its length is determined by the number of dimensions.
-Finally, the data array itself, along with the accompanying time stamp array, is stored.
+Once recording starts, all the data streams are routed to a specialized buffer.
+The buffer’s content is retained in the host’s memory until the eviction interval is hit. Default at one second, the
+eviction interval controls how often we offload the buffer to the disk. When the data throughput are high, it is important
+to evict the buffer in time to prevent out-of-memory. User may adjust the eviction interval in the settings to optimize
+for their use case. During an eviction, each stream’s data and timestamps is appended to the file as a TLV packet
 
 Developer
 #########
