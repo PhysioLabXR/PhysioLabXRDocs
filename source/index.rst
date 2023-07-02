@@ -1,26 +1,42 @@
-.. RealityNavigationDocs documentation master file, created by
-   sphinx-quickstart on Wed Mar 24 13:36:31 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Welcome to RenaLabApp's documentation!
 =================================================
 
 About RenaLabApp
 ========================
-RenaLabApp (Rena stands for reality navigation, our vision for this app is to help user navigate all sorts of real-time
-data in the real world) is a Python-based App for visualizing, synchronizing, recording, and processing (i.e., make prediction)
-data streams, camera, and screen capture in real-time.
+RenaLabApp is a Python-based app for visualizing, synchronizing, recording, and processing physiological, neural, image, speech and behavior
+data in real-time. The goal of Rena (stands for Reality Navigation) is to help you, whether a academia researcher, industry practitioner or hobbyist,
+navigate a variety of real-time data).
 
-RenaLabApp Users may easily integrate RenaLabApp into their data pipeline if
-they are already using `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_ or ZMQ
-to stream their data.
+RenaLabApp has built-in support for `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_
+or `ZMQ <https://zeromq.org/>`_, to receive and process their data. All devices supported by LSL are automatically good to go
+with RenaLabApp; `here's a complete list <https://labstreaminglayer.readthedocs.io/info/supported_devices.html>`_. RenaLabApp
+also have native plugins for a another `list of devices <SupportedDevices.html>`_.
+
+RenaLabApp excels when you working with multiple data streams coming from different sources, as
 
 Download
 -----------
 
 
+Add Streams to RenaLabApp
+-------------------------
 
+Add a screen capture
+~~~~~~~~~~~~~~~~~~~~
+
+Add a webcam
+~~~~~~~~~~~~
+
+Add a LSL stream
+~~~~~~~~~~~~~~~~
+
+Add a ZMQ stream
+~~~~~~~~~~~~~~~~
+
+Replay from a file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Build your first pipeline with RenaLabApp
 
 On launching, the landing page of the RenaLabApp is:
 
