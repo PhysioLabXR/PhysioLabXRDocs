@@ -5,7 +5,7 @@ This is a guide for building an executable for RenaLabApp and using it.
 
 How to build an executable
 ########
-#. Use auto-py-to-exe library to build the executable
+1. Use auto-py-to-exe library to build the executable
 
    Install: ``pip install auto-py-to-exe``
 
@@ -16,7 +16,7 @@ How to build an executable
    .. image:: media/auto_py_to_exe.png
       :width: 540px
 
-#. Import the following build configuration. You can Specify the root path of your project and download the file here
+2. Import the following build configuration. You can Specify the root path of your project and download the file here
 
 .. raw:: html
 
@@ -45,7 +45,7 @@ How to build an executable
                         }
                     }
                 }
-                replaceValue(jsonData, "C:/Users/jpsuh/PycharmProjects/RenaLabApp");
+                replaceValue(jsonData, "<Your/Project/Root/Path>");
                 var modifiedJson = JSON.stringify(jsonData, null, 2);
 
                 // Create a download link for the modified JSON
@@ -68,7 +68,7 @@ How to build an executable
 
 .. literalinclude:: build_configuration.json
 
-#. Select appropriate output directory and script location, and click on the “Convert .Py to Exe” button.
+3. Select appropriate output directory and script location, and click on the “Convert .Py to Exe” button.
 
 #. Check if the executable has been created successfully in the desired location.
 
