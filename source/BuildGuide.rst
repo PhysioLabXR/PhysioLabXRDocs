@@ -1,10 +1,10 @@
-*****
+***********************************
 RenaLabApp Build Documentation
-*****
+***********************************
 This is a guide for building an executable for RenaLabApp and using it. 
 
 How to build an executable
-########
+################################
 #. Use auto-py-to-exe library to build the executable
 
    Install: ``pip install auto-py-to-exe``
@@ -73,7 +73,7 @@ How to build an executable
 #. Check if the executable has been created successfully in the desired location.
 
 How to run the executable
-########
+################################
 Your root directory structure will look like this after a successful build.
 
 .. image:: media/build_directory_example.png

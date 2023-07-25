@@ -1,27 +1,33 @@
-.. RealityNavigationDocs documentation master file, created by
-   sphinx-quickstart on Wed Mar 24 13:36:31 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to RenaLabApp's documentation!
+Welcome to PhysioLabXR's documentation
 =================================================
 
-About RenaLabApp
-========================
-RenaLabApp (Rena stands for reality navigation, our vision for this app is to help user navigate all sorts of real-time
-data in the real world) is a Python-based App for visualizing, synchronizing, recording, and processing (i.e., make prediction)
-data streams, camera, and screen capture in real-time.
+*physiological and neuroimaging experiments, made easy*
+-------------------------------------------------------
++-----------------------------------------------+-----------------------------------------------+-----------------------------------------+--------------------------------------------------+
+| .. image:: media/index_page/visualization.png | ..  image:: media/index_page/realtime_dsp.png | .. image:: media/index_page/replay.png  | .. image:: media/index_page/scripting.png        |
+|    :width: 200                                |    :width: 200                                |    :width: 200                          |    :width: 200                                   |
+|    :target: Visualization.html                |    :target: DSP.html                          |    :target: Replay.html                 |    :target: Scripting.html                       |
++-----------------------------------------------+-----------------------------------------------+-----------------------------------------+--------------------------------------------------+
 
-RenaLabApp Users may easily integrate RenaLabApp into their data pipeline if
-they are already using `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_ or ZMQ
-to stream their data.
+
+PhysioLabXR is a pure Python application for running physiological experiment involving EEG, fNIRS, eyetracking, fMRI,
+audiovisual recording from cameras and microphones, and more!
+Tailored for academic researchers and industry practitioners, it supports multiple platforms (screen-based, VR, or AR)
+and offers real-time visualization, synchronization, recording, and data processing (i.e., apply filters and run machine
+learning models).
+
+You may easily integrate RenaLabApp into your data pipeline if
+they are already using `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_ or `ZMQ <https://zeromq.org/>`_
+to stream your data. Otherwise you are welcome to create your own data stream via the `Data Stream API <DataStreamAPI.html>`_.
 
 Download
 -----------
+Get the latest release of PhysioLabXR `here <https://github.com/ApocalyVec/PhysioLabXR/releases>`_. For the stable version, use `v0.1.0-beta <https://github.com/ApocalyVec/PhysioLabXR/tree/refs/tags/v0.1.0-beta>`_. The packaged release supports Windows, MacOS, and Linux.
 
+Alternatively, you can run the application from the source. Refer to *Run from Source* in the `developer page <Developer.html>`_ for instructions.
 
-
-
+Get Started with Examples
+--------------------------
 On launching, the landing page of the RenaLabApp is:
 
 .. image:: media/RN_landing_page.png

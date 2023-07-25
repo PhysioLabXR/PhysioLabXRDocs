@@ -57,6 +57,7 @@ extensions = ["sphinx_immaterial"]
 default_dark_mode = False
 
 html_theme = 'sphinx_immaterial'
+html_logo = "media/logo.png"
 
 html_theme_options = {
     "palette": [
