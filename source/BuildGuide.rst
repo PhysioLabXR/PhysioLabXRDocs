@@ -1,7 +1,7 @@
 ***********************************
 RenaLabApp Build Documentation
 ***********************************
-This is a guide for building an executable for RenaLabApp and using it. 
+This is a guide for building an executable for RenaLabApp and using it.
 
 How to build an executable
 ################################
@@ -78,7 +78,7 @@ Your root directory structure will look like this after a successful build.
 
 .. image:: media/build_directory_example.png
 
-Go into the target build directory. Click on the circled icon in the following image to run the executable. 
+Go into the target build directory. Click on the circled icon in the following image to run the executable.
 
 The executable is named “main” in this example, but it will have different names if you chose different name options as you were building the executable.
 
