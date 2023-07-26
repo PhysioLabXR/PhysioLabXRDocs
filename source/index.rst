@@ -21,13 +21,26 @@ they are already using `Lab Streaming Layer (LSL) <https://labstreaminglayer.rea
 to stream your data. Otherwise you are welcome to create your own data stream via the `Data Stream API <DataStreamAPI.html>`_.
 
 Download
------------
+========
 Get the latest release of PhysioLabXR `here <https://github.com/ApocalyVec/PhysioLabXR/releases>`_. For the stable version, use `v0.1.0-beta <https://github.com/ApocalyVec/PhysioLabXR/tree/refs/tags/v0.1.0-beta>`_. The packaged release supports Windows, MacOS, and Linux.
 
 Alternatively, you can run the application from the source. Refer to *Run from Source* in the `developer page <Developer.html>`_ for instructions.
 
-Get Started with Examples
+Get Started with Simple Examples
+================================
+
+Event-related Potential with EEG
+--------------------------------
+We can replay a pre-recorded EEG example
+
+Download the example recording (erp-example.p) from `here <https://drive.google.com/file/d/1nNAbxCBg9AM-DEbJx6IQYRipBbUnwmf2/view?usp=sharing>`_
+
+
+A more detailed tutorial
+
+Hand digits classification
 --------------------------
+
 On launching, the landing page of the RenaLabApp is:
 
 .. image:: media/RN_landing_page.png
