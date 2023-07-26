@@ -17,12 +17,12 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'RealityNavigationDocs'
-copyright = '2021, Ziheng (Leo) Li'
-author = 'Ziheng (Leo) Li'
+project = 'PhysioLabXRDocs'
+copyright = "2023, Ziheng 'Leo' Li"
+author = "Ziheng 'Leo' Li"
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.1.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -79,8 +79,8 @@ html_theme_options = {
         },
     ],
 
-    "repo_url": "https://github.com/ApocalyVec/RenaLabApp/",
-    "repo_name":"RenaLabApp",
+    "repo_url": "https://github.com/ApocalyVec/PhysioLabXR/",
+    "repo_name":"PhysioLabXR",
     "icon": {
         "repo": "fontawesome/brands/github",
         "edit": "material/file-edit-outline",
