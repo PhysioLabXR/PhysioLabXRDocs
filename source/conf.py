@@ -17,12 +17,12 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'RealityNavigationDocs'
-copyright = '2021, Ziheng (Leo) Li'
-author = 'Ziheng (Leo) Li'
+project = 'PhysioLabXRDocs'
+copyright = "2023, Ziheng 'Leo' Li"
+author = "Ziheng 'Leo' Li"
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.1.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -44,6 +44,12 @@ exclude_patterns = []
 
 # -- Options for HTML output -------------------------------------------------
 
+rst_prolog = """
+.. include:: <s5defs.txt>
+
+"""
+html_css_files = ['css/s4defs-roles.css']
+
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
@@ -57,6 +63,7 @@ extensions = ["sphinx_immaterial"]
 default_dark_mode = False
 
 html_theme = 'sphinx_immaterial'
+html_logo = "media/logo.png"
 
 html_theme_options = {
     "palette": [
@@ -78,8 +85,8 @@ html_theme_options = {
         },
     ],
 
-    "repo_url": "https://github.com/ApocalyVec/RenaLabApp/",
-    "repo_name":"RenaLabApp",
+    "repo_url": "https://github.com/ApocalyVec/PhysioLabXR/",
+    "repo_name":"PhysioLabXR",
     "icon": {
         "repo": "fontawesome/brands/github",
         "edit": "material/file-edit-outline",

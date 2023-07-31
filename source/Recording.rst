@@ -1,13 +1,13 @@
-*****
+***************
 Recording Data
-*****
+***************
 RenaLabApp's recording feature lets you record multi-stream data with synchronized timestamps from various
 sources, BioSemi and screen capturing for example. The recorded data can be stored as various data formats which you can choose from the
 settings, including '.dats', '.m', '.p', '.csv', '.xdf'.
 
 
 Record data
-########
+############
 .. |ico0| image:: /media/stream_tab.png
    :height: 3ex
 
@@ -39,7 +39,7 @@ Steps to record data
     Loading .dats and .csv files can be slow
 
 Working with recorded data
-########
+################################
 Recorded data can be loaded back for further analysis.
 
 .dats
@@ -64,7 +64,7 @@ Advanced
 ########
 
 .dats serialization and Eviction Interval
-*************
+******************************************
 The recording is enabled by a serialization interface (RNStream) optimized for data with timestamps from multiple
 sources (i.e., EEG, eyetracking and video recorded simultaneously)
 

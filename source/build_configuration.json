@@ -7,7 +7,7 @@
   },
   {
    "optionDest": "filenames",
-   "value": "<Your/Project/Root/Path>/rena/main.py"
+   "value": "D:\\PycharmProjects\\RenaLabApp/rena/PhysioLabXR.py"
   },
   {
    "optionDest": "onefile",
@@ -67,79 +67,63 @@
   },
   {
    "optionDest": "binaries",
-   "value": "<Your/Project/Root/Path>/venv/Lib/site-packages/pylsl/lib/lsl.dll;pylsl/lib"
+   "value": "D:\\PycharmProjects\\RenaLabApp/venv/Lib/site-packages/pylsl/lib/lsl.dll;pylsl/lib"
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/rena/scripting;scripting/"
+   "value": "D:\\PycharmProjects\\RenaLabApp/rena/scripting;rena/scripting/"
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/exceptions;exceptions/"
+   "value": "D:\\PycharmProjects\\RenaLabApp/media;media/"
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/media;media/"
+   "value": "D:\\PycharmProjects\\RenaLabApp/Presets;Presets/"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "D:\\PycharmProjects\\RenaLabApp/rena/arduino"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "D:\\PycharmProjects\\RenaLabApp/rena/deprecated"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "D:\\PycharmProjects\\RenaLabApp/rena/examples"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "D:\\PycharmProjects\\RenaLabApp/rena/interfaces"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "D:\\PycharmProjects\\RenaLabApp/rena/scripting"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "D:\\PycharmProjects\\RenaLabApp/rena/sub_process"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "D:\\PycharmProjects\\RenaLabApp/rena/threadings"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "D:\\PycharmProjects\\RenaLabApp/rena/ui"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "D:\\PycharmProjects\\RenaLabApp/rena/utils"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "D:\\PycharmProjects\\RenaLabApp/rena"
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/Presets;Presets/"
-  },
-  {
-   "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/resource;resource/"
-  },
-  {
-   "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/venv;venv/"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/arduino"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/deprecated"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/examples"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/interfaces"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/scripting"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/sub_process"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/tests"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/threadings"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/ui"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/utils"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena"
-  },
-  {
-   "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/rena/ui;ui/"
+   "value": "D:\\PycharmProjects\\RenaLabApp/ui;ui/"
   }
  ],
  "nonPyinstallerOptions": {
@@ -147,4 +131,3 @@
   "manualArguments": ""
  }
 }
-

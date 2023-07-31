@@ -1,7 +1,7 @@
 Contribute to this Doc
 =================
 
-If you would like to add contents to this doc, you can follow these instructions
+If you would like to add contents to PhysioLabXR's documentation, you can follow these instructions
 on how to make changes and compile them
 
 1.Fork the the `RealityNavigationDocs repo <https://github.com/ApocalyVec/RealityNavigationDocs>`_.
