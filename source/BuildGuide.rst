@@ -5,7 +5,7 @@ This is a guide for building an executable for RenaLabApp and using it.
 
 How to build an executable
 ########
-#. Use auto-py-to-exe library to build the executable
+1. Use auto-py-to-exe library to build the executable
 
    Install: ``pip install auto-py-to-exe``
 
@@ -16,11 +16,59 @@ How to build an executable
    .. image:: media/auto_py_to_exe.png
       :width: 540px
 
-#. Import the following build configuration. You can download the file here :download:`build_configuration.json <build_configuration.json>`
+2. Import the following build configuration. You can Specify the root path of your project and download the file here
 
-   .. literalinclude:: build_configuration.json
+.. raw:: html
 
-#. Select appropriate output directory and script location, and click on the “Convert .Py to Exe” button.
+    <form id="myForm">
+        <label for="path">Enter Your Project Root Path:</label>
+        <input type="text" id="path" name="path">
+        <input type="submit" value="Download">
+    </form>
+    <script>
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        fetch("./_downloads/94a77c9ff969934e03cd02435bd42735/build_configuration.json")
+            .then(response => response.json())
+            .then(jsonData => {
+
+                console.log(jsonData);
+                var user_path = document.getElementById('path').value;
+                function replaceValue(obj, path) {
+                    for (var key in obj) {
+                        if (typeof obj[key] === "object") {
+                            replaceValue(obj[key], path); // Recursive call for nested objects
+                        } else if (typeof obj[key] === "string") {
+                            if (obj[key].includes(path))
+                                obj[key] = obj[key].replace(path, user_path); // Replace the root path
+                        }
+                    }
+                }
+                replaceValue(jsonData, "<Your/Project/Root/Path>");
+                var modifiedJson = JSON.stringify(jsonData, null, 2);
+
+                // Create a download link for the modified JSON
+                var element = document.createElement('a');
+                element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(modifiedJson));
+                element.setAttribute('download', 'build_configuration.json');
+                element.style.display = 'none';
+                document.body.appendChild(element);
+                element.click();
+                document.body.removeChild(element);
+            })
+            .catch(error => {
+                console.log('Error fetching JSON file:', error);
+            });
+
+    });
+    </script>
+
+
+
+.. literalinclude:: build_configuration.json
+
+3. Select appropriate output directory and script location, and click on the “Convert .Py to Exe” button.
 
 #. Check if the executable has been created successfully in the desired location.
 
