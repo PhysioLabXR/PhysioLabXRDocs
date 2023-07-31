@@ -44,6 +44,12 @@ exclude_patterns = []
 
 # -- Options for HTML output -------------------------------------------------
 
+rst_prolog = """
+.. include:: <s5defs.txt>
+
+"""
+html_css_files = ['css/s4defs-roles.css']
+
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #

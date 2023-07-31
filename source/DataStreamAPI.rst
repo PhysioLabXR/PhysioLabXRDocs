@@ -2,6 +2,8 @@
 Data Stream API
 ********************
 
+Streams are basic building blocks of any PhysioLab\ :sup:`XR` paradigm. They are the data sources
+
 Choosing which data stream API to use
 --------------------------------------
 There are multiple ways to establish connection between a data source and RenaLabApp. User can use either LSL, ZMQ, or
