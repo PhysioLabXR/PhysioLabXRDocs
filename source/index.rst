@@ -61,6 +61,11 @@ to see the EEG and event marker stream in real-time, synchronized as they were r
 
 |
 
+.. note::
+
+    If any time during the replay, it says 'Lost Connection to ...'. It means the replay has finished and the replay streams are closed. When this happens, simply restart the replay from the *Replay Tab* by clicking on *Start Replay* again.
+
+
 The event marker stream has one channel named *DTN* showing what type of stimulus is popping up for the participant. DTN stands
 for distractor, target, and novelty as part of the `oddball paradigm <https://en.wikipedia.org/wiki/Oddball_paradigm>`_.
 We should see an ERP in the EEG signal when there's a new value in the DTN stream, meaning a new stimulus just popped up.
@@ -105,7 +110,7 @@ We will add a *script* that use the DTN stream as a trigger to extract the ERP c
 `the scripting feature here <Scripting.html>`_). To do this:
 
 #. Go to the *scripting tab*, and click on *Add* to create a new script.
-#. Click on *Create* and choose a file location to save the script. Name the script something like 'ERPExtraction'. Click on *Save*.
+#. Click on *Create* (not *Locate*, which is for loading an existing .py script) and choose a file location to save the script. Name the script something like 'ERPExtraction'. Click on *Save*.
 #. A template script will open in your system's default editor. Change it to the following code:
 
     .. code-block:: python
