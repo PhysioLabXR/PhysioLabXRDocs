@@ -43,7 +43,7 @@ Event-related Potential with EEG
 We will replay a pre-recorded `EEG <https://en.wikipedia.org/wiki/Electroencephalography>`_
 experiment of the `visual oddball paradigm <https://en.wikipedia.org/wiki/Oddball_paradigm>`_,
 and extract the `event-related potential (ERP) of the P300 response <https://en.wikipedia.org/wiki/Event-related_potential>`_.
-Download the example recording `erp-example.p from here (~4 MB) <https://drive.google.com/file/d/12xR1bbFF3oc9XVN6UVHGvazcJ5ol9Y7u/view?usp=sharing>`_
+Download the example recording `erp-example.p from here (~4 MB) <https://drive.google.com/file/d/1E6wYPBUIpEIQfd5Bm38Z-LkJvao7-5Tx/view?usp=sharing>`_
 
 On launch PhysioLab\ :sup:`XR`, go to the `Replay Tab <Replay.html>`_ and load the example recording. The `streams <DataStreamAPI.html>`_ in the replayed
 recording will be automatically added to the `Visualization Tab <Visualization.html>`_. There, you can click on the start buttons
