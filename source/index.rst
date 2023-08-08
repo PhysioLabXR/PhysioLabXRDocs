@@ -172,7 +172,7 @@ We will add a *script* that use the DTN stream as a trigger to extract the ERP c
             def cleanup(self):
                 print('Cleanup function is called')
 
-#. Save the script in the Editor and return to PhysioLab\ :sup:`XR`'s *scripting tab*. To have our script receive the EEG and event markers,
+#. Save the script in the editor and return to PhysioLab\ :sup:`XR`'s *scripting tab*. To have our script receive the EEG and event markers,
    we will add them as `inputs <Scripting#Inputs.html>`_. For visualization purposes, we will add an `output <Scripting#Outputs.html>`_
    called 'ERPs' and send the buffered ERPs to it whenever we have a new event marker.
 
@@ -232,26 +232,28 @@ to know where exactly the user's gaze is focused on.
 
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Other topics:
+    :maxdepth: 1
+    :caption: Other topics:
 
-   Visualization
-   Recording
-   Replay
-   Scripting
-   DSP
-   SupportedSensors
-   Developer
-   Stream
-   DataStreamAPI
-   ViewInMatlab
-   technical_notes/About-erp-example
-   tutorials/BuildMultiModalClassifier
-   FixationDetection
-   PsychoPy
-   BuildGuide
-   ContributeToThisDoc
-   LICENSE
+    Visualization
+    Recording
+    Replay
+    Scripting
+    DSP
+    SupportedSensors
+    Developer
+    Stream
+    DataStreamAPI
+    ViewInMatlab
+    technical_notes/About-erp-example
+    technical_notes/About-fp-example
+    technical_notes/ZMQInterface
+    tutorials/BuildMultiModalClassifier
+    FixationDetection
+    PsychoPy
+    BuildGuide
+    ContributeToThisDoc
+    LICENSE
 
 
 .. raw:: html
