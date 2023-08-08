@@ -43,7 +43,7 @@ Event-related Potential with EEG
 We will replay a pre-recorded `EEG <https://en.wikipedia.org/wiki/Electroencephalography>`_
 experiment of the `visual oddball paradigm <https://en.wikipedia.org/wiki/Oddball_paradigm>`_,
 and extract the `event-related potential (ERP) of the P300 response <https://en.wikipedia.org/wiki/Event-related_potential>`_.
-Download the example recording `erp-example.p from here (~4 MB) <https://drive.google.com/file/d/12xR1bbFF3oc9XVN6UVHGvazcJ5ol9Y7u/view?usp=sharing>`_
+Download the example recording `erp-example.p from here (~4 MB) <https://drive.google.com/file/d/1E6wYPBUIpEIQfd5Bm38Z-LkJvao7-5Tx/view?usp=sharing>`_
 
 On launch PhysioLab\ :sup:`XR`, go to the `Replay Tab <Replay.html>`_ and load the example recording. The `streams <DataStreamAPI.html>`_ in the replayed
 recording will be automatically added to the `Visualization Tab <Visualization.html>`_. There, you can click on the start buttons
@@ -60,6 +60,11 @@ to see the EEG and event marker stream in real-time, synchronized as they were r
     </div>
 
 |
+
+.. note::
+
+    If any time during the replay, it says 'Lost Connection to ...'. It means the replay has finished and the replay streams are closed. When this happens, simply restart the replay from the *Replay Tab* by clicking on *Start Replay* again.
+
 
 The event marker stream has one channel named *DTN* showing what type of stimulus is popping up for the participant. DTN stands
 for distractor, target, and novelty as part of the `oddball paradigm <https://en.wikipedia.org/wiki/Oddball_paradigm>`_.
@@ -105,7 +110,7 @@ We will add a *script* that use the DTN stream as a trigger to extract the ERP c
 `the scripting feature here <Scripting.html>`_). To do this:
 
 #. Go to the *scripting tab*, and click on *Add* to create a new script.
-#. Click on *Create* and choose a file location to save the script. Name the script something like 'ERPExtraction'. Click on *Save*.
+#. Click on *Create* (not *Locate*, which is for loading an existing .py script) and choose a file location to save the script. Name the script something like 'ERPExtraction'. Click on *Save*.
 #. A template script will open in your system's default editor. Change it to the following code:
 
     .. code-block:: python
@@ -167,7 +172,7 @@ We will add a *script* that use the DTN stream as a trigger to extract the ERP c
             def cleanup(self):
                 print('Cleanup function is called')
 
-#. Save the script in the Editor and return to PhysioLab\ :sup:`XR`'s *scripting tab*. To have our script receive the EEG and event markers,
+#. Save the script in the editor and return to PhysioLab\ :sup:`XR`'s *scripting tab*. To have our script receive the EEG and event markers,
    we will add them as `inputs <Scripting#Inputs.html>`_. For visualization purposes, we will add an `output <Scripting#Outputs.html>`_
    called 'ERPs' and send the buffered ERPs to it whenever we have a new event marker.
 
@@ -222,29 +227,33 @@ or,
 When you have additional sensors like an eyetracker, the pupil size it captures is also a helpful feature in classifying
 ERPs (more info `here <https://onlinelibrary.wiley.com/doi/full/10.1111/psyp.12378>`_). Take a look at
 `this guide <tutorials/BuildMultiModalClassifier.html>`_ on
-how to build a multimodal classifier with PhysioLab\ :sup:`XR`.
+how to build a multimodal classifier with PhysioLab\ :sup:`XR`, and `this one <FixationDetection.html>`_ on how to create a real-time fixation detection algorithm
+to know where exactly the user's gaze is focused on.
 
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Other topics:
+    :maxdepth: 1
+    :caption: Other topics:
 
-   Visualization
-   Recording
-   Replay
-   Scripting
-   DSP
-   SupportedSensors
-   Developer
-   Stream
-   DataStreamAPI
-   ViewInMatlab
-   technical_notes/About-erp-example
-   tutorials/BuildMultiModalClassifier
-   PsychoPy
-   BuildGuide
-   ContributeToThisDoc
-   LICENSE
+    Visualization
+    Recording
+    Replay
+    Scripting
+    DSP
+    SupportedSensors
+    Developer
+    Stream
+    DataStreamAPI
+    ViewInMatlab
+    technical_notes/About-erp-example
+    technical_notes/About-fp-example
+    technical_notes/ZMQInterface
+    tutorials/BuildMultiModalClassifier
+    FixationDetection
+    PsychoPy
+    BuildGuide
+    ContributeToThisDoc
+    LICENSE
 
 
 .. raw:: html
