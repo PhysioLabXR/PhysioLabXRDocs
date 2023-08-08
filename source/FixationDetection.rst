@@ -2,13 +2,13 @@
 Real-time Fixation Detection
 #############################################
 
-Gaze behavior reveals a lot about the cognitive processes. But raw gaze data is messy and hard to interpret: it's hard to tell
-a person is staring at something or just gliding by.
-`Fixation <https://en.wikipedia.org/wiki/Fixation_(visual)>`_ detection is a common preprocessing step to filter gaze data and obtain the points where the user had really paid attention to.
+Eye gaze reveals a lot about a person's cognitive processes. But raw gaze data is messy and hard to interpret: it's hard to tell
+if someone is staring at something or just gliding by.
+`Fixation <https://en.wikipedia.org/wiki/Fixation_(visual)>`_ detection is a common preprocessing step to filter gaze data and obtain the points the user had really paid attention to.
 Read more about eyetracking and fixation detection `here <https://link.springer.com/article/10.3758/s13428-021-01762-8>`_.
 
 In this tutorial, we will learn how to create a pipeline in PhysioLab\ :sup:`XR` to detect
-fixations in real-time using one of the most popular algorithms: the `dispersion-thresholding
+fixations in real-time using one of the more popular algorithms: `dispersion-thresholding
 fixation identification <https://dl.acm.org/doi/abs/10.1145/355017.355028>`_, or I-DT for short.
 
 .. raw:: html
@@ -39,7 +39,7 @@ in real-time and visualize the results.
 Download the data
 ************************
 Download the recording from `here (~3.7 GB) <https://drive.google.com/file/d/1-1YCCO4by9xpYRrz17glX9llAeg__ftZ/view?usp=drive_link>`_.
-It is large because it contains the video frames from the participant's camera.
+It is a rather big file because it contains the video frames from the participant's camera.
 
 Replaying the recording
 ************************
@@ -71,7 +71,7 @@ Follow these steps to replay the experiment:
     `LabStreamingLayer (LSL) <DataStreamAPI.html#use-lsl>`_ to handle. We will change its *Stream Interface* to ZMQ. Leave the
     `ZMQ port number <technical_notes/ZMQInterface.html#port-numbers>`_ as default.
 
-#. We don't need EEG for this tutorial, check off *Example-BioSemi-Midlines* to have it not included in the replay.
+#. We don't need EEG for this tutorial, check off *Example-BioSemi-Midlines*, so it is not included in the replay.
 
 #.
     Click on the *Start Replay* button. PhysioLab\ :sup:`XR` will switch to the *Stream Tab* and open the *Playback Window*.
@@ -87,22 +87,35 @@ Follow these steps to replay the experiment:
     *Example-Video*'s plot, click the *[A]* button that shows up to have the plot auto-scale to fit the window.
     Now you should see the video from the participant's camera.
 
-The gaze pixel shows the pixel coordinate of where the participant is looking in the video frames. For the eyetracking stream,
-the first three channels are the gaze vector in the world coordinate system. The last channel has values of either 2 or 0.
-Value of 2 means the eyetracking data is valid at this frame and 0 means data loss, possibly due to the participant blinking.
+A bit more on the three streams being replayed here, they are:
+
+*
+    *Example-Video* has 480,000 channels. It is the video frames from the participant's camera. The video is 400 by 400 pixels
+    with 3 color channels.
+
+*
+    *Example-Video-Gaze-Pixel* has two channels with values between 0 and 399. They are synchronized with *Example-Video*
+    and the values are the pixel coordinates of where
+    the participant is looking in the video frames.
+*
+    *Example-Eyetracking* has four channels. The first three channels are the gaze vectors' x, y and z. The last channel
+    shows if this frame of data is valid. It has values of either 2 or 0. A value of 2 means the eyetracking data is valid
+    at this frame, and 0 means data loss, possibly a result of participant blinking.
+
+
 
 .. note::
-    The recording is about 6 minutes long. If anytime the replay finished while you are working on this tutorial, you can
+    The recording is about 6 minutes long. If anytime the replay is finished while you are working on this tutorial, you can
     restart the replay by clicking the *Start Replay* button in the *Replay* tab. Or the *Start* button in the *Playback Window*.
     Learn more about the *Replay* feature `here <Replay.html>`_.
 
 Gap filling the gaze sequence
 ******************************
 
-We will now add a *script* to process the eyetracking data. The first step towards fixation detection is to fill the
-glitches, or gaps in the gaze sequence. In short, the gap filling algorithm look at each interval where gaze data is invalid,
-if the gap is smaller than a default of 75 ms, it will consider this gap a system glitch and fill it by interpolating. If the
-gap is larger than 75 ms, it will consider this gap a blink and leave it as a gap of nan values.
+We will now add a *script* to process the eyetracking data. The first step towards fixation detection is filling the
+glitches that result in gaps in the gaze sequence. In short, the gap-filling algorithm looks at each interval where gaze
+data are invalid; if the gap is smaller than a threshold (default at 75 ms), it will consider this gap a system glitch and fill it by interpolating. If the
+gap is larger than 75 ms, it will consider this gap a blink and leave it as a gap with NaN values.
 Read more about the gap-filling algorithm in
 `the technical notes <technical_notes/About-fp-example.html#the-gap-filling-algorithm>`_ of this tutorial.
 
@@ -116,8 +129,10 @@ Read more about the gap-filling algorithm in
     </div>
 
 #.
-    Go to the `Script Tab <Scripting.html>`_ and click the *Add* button. Name it *FixationDetection* and click *Save*.
-    Replace the template code in the editor with the following code:
+    Go to the `Script Tab <Scripting.html>`_ and click the *Add* button. A *Script Widget* will be added to the *Script Tab*.
+    Click the *Create* button in the *Script Widget*. In the file dialog, select the folder where you want to save the script.
+    Name it *FixationDetection* and click *Save* in the file dialog. The script should be opened in your default editor.
+    Replace the template code with the following script:
 
     .. code-block:: python
 
@@ -162,39 +177,42 @@ Read more about the gap-filling algorithm in
 
 
 #.
-    Save the script and return to the *Scripting Tab*, below the text box with the path to your script. Change the
+    Save the script and return to the *Scripting Tab*. Below the text box with the path to your script, change the
     *Run Frequency* to 30. This will make the script run at a maximum frequency of 30 times per second. It doesn't have
     to run at this frequency, but it helps with producing smoother data when plotted in the *Stream Tab*.
 
 #.
-    We need to add the eyetracking stream as an input to the script. Type *Example-Eyetracking* in the inputs text box.
+    We need to add the eyetracking stream as an input to the script. Type *Example-Eyetracking* in the *inputs text box*.
     Click the *Add* button in the *Inputs* pane to add the stream as an input to the script.
 
 #.
     To visualize the gap-filled data, we need to add it as an output of the script. Type *gap_filled_xyz* in the outputs
     text box and click the *Add* button in the *Outputs* pane. After adding, change the number of channels for this output
-    to be 3 in its widget. The three channels are the x, y, and z coordinates of the gap-filled gaze vector.
+    to 3 in its widget. The three channels are the x, y, and z coordinates of the gap-filled gaze vector.
 
 #.
     Now we can run the script by clicking the *Run* button in the *Scripting Widget*. You should see the console producing
     messages like this:
 
     .. code-block:: none
+
         With max gap duration 0.175ms, 1 gaps are interpolated among 1 gaps,
         with interpolated gap with mean:median duration <x>ms:<x>ms,
         and ignored gap with mean:median duration <x>ms:<x>ms
 
 #.
-    To visualize the gap-filled data, go to the *Stream Tab* and add the *gap_filled_xyz* as a stream. Start the stream,
-    reset the number of channels, and data will start plotting. Go to its options and change its nominal sampling rate to
+    To visualize the gap-filled data, go to the *Stream Tab*. Type *gap_filled_xyz* in the add text box. Click *Add*. Tt will be
+    added as a new stream. Start the stream. Once data is available, the app will ask if you want to reset the number of channels to match what's found on the network.
+    Click *Yes*, because the default number of channels for newly added streams is 1. Now we set it to 3 to match the output from
+    the script. Once the number of channels is reset, data will start plotting. Go to its options and change its nominal sampling rate to
     200 to match the eyetracking stream.
 
-In the gap filled data, now processed in real-time and plotted in sync with the original data, you should see when the original
-data is invalid (last channel is 0). The gap-filled data will either have interpolated values if the gap is small enough, or
-it will have no data if the gap is too large.
+In the gap-filled data, now processed in real-time and plotted in sync with the original data, you should see when the original
+data is invalid (the last channel is 0). The gap-filled data will either have interpolated values if the gap is small enough, or
+no data if the gap is too large.
 
 .. note::
-    The script is running on a replayed experiment in this tutorial. But you can have it run
+    The script runs on a replayed experiment in this tutorial. But you can have it run
     in real-time for your experiments.
 
 
@@ -270,25 +288,25 @@ Next up, we will build on top of the previous script to detect fixations using t
                 print('Cleanup function is called')
 
 #.
-    The I-DT algorithm has two parameters that are often tuned for different experiments to get the best results. They are
+    The I-DT algorithm has two parameters often tuned for different experiments to get the best results. They are
 
-        * idt window size: the size of the window in which the dispersion is calculated. The default value is 175 ms.
-        * dispersion threshold degree: the threshold of the dispersion in the window to be considered a fixation. The default value is 0.5 degree.
+        * idt window size: the window size in which the dispersion is calculated. The default value is 175 ms.
+        * dispersion threshold degree: the threshold of the dispersion in the window to be considered a fixation. The default value is 0.5 degrees.
 
     We can expose these parameters through the *Parameters* tab in the *Scripting Widget* so we can tune them in real-time.
     Go to the *Parameters* tab and add the following parameters:
 
         * idt_window_size: set its type to float and enter the starting value of 0.175 seconds.
-        * dispersion_threshold_degree: also set its type to float and we will start with a value of 0.5 degrees.
+        * dispersion_threshold_degree: also set its type to float, and we will start with a value of 0.5 degrees.
 
 #.
-    Similar to adding the gap filled data to the output, we now add the fixation result to the output so we can see it in the *Stream Tab*.
+    Similar to adding the gap-filled data to the output, we now add the fixation result to the output so we can see it in the *Stream Tab*.
     Type *fixations* in the *Output* box and click the *Add* button. We will leave its number of channels to be 1: a value of 1
-    means fixation and a value of 0 means non-fixation.
+    means fixation, and a value of 0 means non-fixation.
 
 #.
-    Start the script and go to the *Stream Tab*, add the *fixations* stream. Start plotting and again, similar to the gap filled
-    stream, go to the options window for this stream and change the nominal sampling rate to 200.
+    Start the script and go to the *Stream Tab*. Add *fixations* as a new stream just as you did for gap_filled_xyz.
+    Start plotting and go to its options window for this stream and change the nominal sampling rate to 200.
 
 Now you should see the fixation as they are detected in real-time. In *Settings* under *Streams*,
 we can change the *Line chart visualization mode* from *in-place* to *continuous* to get a clearer view of the fixations
@@ -401,8 +419,8 @@ As the last step, and for our visualization purposes, we will add a fixation ind
                 print('Cleanup function is called')
 
 #.
-    Before we start the modified script, we need to add two addition inputs, the *video* stream and the *gaze pixel on frame* stream.
-    In the *scripting widget*, add *Example-Video* and *Example-Video-Gaze-Pixel* as inputs.
+    Before we start the modified script, we need to add two additional inputs, the *video* stream and the *gaze pixel on frame* stream.
+    In the *Scripting Widget*, add *Example-Video* and *Example-Video-Gaze-Pixel* as inputs.
 
 #.
     We will also add an output to stream out the processed video frames. Type *gaze_processed_video* in the *output* box and click *Add*.
@@ -410,15 +428,16 @@ As the last step, and for our visualization purposes, we will add a fixation ind
     data type to *uint8*.
 
 #.
-    Start the script and go to the *Stream Tab*, add the *gaze_processed_video* stream. Start this stream and similar to what we
+    Start the script and go to the *Stream Tab*. Add the *gaze_processed_video* stream. Start this stream and similar to what we
     did for the original video, go to its options and set both its width and height to 400, image format to *bgr*, and channel
     format to *channel first*.
 
 Now you should see the processed video in the *Stream Tab*, with the gaze indicator showing where the participant is looking at.
-The gaze indicate will turn red when a fixation is detected, and blue when the participant is not fixating.
+The gaze indicator will turn red when a fixation is detected, and blue when the participant is not fixating.
 
-It will be slightly delayed version of the original video, because
-the fixation detection algorithm needs to process the gaze data first. To better look at the videos, we can pop out all other streams except the original and processed videos, and look at them side by side.
+The video with fixation indicator will be a slightly delayed version of the original video, because
+the fixation detection algorithm needs to process the gaze data first. To better look at the videos, we can pop out all
+other streams except the original and processed videos, and look at them side by side.
 
 So there you have it, a real-time fixation detection pipeline that can be adapted to your applications.
 
@@ -426,22 +445,15 @@ So there you have it, a real-time fixation detection pipeline that can be adapte
 Further Information
 *****************************
 Now you have learned how to detect fixations in real-time using PhysioLab\ :sup:`XR`.
-You can apply it your experiment and use fixation to study user cognition, in tasks such as
+You can apply it to your experiment and use fixation to study user cognition, in tasks such as
 `visual search <https://jov.arvojournals.org/article.aspx?articleid=2191835>`_ and
 `reading <https://www.taylorfrancis.com/chapters/edit/10.4324/9781315630427-19/eye-movements-reading-tutorial-review-keith-rayner-alexander-pollatsek>`_,
 and `scene perception <https://d1wqtxts1xzle7.cloudfront.net/1961773/Richardson_Spivey04b-libre.pdf?1390824253=&response-content-disposition=inline%3B+filename%3DEye_Tracking_Research_Areas_and_Applicat.pdf&Expires=1691505683&Signature=dHPTX9IHgmJj-4tc1UsRIFpcz7UiOEwfd~Rrkf5UF2vPVO-cuEjtdD549La20ThqVEClaqTeP-VlzAXkX908fASAkOZNvqFYtlJOUtH1auySgodYXD-ECNm0s2iJYKXbF0RiEDrfW0PJe-u5sdTewMtv3ExFjq8F12htEd5yAV2Fbxz-jpIJIdA8-U0b9ogY7hUYLFM8l1Hr7JfTRP6mZdoRzoiBmFIOJ1dryJRxNDDncGUI7Pc~KRAaAuyUp~l7UeUgDC64Vw62g1DY-AD3xhSuAnF4X8d2ThZCP7lbxG9K0gNjFqNScQ48YHaHOIIqmZ-mi6VpGvGOLSKw8PjBtw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA>`_.
 
 
+`Read the technical notes of this tutorial <technical_notes/About-fp-example.html>`_.
 
-
-
-
-
-
-
-
-
-
+`Learn more about how scripting works <Scripting.html>`_.
 
 
 
