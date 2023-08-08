@@ -227,7 +227,8 @@ or,
 When you have additional sensors like an eyetracker, the pupil size it captures is also a helpful feature in classifying
 ERPs (more info `here <https://onlinelibrary.wiley.com/doi/full/10.1111/psyp.12378>`_). Take a look at
 `this guide <tutorials/BuildMultiModalClassifier.html>`_ on
-how to build a multimodal classifier with PhysioLab\ :sup:`XR`.
+how to build a multimodal classifier with PhysioLab\ :sup:`XR`, and `this one <FixationDetection.html>`_ on how to create a real-time fixation detection algorithm
+to know where exactly the user's gaze is focused on.
 
 
 .. toctree::
@@ -246,6 +247,7 @@ how to build a multimodal classifier with PhysioLab\ :sup:`XR`.
    ViewInMatlab
    technical_notes/About-erp-example
    tutorials/BuildMultiModalClassifier
+   FixationDetection
    PsychoPy
    BuildGuide
    ContributeToThisDoc
