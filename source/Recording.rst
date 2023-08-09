@@ -92,6 +92,17 @@ Record data
 .. note::
     Loading .dats and .csv files can be slow
 
+6. Now your can navigate to **file**/**Show Recordings** to see the recorded files.
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/Recording6.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
 Working with recorded data
 ################################
 Recorded data can be loaded back for further analysis.
