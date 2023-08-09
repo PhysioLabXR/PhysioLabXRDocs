@@ -13,7 +13,7 @@ Introduction
 ===================
 In this example, we use RenaLabApp to stream a classic fNIRS Stroop effect experiment. Stroop effect experiment let participant input their judgment when experiencing color stroop. This will cause an effect in the prefrontal cortex, whereas the hypothesis is that when text and color are not congruent, there will be activation in the prefrontal region.
 
-In each experiment, we want to have six trails. In each trial there are six cases where we ask participants to input the color of the displayed text. The cases can be:
+In each experiment, we want to have six trials. In each trial there are six cases where we ask participants to input the color of the displayed text. The cases can be:
 
 - **Congruent** : the text is congruent with the text color. For example: ``red`` (color in red).
 
@@ -38,12 +38,12 @@ Install PsychoPy from the `download page <https://www.psychopy.org/download.html
 Create experiment using PyschoPy
 --------------------------------------------
 
-Setting Trail
+Setting Trial
 --------------------------
-In PsychoPy, create an experiment routine by first setting up the trail.
+In PsychoPy, create an experiment routine by first setting up the trial.
 
-In the ``components`` part at the right side panel, select ``Text`` to create a fixed text to control the time for each trial. This ensures the functionality to have rest time between each trail.
-Add another ``Text`` to display the prompt, to make the word change every trail, create a excel that contains all the conditions we want in each trail.
+In the ``components`` part at the right side panel, select ``Text`` to create a fixed text to control the time for each trial. This ensures the functionality to have rest time between each trial.
+Add another ``Text`` to display the prompt, to make the word change every trial, create a excel that contains all the conditions we want in each trial.
 
 A sample list is this:
 
@@ -64,7 +64,7 @@ A sample list is this:
 +--------+--------+-----------+--------+
 
 
-Load the list to PsychoPy, set the text as ``$word`` and the color as ``$color``, repeat the trail for 6 times by clicking the ``insert loop`` button. This will enable us to display text with different colors.
+Load the list to PsychoPy, set the text as ``$word`` and the color as ``$color``, repeat the trial for 6 times by clicking the ``insert loop`` button. This will enable us to display text with different colors.
 
 Next is to add a ``keyboard`` to record the keyboard response. The keyboard response is set to be the same time as the text display, set the allowed keys to be ``'left'``,``'right'``,``'down'`` and in the next tab, set the correct answer to be ``$corrAns``.
 
@@ -106,7 +106,7 @@ Identify the Event Marker
 In this experiment, six types of event markers were set. They are:
 
 - **Experiment start**: value set to be 20, indicating the start of the experiment
-- **Trail Start**: indicates the start of the trail
+- **Trial Start**: indicates the start of the trial
 
    - **Congruent**: value set to be 1. Indicating the appeared prompt is congruent (color is same as the text)
    - **Incongruent**: value set to be 2. Indicating the appeared prompt is incongruent (color is different as the text)
@@ -116,8 +116,8 @@ In this experiment, six types of event markers were set. They are:
    - **Incorrect**: value set to be 4. Indicating the input answer does not align with the ground truth (the answer is incorrect)
 
 
-- **Trail End**: value set to be 15, indicate the time set for a single trail has passed.
-- **Experiment End**: value set to be 21. Indicating the end of the experiment with the fact that all of the trails has being completed.
+- **Trial End**: value set to be 15, indicate the time set for a single trial has passed.
+- **Experiment End**: value set to be 21. Indicating the end of the experiment with the fact that all of the trials has being completed.
 
 An illustration of all the event markers are show below:
 
@@ -173,8 +173,8 @@ We first create a dictionary:
    'correct':3,
    'incorrect':4
    }
-   trail_start_marker = 10
-   trail_end_marker = 11
+   trial_start_marker = 10
+   trial_end_marker = 11
    experiment_start_marker = 20
    end_start_marker = 21
    noresponse_marker = 15
@@ -204,9 +204,9 @@ In the ``# --- Run Routine "Instruction" —`` part. Thus it appears as:
        # update/draw components on each frame
 
 
-- **Trail Start**:
+- **Trial Start**:
 
-This part happens when the text are generated, so we add triggers at each trail  when the text are generated, so the code appears here:
+This part happens when the text are generated, so we add triggers at each trial  when the text are generated, so the code appears here:
 
 .. code:: python
 
@@ -250,9 +250,9 @@ This happens when we receive a response, so we add this line of code in the  `` 
 
 
 
-- **Trail End**:
+- **Trial End**:
 
-Trail end markers happens at the end of each trail, we add it at the time when correctness are generated because it means the trial ends and a reponse is recieved.
+Trial end markers happens at the end of each trial, we add it at the time when correctness are generated because it means the trial ends and a reponse is recieved.
 
 
 .. code:: python
@@ -264,7 +264,7 @@ Trail end markers happens at the end of each trail, we add it at the time when c
                    key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
                    key_resp.rt = _key_resp_allKeys[-1].rt
                    # was this correct?
-                   outlet.push_sample(x=[trail_end_marker])
+                   outlet.push_sample(x=[trial_end_marker])
                    if (key_resp.keys == str(corAns)) or (key_resp.keys == corAns):
                        key_resp.corr = 1
                    else:
