@@ -29,7 +29,7 @@ How to build an executable
     document.getElementById('myForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
 
-        fetch("./_downloads/94a77c9ff969934e03cd02435bd42735/build_configuration.json")
+        fetch("./_static/build_configuration.json")
             .then(response => response.json())
             .then(jsonData => {
 

@@ -1,0 +1,133 @@
+{
+ "version": "auto-py-to-exe-configuration_v1",
+ "pyinstallerOptions": [
+  {
+   "optionDest": "noconfirm",
+   "value": true
+  },
+  {
+   "optionDest": "filenames",
+   "value": "<Your/Project/Root/Path>/rena/PhysioLabXR.py"
+  },
+  {
+   "optionDest": "onefile",
+   "value": false
+  },
+  {
+   "optionDest": "console",
+   "value": true
+  },
+  {
+   "optionDest": "ascii",
+   "value": false
+  },
+  {
+   "optionDest": "clean_build",
+   "value": false
+  },
+  {
+   "optionDest": "strip",
+   "value": false
+  },
+  {
+   "optionDest": "noupx",
+   "value": false
+  },
+  {
+   "optionDest": "disable_windowed_traceback",
+   "value": false
+  },
+  {
+   "optionDest": "embed_manifest",
+   "value": true
+  },
+  {
+   "optionDest": "uac_admin",
+   "value": false
+  },
+  {
+   "optionDest": "uac_uiaccess",
+   "value": false
+  },
+  {
+   "optionDest": "win_private_assemblies",
+   "value": false
+  },
+  {
+   "optionDest": "win_no_prefer_redirects",
+   "value": false
+  },
+  {
+   "optionDest": "bootloader_ignore_signals",
+   "value": false
+  },
+  {
+   "optionDest": "argv_emulation",
+   "value": false
+  },
+  {
+   "optionDest": "binaries",
+   "value": "<Your/Project/Root/Path>/venv/Lib/site-packages/pylsl/lib/lsl.dll;pylsl/lib"
+  },
+  {
+   "optionDest": "datas",
+   "value": "<Your/Project/Root/Path>/rena/scripting;rena/scripting/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "<Your/Project/Root/Path>/media;media/"
+  },
+  {
+   "optionDest": "datas",
+   "value": "<Your/Project/Root/Path>/Presets;Presets/"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/rena/arduino"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/rena/deprecated"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/rena/examples"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/rena/interfaces"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/rena/scripting"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/rena/sub_process"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/rena/threadings"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/rena/ui"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/rena/utils"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/rena"
+  },
+  {
+   "optionDest": "datas",
+   "value": "<Your/Project/Root/Path>/ui;ui/"
+  }
+ ],
+ "nonPyinstallerOptions": {
+  "increaseRecursionLimit": true,
+  "manualArguments": ""
+ }
+}

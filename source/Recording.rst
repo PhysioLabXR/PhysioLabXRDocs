@@ -1,13 +1,65 @@
-***************
+###############
 Recording Data
-***************
-RenaLabApp's recording feature lets you record multi-stream data with synchronized timestamps from various
-sources, BioSemi and screen capturing for example. The recorded data can be stored as various data formats which you can choose from the
-settings, including '.dats', '.m', '.p', '.csv', '.xdf'.
+###############
 
+PhysioLab\ :sup:`XR`'s recording interface lets you record multi-stream data with synchronized timestamps from various
+sources, for example, EEG and screen capturing from your experiment.
 
-Record data
-############
+Supported File Formats
+***********************
+
+The platform supports various data formats to best fit your donwstream pipeline:
+
+- *.dats* (dictionary of array and timestamps): PhysioLabXR's native data format, which is a binary format that stores data
+  in a compact way. This format is
+  optimized for quick serialization during a recording session. It can take a while to load back. If you will use Python
+  for downstream analysis, we recommend using the pickle format instead.
+- *.p* (`pickle <https://docs.python.org/3/library/pickle.html>`_): Python's native data format. This format is optimized
+  for quick serialization and deserialization. It is recommended if you will use Python for downstream analysis.
+- *.m* (`MATLAB <https://www.mathworks.com/help/matlab/import_export/mat-file-versions.html>`_): MATLAB's native data format.
+  It is recommended if you will use MATLAB for downstream analysis.
+- *.csv* (`comma-separated values <https://en.wikipedia.org/wiki/Comma-separated_values>`_): A text-based data format. Not
+  best for saving a large amount of data, but it is human-readable and can be easily imported to other software.
+- *.xdf* (`Extensible Data Format <https://github.com/sccn/xdf>`_): A data format often
+  used for physiological data, compatible with many software packages and analysis tools.
+
+What is saved
+*************
+
+Regardless of the data format, for all streams, PhysioLab\ :sup:`XR` saves data by each frame and the time when it captured
+that frame. When loaded
+back, if you are in *Python*,
+the data is returned as **a dictionary of arrays and timestamps**. The keys of the dictionary are the stream names. The values
+are a tuple of (data, timestamps). If you are in MATLAB, the data is returned as a struct with the same fields.
+
+Learn From a Simple Example How to Record Data
+*******************************************************
+In this example, we will record two data streams: a randomly generated stream and screen capturing.
+
+Create a Dummy Stream
+--------------------------------
+First, make sure you have the following packages installed in your Python environment:
+
+- pylsl
+- numpy
+
+You can install them with ``pip install pylsl numpy``, or if you use a conda environment, you can install them with
+``conda install -c conda-forge pylsl numpy``.
+
+We will create a dummy stream to record. Create a new python file, put in the following snippet.
+
+.. literalinclude:: LSLExampleOutlet.py
+    :language: python
+    :linenos:
+    :lines: 1-100
+
+Now run the script in your terminal with a command like ``python LSLExampleOutlet.py``. The script will start an LSL
+stream with stream name 'Dummy-8Chan' and stream type 'EEG'. The stream will generate random data with 8 channels and
+a sampling rate of 250 Hz. The stream will keep running until you stop the script.
+
+Add the streams to be recorded
+--------------------------------
+
 .. |ico0| image:: /media/stream_tab.png
    :height: 3ex
 
@@ -26,45 +78,119 @@ Record data
 .. |ico5| image:: /media/stop_recording.png
    :height: 3ex
 
+.. |ico6| image:: /media/start.svg
+   :width: 20px
+   :height: 20px
 
-Steps to record data
-    1. Add streams you want to record to the **stream tab** |ico0| located in the main window.
-    2. After stream windows show up, click the **start stream** |ico1| button.
-    3. Now navigate to the **recording tab** |ico2| located on the upper left corner in the main window.
-    4. (Optional) Click the **recording options** button |ico3| , you can modify the file Path you want to store your data and the data format you want to store.
-    5. Click **Start recording** button |ico4| , the app will start recording the streams, and you can see the recorded time and file size in real time below.
-    6. Click **Stop recording** button |ico5| , the app will stop recording and store the recorded data to the path you specified.
+1. In the main window, navigate to the **stream tab** |ico0| located in the main window. In the **Add Stream** widget,
+type in 'Dummy-8Chan', the name of the stream we created in the previous step. Press the **Add** button or
+press **Enter** on your keyboard to add the stream.
+
+2. We will add an video stream capturing your computer's display.
+Now create a new stream by starting to type 'monitor 0'. PhysioLab\ :sup:`XR` uses this name for screen capturing.
+The current version only supports capturing the main display if multiple displays are in use.
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/Recording1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
 .. note::
-    Loading .dats and .csv files can be slow
 
-Working with recorded data
-################################
-Recorded data can be loaded back for further analysis.
+    This setup, a physiological stream and a screen capturing stream is a good example of what needs to be recorded in
+    a typical experiment. You can add more streams if you have more data sources.
 
-.dats
-    For loading DATs files you can use the stream_in function in ReNaLabApp package
 
-.pickle
-    For loading pickle files you can use the pickle package in Python
+2. In the same tab, you should see two stream widgets now 'Dummy-8Chan' and 'monitor 0'
+with some information about the streams. There's no start/stop button for the screen capturing because it's always on.
+You should see a :cyan:`cyan` bubble at the bottom of the 'Dummy-8Chan' widget, meaning this stream is available on the
+network. Press the **Start** button  |ico6| under 'Dummy-8Chan' stream to start receive
+the stream.
 
-.m
-    For loading matlab files you can use scipy's loadmat function
+.. note::
 
-.csv/.xdf
-    For loading csv and xdf files we recommend using the load_csv/load_xdf function in in ReNaLabApp package since the screen recording data has multiple dimensions and is stored differently in the csv files. The load_csv function can automatically handle the data shape transformation.
+    If the bubble is :red:`red`, it means the stream is not available on the network. Make sure the dummy
+    stream is running by
+    checking the steps in the previous section `Create a Dummy Stream <Recording.html#create-a-dummy-stream>`_.
 
-To use ReNa's native load functions, you can install the ReNaLabApp package
 
-install: ``pip install ReNaLabApp``
+.. raw:: html
 
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/Recording2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+Record the data
+--------------------------------
+
+3. Now navigate to the **recording tab** |ico2| located on the upper left corner in the main window.
+(Optional) In the recording tab, click the **recording options** button |ico3| ,
+you can modify the directory to which you want to store your data and the file format you want to store your data in.
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/Recording3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+4. Click **Start recording** button |ico4| , the app will start recording the streams. At the bottom right corner,
+you can see the recording
+duration and file size as they increase.
+
+5. Click **Stop Recording** button |ico5| , the app will stop recording and store the recorded data to the path you specified.
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/Recording45.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+.. note::
+    Loading .p, .xdf, and .mat are faster than .dats and .csv files, see `Supported File Formats <Recording.html#supported-file-formats>`_ for more details.
+
+6. Now you can open the recording directory (you can open it from the context menu
+   **file**/**Show Recordings**) to see the recorded file.
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/Recording6.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+If you are using .dats format
+--------------------------------
+
+You can use the load functions from PhysioLab\ :sup:`XR`, first install the pip package ``pip install PhysioLabXR``
+
+And simply import the load function, here is an example
+.. code-block:: python
+
+    from PhysioLabXR.rena.user_utils import stream_in
+
+    data = stream_in('path/to/dats/file')
 
 
 Advanced
-########
+****************
 
-.dats serialization and Eviction Interval
-******************************************
+.dats serialization and eviction interval
+------------------------------------------
 The recording is enabled by a serialization interface (RNStream) optimized for data with timestamps from multiple
 sources (i.e., EEG, eyetracking and video recorded simultaneously)
 

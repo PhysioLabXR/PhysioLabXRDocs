@@ -21,7 +21,7 @@ fixation identification <https://dl.acm.org/doi/abs/10.1145/355017.355028>`_, or
             </video>
         </div>
         <figcaption style="margin-top: 10px;">
-            Real-time fixation detection, the middle stream is the gaze vector captured by the eyetracking in the VR headset. The left stream shows gives 1 when there is a fixation and 0 otherwise. The video on the right shows the participant's camera. The circle in the video shows where the participant is looking at. The circle turns red when there is a fixation. You will see most of the fixation happens when the participant is looking at some objects in the scene.
+            Real-time fixation detection, the middle stream is the gaze vector captured by the eyetracking in the VR headset. The left stream gives 1 when there is a fixation and 0 otherwise. The video on the right shows the participant's camera. The circle in the video shows where the participant is looking at. The circle turns red when there is a fixation. You will see most of the fixation happens when the participant is looking at some objects in the scene.
         </figcaption>
     </figure>
 
@@ -201,7 +201,7 @@ Read more about the gap-filling algorithm in
         and ignored gap with mean:median duration <x>ms:<x>ms
 
 #.
-    To visualize the gap-filled data, go to the *Stream Tab*. Type *gap_filled_xyz* in the add text box. Click *Add*. Tt will be
+    To visualize the gap-filled data, go to the *Stream Tab*. Type *gap_filled_xyz* in the add text box. Click *Add*. It will be
     added as a new stream. Start the stream. Once data is available, the app will ask if you want to reset the number of channels to match what's found on the network.
     Click *Yes*, because the default number of channels for newly added streams is 1. Now we set it to 3 to match the output from
     the script. Once the number of channels is reset, data will start plotting. Go to its options and change its nominal sampling rate to
