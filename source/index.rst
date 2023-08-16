@@ -20,7 +20,7 @@ learning models).
 
 You can easily integrate PhysioLab\ :sup:`XR` into your data pipeline if
 you are already using `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_ or `ZMQ <https://zeromq.org/>`_
-to stream your data. Alternatively, you can create your own data stream via the `Data Stream API <DataStreamAPI.html>`_.
+to stream your data. You can also create your own data stream via the `Data Stream API <DataStreamAPI.html>`_.
 
 |
 
@@ -29,7 +29,7 @@ Download
 Get the latest release of PhysioLab\ :sup:`XR` `here <https://github.com/ApocalyVec/PhysioLabXR/releases>`_.
 For the stable version, use `v0.1.0-beta <https://github.com/ApocalyVec/PhysioLabXR/tree/refs/tags/v0.1.0-beta>`_. The packaged release supports Windows, MacOS, and Linux.
 
-Alternatively, you can run the application from the source. Refer to *Run from Source* in the `developer page <Developer.html>`_ for instructions.
+Alternatively, you can run the application from its source. Refer to *Run from Source* in the `developer page <Developer.html>`_ for instructions.
 
 |
 
