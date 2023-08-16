@@ -172,7 +172,7 @@ We will add a *script* that uses the DTN stream as a trigger to extract the ERP 
             def cleanup(self):
                 print('Cleanup function is called')
 
-#. Save the script in the editor and return to PhysioLab\ :sup:`XR`'s *scripting tab*. To have our script receive the EEG and event markers,
+#. Save the script in the editor and return to the PhysioLab\ :sup:`XR` *scripting tab*. To have our script receive the EEG and event markers,
    we will add them as `inputs <Scripting#Inputs.html>`_. For visualization purposes, we will add an `output <Scripting#Outputs.html>`_
    called 'ERPs' and send the buffered ERPs to it whenever we have a new event marker.
 
