@@ -63,7 +63,7 @@ to see the EEG and event marker stream in real-time, synchronized as they were r
 
 .. note::
 
-    If at any time during the replay, it says 'Lost Connection to ...'. it means the replay has finished and the replay streams are closed. When this happens, simply restart the replay from the *Replay Tab* by clicking on *Start Replay* again.
+    If at any time during the replay, it says 'Lost Connection to ...', it means the replay has finished and the replay streams are closed. When this happens, simply restart the replay from the *Replay Tab* by clicking on *Start Replay* again.
 
 
 The event marker stream has one channel named *DTN* showing what type of stimulus is popping up for the participant. DTN stands
