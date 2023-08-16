@@ -1,6 +1,6 @@
 .. include:: .special.rst
 
-Welcome to PhysioLab\ :sup:`XR` documentation
+Welcome to the PhysioLab\ :sup:`XR` documentation
 #############################################
 
 *physiological and neuroimaging experiments, made easy*
@@ -12,15 +12,15 @@ Welcome to PhysioLab\ :sup:`XR` documentation
 +-----------------------------------------------+-----------------------------------------------+-----------------------------------------+--------------------------------------------------+
 
 
-PhysioLab\ :sup:`XR` is a pure Python application for running physiological experiment involving EEG, fNIRS, eyetracking, fMRI,
+PhysioLab\ :sup:`XR` is a pure Python application for running physiological experiments involving EEG, fNIRS, eyetracking, fMRI,
 audiovisual recording from cameras and microphones, and more!
-Tailored for academic researchers and industry practitioners, it supports multiple platforms (screen-based, VR, or AR)
-and offers real-time visualization, synchronization, recording, and data processing (i.e., apply filters and run machine
+Designed for both academic researchers and industry practitioners, it supports multiple platforms (screen-based, VR, or AR)
+and offers real-time visualization, synchronization, recording, and data processing (i.e., to apply filters and run machine
 learning models).
 
-You may easily integrate RenaLabApp into your data pipeline if
-they are already using `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_ or `ZMQ <https://zeromq.org/>`_
-to stream your data. Otherwise you are welcome to create your own data stream via the `Data Stream API <DataStreamAPI.html>`_.
+You can easily integrate PhysioLab\ :sup:`XR` into your data pipeline if
+you are already using `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_ or `ZMQ <https://zeromq.org/>`_
+to stream your data. Alternatively, you can create your own data stream via the `Data Stream API <DataStreamAPI.html>`_.
 
 |
 
@@ -40,12 +40,12 @@ Get Started with a Simple Example
 Event-related Potential with EEG
 --------------------------------
 
-We will replay a pre-recorded `EEG <https://en.wikipedia.org/wiki/Electroencephalography>`_
+In this example, we will replay a prerecorded `EEG <https://en.wikipedia.org/wiki/Electroencephalography>`_
 experiment of the `visual oddball paradigm <https://en.wikipedia.org/wiki/Oddball_paradigm>`_,
 and extract the `event-related potential (ERP) of the P300 response <https://en.wikipedia.org/wiki/Event-related_potential>`_.
 Download the example recording `erp-example.p from here (~4 MB) <https://drive.google.com/file/d/1E6wYPBUIpEIQfd5Bm38Z-LkJvao7-5Tx/view?usp=sharing>`_
 
-On launch PhysioLab\ :sup:`XR`, go to the `Replay Tab <Replay.html>`_ and load the example recording. The `streams <DataStreamAPI.html>`_ in the replayed
+After launching PhysioLab\ :sup:`XR`, go to the `Replay Tab <Replay.html>`_ and load the example recording. The `streams <DataStreamAPI.html>`_ in the replayed
 recording will be automatically added to the `Visualization Tab <Visualization.html>`_. There, you can click on the start buttons
 to see the EEG and event marker stream in real-time, synchronized as they were recorded during the experiment.
 
@@ -63,7 +63,7 @@ to see the EEG and event marker stream in real-time, synchronized as they were r
 
 .. note::
 
-    If any time during the replay, it says 'Lost Connection to ...'. It means the replay has finished and the replay streams are closed. When this happens, simply restart the replay from the *Replay Tab* by clicking on *Start Replay* again.
+    If at any time during the replay, it says 'Lost Connection to ...'. it means the replay has finished and the replay streams are closed. When this happens, simply restart the replay from the *Replay Tab* by clicking on *Start Replay* again.
 
 
 The event marker stream has one channel named *DTN* showing what type of stimulus is popping up for the participant. DTN stands
@@ -86,7 +86,7 @@ To add filters to the EEG stream:
 4. To add a second filter, select *ButterworthLowpassFilter*, click on *Add*, and set the *Cutoff* frequency to be 60 Hz.
 5. To activate the filters, click on the checkbox before the filters.
 
-The bubble before the filter will turn :green:`green`, meaning the filter is currently active. You will now able to zoom in to see
+The bubble before the filter will turn :green:`green`, meaning the filter is currently active. You will now able to zoom in to
 see the ERPs in the filtered EEG signals.
 
 .. raw:: html
@@ -98,7 +98,7 @@ see the ERPs in the filtered EEG signals.
         </video>
     </div>
 
-Now say we want to extract the ERP chunks from EEG. Maybe save them for classification later. We can do this by adding a
+Now, say we want to extract the ERP chunks from EEG, perhaps to save them for classification later. We can do this by adding a
 custom script.
 
 |
@@ -106,7 +106,7 @@ custom script.
 Adding a Custom Script to Extract EEG Signals
 ----------------------------------------------
 
-We will add a *script* that use the DTN stream as a trigger to extract the ERP chunks from the EEG stream (learn more about
+We will add a *script* that uses the DTN stream as a trigger to extract the ERP chunks from the EEG stream (learn more about
 `the scripting feature here <Scripting.html>`_). To do this:
 
 #. Go to the *scripting tab*, and click on *Add* to create a new script.
@@ -180,10 +180,10 @@ We will add a *script* that use the DTN stream as a trigger to extract the ERP c
 
     * In the *outputs pane*, type "ERPs". This is the stream name of the output. Hit enter or click add. In the output item that appears, change the number of output channels to 2, because we are plotting target and distractor ERPs separately.
 
-#. We will next add two parameters to control what's being plotted. You can values of the parameters while the script is running to see the effect of the changes.
+#. We will next add two parameters to control what's being plotted. You can plot the values of the parameters while the script is running to see the effect of the changes.
 
     * In the *parameters pane*, type *ChannelToPlot*, hit enter or click add. In the data type dropdown, change its data type
-      to str (string). Set its value to "FPz". This is the channel we will plot the ERPs from.
+      to str (string). Set its value to "FPz". This is the channel from which we will plot the ERPs.
     * Then type *PlotAverage*, hit enter or click add. We will leave the data type as bool (boolean). When it is set to true,
       the data sent to ERP will be the average of all the ERPs of the chosen channel. When it is set to false, the ERPs will
       plot the most recent ERP of the chosen channel.
@@ -204,7 +204,7 @@ We will add a *script* that use the DTN stream as a trigger to extract the ERP c
 6. Click on the *Play* button of the ERPs plot widget to start the data flow. You should see the ERPs of the chosen channel
    plotted in the visualization tab. The first channel (red) shows the distractor ERPs and the second channel (blue) shows the targets.
 
-Feel free to play around with the parameters to change the channel to plot to see the effect of the changes. You can also set the *PlotAverage* parameter
+Feel free to play around with the parameters to change the channel being plotted to see the effect of the changes. You can also set the *PlotAverage* parameter
 to true to check out the averaged ERPs for the target and distractor events. You can also choose one of the channels as they show up in the EEG plot in the *Visualization tab*.
 
 .. raw:: html
@@ -219,16 +219,16 @@ to true to check out the averaged ERPs for the target and distractor events. You
 Further Information
 -------------------
 
-Where can you take it from here? Check out the tutorial in building a P300 speller game, where you can spell words
-through an interface enabled by the classification of ERP signals.
+Where can you take it from here? Check out the tutorial on building a P300 speller game, where you can spell words
+through a user interface enabled by the classification of ERP signals.
 
-or,
+OR
 
-When you have additional sensors like an eyetracker, the pupil size it captures is also a helpful feature in classifying
+When you have an eyetracker, the pupil size it captures can be a helpful feature for classifying
 ERPs (more info `here <https://onlinelibrary.wiley.com/doi/full/10.1111/psyp.12378>`_). Take a look at
 `this guide <tutorials/BuildMultiModalClassifier.html>`_ on
 how to build a multimodal classifier with PhysioLab\ :sup:`XR`, and `this one <FixationDetection.html>`_ on how to create a real-time fixation detection algorithm
-to know where exactly the user's gaze is focused on.
+to know where exactly the user's gaze is focused.
 
 
 .. toctree::
