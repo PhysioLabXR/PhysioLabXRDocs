@@ -31,21 +31,45 @@ Let's take a closer look at what each column mean in this table:
 
 - *Data type*: The data type of the stream. This is determined by the data type you choose while recording.
 
-- *Stream interface*: The interface API to receive the stream. Currently, PhysioLab\ :sup:`XR` supports 2 interfaces: ``LSL`` and ``ZMQ``. This is not determined by the recording, you can
-  whatever interface you want to receive the stream. However, we recommend using ``ZMQ`` interface for streams with a lot of channels, like video streams.
+- *Stream interface*: The interface API to receive the stream. Currently, PhysioLab\ :sup:`XR` supports 2 interfaces: *LSL* and *ZMQ*. This is not determined by the recording, you can
+  whatever interface you want to receive the stream. However, we recommend using *ZMQ* interface for streams with a lot of channels, like video streams. When you select *ZMQ* interface,
+  a port number line edit will show up. You can edit whatever port number you want, but the port number must align with the port number you specified when you add the stream in the *stream tab*.
 
-- *Include in replay?*: This is the checkbox to indicate whether this stream will be included in the replay. You can uncheck this box to exclude the stream from the replay.
+.. note::
 
-3. Now, we can kick off the replay by clicking on the ``Start`` button. This will start the sender of the stream interface and take you back to the stream tab with a Playback window showing the
-progress bar of the replay. You can pause the replay by clicking on the ``Pause`` button and resume it by clicking on the ``Resume`` button. You can also drag the progress bar to
+    If the stream has not been add to the stream tab, PhysioLab\ :sup:`XR` will add it automatically when you start the replay with the port number you set. But if the stream is already present in the
+    stream tab and you set a different port number, you have to delete the stream and add it again to align the port number.
+
+- *Include in replay*: This is the checkbox to indicate whether this stream will be included in the replay. You can uncheck this box to exclude the stream from the replay.
+
+3. Now, we can kick off the replay by clicking on the **Start** button. This will start the sender of the stream interface and take you back to the stream tab with a Playback window showing the
+progress bar of the replay. You can pause the replay by clicking on the **Pause** button and resume it by clicking on the *Resume* button. You can also drag the progress bar to
 any position to jump to that position in the replay. In the stream tab, PhysioLab\ :sup:`XR` will add every stream that is not already in your stream tab as you specified in the replay tab automatically.
-However, if a stream is already in your stream tab, PhysioLab\ :sup:`XR` will not add it again nor update it with the settings you specified in replay tab. So keep in mind that yous should change the interface
+However, if a stream is already in your stream tab, PhysioLab\ :sup:`XR` will not add it again nor update it with the settings you specified in replay tab. So keep in mind that you should change the interface
 type manually, otherwise the stream will not be received.
 
-4. Click on the ``Start all`` button on the bottom left corner to start receive the stream and visualize it. You should see the EEG data and eye-tracking data stream. If the video stream is not
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/Replay1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+4. Click on the *Start all* button on the bottom left corner to start receive the stream and visualize it. You should see the EEG data and eye-tracking data stream. If the video stream is not
 showing correctly, you should first setup the video stream. Click on the :math:`\dots` button on the top right of *Example-Video*'s widget to bring up the *Options Window*. It should have
 already selected *Image* as the `plotting format <Stream.rst#plotting-formats>`_ because it has too many channels.
 Enter 400 for both *Height* and *Width* to match the video's resolution. Select *bgr* in the image dropdown. Finally,
 select *channel_first* in the *Channel format* dropdown. Return to *Stream Tab*, move your cursor to the lower left of the
 *Example-Video*'s plot, click the *[A]* button that shows up to have the plot auto-scale to fit the window.
 Now you should see the video from the participant's camera.
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/Replay2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
