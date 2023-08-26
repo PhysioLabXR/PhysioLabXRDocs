@@ -15,14 +15,20 @@ device. Generally, the decision for choosing the connection method goes like thi
 
 The following section covers the detailed steps for each method.
 
-Use LSL
+Using LSL
 -------------------
 
 Write your LSL Interface
 --------------------------
 
+Using ZMQ
+-------------------
+
 Write your ZMQ Interface
 --------------------------
+
+Choosing ZMQ ports
+~~~~~~~~~~~~~~~~~~
 
 Write your data worker class
 ---------------------------------
