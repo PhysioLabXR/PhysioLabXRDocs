@@ -18,9 +18,22 @@ In this example, we will replay a real experiment with three streams: EEG, eyetr
 un the `Fixation Detection Tutorial  <FixationDetection.html>`_, check it out if you want to learn how to detect `fixations <https://en.wikipedia.org/wiki/Fixation_(visual)>`_
 from eye-tracking data.
 
+
 1. First, we need recording file from PhysioLab\ :sup:`XR`. In this example, our experiment file is pickle format (read more about recording
 file formats `here <Recording.html#supported-file-formats>`_).
 To download the recording, click on `this link (~3.7 GB) <https://drive.google.com/file/d/1-1YCCO4by9xpYRrz17glX9llAeg__ftZ/view?usp=drive_link>`_.
+
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/Replay1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+
 
 2. Now open PhysioLab\ :sup:`XR` and navigate to the ``Replay`` tab. Click on the ``Browse`` button and select the downloaded file.
 Wait a few seconds for the replay server to load the file,
@@ -67,17 +80,6 @@ to jump to that position in the replay.
     At the start of replay, PhysioLab\ :sup:`XR` will automatically add the streams when you start the replay with the *stream interface* you have chosen. But if a stream is already added in the
     *Stream Tab* with a different networking interface, you will need to remove that stream and add it again with its network interface matching the one you selected in replay. If you are using ZMQ,
     you also have to make sure the port number is correct (read more about data stream API `here <DataStreamAPI.html#choosing-which-data-stream-api-to-use>`_).
-
-
-
-.. raw:: html
-
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-            <source src="_static/Replay1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
 
 
 4. Click on the *Start all* button on the bottom left corner to start receive the streams and plotting them. You should see the EEG data and eye-tracking data stream.
