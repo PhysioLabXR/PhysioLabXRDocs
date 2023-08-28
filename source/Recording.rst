@@ -82,7 +82,7 @@ Add the streams to be recorded
    :width: 20px
    :height: 20px
 
-1. In the main window, navigate to the **stream tab** |ico0| located in the main window. In the **Add Stream** widget,
+1. In the main window, navigate to the ``stream tab`` located in the main window. In the **Add Stream** widget,
 type in 'Dummy-8Chan', the name of the stream we created in the previous step. Press the **Add** button or
 press **Enter** on your keyboard to add the stream.
 
@@ -108,7 +108,7 @@ The current version only supports capturing the main display if multiple display
 2. In the same tab, you should see two stream widgets now 'Dummy-8Chan' and 'monitor 0'
 with some information about the streams. There's no start/stop button for the screen capturing because it's always on.
 You should see a :cyan:`cyan` bubble at the bottom of the 'Dummy-8Chan' widget, meaning this stream is available on the
-network. Press the **Start** button  |ico6| under 'Dummy-8Chan' stream to start receive
+network. Press the |ico6| button under 'Dummy-8Chan' stream to start receive
 the stream.
 
 .. note::
@@ -130,8 +130,8 @@ the stream.
 Record the data
 --------------------------------
 
-3. Now navigate to the **recording tab** |ico2| located on the upper left corner in the main window.
-(Optional) In the recording tab, click the **recording options** button |ico3| ,
+3. Now navigate to the ``recording tab`` located on the upper left corner in the main window.
+(Optional) In the recording tab, click the ``recording options`` button,
 you can modify the directory to which you want to store your data and the file format you want to store your data in.
 
 .. raw:: html
@@ -143,11 +143,12 @@ you can modify the directory to which you want to store your data and the file f
         </video>
     </div>
 
-4. Click **Start recording** button |ico4| , the app will start recording the streams. At the bottom right corner,
+4. Click ``Start recording`` button, the app will start recording the streams. At the bottom right corner,
 you can see the recording
 duration and file size as they increase.
 
-5. Click **Stop Recording** button |ico5| , the app will stop recording and store the recorded data to the path you specified.
+
+5. Click ``Stop Recording`` button, the app will stop recording and store the recorded data to the path you specified.
 
 .. raw:: html
 

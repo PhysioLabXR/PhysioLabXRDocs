@@ -8,7 +8,7 @@ if someone is staring at something or just gliding by.
 Read more about eyetracking and fixation detection `here <https://link.springer.com/article/10.3758/s13428-021-01762-8>`_.
 
 In this tutorial, we will learn how to create a pipeline in PhysioLab\ :sup:`XR` to detect
-fixations in real-time using one of the more popular algorithms: `dispersion-thresholding
+fixations in real-time using one of the most popular algorithms: `dispersion-thresholding
 fixation identification <https://dl.acm.org/doi/abs/10.1145/355017.355028>`_, or I-DT for short.
 
 .. raw:: html

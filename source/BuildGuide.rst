@@ -66,7 +66,7 @@ How to build an executable
 
 
 
-.. literalinclude:: build_configuration.json
+.. literalinclude:: _static/build_configuration.json
 
 3. Select appropriate output directory and script location, and click on the “Convert .Py to Exe” button.
 
