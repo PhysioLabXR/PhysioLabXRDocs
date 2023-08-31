@@ -98,40 +98,72 @@ How to build an executable
 
 1. Use pyinstaller library to build the executable
 
-There is a known issue with pyinstaller on MacOS. See details about this issue `here <https://github.com/pyinstaller/pyinstaller/issues/7789>`_. To build the app on MacOS, you will need to install pyinstaller from a develop version of pyinstaller. To do so, follow the steps below.
-
-   Install: ``PYINSTALLER_COMPILE_BOOTLOADER=1 pip install git+https://github.com/pyinstaller/pyinstaller.git@develop``
-
-2. Run this command in terminal at the root directory:
+There is a known issue with pyinstaller on MacOS working with ``PyQt >= 6.5``. See details about this issue `here <https://github.com/pyinstaller/pyinstaller/issues/7789>`_. To build the app on MacOS, you will need to install pyinstaller from a develop version of pyinstaller. To do so, run the following command in your terminal.
 
 .. raw:: html
 
    <div class="command-line">
-       <pre>
+        <pre>
            <code class="language-bash">
-               $ pyinstaller --noconfirm --onedir --console --add-data "Your/project/root/directory/rena/scripting:rena/scripting/" --add-data "Your/project/root/directory/media:media/" --add-data "Your/project/root/directory/Presets:Presets/" --paths "Your/project/root/directory/rena/arduino" --paths "Your/project/root/directory/rena/deprecated" --paths "Your/project/root/directory/rena/examples" --paths "Your/project/root/directory/rena/interfaces" --paths "Your/project/root/directory/rena/scripting" --paths "Your/project/root/directory/rena/sub_process" --paths "Your/project/root/directory/rena/threadings" --paths "Your/project/root/directory/rena/ui" --paths "Your/project/root/directory/rena/utils" --paths "Your/project/root/directory/rena" --add-data "Your/project/root/directory/ui:ui/"  "Your/project/root/directory/rena/PhysioLabXR.py"
+               PYINSTALLER_COMPILE_BOOTLOADER=1 pip install git+https://github.com/pyinstaller/pyinstaller.git@develop
            </code>
-       </pre>
+        </pre>
    </div>
 
-   <div class="user-input">
-       <input type="text" id="replacement-input" placeholder="Replace 'abcd'">
-       <button onclick="replaceText()">Replace</button>
-   </div>
+2. Complete the following command by typing in the input box with |userinput|. Then run this command in terminal at the root directory of your project.
+
+.. |userinput| raw:: html
+
+   <strong class="user-input">
+       <input type="text" id="replacement-input" placeholder="Your project root path" oninput="replaceText()">
+   </strong>
+
 
 .. raw:: html
+
+   <div class="command-line">
+        <pre>
+           <code class="language-bash">
+               pyinstaller --noconfirm --onedir --console --add-data "<span class="user-replace-text">ROOT_PATH</span>/rena/scripting:rena/scripting/" --add-data "<span class="user-replace-text">ROOT_PATH</span>/media:media/" --add-data "<span class="user-replace-text">ROOT_PATH</span>/Presets:Presets/" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/arduino" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/deprecated" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/examples" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/interfaces" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/scripting" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/sub_process" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/threadings" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/ui" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/utils" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena" --add-data "<span class="user-replace-text">ROOT_PATH</span>/ui:ui/"  "<span class="user-replace-text">ROOT_PATH</span>/rena/PhysioLabXR.py"
+           </code>
+        </pre>
+   </div>
+
+   <style>
+   .user-replace-text{
+       background-color: lightgray;
+       font-weight: bold;
+   }
+
+    .user-input {
+       display: flex;
+       align-items: center;
+       margin-bottom: 10px;
+   }
+
+   .user-input input[type="text"] {
+       padding: 6px;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+       font-size: 14px;
+   }
+
+   .highlighted-text {
+       background-color: yellow;
+       font-weight: bold;
+   }
+
+    </style>
 
    <script>
    function replaceText() {
        var replacement = document.getElementById("replacement-input").value;
-       var codeBlocks = document.querySelectorAll('.language-bash');
+       var codeBlocks = document.querySelectorAll('.user-replace-text');
        codeBlocks.forEach(function(block) {
-           block.textContent = block.textContent.replace(/abcd/g, replacement);
+           block.textContent = replacement;
        });
    }
    </script>
 
-   Once run, the following looking window will be opened.
+   Once run, a ``build`` and a ``disk`` folder will be generated in the root path. The stand alone app is in the ``disk/PhysioLabXR`` folder.
 
-   .. image:: media/auto_py_to_exe.png
-      :width: 540px
