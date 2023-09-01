@@ -1,7 +1,7 @@
 .. include:: .special.rst
 
 Welcome to the PhysioLab\ :sup:`XR` documentation
-#############################################
+#####################################################
 
 *physiological and neuroimaging experiments, made easy*
 *******************************************************
@@ -26,7 +26,7 @@ to stream your data. You can also create your own data stream via the `Data Stre
 
 Download
 ********
-Get the latest release of PhysioLab\ :sup:`XR` `here <https://github.com/ApocalyVec/PhysioLabXR/releases>`_.
+Get the latest release of PhysioLab\ :sup:`XR` from the `release page <https://github.com/ApocalyVec/PhysioLabXR/releases>`_.
 For the stable version, use `v0.1.0-beta <https://github.com/ApocalyVec/PhysioLabXR/tree/refs/tags/v0.1.0-beta>`_. The packaged release supports Windows, MacOS, and Linux.
 
 Alternatively, you can run the application from its source. Refer to *Run from Source* in the `developer page <Developer.html>`_ for instructions.
@@ -233,26 +233,41 @@ to know where exactly the user's gaze is focused.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Other topics:
+    :caption: Features:
 
+    DataStreamAPI
     Visualization
     Recording
     Replay
     Scripting
     DSP
-    SupportedSensors
-    Developer
-    Stream
-    DataStreamAPI
     ViewInMatlab
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Tutorials:
+
+    FixationDetection
+    PsychoPy
     technical_notes/About-erp-example
     technical_notes/About-fp-example
     technical_notes/ZMQInterface
     tutorials/BuildMultiModalClassifier
-    FixationDetection
-    PsychoPy
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Develop and others:
+
     BuildGuide
-    ContributeToThisDoc
+    Contribute
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Others:
+
+    Releases
     LICENSE
 
 

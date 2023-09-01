@@ -1,6 +1,6 @@
-**********
+############
 Replaying
-**********
+############
 
 PhysioLab\ :sup:`XR`'s replay feature enables users to play back data streams from past experiments.
 
@@ -82,7 +82,8 @@ to jump to that position in the replay.
     you also have to make sure the port number is correct (read more about data stream API `here <DataStreamAPI.html#choosing-which-data-stream-api-to-use>`_).
 
 
-4. Click on the *Start all* button on the bottom left corner to start receive the streams and plotting them. You should see the EEG data and eye-tracking data stream.
+4. Click on the *Start all* button on the bottom left corner to start receive the streams and plotting them.
+You should see the EEG data and eye-tracking data stream.
 
 
 5. The video stream won't show without setting its display properties.
