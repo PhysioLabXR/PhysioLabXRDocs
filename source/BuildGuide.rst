@@ -1,7 +1,10 @@
-***********************************
-RenaLabApp Build Documentation
-***********************************
-This is a guide for building an executable for RenaLabApp and using it.
+###################################
+Build PhysioLabXR
+###################################
+
+In this guide, you will learn how to build PhysioLab\ :sup:`XR` from source code.
+You can build PhysioLabXR on Windows, MacOS, and Linux.
+
 
 
 Windows
