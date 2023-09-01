@@ -62,6 +62,22 @@ Audio Input Devices
 
 # TODO @John: add a section on how to use audio input devices and video showing its options, and how to add.
 
+Similar to the the video input devices, the system will automatically detect the audio input devices connected to your PC and you can find them in the list  **Add Widget** drop down menu by their names (e.g. `Microsoft Sound Mapper - Input`).
+To add an audio device to your experiment:
+
+1. Click on the drop down button of the **Add Widget**  and select the audio device you want to add.
+2. The audio device settings will show up in the **Widget Settings** panel.
+3. Set the *sampling frequency*, *frame/buffer*, and *data format* of the audio device.
+4. Click on **Add** button to add the audio device to your experiment.
+5. Set the nominal sampling frequency of the experiment in the **Experiment Settings** panel for visualization.
+
+.. note::
+
+    The Audio Input Device Widget inherits all the functionalities of basic Stream Widget. You can refresh the list of available audio devices by clicking on the Reload Audio Devices button in the Settings panel.
+
+
+
+
 Screen Capture
 ----------------
 
