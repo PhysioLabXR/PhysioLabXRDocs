@@ -13,7 +13,7 @@ over time. PhysioLab\ :sup:`XR` has the following hooks to connect to data sourc
    `OpenBCI devices <openbci.com>`_, users can write their own data source script and connect it to PhysioLab\ :sup:`XR`
     through the scripting interface. `More information here <DataStreamAPI.html#write-your-data-source-script>`_.
 #. **Video and audio devices**: for devices recognized by the OS as webcams or microphones, they will automatically
-   appear on the list of devices available to stream in PhysioLab\ :sup:`XR`.
+   appear on the list of devices available to stream in PhysioLab\ :sup:`XR`.　`More information here <DataStreamAPI.html#using-video-and-audio-devices>`_.
 
 
 Using LSL
@@ -49,5 +49,29 @@ Write your data source script
 ********************************
 
 
-Using Video and Audio Devices
-********************************
+Using Video, Audio Input Devices, and Screen Capture
+******************************************************
+
+Video and audio input devices recognize by your OS are automatically detected and can be used as data sources.
+
+Video Devices
+----------------
+
+Audio Input Devices
+--------------------
+
+# TODO @John: add a section on how to use audio input devices and video showing its options, and how to add.
+
+Screen Capture
+----------------
+
+
+Refresh the list of devices
+------------------------------
+
+If you have connected a new device, you can refresh the list of devices by going to ``File > Settings > Video Device``,
+and click ``Reload Video Devices``. Similarly, you can refresh the list of audio devices by going to
+``File > Settings > Audio Device``, and click ``Reload Audio Devices``.
+
+If your device is recognized by the OS, but not by PhysioLab\ :sup:`XR` and the data is not streamed correctly. Please
+submit an issue `here <https://github.com/PhysioLabXR/PhysioLabXR/issues>`_.
