@@ -3,7 +3,7 @@ Scripting
 ###################################
 
 The scripting interface, or RenaScript, is one of the most extensible features PhysioLabXR offers.
-It empowers researchers to run user-defined Python scripts, providing full agency for creating and deploying custom data processing pipelines.
+It empowers researchers to run user-defined Python scripts (Python is the only language supported right now), providing full agency for creating and deploying custom data processing pipelines.
 With Python's versatility and vast array of fast-growing open-source libraries, users are encouraged to
 creatively explore and experiment with novel applications such as close-loop neurofeedback.
 Users can implement DSP algorithms, run ML models with real-time data streams,
@@ -27,7 +27,7 @@ First, make sure you have the following packages installed in your Python enviro
 You can install them with ``pip install pylsl numpy``, or if you use a conda environment, you can install them with
 ``conda install -c conda-forge pylsl numpy``.
 
-We will create a dummy stream to record. Create a new python file, put in the following snippet.
+1. We will create a dummy stream to record. Create a new python file, put in the following snippet.
 
 .. literalinclude:: LSLExampleOutlet.py
     :language: python
@@ -37,6 +37,18 @@ We will create a dummy stream to record. Create a new python file, put in the fo
 Now run the script in your terminal with a command like ``python LSLExampleOutlet.py``. The script will start an LSL
 stream with stream name 'Dummy-8Chan' and stream type 'EEG'. The stream will generate random data with 8 channels and
 a sampling rate of 250 Hz. The stream will keep running until you stop the script.
+
+2. Now we will create a new python script to process out Dummy stream. Go to ``Scripting`` tab and click on the ``Add`` button.
+A script widget containing some informations of the script should show up. It should look like this:
+
+.. image:: media/scriptingtab.png
+    :width: 1080
+
+Let's take a closer look at what each part does:
+
+- *Script Name*: The path of your script file on the system. You don't have to manually type in the path. To create a new script,
+click on the create button beside and specify the path and the name of the script file. Then click save.
+
 
 Module B
 --------
