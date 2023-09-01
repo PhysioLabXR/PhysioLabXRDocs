@@ -93,12 +93,14 @@ The executable is named “main” in this example, but it will have different n
 MacOS
 ***********************************
 
+
 How to build an executable
 ################################
 
-1. Use pyinstaller library to build the executable
 
-There is a known issue with pyinstaller on MacOS working with ``PyQt >= 6.5``. See details about this issue `here <https://github.com/pyinstaller/pyinstaller/issues/7789>`_. To build the app on MacOS, you will need to install pyinstaller from a develop version of pyinstaller. To do so, run the following command in your terminal.
+#. Use pyinstaller library to build the executable
+
+   There is a known issue with pyinstaller on MacOS working with ``PyQt >= 6.5``. See details about this issue `here <https://github.com/pyinstaller/pyinstaller/issues/7789>`_. To build the app on MacOS, you will need to install pyinstaller from a develop version of pyinstaller. To do so, run the following command in your terminal.
 
 .. raw:: html
 
@@ -110,13 +112,26 @@ There is a known issue with pyinstaller on MacOS working with ``PyQt >= 6.5``. S
         </pre>
    </div>
 
-2. Complete the following command by typing in the input box with |userinput|. Then run this command in terminal at the root directory of your project.
 
-.. |userinput| raw:: html
+.. raw:: html
 
-   <strong class="user-input">
-       <input type="text" id="replacement-input" placeholder="Your project root path" oninput="replaceText()">
-   </strong>
+   <div class="indented-block">
+            <p>
+                2. Complete the following command by typing in the input box with
+                <strong class="user-input">
+                    <input type="text" id="replacement-input" placeholder="Your project root path" oninput="replaceText()">
+                </strong>
+                . Then run this command in terminal at the root directory of your project.
+            </p>
+   </div>
+
+   <style>
+        .indented-block {
+            margin-left: 20px; /* Adjust the value to control the indentation */
+        }
+   </style>
+
+
 
 
 .. raw:: html
@@ -133,12 +148,6 @@ There is a known issue with pyinstaller on MacOS working with ``PyQt >= 6.5``. S
    .user-replace-text{
        background-color: lightgray;
        font-weight: bold;
-   }
-
-    .user-input {
-       display: flex;
-       align-items: center;
-       margin-bottom: 10px;
    }
 
    .user-input input[type="text"] {
@@ -159,7 +168,11 @@ There is a known issue with pyinstaller on MacOS working with ``PyQt >= 6.5``. S
    function replaceText() {
        var replacement = document.getElementById("replacement-input").value;
        var codeBlocks = document.querySelectorAll('.user-replace-text');
+        if (replacement == "") {
+            replacement = "ROOT_PATH";
+        }
        codeBlocks.forEach(function(block) {
+
            block.textContent = replacement;
        });
    }
