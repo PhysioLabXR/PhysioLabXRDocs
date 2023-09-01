@@ -71,10 +71,19 @@ To add an audio device to your experiment:
 4. Click on **Add** button to add the audio device to your experiment.
 5. Set the nominal sampling frequency of the experiment in the **Experiment Settings** panel for visualization.
 
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/datastreamapi-audio-interface.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+
 .. note::
 
     The Audio Input Device Widget inherits all the functionalities of basic Stream Widget. You can refresh the list of available audio devices by clicking on the Reload Audio Devices button in the Settings panel.
-
 
 
 
