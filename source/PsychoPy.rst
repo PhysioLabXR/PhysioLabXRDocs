@@ -815,21 +815,4 @@ The anova is performed by:
               plt.title("ANOVA on average Channel {0}".format(pi))
               plt.show()
 
-===================
-Further Information
-===================
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Contents:
-
-   Recording
-   Replay
-   Scripting
-   SupportedSensors
-   Developer
-   Stream
-   ViewInMatlab
-   ContributeToThisDoc
-   LICENSE
 
