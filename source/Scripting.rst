@@ -59,7 +59,7 @@ Let's take a closer look at what each component does:
 
 - *Parameters Pane*: Where you can initiate variables that the user wishes to alter during runtime or variables that depend on the host computer (e.g., the path to a pre-trained ML model) when the researcher wants to avoid hardcoding these variables into the script. You can define parameters by their names, data type, and values. Then throughout the script, parameters are accessible using its name: ``self.params[my_parameter_name]``. Changes to parameter values will be reflected immediately in real time while the scripting is running.
 
-- *Console Log*: The button to bring put console log
+- *Console Log*: The button to bring up console log
 
 - *Run/Stop/Kill*: The button to run the script, it will change into stop when the script starts to run. When stop is clicked, the button will changed to kill, so you can kill the process manually if it's not closed automatically.
 
