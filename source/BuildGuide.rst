@@ -181,5 +181,5 @@ How to build an executable
    }
    </script>
 
-   Once run, a ``build`` and a ``disk`` folder will be generated in the root path. The stand alone app is in the ``disk/PhysioLabXR`` folder.
+Once run, a ``build`` and a ``disk`` folder will be generated in the root path. The stand alone app is in the ``disk/PhysioLabXR`` folder.
 
