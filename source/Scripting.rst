@@ -160,5 +160,10 @@ Run the script
 
 After you finish writing the script, go back to the ``scripting`` tab, type *Dummy-8Chan* in the input stream box, and click the add button. Then type *Dummy-8Chan-add-X* in the output stream box, and click the add button. Now you should see the input stream and output stream in the input and output pane respectively. You can also add parameters in the parameters pane. In this example, we will add a parameter called *x* with data type *float* and default value *0*. Now you can click the run button and see the output stream in the stream tab. Change the parameter value and you will see the output stream change accordingly.
 
+More Examples
+*************
+
+If you want to see more examples building real world applications, please refer to `FixationDetection <FixationDetection.html>`_
+
 APIs
 --------
