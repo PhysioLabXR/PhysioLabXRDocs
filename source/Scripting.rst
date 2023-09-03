@@ -117,7 +117,7 @@ In this example, we will only be writing the loop function.
     input_data = self.inputs.get_data('Dummy-8Chan')
     print(input_data)
     print('Loop function is called')
-    self.outputs['Dummy-8Chan-add-X'] = input_data - self.params['x']
+    self.outputs['Dummy-8Chan-add-X'] = input_data + self.params['x']
 
 The final script should look like this:
 
@@ -150,7 +150,7 @@ The final script should look like this:
                 input_data = self.inputs.get_data('Dummy-8Chan')
                 print(input_data)
                 print('Loop function is called')
-                self.outputs['Dummy-8Chan-add-X'] = input_data - self.params['x']
+                self.outputs['Dummy-8Chan-add-X'] = input_data + self.params['x']
 
             self.inputs.clear_buffer()
 
