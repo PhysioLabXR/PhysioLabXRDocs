@@ -114,10 +114,11 @@ In this example, we will only be writing the loop function.
 .. code-block:: python
 
     if 'Dummy-8Chan' in self.inputs.buffer.keys() :
-    input_data = self.inputs.get_data('Dummy-8Chan')
-    print(input_data)
-    print('Loop function is called')
-    self.outputs['Dummy-8Chan-add-X'] = input_data + self.params['x']
+        input_data = self.inputs.get_data('Dummy-8Chan')
+        print(input_data)
+        print('Loop function is called')
+        self.outputs['Dummy-8Chan-add-X'] = input_data + self.params['x']
+        self.inputs.clear_buffer()
 
 The final script should look like this:
 
@@ -143,16 +144,12 @@ The final script should look like this:
         # loop is called <Run Frequency> times per second
         def loop(self):
 
-            if 'Dummy-8Chan' not in self.inputs.buffer.keys() :
-                return
-
             if 'Dummy-8Chan' in self.inputs.buffer.keys() :
                 input_data = self.inputs.get_data('Dummy-8Chan')
                 print(input_data)
                 print('Loop function is called')
                 self.outputs['Dummy-8Chan-add-X'] = input_data + self.params['x']
-
-            self.inputs.clear_buffer()
+                self.inputs.clear_buffer()
 
         # cleanup is called when the stop button is hit
         def cleanup(self):
