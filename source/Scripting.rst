@@ -28,7 +28,10 @@ First, make sure you have the following packages installed in your Python enviro
 You can install them with ``pip install pylsl numpy``, or if you use a conda environment, you can install them with
 ``conda install -c conda-forge pylsl numpy``.
 
-1. We will create a dummy stream to record. Create a new python file, put in the following snippet.
+Create Stream
+************
+
+We will create a dummy stream to record. Create a new python file, put in the following snippet.
 
 .. literalinclude:: LSLExampleOutlet.py
     :language: python
@@ -39,7 +42,10 @@ Now run the script in your terminal with a command like ``python LSLExampleOutle
 stream with stream name 'Dummy-8Chan' and stream type 'EEG'. The stream will generate random data with 8 channels and
 a sampling rate of 250 Hz. The stream will keep running until you stop the script.
 
-2. Now we will create a new python script to process out Dummy stream. Go to ``Scripting`` tab and click on the ``Add`` button.
+Create Script
+************
+
+Now we will create a new python script to process out Dummy stream. Go to ``Scripting`` tab and click on the ``Add`` button.
 A script widget containing some informations of the script should show up. It should look like this:
 
 .. image:: media/scriptingtab.png
@@ -69,22 +75,93 @@ Let's take a closer look at what each component does:
 
 - *Average loop call runtime*: The average runtime of a loop.
 
-Module B
+After you create the script file, it's time to write the script. Let's start with a simple script that just add a constant value to the input.
+Open the script file and you should see a template like this:
+
+.. literalinclude:: BaseRenaScript.py
+    :language: python
+    :linenos:
+    :lines: 1-100
+
+- *init*: init is called once when the start button in the widget is clicked. This function is intended for the user to instantiate objects to be used later in the primary duty-cycle function: loop. Users may add routines such as defining variables, loading pre-trained parameters for an ML model from the file system, and connecting with servers and cloud platforms.
+
+- *loop*: After init concludes, *loop* function will be called at *run frequency* is presumably the most often called function and uses the most processor time to continuously process input data and communicate with other processes via the outputs. At the same time, the user can tune the behavior by modifying the parameters.
+
+- *cleanup*:  The cleanup is called when the stop button is clicked. Here, the user may free occupied memory, disconnect hardware ports and close any opened file system resources.
+
+In this example, we will only be writing the loop function.
+
+1. we retrive the input data from the input buffer:
+
+.. code-block:: python
+
+    input_data = self.inputs.get_data('Dummy-8Chan')
+
+2. we add a constant value to the input data as a parameter that is tunable during runtime, and assign the output data to the output stream:
+
+.. code-block:: python
+
+    self.outputs['Dummy-8Chan-add-X'] = input_data - self.params['x']
+
+3. clean up the buffer by calling the clear_buffer API function:
+
+.. code-block:: python
+
+    self.inputs.clear_buffer()
+
+4. The clear_buffer function will not only clear the data (which is a value of a dict in the buffer), but also delete the stream key from the input buffer. So in every loop, we need to check if the stream is still in the buffer. If not, we will return until the stream is received again:
+
+.. code-block:: python
+
+    if 'Dummy-8Chan' in self.inputs.buffer.keys() :
+    input_data = self.inputs.get_data('Dummy-8Chan')
+    print(input_data)
+    print('Loop function is called')
+    self.outputs['Dummy-8Chan-add-X'] = input_data - self.params['x']
+
+The final script should look like this:
+
+.. code-block:: python
+
+    import numpy as np
+
+    from rena.scripting.RenaScript import RenaScript
+
+
+    class ScriptName(RenaScript):
+        def __init__(self, *args, **kwargs):
+            """
+            Please do not edit this function
+            """
+            super().__init__(*args, **kwargs)
+
+        # Start will be called once when the run button is hit.
+        def init(self):
+            print('Init function is called')
+            pass
+
+        # loop is called <Run Frequency> times per second
+        def loop(self):
+
+            if 'Dummy-8Chan' not in self.inputs.buffer.keys() :
+                return
+
+            if 'Dummy-8Chan' in self.inputs.buffer.keys() :
+                input_data = self.inputs.get_data('Dummy-8Chan')
+                print(input_data)
+                print('Loop function is called')
+                self.outputs['Dummy-8Chan-add-X'] = input_data - self.params['x']
+
+            self.inputs.clear_buffer()
+
+        # cleanup is called when the stop button is hit
+        def cleanup(self):
+            print('Cleanup function is called')
+
+Run the script
+**************
+
+After you finish writing the script, go back to the ``scripting`` tab, type *Dummy-8Chan* in the input stream box, and click the add button. Then type *Dummy-8Chan-add-X* in the output stream box, and click the add button. Now you should see the input stream and output stream in the input and output pane respectively. You can also add parameters in the parameters pane. In this example, we will add a parameter called *x* with data type *float* and default value *0*. Now you can click the run button and see the output stream in the stream tab. Change the parameter value and you will see the output stream change accordingly.
+
+APIs
 --------
-
-.. automodule:: module_b
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
-Inputs
-******
-
-
-Outputs
-*******
-
-
-Install Packages in the Scripting Environment
-**********************************************
