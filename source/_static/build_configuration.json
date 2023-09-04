@@ -7,7 +7,7 @@
   },
   {
    "optionDest": "filenames",
-   "value": "<Your/Project/Root/Path>/rena/PhysioLabXR.py"
+   "value": "<Your/Project/Root/Path>/physiolabxr/PhysioLabXR.py"
   },
   {
    "optionDest": "onefile",
@@ -66,64 +66,60 @@
    "value": false
   },
   {
-   "optionDest": "binaries",
-   "value": "<Your/Project/Root/Path>/venv/Lib/site-packages/pylsl/lib/lsl.dll;pylsl/lib"
+   "optionDest": "datas",
+   "value": "<Your/Project/Root/Path>/physiolabxr/scripting:physiolabxr/scripting/"
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/rena/scripting;rena/scripting/"
+   "value": "<Your/Project/Root/Path>/physiolabxr/_media:physiolabxr/_media/"
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/media;media/"
+   "value": "<Your/Project/Root/Path>/physiolabxr/presets:physiolabxr/_presets/"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/physiolabxr/arduino"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/physiolabxr/deprecated"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/physiolabxr/examples"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/physiolabxr/interfaces"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/physiolabxr/scripting"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/physiolabxr/sub_process"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/physiolabxr/threadings"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/physiolabxr/_ui"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/physiolabxr/utils"
+  },
+  {
+   "optionDest": "pathex",
+   "value": "<Your/Project/Root/Path>/physiolabxr"
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/Presets;Presets/"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/arduino"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/deprecated"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/examples"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/interfaces"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/scripting"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/sub_process"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/threadings"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/ui"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena/utils"
-  },
-  {
-   "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/rena"
-  },
-  {
-   "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/ui;ui/"
+   "value": "<Your/Project/Root/Path>/physiolabxr/_ui:physiolabxr/_ui/"
   }
  ],
  "nonPyinstallerOptions": {
