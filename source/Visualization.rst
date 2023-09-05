@@ -5,12 +5,16 @@ Visualization
 Visualization is an essential aspect of data handling software,
 and PhysioLab\ :sup:`XR` follows this convention. The primary entry point of PhysioLab\ :sup:`XR` is its ``stream tab``,
 where users can connect to data sources by specifying the required parameters for each stream type (e.g., stream name for LSL streams,
-as seen in section `LabStreamingLayer (LSL) <DataStreamAPI.html#use-lsl>`_). Once added, the streams' widgets are displayed in the ``stream tab``,
-where users to customize their visualization settings. Next, we will cover several UI features to make the data visualization more accessible to the user.
+as seen in section `LabStreamingLayer (LSL) <DataStreamAPI.html#use-lsl>`_). Once added, the **StreamWidget** is displayed in the ``stream tab``,
+where users to customize their visualization.
 
+.. note::
+    The **StreamWidget** will check if the number of channels in the settings matches the number of channels received from the network, and the
+    system will ask for confirmation if the user want to reset the settings to match the number of channels received from the network. This operation will reset all the
+    settings to default, and the user will need to reconfigure the settings.
 
-PhysioLab\ :sup:`XR`'s visualization module is built on top of `PyQt6 <https://www.riverbankcomputing.com/static/Docs/PyQt6/>`_ and
-`PyQtGraph <https://pyqtgraph.readthedocs.io/en/latest/>`_ The system allows
+Grouping and Separating Channels
+--------------------------------
 
 
 
