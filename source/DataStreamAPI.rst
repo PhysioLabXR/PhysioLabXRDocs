@@ -64,10 +64,12 @@ Similar to the the video input devices, PhysioLab\ :sup:`XR` automatically detec
 connected to your computer. Their name will be listed in the ``Add Stream dropdown``.
 To add an audio input stream:
 
-1. Click on the drop down of **Add Stream**  and select the audio device you want to add.
-2. Once selected, a few new options settings will show up on the right of the dropdown.
-3. Set the *sampling frequency*, *frame/buffer*, and *data format* of the audio device.
-4. Click on **Add** button.
+#. Click on the drop down of **Add Stream**  and select the audio device you want to add.
+#. Once selected, a few new options settings will show up on the right of the dropdown.
+#. Set the *sampling rate* (default: 8192), *frame/buffer* (default: 128), and *data type* (default: paInt16) of the audio device.
+    Please refer to the `PyAudio documentation <https://people.csail.mit.edu/hubert/pyaudio/docs/>`_ for more information about those parameters.
+#. Click on **Add** button.
+
 
 .. raw:: html
 
