@@ -117,8 +117,8 @@ We will add a *script* that uses the DTN stream as a trigger to extract the ERP 
 
         import numpy as np
 
-        from rena.scripting.RenaScript import RenaScript
-        from rena.scripting.physio.epochs import get_event_locked_data, buffer_event_locked_data, get_baselined_event_locked_data
+        from physiolabxr.scripting.RenaScript import RenaScript
+        from physiolabxr.scripting.physio.epochs import get_event_locked_data, buffer_event_locked_data, get_baselined_event_locked_data
 
 
         class ERPExtraction(RenaScript):

@@ -182,7 +182,7 @@ You can use the load functions from PhysioLab\ :sup:`XR`, first install the pip 
 And simply import the load function, here is an example
 .. code-block:: python
 
-    from PhysioLabXR.rena.user_utils import stream_in
+    from physiolabxr.utils.user_utils import stream_in
 
     data = stream_in('path/to/dats/file')
 
