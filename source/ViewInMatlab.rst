@@ -9,8 +9,8 @@ environment to help isolate different packages needed for different projects. Mi
 good tool for managing virtual environment. We will use it here.
 
 - Install MiniConda_ if it not installed in your system.
-- Create_ a new conda environment with the command `conda create --name rena`.
-- Activate the conda env using the command `conda activate rena`
+- Create_ a new conda environment with the command `conda create --name physiolabxr`.
+- Activate the conda env using the command `conda activate physiolabxr`
 - Install the required packages using the command `pip install -r requirements.txt`
 - Run the script ParseRNStreamToMatlab.py with 2 arguments - dats file path and the output directory::
 

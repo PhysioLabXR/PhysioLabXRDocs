@@ -2,6 +2,57 @@
 Visualization
 ***************
 
+Visualization is an essential aspect of data handling software,
+and PhysioLab\ :sup:`XR` follows this convention. The primary entry point of PhysioLab\ :sup:`XR` is its ``stream tab``,
+where users can connect to data sources by specifying the required parameters for each stream type (e.g., stream name for LSL streams,
+as seen in section `LabStreamingLayer (LSL) <DataStreamAPI.html#use-lsl>`_). Once added, the **StreamWidget** is displayed in the ``stream tab``,
+where users to customize their visualization.
+
+.. note::
+    The **StreamWidget** will check if the number of channels in the settings matches the number of channels received from the network, and the
+    system will ask for confirmation if the user want to reset the settings to match the number of channels received from the network. This operation will reset all the
+    settings to default, and the user will need to reconfigure the settings.
+
+Grouping and Separating Channels
+--------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 On launching, the landing page of the RenaLabApp is:
 
