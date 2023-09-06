@@ -39,6 +39,11 @@ Visualization Format:
 There are four types of visualization formats in PhysioLab\ :sup:`XR`, and they are all supported by the **LSLWidget**, **ZMQWidget**, and **AudioInputDeviceWidget**:
 User can select the visualization format for each individual plotting group by clicking on the tab with the corresponding plotting format or specify them in the `options window`.
 
+.. note::
+    The **LSLWidget** and **ZMQWidget** will check if the number of channels on visualization matches the number of channels received from the network when user click on the `add` button,
+    and the system will ask for confirmation if the user want to reset the settings to match the number of channels received from the network. This operation will reset all the
+    settings to default, and the user will need to reconfigure the settings.
+
 
 
 Line Chart
@@ -51,6 +56,16 @@ researcher is interested in observing changes in amplitude over a period.
  Configurable Parameters:
     - *Nominal Sampling Rate (Int)*: The nominal sampling rate of the stream. This parameter is used to calculate the x-axis scale.
     - *Seconds of Data to Display(Int)*: The number of seconds of data to display on the plot. This parameter is used to calculate the x-axis scale.
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video4" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/Visualization-LineChart.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
 
 
 
@@ -72,8 +87,17 @@ Width x Height x Color Channels = Number of channels in the group. For example, 
 the number of channels in the group is 50 x 60 x 3 = 900,
 and the Width is 50, the Height is 60, and the Image format should be RGB.
 
+.. raw:: html
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video5" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/Visualization-Image.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
 .. note::
-    The stream with channel number larger than 1024 will be plotted as image only due to the performance issue.
+    The stream with channel number larger than 1024 will be plotted as image only due to the performance issue, and other formats will be disabled.
     Plotting large number of channels as other formats will cause the application to freeze.
     We highly recommend using the ZMQ stream for image visualization because the LSL stream is
     not optimized for transmitting data with large channel number.
@@ -91,6 +115,14 @@ with each class's probability represented by a distinct bar.
     - *Plot Range Min (Float)*: The minimum value of the y-axis.
     - *Plot Range Max (Float)*: The maximum value of the y-axis.
 
+.. raw:: html
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video6" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/Visualization-BarChart.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
 
 
 Spectrogram
@@ -101,6 +133,8 @@ They are commonly employed in the analysis of EEG and audio data.
 Researchers can leverage PhysioLab\ :sup:`XR` spectrogram visualization to gain insights into the frequency components and their changes across time.
 
   Configurable Parameters:
+    - *Nominal Sampling Rate (Int)*: The nominal sampling rate of the stream. This parameter is used to calculate the x-axis scale.
+    - *Seconds of Data to Display(Int)*: The number of seconds of data to display on the plot. This parameter is used to calculate the x-axis scale.
     - *Time per segment (Seconds in float)*: The window size of the STFT in seconds.
     - *Overlap between segment (Seconds in float)*: The overlap between each window in seconds.
     - *Color map (Enum)*: The color map of the spectrogram. (e.g., GRAY, VIRIDIS, etc.)) Please refer to `matplotlib color map <https://matplotlib.org/stable/tutorials/colors/colormaps.html>`_ for more information.
@@ -108,17 +142,14 @@ Researchers can leverage PhysioLab\ :sup:`XR` spectrogram visualization to gain 
     - *Spectrogram Display Max Percentile (Int)*: The maximum percentile of the displayed frequency.
 
 
+.. raw:: html
 
-
-
-
-.. note::
-    The **LSLWidget** and **ZMQWidget** will check if the number of channels on visualization matches the number of channels received from the network when user click on the `add` button,
-    and the system will ask for confirmation if the user want to reset the settings to match the number of channels received from the network. This operation will reset all the
-    settings to default, and the user will need to reconfigure the settings.
-
-
-
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video7" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/Visualization-Spectrogram.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
 
 
 
@@ -139,12 +170,45 @@ Furthermore, the user have the flexibility to hide specific groups or channels f
 reducing clutter and optimizing the plotting area.
 
 
+.. raw:: html
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video6" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/Visualization-GroupingAndSeparatingChannels.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+
+
+
 .. note::
     You cannot modify the channel name and group name in the image format group.
     To modify the channel name and group name, you need to switch to other plotting format first.
 
+Organizing Multiple Streams
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+PhysioLab\ :sup:`XR` is designed to cater to experiments that involve multiple data sources,
+aligning with the demands of modern neuroscience and HCI research.
+While the software can also be utilized for single data source experiments,
+many of its features truly shine when handling multiple streams concurrently,
+such as EEG with eyetracking and video with audio.
+To help researchers inspect multiple streams simultaneously,
+RenaLabApp offers a convenient feature:
+each stream's plotting widget can be popped out as a separate window from the main interface.
 
 
+
+TODO: Remove this
+
+Figure \ref{fig:viz demo screenshot} (a) shows an example where four streams are organized in a tiled layout.
+Moreover, RenaLabApp is designed to scale when researchers opt to use large display and multi-monitor setups,
+as shown in the triple screen setup depicted in figure \ref{fig:nidyn experiment}
+for a neuroscience experiment use case).
+Such configuration is particularly advantageous for experiments involving a substantial number of input feeds.
+Researchers can personalize the arrangement of stream widgets by detaching them from RenaLabApp's
+main window and positioning them across different screen areas according to
+their specific needs for visually inspecting each data source.
 
 
 
