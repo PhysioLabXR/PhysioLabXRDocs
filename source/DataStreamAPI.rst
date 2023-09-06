@@ -193,7 +193,7 @@ To add an audio input stream:
 #. Click on the drop down of **Add Stream**  and select the audio device you want to add.
 #. Once selected, a few new options settings will show up on the right of the dropdown.
 #. Set the *sampling rate* (default: 8192), *frame/buffer* (default: 128), and *data type* (default: paInt16) of the audio device.
-    Please refer to the `PyAudio documentation <https://people.csail.mit.edu/hubert/pyaudio/docs/>`_ for more information about those parameters.
+    - Please refer to the `PyAudio documentation <https://people.csail.mit.edu/hubert/pyaudio/docs/>`_ for more information about those parameters.
 #. Click on **Add** button.
 
 
