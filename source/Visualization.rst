@@ -170,6 +170,18 @@ Furthermore, the user have the flexibility to hide specific groups or channels f
 reducing clutter and optimizing the plotting area.
 
 
+.. raw:: html
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video6" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/Visualization-GroupingAndSeparatingChannels.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+
+
+
 .. note::
     You cannot modify the channel name and group name in the image format group.
     To modify the channel name and group name, you need to switch to other plotting format first.
