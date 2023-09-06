@@ -36,3 +36,13 @@ from this list. You can always change these ports in the :ref:`user interface <r
 +----------------------+-----------------------------------------------+
 | 10000                | :ref:`replay streams <feature replay>`        |
 +----------------------+-----------------------------------------------+
+
+
+.. _ZMQDataTypes:
+
+ZMQ Data types
+************************
+
+The ZMQ interface supports the following data types:
+
+``uint8, uint16, uint32, uint64, int8, int16, int32, int64, float16, float32, float64``
