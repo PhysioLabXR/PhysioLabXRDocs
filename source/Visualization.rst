@@ -155,6 +155,7 @@ RenaLabApp offers a convenient feature:
 each stream's plotting widget can be popped out as a separate window from the main interface.
 
 
+
 TODO: Remove this
 
 Figure \ref{fig:viz demo screenshot} (a) shows an example where four streams are organized in a tiled layout.
