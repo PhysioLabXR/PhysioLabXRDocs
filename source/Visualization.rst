@@ -141,8 +141,28 @@ reducing clutter and optimizing the plotting area.
     You cannot modify the channel name and group name in the image format group.
     To modify the channel name and group name, you need to switch to other plotting format first.
 
+Organizing Multiple Streams
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+PhysioLab\ :sup:`XR` is designed to cater to experiments that involve multiple data sources,
+aligning with the demands of modern neuroscience and HCI research.
+While the software can also be utilized for single data source experiments,
+many of its features truly shine when handling multiple streams concurrently,
+such as EEG with eyetracking and video with audio.
+To help researchers inspect multiple streams simultaneously,
+RenaLabApp offers a convenient feature:
+each stream's plotting widget can be popped out as a separate window from the main interface.
 
 
+TODO: Remove this
+
+Figure \ref{fig:viz demo screenshot} (a) shows an example where four streams are organized in a tiled layout.
+Moreover, RenaLabApp is designed to scale when researchers opt to use large display and multi-monitor setups,
+as shown in the triple screen setup depicted in figure \ref{fig:nidyn experiment}
+for a neuroscience experiment use case).
+Such configuration is particularly advantageous for experiments involving a substantial number of input feeds.
+Researchers can personalize the arrangement of stream widgets by detaching them from RenaLabApp's
+main window and positioning them across different screen areas according to
+their specific needs for visually inspecting each data source.
 
 
 
