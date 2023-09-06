@@ -107,7 +107,7 @@ The current version only supports capturing the main display if multiple display
 
 2. In the same tab, you should see two stream widgets now 'Dummy-8Chan' and 'monitor 0'
 with some information about the streams. There's no start/stop button for the screen capturing because it's always on.
-You should see a :cyan:`cyan` bubble at the bottom of the 'Dummy-8Chan' widget, meaning this stream is available on the
+You should see |stream_available| at the bottom of the 'Dummy-8Chan' widget, meaning this stream is available on the
 network. Press the |ico6| button under 'Dummy-8Chan' stream to start receive
 the stream.
 
@@ -182,7 +182,7 @@ You can use the load functions from PhysioLab\ :sup:`XR`, first install the pip 
 And simply import the load function, here is an example
 .. code-block:: python
 
-    from PhysioLabXR.rena.user_utils import stream_in
+    from physiolabxr.utils.user_utils import stream_in
 
     data = stream_in('path/to/dats/file')
 
@@ -217,3 +217,12 @@ Developer
 #########
 
 `Go To Developer Page <Developer.html>`_
+
+
+.. |stream_available| image:: /media/streamwidget_stream_available.svg
+   :width: 20px
+   :height: 20px
+
+.. |stream_active| image:: /media/streamwidget_stream_viz_active.svg
+   :width: 20px
+   :height: 20px
