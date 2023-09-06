@@ -142,7 +142,7 @@ How to build an executable
    <div class="command-line">
         <pre>
            <code class="language-bash">
-               pyinstaller --noconfirm --onedir --console --add-data "<span class="user-replace-text">ROOT_PATH</span>/rena/scripting:rena/scripting/" --add-data "<span class="user-replace-text">ROOT_PATH</span>/media:media/" --add-data "<span class="user-replace-text">ROOT_PATH</span>/Presets:Presets/" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/arduino" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/deprecated" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/examples" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/interfaces" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/scripting" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/sub_process" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/threadings" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/ui" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena/utils" --paths "<span class="user-replace-text">ROOT_PATH</span>/rena" --add-data "<span class="user-replace-text">ROOT_PATH</span>/ui:ui/"  "<span class="user-replace-text">ROOT_PATH</span>/rena/PhysioLabXR.py"
+               pyinstaller --noconfirm --onedir --console --add-data "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/scripting:physiolabxr/scripting/" --add-data "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/_media:physiolabxr/_media/" --add-data "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/_presets:physiolabxr/_presets/" --paths "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/arduino" --paths "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/deprecated" --paths "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/examples" --paths "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/interfaces" --paths "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/scripting" --paths "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/sub_process" --paths "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/threadings" --paths "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/_ui" --paths "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/utils" --paths "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr" --add-data "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/_ui:physiolabxr/_ui/"  "<span class="user-replace-text">ROOT_PATH</span>/physiolabxr/PhysioLabXR.py"
            </code>
         </pre>
    </div>
@@ -181,5 +181,5 @@ How to build an executable
    }
    </script>
 
-   Once run, a ``build`` and a ``disk`` folder will be generated in the root path. The stand alone app is in the ``disk/PhysioLabXR`` folder.
+Once run, a ``build`` and a ``disk`` folder will be generated in the root path. The stand alone app is in the ``disk/PhysioLabXR`` folder.
 

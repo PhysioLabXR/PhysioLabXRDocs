@@ -124,6 +124,9 @@ Using ZMQ
   pattern, because this pattern is more scalable when the cardinality of data is high and less error-prone in case of
   either the publisher or subscriber process crashes. You can find a more detailed explanation of the socket patterns `here <https://zguide.zeromq.org/docs/chapter2/>`_.
 
+.. _zmq data source:
+
+
 Write your ZMQ data source
 --------------------------
 
@@ -138,15 +141,17 @@ Write your ZMQ data source
 
 
 Similar to LSL, ZMQ can be used in many programming languages. Here, we will show a simple example of how to create a ZMQ publisher
-to send data in Python.
+to send data in Python and Unity (C#). The following two section will show how to create ZMQ data source in Python and C# for your reference.
+For this example, you can choose your preferred language to create the data source.
 
-To run this example, make sure you have Python installed. Then, install the physiolabxr package by running the following command in your terminal:
 
-.. code-block:: bash
+Python ZMQ data source
+~~~~~~~~~~~~~~~~~~~~~~~
 
-    pip install physiolabxr
+The following code will send image stream with random data to PhysioLab\ :sup:`XR` through ZMQ.
 
-Alternatively, you can just install the pyzmq package by running the following command in your terminal:
+To create the ZMQ data source in Python, first make sure you have Python installed.
+Then, install the pyzmq package by running the following command in your terminal:
 
 .. code-block:: bash
 
@@ -163,13 +168,13 @@ Now, create a new Python file and copy the following code:
     import zmq
 
     topic = "my_stream_name"  # name of the publisher's topic / stream name
-    srate = 120  # we will send 120 frames per second
+    srate = 15  # we will send 15 frames per second
     port = "5557"  # ZMQ port number
 
-    # we will send a random image of size 64x64 with 3 color channels
+    # we will send a random image of size 400x400 with 3 color channels
     c_channels = 3
-    width = 64
-    height = 64
+    width = 400
+    height = 400
     n_channels = c_channels * width * height
 
     context = zmq.Context()
@@ -189,7 +194,7 @@ Now, create a new Python file and copy the following code:
             samples = (samples * 255).astype(np.uint8)
             for sample_ix in range(required_samples):
                 mysample = samples[sample_ix]
-                socket.send_multipart([bytes(topic, "utf-8"), np.array(time.time()), mysample])  # send data
+                socket.send_multipart([bytes(topic, "utf-8"), np.array(time.time()), mysample])  # send frame in the order: topic, timestamp, data
                 send_times.append(time.time())
             sent_samples += required_samples
         # now send it and wait for a bit before trying again.
@@ -200,14 +205,132 @@ Now, create a new Python file and copy the following code:
         print(f'current timestamp is {time.time()}', end='\r', flush=True)
 
 
-In this script, we created an ZMQ publisher socket that sends a random frames with 64 × 64 × 3 (12288) channels, as if it is a video stream
-that has a height of 64, width of 64, and 3 color channels. The publisher sends 120 frames per second.
-
 Run the above script with:
 
 .. code-block:: bash
 
     python <your-file-name>.py
+
+.. _zmq data source in unity:
+
+C# ZMQ data source (Unity)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following code will send image stream from a Unity camera to PhysioLab\ :sup:`XR` through ZMQ.
+
+To make the C# script work, you need install NetMQ, the C# binding for ZMQ. NetMQ is distributed with NuGet, which is a package manager for .NET.
+Download the NuGetForUnity package from `this page <https://github.com/GlitchEnzo/NuGetForUnity/releases/>`_. Download the file named
+**NuGetForUnity.<some-version>.unitypackage** and import it to your Unity project.
+
+Once you have NuGetForUnity installed, you will have a new option in your Unity Editor's context menu called NuGet. Go to ``NuGet > Manage NuGet Packages``.
+In the NuGet window, search for NetMQ and install it. This will install NetMQ and its dependencies.
+
+Attach the following script to a game object in your scene. Set the script's public field *captureCamera* to a camera in the scene whose image you want
+to send.
+
+.. code-block:: csharp
+
+    using System.Collections;
+    using UnityEngine;
+    using AsyncIO;
+    using NetMQ;
+    using NetMQ.Sockets;
+    using System;
+
+    public class TestZMQScript : MonoBehaviour
+    {
+        [Header("In-game Objects")]
+        public Camera captureCamera;  // in your editor, set this to the camera you want to capture
+
+        [Header("Camera Capture Image Size")]
+        public int imageWidth = 400;
+        public int imageHeight = 400;
+
+        [Header("Runtime Parameters")]
+        public float srate = 15f;
+
+        // objects to hold the image data;
+        RenderTexture tempRenderColorTexture;
+        Texture2D colorImage;
+
+        [Header("Networking Fields")]
+        public string tcpAddress = "tcp://localhost:5557";
+        public string topicName = "CameraCapture";
+        PublisherSocket socket;
+
+        [Header("Networking Information (View-only)")]
+        public long imageCounter = 0;
+        public float fps = 0;
+
+        private void Start()
+        {
+            // check if capture camera has been set
+            if (captureCamera == null)
+            {
+                Debug.LogError("CameraCaptureServer: captureCamera is not set. Please set it in the editor.");
+                return;
+            }
+
+            tempRenderColorTexture = new RenderTexture(imageWidth, imageHeight, 24, RenderTextureFormat.ARGB32)
+            {
+                antiAliasing = 4
+            };
+
+            colorImage = new Texture2D(imageWidth, imageHeight, TextureFormat.RGB24, false, true);
+
+            ForceDotNet.Force();
+            socket = new PublisherSocket(tcpAddress);
+            StartCoroutine(UploadCapture(1f / srate));
+        }
+
+        IEnumerator UploadCapture(float waitTime)
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(waitTime);
+
+                float frameStartTime = Time.realtimeSinceStartup;
+                byte[] imageBytes = encodeColorCamera();
+
+                double timestamp = Time.unscaledTime;
+                socket.SendMoreFrame(topicName).SendMoreFrame(BitConverter.GetBytes(timestamp)).SendFrame(imageBytes);
+
+                imageCounter++;
+                float frameEndTime = Time.realtimeSinceStartup;
+                fps = 1f / (frameEndTime - frameStartTime);
+            }
+        }
+
+        public byte[] encodeColorCamera()
+        {
+            //render color camera and save bytes
+            captureCamera.targetTexture = tempRenderColorTexture;
+            RenderTexture.active = tempRenderColorTexture;
+            captureCamera.Render();
+
+            colorImage.ReadPixels(new Rect(0, 0, colorImage.width, colorImage.height), 0, 0);
+            colorImage.Apply();
+
+            return colorImage.GetRawTextureData();
+        }
+
+        private void OnDestroy()
+        {
+            socket.Dispose();
+            NetMQConfig.Cleanup();
+        }
+
+    }
+
+
+In both Python and C# scripts, we created an ZMQ publisher socket that sends a random frames with 400 × 400 × 3 (480000) channels, as if it is a video stream
+that has a height of 400, width of 400, and 3 color channels. The publisher sends 15 frames per second. The Python script sends random
+images while the Unity script sends images from a Unity camera.
+
+.. important::
+   A ZMQ frame must have data in the following order: topic, timestamp, data. The topic must be a string, and the timestamp
+   must be a 8-byte (64-bit) double or 4-byte (32-bit) float. The data can be one of the supported types listed :ref:`here <zmq data types>`.
+
 
 Now return to PhysioLab\ :sup:`XR` (download the App `here <index.html#download>`_ if you haven't already). In the ``Add Stream`` line edit,
 type in the name of the stream you created in the script (``my_stream_name`` in the example above).
@@ -251,6 +374,13 @@ Video and audio input devices recognize by your OS are automatically detected an
 
 Video Devices
 ----------------
+PhysioLab\ :sup:`XR` automatically detects the audio input devices
+connected to your computer. Their name will be listed in the ``Add Stream dropdown`` as ``monitor 'x'``.
+To add an video input stream:
+
+#. Click on the drop down of **Add Stream**  and select the video device you want to add.
+#. Click on **Add** button.
+
 
 Audio Input Devices
 --------------------
@@ -262,8 +392,10 @@ To add an audio input stream:
 #. Click on the drop down of **Add Stream**  and select the audio device you want to add.
 #. Once selected, a few new options settings will show up on the right of the dropdown.
 #. Set the *sampling rate* (default: 8192), *frame/buffer* (default: 128), and *data type* (default: paInt16) of the audio device.
- - Please refer to the `PyAudio documentation <https://people.csail.mit.edu/hubert/pyaudio/docs/>`_ for more information about those parameters.
 #. Click on **Add** button.
+
+.. note::
+    Please refer to the `PyAudio documentation <https://people.csail.mit.edu/hubert/pyaudio/docs/>`_ for more information about parameters for audio interface.
 
 
 .. raw:: html
@@ -279,7 +411,11 @@ To add an audio input stream:
 
 Screen Capture
 ----------------
+Similar to the the video input devices, PhysioLab\ :sup:`XR` supports streaming screen capture. The name of the screen capture stream will be ``monitor 0`` as default.
+To add an video input stream:
 
+#. Click on the drop down of **Add Stream**  and select ``monitor 0``.
+#. Click on **Add** button.
 
 Refresh the list of devices
 ------------------------------
