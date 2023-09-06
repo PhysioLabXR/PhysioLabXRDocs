@@ -251,6 +251,13 @@ Video and audio input devices recognize by your OS are automatically detected an
 
 Video Devices
 ----------------
+PhysioLab\ :sup:`XR` automatically detects the audio input devices
+connected to your computer. Their name will be listed in the ``Add Stream dropdown`` as ``monitor 'x'``.
+To add an video input stream:
+
+#. Click on the drop down of **Add Stream**  and select the video device you want to add.
+#. Click on **Add** button.
+
 
 Audio Input Devices
 --------------------
@@ -279,7 +286,11 @@ To add an audio input stream:
 
 Screen Capture
 ----------------
+Similar to the the video input devices, PhysioLab\ :sup:`XR` supports streaming screen capture. The name of the screen capture stream will be ``monitor 0`` as default.
+To add an video input stream:
 
+#. Click on the drop down of **Add Stream**  and select ``monitor 0``.
+#. Click on **Add** button.
 
 Refresh the list of devices
 ------------------------------

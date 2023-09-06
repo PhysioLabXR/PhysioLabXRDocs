@@ -1,6 +1,6 @@
 import numpy as np
 
-from rena.scripting.RenaScript import RenaScript
+from physiolabxr.scripting.RenaScript import RenaScript
 
 
 class ScriptName(RenaScript):
