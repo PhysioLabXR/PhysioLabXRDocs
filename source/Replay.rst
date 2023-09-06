@@ -1,3 +1,6 @@
+.. _feature replay:
+
+
 ############
 Replaying
 ############
@@ -54,11 +57,11 @@ Let's take a closer look at what each column of this table means:
 
 - *Data type*: The data type of the stream. This is contained in the recording file.
 
-- *Stream interface*: The interface API to send the stream for replay. The currently version of PhysioLab\ :sup:`XR` supports two interfaces: *LSL* and *ZMQ*.
+- *Stream interface*: The _`replay stream interface` interface API to send the stream for replay. The currently version of PhysioLab\ :sup:`XR` supports two interfaces: *LSL* and *ZMQ*.
   You can choose
   whichever interface to replay the stream, regardless of how you recorded the data in the first place.
   When you select *ZMQ* interface,
-  a port number line edit will pop up. You can edit whatever port number you want, but note that some ports are reserved for the operating
+  a port number line edit _`replay stream interface port line edit` will pop up. You can edit whatever port number you want, but note that some ports are reserved for the operating
   system and other applications. Generally the default ports should work. Check out `this section <DataStreamAPI.html#choosing-zmq-ports>`_
   on how to choose a port number.
   This port number *stream tab*.
