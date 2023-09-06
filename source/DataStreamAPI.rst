@@ -57,11 +57,20 @@ Video and audio input devices recognize by your OS are automatically detected an
 Video Devices
 ----------------
 PhysioLab\ :sup:`XR` automatically detects the audio input devices
-connected to your computer. Their name will be listed in the ``Add Stream dropdown`` as ``monitor 'x'``.
+connected to your computer. Their name will be listed in the ``Add Stream dropdown`` as ``Camera 'x'``.
 To add an video input stream:
 
 #. Click on the drop down of **Add Stream**  and select the video device you want to add.
 #. Click on **Add** button.
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/video_device.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
 
 Audio Input Devices
@@ -96,6 +105,15 @@ To add an video input stream:
 
 #. Click on the drop down of **Add Stream**  and select ``monitor 0``.
 #. Click on **Add** button.
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/screencap.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
 Refresh the list of devices
 ------------------------------
