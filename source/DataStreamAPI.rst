@@ -124,6 +124,9 @@ Using ZMQ
   pattern, because this pattern is more scalable when the cardinality of data is high and less error-prone in case of
   either the publisher or subscriber process crashes. You can find a more detailed explanation of the socket patterns `here <https://zguide.zeromq.org/docs/chapter2/>`_.
 
+.. _zmq data source:
+
+
 Write your ZMQ data source
 --------------------------
 
@@ -208,7 +211,7 @@ Run the above script with:
 
     python <your-file-name>.py
 
-.. _ZMQUnity:
+.. _zmq data source in unity:
 
 C# ZMQ data source (Unity)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -326,7 +329,7 @@ images while the Unity script sends images from a Unity camera.
 
 .. important::
    A ZMQ frame must have data in the following order: topic, timestamp, data. The topic must be a string, and the timestamp
-   must be a 8-byte (64-bit) double or 4-byte (32-bit) float. The data can be one of the supported types listed :ref:`here <ZMQDataTypes>`.
+   must be a 8-byte (64-bit) double or 4-byte (32-bit) float. The data can be one of the supported types listed :ref:`here <zmq data types>`.
 
 
 Now return to PhysioLab\ :sup:`XR` (download the App `here <index.html#download>`_ if you haven't already). In the ``Add Stream`` line edit,
