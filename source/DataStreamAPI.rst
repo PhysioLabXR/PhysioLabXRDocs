@@ -32,8 +32,17 @@ LSL has the following characteristics:
     transmitting the meta information every frame creates a large overhead. For such streams, we recommend using `ZMQ <DataStreamAPI.html#using-zmq>`_.
 
 
-Write your LSL Interface
+Write your LSL data source
 --------------------------
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video-lsl" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/DataStreamAPI-LSLStream.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
 LSL has API in many programming languages. For a more comprehensive guide, check out the `examples in LSL documentation <https://labstreaminglayer.readthedocs.io/dev/examples.html>`_.
 Here, we will show a simple example of how to create an LSL outlet in Python.
@@ -62,6 +71,7 @@ Now, create a new Python file and copy the following code:
 .. code-block:: python
 
     import time
+    import numpy as np
     from pylsl import StreamInfo, StreamOutlet
 
     # create a new stream info and outlet
@@ -77,29 +87,55 @@ Now, create a new Python file and copy the following code:
         outlet.push_sample(mysample)
         time.sleep(0.01)
 
-Run the script with:
+Run the above script with:
 
 .. code-block:: bash
 
     python <your-file-name>.py
 
 Open PhysioLab\ :sup:`XR` (download the App `here <index.html#download>`_ if you haven't already).
-Type in the name of the stream you created in the script (``my_stream_name`` in the example above) in ``Add Stream``. Click on the ``Add`` button.
-You should see the stream you created in the list of streams. Click on the |ico6| button to start streaming the data.
+
+Type in the name of the stream you created in the script (``my_stream_name`` in the example above) in ``Add Stream``.
+
+Select ``LSL`` as the stream type in the dropdown just right where you put in the stream name.
+
+Click on the ``Add`` button, a stream widget will be added to the main window. The widget will have |stream_available|
+icon on the bottom. This means that the stream is available on the network. But we are not receiving and plotting any data yet.
+
+Click on the |ico6| button to start streaming the data.
+
+You will be prompted to auto-set the number of channels to what's being streamed from your script above. This is because
+the default number of channels is 1 for newly added stream widget. Click on ``Yes`` to auto-set the number of channels.
+
+The |stream_available| icon will change to |stream_active| icon.
+You will see the data being plotted in line chart (:ref:`explore other visualization method <feature visualization>`).
 
 
 Using ZMQ
 ***********************
 
+
 `ZMQ <https://zeromq.org/>`_ is a messaging library for exchanging data between applications. ZMQ has the following characteristics:
 
 * ZMQ is a lightweight messaging library, and it is suited for streaming data with a large number of channels (e.g., video).
 * Like `LSL <DataStreamAPI.html#using-lsl>`_, ZMQ is a cross-platform protocol, and has bindings for many programming languages.
-* ZMQ supports many different socket patterns. PhysioLab\ :sup:`XR` supports the subscriber-publisher socket pattern, because this pattern is more scalable when the
-  cardinality of data is high and less error-prone in case of either the publisher or subscriber process crashes. You can find a more detailed explanation of the socket patterns `here <https://zguide.zeromq.org/docs/chapter2/>`_.
+* ZMQ supports many different socket patterns. PhysioLab\ :sup:`XR` supports the
+  `subscriber-publisher <https://learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/patterns/pubsub.html>`_ socket
+  pattern, because this pattern is more scalable when the cardinality of data is high and less error-prone in case of
+  either the publisher or subscriber process crashes. You can find a more detailed explanation of the socket patterns `here <https://zguide.zeromq.org/docs/chapter2/>`_.
 
-Write your ZMQ Interface
+Write your ZMQ data source
 --------------------------
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video-zmq" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/DataStreamAPI-ZMQStream.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
 
 Similar to LSL, ZMQ can be used in many programming languages. Here, we will show a simple example of how to create a ZMQ publisher
 to send data in Python.
@@ -126,10 +162,11 @@ Now, create a new Python file and copy the following code:
     import numpy as np
     import zmq
 
-    topic = "my_stream_name"
-    srate = 120
+    topic = "my_stream_name"  # name of the publisher's topic / stream name
+    srate = 120  # we will send 120 frames per second
     port = "5557"  # ZMQ port number
 
+    # we will send a random image of size 64x64 with 3 color channels
     c_channels = 3
     width = 64
     height = 64
@@ -163,7 +200,39 @@ Now, create a new Python file and copy the following code:
         print(f'current timestamp is {time.time()}', end='\r', flush=True)
 
 
-In this script, we created an ZMQ publisher that sends a random sample every 0.01 seconds. The sample is a 3-channel image of size 64x64.
+In this script, we created an ZMQ publisher socket that sends a random frames with 64 × 64 × 3 (12288) channels, as if it is a video stream
+that has a height of 64, width of 64, and 3 color channels. The publisher sends 120 frames per second.
+
+Run the above script with:
+
+.. code-block:: bash
+
+    python <your-file-name>.py
+
+Now return to PhysioLab\ :sup:`XR` (download the App `here <index.html#download>`_ if you haven't already). In the ``Add Stream`` line edit,
+type in the name of the stream you created in the script (``my_stream_name`` in the example above).
+
+Select ``ZMQ`` as the stream type in the dropdown just right where you put in the stream name.
+
+After ``ZMQ`` is selected, the ``port number`` line edit will show up. Type in the port number you used in the script (``5557`` in the example above).
+
+Click on the ``Add`` button. A stream widget will be added to the main window. Unlike LSL stream, ZMQ stream will not have |stream_available|
+icon on the bottom. This is because ZMQ does not have a mechanism to check if the stream is available on the network.
+
+Now click on the |ico6| button.
+
+You will be prompted to auto-set the number of channels to what's being streamed from your script above. This is because
+the default number of channels is 1 for newly added stream widget. Click on ``Yes`` to auto-set the number of channels.
+
+Because the number of channels we set is 12288, greater than the maximum number of channels that can be plotted in a line chart.
+It will automatically switch to image plot (:ref:`explore other visualization method <feature visualization>`).
+You need to set the ``height`` and ``width`` and other image meta info in its to see the image.
+
+Click on ``...`` button
+to open the plot settings. Set the ``width`` and ``height`` to 64, and ``Image`` to "rgb".
+
+Return to the plot widget,
+move your cursor to the lower left of the plot, click the *[A]* button that shows up to have the image auto-scale to fit the window.
 
 
 .. note::
@@ -200,7 +269,7 @@ To add an audio input stream:
 .. raw:: html
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        <video id="autoplay-video-audio" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
             <source src="_static/datastreamapi-audio-interface.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -222,6 +291,48 @@ and click ``Reload Video Devices``. Similarly, you can refresh the list of audio
 If your device is recognized by the OS, but not by PhysioLab\ :sup:`XR` and the data is not streamed correctly. Please
 submit an issue `here <https://github.com/PhysioLabXR/PhysioLabXR/issues>`_.
 
+
+
+
+
+.. raw:: html
+
+    <script>
+        // Function to check if a video is visible in the viewport
+        function isVideoVisible(videoId) {
+            var video = document.getElementById(videoId);
+            var rect = video.getBoundingClientRect();
+            return rect.top >= 0 && rect.bottom <= window.innerHeight;
+        }
+
+        // Function to start the video if it is visible
+        function checkAndPlayVideo(videoId) {
+            var video = document.getElementById(videoId);
+            if (isVideoVisible(videoId) && video.paused) {
+                video.play();
+            }
+        }
+
+        // Attach an event listener to check when a video is in the viewport
+        window.addEventListener("scroll", function() {
+            checkAndPlayVideo("autoplay-video-audio");
+            checkAndPlayVideo("autoplay-video-lsl");
+            checkAndPlayVideo("autoplay-video-zmq");
+            // Add more videos as needed, using their respective video IDs
+        });
+    </script>
+
+
+
 .. |ico6| image:: /media/start.svg
+   :width: 20px
+   :height: 20px
+
+
+.. |stream_available| image:: /media/streamwidget_stream_available.svg
+   :width: 20px
+   :height: 20px
+
+.. |stream_active| image:: /media/streamwidget_stream_viz_active.svg
    :width: 20px
    :height: 20px

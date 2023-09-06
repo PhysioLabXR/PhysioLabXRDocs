@@ -106,7 +106,7 @@ To add filters to the EEG stream:
 4. To add a second filter, select *ButterworthLowpassFilter*, click on *Add*, and set the *Cutoff* frequency to be 60 Hz.
 5. To activate the filters, click on the checkbox before the filters.
 
-The bubble before the filter will turn :green:`green`, meaning the filter is currently active. You will now able to zoom in to
+The bubble before the filter will turn |stream_active|, meaning the filter is currently active. You will now able to zoom in to
 see the ERPs in the filtered EEG signals.
 
 .. raw:: html
@@ -220,7 +220,7 @@ We will add a *script* that uses the DTN stream as a trigger to extract the ERP 
 
 
 5. Click on *Run* to run the script. Go back to the *Visualization tab*, type in ERPs and click on *Add* or hit enter.
-   You should see a new stream called ERPs added to the plots with a :cyan:`cyan` bubble at the bottom, meaning this stream is available to start.
+   You should see a new stream called ERPs added to the plots with |stream_available| at the bottom, meaning this stream is available on the network, and you can start receiving and plotting it.
 6. Click on the *Play* button of the ERPs plot widget to start the data flow. You should see the ERPs of the chosen channel
    plotted in the visualization tab. The first channel (red) shows the distractor ERPs and the second channel (blue) shows the targets.
 
@@ -319,3 +319,12 @@ to know where exactly the user's gaze is focused.
             // Add more videos as needed, using their respective video IDs
         });
     </script>
+
+
+.. |stream_available| image:: /media/streamwidget_stream_available.svg
+   :width: 20px
+   :height: 20px
+
+.. |stream_active| image:: /media/streamwidget_stream_viz_active.svg
+   :width: 20px
+   :height: 20px

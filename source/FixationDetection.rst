@@ -475,7 +475,7 @@ and `scene perception <https://d1wqtxts1xzle7.cloudfront.net/1961773/Richardson_
         // Attach an event listener to check when a video is in the viewport
         window.addEventListener("scroll", function() {
             checkAndPlayVideo("autoplay-video1");
-            checkAndPlayVideSo("autoplay-video2");
+            checkAndPlayVideo("autoplay-video2");
             checkAndPlayVideo("autoplay-video3");
             checkAndPlayVideo("autoplay-video4");
             // Add more videos as needed, using their respective video IDs
