@@ -381,6 +381,14 @@ To add an video input stream:
 #. Click on the drop down of **Add Stream**  and select the video device you want to add.
 #. Click on **Add** button.
 
+Screen Capture
+----------------
+Similar to the the video input devices, PhysioLab\ :sup:`XR` supports streaming screen capture. The name of the screen capture stream will be ``monitor 0`` as default.
+To add an video input stream:
+
+#. Click on the drop down of **Add Stream**  and select ``monitor 0``.
+#. Click on **Add** button.
+
 
 Audio Input Devices
 --------------------
@@ -408,15 +416,6 @@ To add an audio input stream:
     </div>
 
 
-
-Screen Capture
-----------------
-Similar to the the video input devices, PhysioLab\ :sup:`XR` supports streaming screen capture. The name of the screen capture stream will be ``monitor 0`` as default.
-To add an video input stream:
-
-#. Click on the drop down of **Add Stream**  and select ``monitor 0``.
-#. Click on **Add** button.
-
 Refresh the list of devices
 ------------------------------
 
@@ -426,9 +425,6 @@ and click ``Reload Video Devices``. Similarly, you can refresh the list of audio
 
 If your device is recognized by the OS, but not by PhysioLab\ :sup:`XR` and the data is not streamed correctly. Please
 submit an issue `here <https://github.com/PhysioLabXR/PhysioLabXR/issues>`_.
-
-
-
 
 
 .. raw:: html
