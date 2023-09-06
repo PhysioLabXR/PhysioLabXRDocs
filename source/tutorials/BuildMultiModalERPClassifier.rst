@@ -1,3 +1,5 @@
+.. _tutorial multi-modal erp Classifier:
+
 ****************************************************
 Building ERP Classifier based on EEG and Pupil Size
 ****************************************************

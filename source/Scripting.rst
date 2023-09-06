@@ -165,7 +165,9 @@ After you finish writing the script, go back to the ``scripting`` tab, type *Dum
 More Examples
 *************
 
-If you want to see more examples building real world applications, please refer to `FixationDetection <FixationDetection.html>`_
+If you want to some more involved examples
+on building data processing script for experiments and BCI, check out these tutorials:
 
-APIs
---------
+`FixationDetection <FixationDetection.html>`_
+
+:ref:`Multi-modal Event-related Potential Classifier <tutorial multi-modal erp Classifier>`
