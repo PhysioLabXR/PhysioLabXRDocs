@@ -1,17 +1,12 @@
 Contribute to PhysioLabXR
 
 ##############################
-Contribute to PhysioLabXR
+How to Contribute
 ##############################
 
 
 Run from source
 *********************
-
-.. note::
-   This App is still in alpha development build. Please follow this guide below
-   to learn how to build and run the App.
-
 
 RealityNavigation App requires python3.8+. Clone the project from `RealityNavigation's repo page <https://github.com/ApocalyVec/RenaLabApp>`_.
 

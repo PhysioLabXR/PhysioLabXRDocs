@@ -113,11 +113,10 @@ Gap filling the gaze sequence
 ******************************
 
 We will now add a *script* to process the eyetracking data. The first step towards fixation detection is filling the
-glitches that result in gaps in the gaze sequence. In short, the gap-filling algorithm looks at each interval where gaze
+glitches that result in gaps in the gaze sequence. In short, the :ref:`gap-filling algorithm <scripting api gap fill>` looks at each interval where gaze
 data are invalid; if the gap is smaller than a threshold (default at 75 ms), it will consider this gap a system glitch and fill it by interpolating. If the
 gap is larger than 75 ms, it will consider this gap a blink and leave it as a gap with NaN values.
-Read more about the gap-filling algorithm in
-`the technical notes <technical_notes/About-fp-example.html#the-gap-filling-algorithm>`_ of this tutorial.
+
 
 .. raw:: html
 
@@ -451,10 +450,7 @@ You can apply it to your experiment and use fixation to study user cognition, in
 and `scene perception <https://d1wqtxts1xzle7.cloudfront.net/1961773/Richardson_Spivey04b-libre.pdf?1390824253=&response-content-disposition=inline%3B+filename%3DEye_Tracking_Research_Areas_and_Applicat.pdf&Expires=1691505683&Signature=dHPTX9IHgmJj-4tc1UsRIFpcz7UiOEwfd~Rrkf5UF2vPVO-cuEjtdD549La20ThqVEClaqTeP-VlzAXkX908fASAkOZNvqFYtlJOUtH1auySgodYXD-ECNm0s2iJYKXbF0RiEDrfW0PJe-u5sdTewMtv3ExFjq8F12htEd5yAV2Fbxz-jpIJIdA8-U0b9ogY7hUYLFM8l1Hr7JfTRP6mZdoRzoiBmFIOJ1dryJRxNDDncGUI7Pc~KRAaAuyUp~l7UeUgDC64Vw62g1DY-AD3xhSuAnF4X8d2ThZCP7lbxG9K0gNjFqNScQ48YHaHOIIqmZ-mi6VpGvGOLSKw8PjBtw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA>`_.
 
 
-`Read the technical notes of this tutorial <technical_notes/About-fp-example.html>`_.
-
 `Learn more about how scripting works <Scripting.html>`_.
-
 
 
 
@@ -479,7 +475,7 @@ and `scene perception <https://d1wqtxts1xzle7.cloudfront.net/1961773/Richardson_
         // Attach an event listener to check when a video is in the viewport
         window.addEventListener("scroll", function() {
             checkAndPlayVideo("autoplay-video1");
-            checkAndPlayVideSo("autoplay-video2");
+            checkAndPlayVideo("autoplay-video2");
             checkAndPlayVideo("autoplay-video3");
             checkAndPlayVideo("autoplay-video4");
             // Add more videos as needed, using their respective video IDs
