@@ -160,7 +160,7 @@ duration and file size as they increase.
     </div>
 
 .. note::
-    Loading .p, .xdf, and .mat are faster than .dats and .csv files, see `Supported File Formats <Recording.html#supported-file-formats>`_ for more details.
+    Loading .p, .xdf, and .mat are faster than .dats and .csv files. Recording video as .csv files are not recommended, as it takes a long time and the recorded file can be very large. See `Supported File Formats <Recording.html#supported-file-formats>`_ for more details.
 
 6. Now you can open the recording directory (you can open it from the context menu
    **file**/**Show Recordings**) to see the recorded file.
@@ -174,7 +174,7 @@ duration and file size as they increase.
         </video>
     </div>
 
-If you are using .dats format
+If you are using recorded file
 --------------------------------
 
 You can use the load functions from PhysioLab\ :sup:`XR`, first install the pip package ``pip install PhysioLabXR``
