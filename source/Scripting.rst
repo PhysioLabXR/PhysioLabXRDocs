@@ -1,3 +1,5 @@
+.. _feature scripting:
+
 ###################################
 Scripting
 ###################################
@@ -57,3 +59,4 @@ Outputs
 
 Install Packages in the Scripting Environment
 **********************************************
+
