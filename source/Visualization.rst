@@ -66,8 +66,15 @@ such as those obtained from medical imaging devices.
     - *Display value max (Float)*: The maximum value of the image. (Pixel Map only, the value is used for min-max normalization)
     - *Color map (Enum)*: The color map of the image. (Pixel Map only, e.g., GRAY, VIRIDIS, etc.)) Please refer to `matplotlib color map <https://matplotlib.org/stable/tutorials/colors/colormaps.html>`_ for more information.
 
+Width x Height x Color Channels = Number of channels in the group. For example, if and RGB image with with original shape of (50, 60, 3),
+the number of channels in the group is 50 x 60 x 3 = 900,
+and the Width is 50, the Height is 60, and the Image format should be RGB.
 
-
+.. note::
+    The stream with channel number larger than 1024 will be plotted as image only due to the performance issue.
+    Plotting large number of channels as other formats will cause the application to freeze.
+    We highly recommend using the ZMQ stream for image visualization because the LSL stream is
+    not optimized for transmitting data with large channel number.
 
 
 
@@ -133,6 +140,8 @@ reducing clutter and optimizing the plotting area.
 .. note::
     You cannot modify the channel name and group name in the image format group.
     To modify the channel name and group name, you need to switch to other plotting format first.
+
+
 
 
 
