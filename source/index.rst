@@ -29,7 +29,7 @@ Download
 Run the executable
 ------------------
 
-Get the latest release executable of PhysioLab\ :sup:`XR` from `here <https://github.com/ApocalyVec/PhysioLabXR/releases>`_, that supports Windows, MacOS, and Linux.
+Get the latest executable of PhysioLab\ :sup:`XR` from `the release page <https://github.com/ApocalyVec/PhysioLabXR/releases>`_, that supports Windows, MacOS, and Linux.
 
 Install with pip
 ----------------
@@ -49,7 +49,7 @@ Then run the application with:
 Run from source
 ---------------
 
-Alternatively, you can run the application from its source. Refer to *Run from Source* `here <Contribute.html#run-from-source>`_ for instructions.
+Alternatively, you can run the application from its source. Refer to *Run from Source* `in the developer page <Contribute.html#run-from-source>`_ for instructions.
 
 
 Get Started with a Simple Example
