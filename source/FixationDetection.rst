@@ -15,7 +15,7 @@ fixation identification <https://dl.acm.org/doi/abs/10.1145/355017.355028>`_, or
 
     <figure>
         <div style="position: relative;">
-            <video id="autoplay-video1" autoplay controls loop muted playsinline style="width: 100%;">
+            <video id="autoplay-video-teaser" autoplay controls loop muted playsinline style="width: 100%;">
                 <source src="_static/fd-example-teaser.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -49,7 +49,7 @@ We will start by replaying the recording to see what it looks like.
 .. raw:: html
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <video id="autoplay-video2" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        <video id="autoplay-video-replay" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
             <source src="_static/fd-example-replay.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -121,7 +121,7 @@ gap is larger than 75 ms, it will consider this gap a blink and leave it as a ga
 .. raw:: html
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <video id="autoplay-video2" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        <video id="autoplay-video-gap-fill" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
             <source src="_static/fd-example-gap-fill.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -223,7 +223,7 @@ Next up, we will build on top of the previous script to detect fixations using t
 .. raw:: html
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <video id="autoplay-video3" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        <video id="autoplay-video-fd" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
             <source src="_static/fd-example-fd.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -319,7 +319,7 @@ As the last step, and for our visualization purposes, we will add a fixation ind
 .. raw:: html
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <video id="autoplay-video4" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        <video id="autoplay-video-video" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
             <source src="_static/fd-example-video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -474,10 +474,11 @@ and `scene perception <https://d1wqtxts1xzle7.cloudfront.net/1961773/Richardson_
 
         // Attach an event listener to check when a video is in the viewport
         window.addEventListener("scroll", function() {
-            checkAndPlayVideo("autoplay-video1");
-            checkAndPlayVideo("autoplay-video2");
-            checkAndPlayVideo("autoplay-video3");
-            checkAndPlayVideo("autoplay-video4");
+            checkAndPlayVideo("autoplay-video-teaser");
+            checkAndPlayVideo("autoplay-video-replay");
+            checkAndPlayVideo("autoplay-video-gap-fill");
+            checkAndPlayVideo("autoplay-video-fd");
+            checkAndPlayVideo("autoplay-video-video");
             // Add more videos as needed, using their respective video IDs
         });
     </script>
