@@ -15,6 +15,10 @@ formats:
    - epub
 
 
+submodules:
+  include: all
+  recursive: true
+
 build:
   os: ubuntu-22.04
   tools:
