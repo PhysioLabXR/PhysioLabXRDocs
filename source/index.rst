@@ -292,33 +292,6 @@ to know where exactly the user's gaze is focused.
     LICENSE
 
 
-.. raw:: html
-
-    <script>
-        // Function to check if a video is visible in the viewport
-        function isVideoVisible(videoId) {
-            var video = document.getElementById(videoId);
-            var rect = video.getBoundingClientRect();
-            return rect.top >= 0 && rect.bottom <= window.innerHeight;
-        }
-
-        // Function to start the video if it is visible
-        function checkAndPlayVideo(videoId) {
-            var video = document.getElementById(videoId);
-            if (isVideoVisible(videoId) && video.paused) {
-                video.play();
-            }
-        }
-
-        // Attach an event listener to check when a video is in the viewport
-        window.addEventListener("scroll", function() {
-            checkAndPlayVideo("autoplay-video1");
-            checkAndPlayVideo("autoplay-video2");
-            checkAndPlayVideo("autoplay-video3");
-            checkAndPlayVideo("autoplay-video4");
-            // Add more videos as needed, using their respective video IDs
-        });
-    </script>
 
 
 .. |stream_available| image:: /media/streamwidget_stream_available.svg
