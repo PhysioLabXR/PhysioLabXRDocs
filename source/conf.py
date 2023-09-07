@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'PhysioLabXRDocs'
-copyright = "2023, Ziheng 'Leo' Li"
-author = "Ziheng 'Leo' Li"
+copyright = "2023, Authors of PhysioLabXR"
+author = "Authors of PhysioLabXR"
 
 # The full version, including alpha/beta/rc tags
 release = '0.1.0'
@@ -85,7 +85,7 @@ html_theme_options = {
         },
     ],
 
-    "repo_url": "https://github.com/ApocalyVec/PhysioLabXR/",
+    "repo_url": "https://github.com/PhysioLabXR/PhysioLabXR/",
     "repo_name":"PhysioLabXR",
     "icon": {
         "repo": "fontawesome/brands/github",
