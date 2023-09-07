@@ -72,7 +72,20 @@ to see the EEG and event marker stream in real-time, synchronized as they were r
 
 .. raw:: html
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/wt3F6JyDZL0?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/erp-example-replay.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/wt3F6JyDZL0?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>
+
+
 
 |
 
