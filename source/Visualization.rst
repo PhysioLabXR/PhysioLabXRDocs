@@ -197,6 +197,14 @@ To help researchers inspect multiple streams simultaneously,
 RenaLabApp offers a convenient feature:
 each stream's plotting widget can be popped out as a separate window from the main interface.
 
+.. raw:: html
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video8" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/Visualization-OrganizingMultipleStreams.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
 
 
 
