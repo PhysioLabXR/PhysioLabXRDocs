@@ -79,6 +79,14 @@ to see the EEG and event marker stream in real-time, synchronized as they were r
         </video>
     </div>
 
+
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/wt3F6JyDZL0?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+
 |
 
 .. note::
