@@ -4,6 +4,20 @@
 Visualization
 ***************
 
+
+
+.. |ico0| image:: /media/stream_tab.png
+   :height: 3ex
+
+.. |ico1| image:: /media/popwindow_button.png
+   :height: 3ex
+
+
+
+
+
+
+
 Visualization is an essential aspect of data handling software,
 and PhysioLab\ :sup:`XR` follows this convention. The primary entry point of PhysioLab\ :sup:`XR` is its ``stream tab``,
 where users can connect to data sources by specifying the required parameters for each stream type (e.g., stream name for LSL streams,
@@ -20,13 +34,14 @@ There are four sub-classes of the **BaseStreamWidget**:
 
 1. **LSLWidget**: for visualizing LSL streams
 2. **ZMQWidget**: for visualizing ZMQ streams
-3. **VideoWidget**: for visualizing video streams(e.g., webcam, monitor, etc.)
-4. **AudioInputDeviceWidget**: for visualizing audio input device streams(e.g., microphone, etc.)
+3. **AudioInputDeviceWidget**: for visualizing audio input device streams(e.g., microphone, etc.)
+4. **VideoWidget**: for visualizing video streams(e.g., webcam, monitor, etc.)
+
 
   Please refer to the `DataStreamAPI <DataStreamAPI.html>`_ for more information about each stream type.
 
 Each stream widget is responsible for visualizing the corresponding stream type. For example, the **LSLWidget** is responsible for visualizing LSL streams.
-The **LSLWidget**, **ZMQWidget**, and **AudioInputDeviceWidget** are all based on the **BaseStreamWidget** have the same visualization features while the **VideoWidget** has a different set of features.
+The **LSLWidget**, **ZMQWidget**, and **AudioInputDeviceWidget** shear the same visualization features while the **VideoWidget** is only for video visualization.
 Next, we will discuss the features that can be configured by user in each widget type.
 
 
@@ -152,6 +167,26 @@ Researchers can leverage PhysioLab\ :sup:`XR` spectrogram visualization to gain 
         </div>
 
 
+**VideoWidget**
+------------------------------------------------------------
+**VideoWidget** is used to visualize the video streams from screen capture devices and cameras.
+Unlike the other visualization widgets, **VideoWidget** only supports the Image format, and the image format can be BGR or RGB.
+
+    Configurable Parameters:
+        - *Image Scale (Int)*: The percentage of the image resolution. (e.g., 100 means 100% of the original resolution, 50 means 50% of the original resolution)
+        - *Channel Order (Enum)*: BGR or RGB.
+
+.. raw:: html
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video8" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/Visualization-VideoWidget.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+
+
 
 Grouping and Separating Channels:
 --------------------------------
@@ -193,22 +228,24 @@ aligning with the demands of modern neuroscience and HCI research.
 While the software can also be utilized for single data source experiments,
 many of its features truly shine when handling multiple streams concurrently,
 such as EEG with eyetracking and video with audio.
-To help researchers inspect multiple streams simultaneously,
-RenaLabApp offers a convenient feature:
-each stream's plotting widget can be popped out as a separate window from the main interface.
+
+To help researchers inspect multiple streams simultaneously, you can click on the ``pop window`` |ico1| button on the top right conor of the **StreamWidget** to pop out each stream and rearrange them on your screen.
 
 
 
-TODO: Remove this
 
-Figure \ref{fig:viz demo screenshot} (a) shows an example where four streams are organized in a tiled layout.
-Moreover, RenaLabApp is designed to scale when researchers opt to use large display and multi-monitor setups,
-as shown in the triple screen setup depicted in figure \ref{fig:nidyn experiment}
-for a neuroscience experiment use case).
-Such configuration is particularly advantageous for experiments involving a substantial number of input feeds.
-Researchers can personalize the arrangement of stream widgets by detaching them from RenaLabApp's
-main window and positioning them across different screen areas according to
-their specific needs for visually inspecting each data source.
+
+
+.. raw:: html
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video8" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/Visualization-OrganizingMultipleStreams.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+
 
 
 
