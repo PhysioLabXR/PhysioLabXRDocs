@@ -41,7 +41,7 @@ There are four sub-classes of the **BaseStreamWidget**:
   Please refer to the `DataStreamAPI <DataStreamAPI.html>`_ for more information about each stream type.
 
 Each stream widget is responsible for visualizing the corresponding stream type. For example, the **LSLWidget** is responsible for visualizing LSL streams.
-The **LSLWidget**, **ZMQWidget**, and **AudioInputDeviceWidget** are all based on the **BaseStreamWidget** have the same visualization features while the **VideoWidget** is only for video visualization.
+The **LSLWidget**, **ZMQWidget**, and **AudioInputDeviceWidget** shear the same visualization features while the **VideoWidget** is only for video visualization.
 Next, we will discuss the features that can be configured by user in each widget type.
 
 
