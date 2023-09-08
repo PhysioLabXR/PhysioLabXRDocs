@@ -256,4 +256,4 @@ Output Signal:
 
         The source code of the DSP modules can be found in the
         `dsp_example <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/physiolabxr/utils/dsp_utils/dsp_example.py>`_.
-         Please make sure the matplotlib and numpy packages are installed before running the example code
+         Please make sure the *matplotlib* is installed before running the example code
