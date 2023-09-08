@@ -1,7 +1,7 @@
 
-"""""""""""""""""
-Example use
-"""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+fNIRS Stroop Experiment with PhysiolabXR and PsychoPy
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 ..................................................................
 Using RenaLabApp to stream fNIRS data from PsychoPy and NIRx
