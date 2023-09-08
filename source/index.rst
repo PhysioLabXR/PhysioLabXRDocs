@@ -1,9 +1,9 @@
 .. include:: .special.rst
 
-Welcome to the PhysioLab\ :sup:`XR` documentation
+PhysioLab\ :sup:`XR`
 #####################################################
 
-*physiological and neuroimaging experiments, made easy*
+*Simplifying Physiological and Neuroimaging Experiments*
 *******************************************************
 +-----------------------------------------------+-----------------------------------------------+-----------------------------------------+--------------------------------------------------+
 | .. image:: media/index_page/visualization.png | ..  image:: media/index_page/realtime_dsp.png | .. image:: media/index_page/replay.png  | .. image:: media/index_page/scripting.png        |
