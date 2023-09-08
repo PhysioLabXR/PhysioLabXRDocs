@@ -11,11 +11,15 @@
   },
   {
    "optionDest": "onefile",
-   "value": false
+   "value": true
   },
   {
    "optionDest": "console",
    "value": true
+  },
+  {
+   "optionDest": "icon_file",
+   "value": "<Your/Project/Root/Path>/physiolabxr/_media/logo/app_logo.ico"
   },
   {
    "optionDest": "ascii",
@@ -67,15 +71,15 @@
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/physiolabxr/scripting:physiolabxr/scripting/"
+   "value": "<Your/Project/Root/Path>/physiolabxr/scripting;physiolabxr/scripting/"
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/physiolabxr/_media:physiolabxr/_media/"
+   "value": "<Your/Project/Root/Path>/physiolabxr/_media;physiolabxr/_media/"
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/physiolabxr/presets:physiolabxr/_presets/"
+   "value": "<Your/Project/Root/Path>/physiolabxr/_presets;physiolabxr/_presets/"
   },
   {
    "optionDest": "pathex",
@@ -119,7 +123,7 @@
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/physiolabxr/_ui:physiolabxr/_ui/"
+   "value": "<Your/Project/Root/Path>/physiolabxr/_ui;physiolabxr/_ui/"
   }
  ],
  "nonPyinstallerOptions": {
