@@ -91,17 +91,39 @@ located below the plotting format widget in the stream options window,
 and becomes visible when an individual group is selected.
 Users have the flexibility to apply DSP modules to each individual group and specify the corresponding parameters,
 and each data processor will be applied sequentially to the input stream.
-It should be noted that the DSP feature described in this section does not alter the number of channels in a stream,
-as the processed results replace the original data content.
 
 
+.. image:: media/DSP-OptionsWindowDataProcessorWidget.png
+   :width: 100%
+   :align: center
 
+The drop-down menu allows you to select the DSP module you want to add to the selected stream group, and the add button adds the selected DSP module to the stream group.
+After adding the DSP module, you can set the parameters of the DSP module. Additionally, you can remove the DSP module from the stream group by clicking the remove button on each DSP module.
+The `Data Processors Only Apply to Visualization` checkbox allows you to apply the DSP module only to the visualization, and the Recording and Scripting Interface will receive the raw data.
 
+.. raw:: html
+
+    <figure>
+        <div style="position: relative;">
+            <video id="autoplay-video-teaser" autoplay controls loop muted playsinline style="width: 100%;">
+                <source src="_static/DSP-FilterExample.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <figcaption style="margin-top: 10px;">
+            <p style="text-align: center; font-size: 12px; font-style: italic;">Figure 1. Example of applying DSP modules and visualize it in the frequency domain.</p>
+        </figcaption>
+    </figure>
+
+.. note::
+
+    The data processor will not be activated until all the parameters are available. For example, the ButterworthLowpassFilter will not be activated
+    until the cutoff frequency and sampling frequency are available, and the corresponding error will be displayed.
 
 DSP Modules Example
 --------------------------
 
-Bellow, you can find an example of how to use the DSP modules for your own application:
+You can also use the DSP modules in your own code. The following example shows how to use the *ButterworthLowpassFilter* to remove high frequency components from the signal.
 
 
 .. code-block:: python
