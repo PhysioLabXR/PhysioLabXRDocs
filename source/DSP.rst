@@ -118,7 +118,7 @@ The `Data Processors Only Apply to Visualization` checkbox allows you to apply t
 .. note::
 
     The data processor will not be activated until all the parameters are available. For example, the ButterworthLowpassFilter will not be activated
-    until the cutoff frequency and sampling frequency are available, and the corresponding error will be displayed.
+    until the cutoff frequency and sampling frequency are available, and the corresponding error message will be displayed.
 
 DSP Modules Example
 --------------------------
