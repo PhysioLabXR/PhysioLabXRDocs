@@ -7,15 +7,19 @@
   },
   {
    "optionDest": "filenames",
-   "value": "<Your/Project/Root/Path>/physiolabxr/PhysioLabXR.py"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/PhysioLabXR.py"
   },
   {
    "optionDest": "onefile",
-   "value": false
+   "value": true
   },
   {
    "optionDest": "console",
    "value": true
+  },
+  {
+   "optionDest": "icon_file",
+   "value": "C:/Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/_media/logo/app_logo.ico"
   },
   {
    "optionDest": "ascii",
@@ -67,59 +71,59 @@
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/physiolabxr/scripting:physiolabxr/scripting/"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/scripting;physiolabxr/scripting/"
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/physiolabxr/_media:physiolabxr/_media/"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/_media;physiolabxr/_media/"
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/physiolabxr/presets:physiolabxr/_presets/"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/presets;physiolabxr/_presets/"
   },
   {
    "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/physiolabxr/arduino"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/arduino"
   },
   {
    "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/physiolabxr/deprecated"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/deprecated"
   },
   {
    "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/physiolabxr/examples"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/examples"
   },
   {
    "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/physiolabxr/interfaces"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/interfaces"
   },
   {
    "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/physiolabxr/scripting"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/scripting"
   },
   {
    "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/physiolabxr/sub_process"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/sub_process"
   },
   {
    "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/physiolabxr/threadings"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/threadings"
   },
   {
    "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/physiolabxr/_ui"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/_ui"
   },
   {
    "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/physiolabxr/utils"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/utils"
   },
   {
    "optionDest": "pathex",
-   "value": "<Your/Project/Root/Path>/physiolabxr"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr"
   },
   {
    "optionDest": "datas",
-   "value": "<Your/Project/Root/Path>/physiolabxr/_ui:physiolabxr/_ui/"
+   "value": "C://Users/ixiic/PycharmProjects/RenaLabApp/physiolabxr/_ui;physiolabxr/_ui/"
   }
  ],
  "nonPyinstallerOptions": {
