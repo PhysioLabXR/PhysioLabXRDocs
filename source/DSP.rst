@@ -158,7 +158,7 @@ You can also use the DSP modules in your own code. The following example shows h
     # set channel number
     digital_filter.set_channel_num(channel_num)
     # set data processor params
-    digital_filter.set_data_processor_params(fs=2000, cutoff=70, order=4)
+    digital_filter.set_data_processor_params(fs=1000, cutoff=70, order=4)
     # set data processor
     digital_filter.evoke_data_processor()
     # activate data processor
