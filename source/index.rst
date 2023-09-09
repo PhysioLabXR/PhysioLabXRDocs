@@ -273,7 +273,6 @@ to know where exactly the user's gaze is focused.
 
     FixationDetection
     PsychoPy
-    technical_notes/About-fp-example
     tutorials/BuildMultiModalERPClassifier
 
 
