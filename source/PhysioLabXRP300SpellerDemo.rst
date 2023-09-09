@@ -155,17 +155,31 @@ The script can be found at: `PhysioLabXRP300SpellerDemoScript.py <https://github
 
     .. code-block:: python
 
+        # This is a demo script for the PhysioLabXR P300 Speller Game
+
         import numpy as np
-        from physiolabxr.scripting.Examples.PhysioLabXR_P300Speller_Demo.PhysioLabXRP300SpellerDemoConfig import *
         from physiolabxr.scripting.RenaScript import RenaScript
         from physiolabxr.utils.buffers import DataBuffer
-        import matplotlib.pyplot as plt
         from imblearn.over_sampling import SMOTE
         from sklearn.linear_model import LogisticRegression
         from sklearn.model_selection import train_test_split
         from sklearn.metrics import f1_score
         from sklearn import metrics
-        import seaborn as sns
+
+        # import the config file
+        from physiolabxr.scripting.Examples.PhysioLabXR_P300Speller_Demo.PhysioLabXRP300SpellerDemoConfig import *
+
+
+        # matplotlib and seaborn are not installed in PhysioLabXR by default, so we need to check if they are installed before importing them
+        # If you want to use matplotlib and seaborn in your script, please install them in the PhysioLabXR environment following the instructions in the PhysioLabXR documentation
+        Plot = True
+        try:
+            import seaborn as sns
+            import matplotlib.pyplot as plt
+        except:
+            Plot = False
+            print("Seaborn and Matplotlib not installed. Skip Plot.")
+
 
         class PhysioLabXRGameP300SpellerDemoScript(RenaScript):
             def __init__(self, *args, **kwargs):
@@ -181,9 +195,6 @@ The script can be found at: `PhysioLabXRP300SpellerDemoScript.py <https://github
 
                 self.train_state_x = []
                 self.train_state_y = []
-
-                # self.test_state_x = []
-                # self.test_state_y = []
 
                 self.StateEnterExitMarker = 0
                 self.FlashBlockStartEndMarker = 0
@@ -362,15 +373,19 @@ The script can be found at: `PhysioLabXRP300SpellerDemoScript.py <https://github
                 probability_matrix = probability_matrix / len(flashing_item_indices/24)
 
 
-
-                print(probability_matrix)
-                plt.imshow(probability_matrix, cmap='hot', interpolation='nearest')
-                plt.show()
-
                 self.set_output(PREDICTION_PROBABILITY_CHANNEL_NAME, probability_matrix.flatten())
                 print("Prediction Probability Sent")
 
                 self.data_buffer.clear_buffer_data()
+
+
+                print(probability_matrix)
+
+                # plot the probability matrix
+                if Plot:
+                    plt.imshow(probability_matrix, cmap='hot', interpolation='nearest')
+                    plt.show()
+
 
 
             # cleanup is called when the stop button is hit
@@ -416,7 +431,8 @@ The script can be found at: `PhysioLabXRP300SpellerDemoScript.py <https://github
             model.fit(x_train, y_train)
             y_pred = model.predict(x_test)
 
-            # Print the confusion matrix
+            # plot the confusion matrix
+
             confusion_matrix(y_test, y_pred)
 
         def confusion_matrix(y_test: np.ndarray, y_pred: np.ndarray) -> None:
@@ -440,16 +456,20 @@ The script can be found at: `PhysioLabXRP300SpellerDemoScript.py <https://github
 
             # Calculate the confusion matrix and f1 score
             cm = metrics.confusion_matrix(y_test, y_pred)
+            print("Confusion Matrix:")
+            print(cm)
             score = f1_score(y_test, y_pred, average='macro')
+            print("F1 Score (Macro): {:.2f}".format(score))
 
-            # Create a heatmap of the confusion matrix
-            plt.figure(figsize=(9, 9))
-            sns.heatmap(cm, annot=True, fmt=".3f", linewidths=.5, square=True, cmap='Blues_r')
-            plt.ylabel('Actual label')
-            plt.xlabel('Predicted label')
-            all_sample_title = 'Accuracy Score: {0}'.format(score)
-            plt.title(all_sample_title, size=15)
-            plt.show()
+            if Plot:
+                # Create a heatmap of the confusion matrix
+                plt.figure(figsize=(9, 9))
+                sns.heatmap(cm, annot=True, fmt=".3f", linewidths=.5, square=True, cmap='Blues_r')
+                plt.ylabel('Actual label')
+                plt.xlabel('Predicted label')
+                all_sample_title = 'Accuracy Score: {0}'.format(score)
+                plt.title(all_sample_title, size=15)
+                plt.show()
 
         def rebalance_classes(x, y, by_channel=False):
             """
@@ -496,7 +516,6 @@ The script can be found at: `PhysioLabXRP300SpellerDemoScript.py <https://github
 
         # END CLASS
 
-
 The configuration file can be found in
 `PhysioLabXR_P300SpellerDemoConfig.py <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/physiolabxr/scripting/Examples/PhysioLabXR_P300Speller_Demo/PhysioLabXRP300SpellerDemoConfig.py>`_.
 
@@ -533,11 +552,6 @@ The configuration file can be found in
             "P4",
             "O1"
         ]
-
-        # # prediction lsl outlet configuration
-        # PREDICTION_STREAM_NAME = 'PhysioLabXRP300SpellerDemoPrediction'
-        # PREDICTION_STREAM_TYPE = 'Prediction'
-        # PREDICTION_STREAM_CHANNEL_NUM = 36
 
 
         class IndexClass(int, Enum):
@@ -601,7 +615,6 @@ Now we will go through each function in the script.
 
 
 
-
 *************
 Experiment
 *************
@@ -612,11 +625,11 @@ experiment environment. The P300 is one of the most important Event-related pote
 components that is used to evaluate cognitive function, such as attention, working memory , and concentration.
 A peak occurs 300 ms after the expected event happened.
 
-The Unity Paradigm hosts a six by five board that includes 26 alphabets, from A to Z,
-as well as 4 instruction characters, including space, backspace, enter and activation. This input format adapts our previous publication IndexPen: Two-Finger Text Input with Millimeter-Wave Radar in which also used RenaLabApp for the entire user study.
+The Unity Paradigm hosts a six by five board that includes 26 alphabets, from A to Z, and 10 numbers, from 0 to 9.
+
 
 During the training period, the user is instructed to focus on a particular letter(instructed in green),
-and each roll and column will be flashed 15 times; therefore, there are 15 x 11 samples for each trail.
+and each roll and column will be flashed n times; therefore, there are n x 12 samples for flash block.
 After the training mode, the user can go to the testing mode. Similarly, the user will focus on one character
 during each trail, but without instruction. The predicted result will be typed in the text input box.
 
@@ -624,10 +637,10 @@ during each trail, but without instruction. The predicted result will be typed i
 Requirements
 =======
 
-    1. RenaLabApp
-    2. Unity: https://github.com/HaowenWeiJohn/RenaLabApp-Unity-P300Speller
-    3. Hardware: OpenBCI Cyton (8 Channels)
-        Channel Selection: Fz, Cz, Pz, C3, C4, P3, P4, O1.
+1. PhysioLab\ :sup:`XR`
+2. Unity Platform
+3. OpenBCI Cyton Board
+    Channel Selection: Fz, Cz, Pz, C3, C4, P3, P4, O1.
 
 
 
@@ -635,20 +648,6 @@ Requirements
 Experiment Setup
 =======
 
-
-#. The first step is to set up the OpenBCI Cyton board. You can follow the instructions on https://docs.openbci.com/ . In our case we used Fz, Cz, Pz, C3, C4, P3, P4, O1. You can use OpenBCI GUI to check the signal quality before the experiment. To access the Cyton board stream, you can either create a customized script to get the data and export the data to LSL similar to the OpenBCIInterface.py example or use the supported device driver in RenaLabApp. Please check out the Hardware Support page for more information about supported devices in RenaLabApp.
-
-#. Open the game through P300Speller.exe or Unity Editor.
-
-#. Download and open the RenaLabApp.
-#. Add the "P300Speller" event marker stream from P300 Speller game.
-#. Add the OpenBCI stream from your customized script or serial driver in RenaLabApp.
-#. Open Both streams. (You should see the play buttons turn green if the stream exists).
-#. Add a new scripting widget in the RenaScript page.
-#. Select the P300Script.py (TODO: file location) in your local computer.
-#. Add both input streams in the scripting widget.
-#. Change the buffer size and run times to a reasonable value. (We recommend 3 seconds for the buffer size and 5 for the run frequency.)
-#. Click the Run button to run the script
 
 =======
 Run Experiment
