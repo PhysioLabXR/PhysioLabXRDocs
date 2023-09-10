@@ -10,11 +10,11 @@ PhysioLab\ :sup:`XR` + Unity P300 Speller Tutorial
 Introduction
 *************
 
-This tutorial will demonstrate how to use **PhysioLab\ :sup:`XR`** and **Unity** to implement a `P300 Speller <https://www.frontiersin.org/articles/10.3389/fnhum.2019.00261/full>`_
+This tutorial will demonstrate how to use PhysioLab\ :sup:`XR` and Unity to implement a `P300 Speller <https://www.frontiersin.org/articles/10.3389/fnhum.2019.00261/full>`_
 Brain Computer Interface (BCI) game.
 The P300 Speller is a classic BCI game that uses the P300 Event-related potential (ERP) component to detect the user's intention.
 The P300 is one of the most important Event-related potentials(ERP) components that is used to evaluate cognitive function, such as attention, working memory , and concentration.
-In this tutorial we will use the **PhysioLab\ :sup:`XR`** as a real-time data acquisition platform and analysis tool, and use **Unity** as a stimulus presentation platform.
+In this tutorial we will use the PhysioLab\ :sup:`XR` as a real-time data acquisition platform and analysis tool, and use **Unity** as a stimulus presentation platform.
 
 
 .. image:: media/PhysioLabXRP300SpellerDemo-IntroductionImage.png
@@ -50,20 +50,18 @@ P300 Speller Game Unity  LSL  Configuration:
 
         *Channel[0]: (StateEnterExitMarker)*
             Indicates the selected game states (Train/Test/Interrupt)
-                - StartState: 1
-                - TrainIntroductionState: 2
-                - TrainState: 3
-                - TestIntroductionState: 4
-                - TestState: 5
-                - EndState: 6
-            send corresponding negative number when exiting the state
+                - StartStateEnter: 1, StartStateExit: -1
+                - TrainIntroductionStateEnter: 2, TrainIntroductionStateExit: -2
+                - TrainStateEnter: 3, TrainStateExit: -3
+                - TestIntroductionStateEnter: 4, TestIntroductionStateExit: -4
+                - TestStateEnter: 5, TestStateExit: -5
+                - EndStateEnter: 6, EndStateExit: -6
 
 
 
         *Channel[1]: (FlashBlockStartEndMarker)*
             Indicates the start and end of flashing for each trail
-                - FlashBlockStartEndMarker: 1
-            send -1 when the flash block ends
+                - FlashBlockStartMarker: 1, FlashBlockEndMarker: -1
 
 
         *Channel[2]: (FlashingMarker)*
@@ -86,9 +84,11 @@ P300 Speller Game Unity  LSL  Configuration:
             The interrupt event marker. Send 1 while the user presses the interrupt button (Esc). The game will return to the start state after the interrupt.
                 - InterruptMarker: 1
 
-The Channel will be zero when the corresponding event is not happening,
+
+The channel will be zero when the corresponding event is not happening,
 while Channel[3] will be zero while the flashing component is the first row.
-*Therefore, we have to check Channel[2] and Channel[3] at the same time to determine the identity of the flashing component!*
+
+**Therefore, we have to check Channel[2] and Channel[3] at the same time to determine the identity of the flashing component!**
 
 
 
@@ -148,7 +148,7 @@ PhysioLab\ :sup:`XR` LSL Configuration:
 
 
 =======
-Scripting
+Script: PhysioLabXRP300SpellerDemoScript.py and PhysioLabXR_P300SpellerDemoConfig.py
 =======
 
 The script can be found at: `PhysioLabXRP300SpellerDemoScript.py <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/physiolabxr/scripting/Examples/PhysioLabXR_P300Speller_Demo/PhysioLabXRP300SpellerDemoScript.py>`_
@@ -636,8 +636,8 @@ during each trail, but without instruction. The predicted result will be typed i
 Requirements
 =======
 
-1. PhysioLab\ :sup:`XR`: `PhysioLab\ :sup:`XR` <https://github.com/PhysioLabXR/PhysioLabXR/tree/master>`_
-2. Unity from: `pysiolabxr_p300speller_demo <https://github.com/HaowenWeiJohn/PysioLabXR_P300Speller_Demo.git>`_
+1. PhysioLab\ :sup:`XR`: `physiolabxr <https://github.com/PhysioLabXR/PhysioLabXR/tree/master>`_
+2. Unity project download from: `pysiolabxr_p300speller_demo <https://github.com/HaowenWeiJohn/PysioLabXR_P300Speller_Demo.git>`_
 3. OpenBCI: `Cyton-8-Channel <https://shop.openbci.com/collections/frontpage/products/cyton-biosensing-board-8-channel?variant=38958638540>`_
     Channel Selection: Fz, Cz, Pz, C3, C4, P3, P4, O1.
 
@@ -653,8 +653,7 @@ and can also be found in the `pysiolabxr_p300speller_demo <https://github.com/Ph
 Get the OpenBCI Cyton-8-Channel board and connect it to the computer.
 ************
 
-For this step, please refer to
-    `OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_.
+For this step, please refer to: `OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_.
 It is very important to complete the `FTDI Driver Installation <https://docs.openbci.com/Troubleshooting/FTDI_Fix_Windows/>`_ before starting the experiment.
 The Latency timer should be set to 1 ms (the default value is 16 ms) to reduce the latency.
 
@@ -663,12 +662,9 @@ The Latency timer should be set to 1 ms (the default value is 16 ms) to reduce t
 Check EEG Signal Quality
 ************
 
-You can use the OpenBCI GUI to check the EEG signal quality.
-Same as the previous step, please refer to
-    `OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_ for more details.
+You can use the OpenBCI GUI to check the EEG signal quality. Same as the previous step, please refer to `OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_ to use OpenBCI GUI to check the impedance of each channel.
 
-
-Start the OpenBCI Cyton-8-Channel board from PhysioLab\ :sup:`XR` Scripting Interface.
+Start the OpenBCI Cyton-8-Channel board from PhysioLab\ :sup:`XR` Scripting Interface using PhysioLabXROpenBCICyton8ChannelsScript.py
 ************
 
 The script can be downloaded from `PhysioLabXROpenBCICyton8ChannelsScript.py <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/physiolabxr/scripting/Examples/PhysioLabXR_P300Speller_Demo/PhysioLabXROpenBCICyton8ChannelsScript.py>`_.
@@ -771,7 +767,7 @@ The script can be downloaded from `PhysioLabXROpenBCICyton8ChannelsScript.py <ht
 
 3. Keep the output type as *LSL* and *float32* and change the output channel number in the line edit to *8*. (We have 8 EEG channels in this experiment)
 
-4. Type the parameter name: *serial_port* and click the *Add* button.
+4. Type the parameter name: *serial_port* in the **Parameter Widget** and click the *Add* button.
 
 5. Change the parameter type to *str* and type the serial port name in the line edit. (e.g. COM3) You can find this information in your device manager.
 
@@ -781,24 +777,76 @@ The script can be downloaded from `PhysioLabXROpenBCICyton8ChannelsScript.py <ht
 
 8. Go to the **Stream Tab** and type *OpenBCICyton8Channels* in *Add Widget* and the *Start Button* should be enabled already. Click the *Start Button* to start the stream.
 
+9. Follow the instruction in `DSP <DSP.html>`_ to add filters to the stream. We need a Notch Filter with *60 Hz* target frequency and a Butterworth Bandpass Filter with *0.5 Hz* low cutoff frequency and *50 Hz* high cutoff frequency to the stream.
 
-=======
 Start Unity
-=======
+************
 
-1. Download the Unity project from
+1. Download the Unity project from the `PhysioLabXR_P300Speller_Demo <https://github.com/HaowenWeiJohn/PysioLabXR_P300Speller_Demo>`_ repository.
+
+2. Start the Game by clicking the *Play* button in the Unity Editor. This will initiate the **PhysioLabXRP300SpellerDemoEventMarker** on Network. (You can also build the project and run the executable file.)
+
+3. Go to **Stream Tab**. Type **PhysioLabXRP300SpellerDemoEventMarker** in the *Add Widget* and click the *Start Button* to start the stream.
 
 
-=======
+
 Add PysioLabP300SpellerDemoScript.py
-=======
+************
 
 1. Go to the `Script Tab <Scripting.html>`_ and click the *Add* button to start the script. You can either create a new script and replace with *PhysioLabXRP300SpellerDemoScript.py* we mentioned above, or select *PhysioLabP300SpellerDemoScript.py* located in the *physiolabxr/scripting/Examples/PhysioLabXR_P300Speller_Demo* directory.
 
 2. We need to add the Event Marker stream and EEG Stream as an input to the script. Type the stream name: *OpenBCICyton8Channels* in the *Input Widget* and click the *Add* button. Repeat this step for the *PhysioLabXRP300SpellerDemoEventMarker* stream.
 
-3. Add
+3. Type the parameter name *PhysioLabXRP300SpellerDemoPredictionProbability* in the *Outputs Widget* and click the *Add* button. Keep the output type as *LSL* and *float32* and change the output channel number in the line edit to *36*. Each channel represents the probability of one character, and we have 36 characters in total. (A-Z, 0-9)
+
+4. Below the text box with the path to your script, change the *Run Frequency (times per seconds)* to *>=20* Hz. (Higher frequency is recommended to reduce the latency, but the execution time for each loop also should be considered.)
+
+5. Click the *Run* button to start the script.
+
+6. Now you can add the *PhysioLabXRP300SpellerDemoPredictionProbability* stream in the **Stream Tab** and click the *Start Button* to start the stream.
 
 
+====================
+Experiment
+====================
+
+At this point, we have two scripts running in the **Script Tab**
+
+1. *PysioLabP300SpellerDemoScript.py*: This script receives the *OpenBCICyton8Channels* stream from the OpenBCI Cyton 8 Channels and *PhysioLabXRP300SpellerDemoEventMarker* stream from the Unity platform. It also sends the *PhysioLabXRP300SpellerDemoPredictionProbability* stream to the Unity platform and *Stream Tab* just for visualization purpose.
+
+2. *PhysioLabXROpenBCICyton8ChannelsScript.py*: This script connect the OpenBCI Cyton 8 Channels via `brainflow <https://brainflow.readthedocs.io/en/stable/>`_ and send the *OpenBCICyton8Channels* stream to the local network through LSL.
+
+Three Streams are running in the **Stream Tab**:
+
+1. *OpenBCICyton8Channels*: This stream is sent from *PysioLabP300SpellerDemoScript.py*. Indicate the EEG data from the OpenBCI Cyton 8 Channels.
+
+2. *PhysioLabXRP300SpellerDemoEventMarker*: This stream is from the Unity platform. Indicate the event marker for the P300 Speller.
+
+3. *PhysioLabXRP300SpellerDemoPredictionProbability*: This stream is sent from the *PysioLabP300SpellerDemoScript.py* for visualization purpose. Indicate the prediction probability for each character in testing process.
+
+
+Run the Experiment
+************
+
+1. The game start with a *Start State*. The participant can go to the next state by pressing the *Space* key.
+
+2. The participant will enter the *TrainIntroduction State* and user must fill the parameters before the *Train State*.
+    Configurable Parameters:
+        - Train Chars: The characters that will be used in the training process. (e.g. ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789)
+        - Repeat Times: The number of times to flash each column and row (e.g. 10)
+        - Flash Interval: The interval between each flash in the training and testing process. (e.g. 0.1)
+        - Flash Duration: The duration of each flash in the training and testing process. (e.g. 0.1)
+
+.. note::
+    The same setting will be applied to both training and testing process, except the *Train Chars* parameter. The *Train Chars* parameter will only be used in the training process.
+
+3. After filling the parameters, the participant can press the *Space* key to start the training process. The participant will enter the *Train State* and the training process will start. The participant has to focus on the highlighted character at the beginning of each flash block.
+
+4. After the training process, the the user will enter the *TestIntroduction State*. At this point, a logistic regression is trained based on the training data and the user can press the *Space* key to start the testing process.
+
+5. During the testing process, the participant can chose any character by focusing on that character during the flash block. The character with the highest probability will be selected as the prediction. The participant can press the *Space* key to exit the testing process and go to the *End State*.
+
+.. note::
+    The participant can press the *Escape* key to exit the game at any time. This will return the participant to the *Start State*.
 
 
