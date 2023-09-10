@@ -608,7 +608,6 @@ should be imported into the script file. The configuration file includes the fol
     * **Non_Target_Flash_Marker**: The non-target flash marker.
     * **Board**: The board of the P300 speller.
 
-Now we will go through each function in the script.
 
 
 
@@ -637,9 +636,9 @@ during each trail, but without instruction. The predicted result will be typed i
 Requirements
 =======
 
-1. PhysioLab\ :sup:`XR`
-2. Unity Platform
-3. OpenBCI Cyton Board
+1. PhysioLab\ :sup:`XR`: `PhysioLab\ :sup:`XR` <https://github.com/PhysioLabXR/PhysioLabXR/tree/master>`_
+2. Unity from: `pysiolabxr_p300speller_demo <https://github.com/HaowenWeiJohn/PysioLabXR_P300Speller_Demo.git>`_
+3. OpenBCI: `Cyton-8-Channel <https://shop.openbci.com/collections/frontpage/products/cyton-biosensing-board-8-channel?variant=38958638540>`_
     Channel Selection: Fz, Cz, Pz, C3, C4, P3, P4, O1.
 
 
@@ -648,22 +647,158 @@ Requirements
 Experiment Setup
 =======
 
+In this experiment, all the required scripts are included in your local directory: *physiolabxr/scripting/Examples/PhysioLabXR_P300Speller_Demo*,
+and can also be found in the `pysiolabxr_p300speller_demo <https://github.com/PhysioLabXR/PhysioLabXR/tree/master/physiolabxr/scripting/Examples/PhysioLabXR_P300Speller_Demo>`_.
+
+Get the OpenBCI Cyton-8-Channel board and connect it to the computer.
+************
+
+For this step, please refer to
+    `OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_.
+It is very important to complete the `FTDI Driver Installation <https://docs.openbci.com/Troubleshooting/FTDI_Fix_Windows/>`_ before starting the experiment.
+The Latency timer should be set to 1 ms (the default value is 16 ms) to reduce the latency.
+
+
+
+Check EEG Signal Quality
+************
+
+You can use the OpenBCI GUI to check the EEG signal quality.
+Same as the previous step, please refer to
+    `OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_ for more details.
+
+
+Start the OpenBCI Cyton-8-Channel board from PhysioLab\ :sup:`XR` Scripting Interface.
+************
+
+The script can be downloaded from `PhysioLabXROpenBCICyton8ChannelsScript.py <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/physiolabxr/scripting/Examples/PhysioLabXR_P300Speller_Demo/PhysioLabXROpenBCICyton8ChannelsScript.py>`_.
+
+    .. code-block:: python
+
+        # This is an example script for PhysioLabXR. It is a simple script that reads data from OpenBCI Cyton 8 Channels and sends it to Lab Streaming Layer.
+        # The output stream name is "OpenBCICyton8Channels"
+
+
+        import time
+
+        import brainflow
+        import pylsl
+        from brainflow.board_shim import BoardShim, BrainFlowInputParams
+
+        from physiolabxr.scripting.RenaScript import RenaScript
+
+
+        class PhysioLabXROpenBCICyton8ChannelsScript(RenaScript):
+            def __init__(self, *args, **kwargs):
+                """
+                Please do not edit this function
+                """
+                super().__init__(*args, **kwargs)
+
+
+            # Start will be called once when the run button is hit.
+            def init(self):
+                # check if the parameters are set
+
+                if "serial_port" not in self.params: # check
+                    while True:
+                        print("serial_port is not set. Please set it in the parameters tab (e.g. COM3)")
+                        time.sleep(1)
+                else:
+                    if type(self.params["serial_port"]) is not str:
+                        while True:
+                            print("serial_port should be a string (e.g. COM3)")
+                            time.sleep(1)
+
+
+
+                print("serial_port: ", self.params["serial_port"])
+
+                # try init board
+                self.brinflow_input_params = BrainFlowInputParams()
+
+                # assign serial port from params to brainflow input params
+                self.brinflow_input_params.serial_port = self.params["serial_port"]
+
+                self.brinflow_input_params.ip_port = 0
+                self.brinflow_input_params.mac_address = ''
+                self.brinflow_input_params.other_info = ''
+                self.brinflow_input_params.serial_number = ''
+                self.brinflow_input_params.ip_address = ''
+                self.brinflow_input_params.ip_protocol = 0
+                self.brinflow_input_params.timeout = 0
+                self.brinflow_input_params.file = ''
+
+                # set board id to Cyton 8-channel (0)
+                self.board_id = 0 # Cyton 8-channel
+
+                try:
+                    self.board = BoardShim(self.board_id, self.brinflow_input_params)
+                    self.board.prepare_session()
+                    self.board.start_stream(45000, '') # 45000 is the default and recommended ring buffer size
+                    print("OpenBCI Cyton 8 Channels. Sensor Start.")
+                except brainflow.board_shim.BrainFlowError:
+                    while True:
+                        print('Board is not ready. Start Fild. Please check the serial port and try again.')
+                        time.sleep(1)
+
+
+            # loop is called <Run Frequency> times per second
+            def loop(self):
+                timestamp_channel = self.board.get_timestamp_channel(0)
+                eeg_channels = self.board.get_eeg_channels(0)
+                # print(timestamp_channel)
+                # print(eeg_channels)
+
+                data = self.board.get_board_data()
+
+                timestamps = data[timestamp_channel]
+                data = data[eeg_channels]
+
+                absolute_time_to_lsl_time_offset = time.time() - pylsl.local_clock()
+                timestamps = timestamps - absolute_time_to_lsl_time_offset # remove the offset between lsl clock and absolute time
+                self.set_output(stream_name="OpenBCICyton8Channels", data=data, timestamp=timestamps)
+
+
+            # cleanup is called when the stop button is hit
+            def cleanup(self):
+                print('Stop OpenBCI Cyton 8 Channels. Sensor Stop.')
+
+
+1. Go to the `Script Tab <Scripting.html>`_ and click the *Add* button to start the script. You can either create a new script and replace the content provided above, or select *PhysioLabXROpenBCICyton8ChannelsScript.py* located in the *physiolabxr/scripting/Examples/PhysioLabXR_P300Speller_Demo* directory. After adding the script, you will need to add the output stream in the *Output Widget* and parameters in the *Parameters Widget*.
+
+2. Type the output stream name: *OpenBCICyton8Channels* in the *Output Widget* and click the *Add* button.
+
+3. Keep the output type as *LSL* and *float32* and change the output channel number in the line edit to *8*. (We have 8 EEG channels in this experiment)
+
+4. Type the parameter name: *serial_port* and click the *Add* button.
+
+5. Change the parameter type to *str* and type the serial port name in the line edit. (e.g. COM3) You can find this information in your device manager.
+
+6. Below the text box with the path to your script, change the *Run Frequency (times per seconds)* to *>=40* Hz. (Higher frequency is recommended to reduce the latency, but the execution time for each loop also should be considered.)
+
+7. Click the *Run* button to start the script.
+
+8. Go to the **Stream Tab** and type *OpenBCICyton8Channels* in *Add Widget* and the *Start Button* should be enabled already. Click the *Start Button* to start the stream.
+
 
 =======
-Run Experiment
+Start Unity
 =======
 
-Practice
-    He/She can practice the experiment in the Practice mode which does not interact with the RenaScript.
-
-Train
-    The first step is to collect some training data for the Logistic Regression model. The default training session asks the user to spell { "R"  "E" "N"  "A" }, and this can be modified in the options window.  The flashing pattern will be the same as the Practice Mode. After each trial, the Unity interface will wait for the training finish signal from RenaLabApp Script and the training accuracy will be shown on the screen. (The timeout duration will be 2 seconds by default).
-
-Test
-    After the training stage, he/she can test the trained model by clicking the test button. The test trial will run recursively until the user clicks the interrupt button.Unity will wait for the prediction result from RenaLabApp at the end of each trial, and the board will show the prediction result as well as the text input box on top. (The timeout duration will be 2 seconds by default, same as the training mode ).
+1. Download the Unity project from
 
 
+=======
+Add PysioLabP300SpellerDemoScript.py
+=======
 
-*Run the experiment without OpenBCI device and Unity*
-    We provide users with a recorded experiment that can be replayed while the user starts the replay.
+1. Go to the `Script Tab <Scripting.html>`_ and click the *Add* button to start the script. You can either create a new script and replace with *PhysioLabXRP300SpellerDemoScript.py* we mentioned above, or select *PhysioLabP300SpellerDemoScript.py* located in the *physiolabxr/scripting/Examples/PhysioLabXR_P300Speller_Demo* directory.
+
+2. We need to add the Event Marker stream and EEG Stream as an input to the script. Type the stream name: *OpenBCICyton8Channels* in the *Input Widget* and click the *Add* button. Repeat this step for the *PhysioLabXRP300SpellerDemoEventMarker* stream.
+
+3. Add
+
+
+
 
