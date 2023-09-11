@@ -886,6 +886,7 @@ Three Streams are running in the **Stream Tab**:
 3. *PhysioLabXRP300SpellerDemoPredictionProbability*: This stream is sent from the *PysioLabP300SpellerDemoScript.py* for visualization purpose. Indicate the prediction probability for each character in testing process.
 
 
+
 Run the Experiment
 ************
 
@@ -910,4 +911,17 @@ Run the Experiment
 .. note::
     The participant can press the *Escape* key to exit the game at any time. This will return the participant to the *Start State*.
 
+
+here is the youtube video for the demo:
+
+
+
+.. raw:: html
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video8" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="https://youtu.be/owTSQAcJNaM" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
 
