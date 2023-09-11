@@ -636,6 +636,9 @@ during each trail, but without instruction. The predicted result will be typed i
 Requirements
 =======
 
+
+
+
 1. PhysioLab\ :sup:`XR`: `physiolabxr <https://github.com/PhysioLabXR/PhysioLabXR/tree/master>`_
 2. Unity project download from: `pysiolabxr_p300speller_demo <https://github.com/HaowenWeiJohn/PysioLabXR_P300Speller_Demo.git>`_
 3. OpenBCI: `Cyton-8-Channel <https://shop.openbci.com/collections/frontpage/products/cyton-biosensing-board-8-channel?variant=38958638540>`_
@@ -657,12 +660,30 @@ For this step, please refer to: `OpenBCI Cyton Getting Started Guide <https://do
 It is very important to complete the `FTDI Driver Installation <https://docs.openbci.com/Troubleshooting/FTDI_Fix_Windows/>`_ before starting the experiment.
 The Latency timer should be set to 1 ms (the default value is 16 ms) to reduce the latency.
 
+.. raw:: html
 
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video8" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/PhysioLabXRP300SpellerDemo-FTDIFix.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
 
 Check EEG Signal Quality
 ************
 
 You can use the OpenBCI GUI to check the EEG signal quality. Same as the previous step, please refer to `OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_ to use OpenBCI GUI to check the impedance of each channel.
+
+.. raw:: html
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video8" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/PhysioLabXRP300SpellerDemo-OpenBCICyton8ChannelsCheckSignalQuality.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+
 
 Start the OpenBCI Cyton-8-Channel board from PhysioLab\ :sup:`XR` Scripting Interface using PhysioLabXROpenBCICyton8ChannelsScript.py
 ************
@@ -775,9 +796,32 @@ The script can be downloaded from `PhysioLabXROpenBCICyton8ChannelsScript.py <ht
 
 7. Click the *Run* button to start the script.
 
+
+.. raw:: html
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video8" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/PhysioLabXRP300SpellerDemo-PhysioLabXROpenBCICyton8ChannelsScript.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+
+
+
 8. Go to the **Stream Tab** and type *OpenBCICyton8Channels* in *Add Widget* and the *Start Button* should be enabled already. Click the *Start Button* to start the stream.
 
 9. Follow the instruction in `DSP <DSP.html>`_ to add filters to the stream. We need a Notch Filter with *60 Hz* target frequency and a Butterworth Bandpass Filter with *0.5 Hz* low cutoff frequency and *50 Hz* high cutoff frequency to the stream.
+
+.. raw:: html
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video8" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/PhysioLabXRP300SpellerDemo-AddFilter.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
 
 Start Unity
 ************
@@ -788,6 +832,14 @@ Start Unity
 
 3. Go to **Stream Tab**. Type **PhysioLabXRP300SpellerDemoEventMarker** in the *Add Widget* and click the *Start Button* to start the stream.
 
+.. raw:: html
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video8" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/PhysioLabXRP300SpellerDemo-StartUnity.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
 
 
 Add PysioLabP300SpellerDemoScript.py
@@ -804,6 +856,15 @@ Add PysioLabP300SpellerDemoScript.py
 5. Click the *Run* button to start the script.
 
 6. Now you can add the *PhysioLabXRP300SpellerDemoPredictionProbability* stream in the **Stream Tab** and click the *Start Button* to start the stream.
+
+.. raw:: html
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <video id="autoplay-video8" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <source src="_static/PhysioLabXRP300SpellerDemo-PysioLabP300SpellerDemoScript.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
 
 
 ====================
