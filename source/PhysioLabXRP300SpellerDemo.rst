@@ -912,8 +912,8 @@ Run the Experiment
     The participant can press the *Escape* key to exit the game at any time. This will return the participant to the *Start State*.
 
 
-here is the youtube video for the demo:
-
+Here is the video for the complete experiment:
+The video is also available at `https://youtu.be/owTSQAcJNaM <https://youtu.be/owTSQAcJNaM>`_.
 
 
 .. raw:: html
