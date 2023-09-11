@@ -274,7 +274,7 @@ to know where exactly the user's gaze is focused.
     FixationDetection
     PsychoPy
     tutorials/BuildMultiModalERPClassifier
-
+    PhysioLabXRP300SpellerDemo
 
 .. toctree::
     :maxdepth: 1

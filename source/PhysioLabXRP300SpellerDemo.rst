@@ -913,15 +913,8 @@ Run the Experiment
 
 
 Here is the video for the complete experiment:
-The video is also available at `https://youtu.be/owTSQAcJNaM <https://youtu.be/owTSQAcJNaM>`_.
-
 
 .. raw:: html
 
-        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-            <video id="autoplay-video8" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                <source src="https://youtu.be/owTSQAcJNaM" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/owTSQAcJNaM?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>
 
