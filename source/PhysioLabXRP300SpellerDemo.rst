@@ -1,3 +1,6 @@
+.. _tutorial p300:
+
+
 #############
 PhysioLab\ :sup:`XR` + Unity P300 Speller Tutorial
 #############

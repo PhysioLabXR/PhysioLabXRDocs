@@ -4,7 +4,7 @@ PhysioLab\ :sup:`XR`
 #####################################################
 
 *Simplifying Physiological and Neuroimaging Experiments*
-*******************************************************
+**********************************************************
 +-----------------------------------------------+-----------------------------------------------+-----------------------------------------+--------------------------------------------------+
 | .. image:: media/index_page/visualization.png | ..  image:: media/index_page/realtime_dsp.png | .. image:: media/index_page/replay.png  | .. image:: media/index_page/scripting.png        |
 |    :width: 200                                |    :width: 200                                |    :width: 200                          |    :width: 200                                   |
@@ -51,6 +51,7 @@ Run from source
 
 Alternatively, you can run the application from its source. Refer to *Run from Source* `in the developer page <Contribute.html#run-from-source>`_ for instructions.
 
+If you encountered problem installing physiolabxr, please re
 
 Get Started with a Simple Example
 *********************************
@@ -239,7 +240,7 @@ to true to check out the averaged ERPs for the target and distractor events. You
 Further Information
 -------------------
 
-Where can you take it from here? Check out the tutorial on building a P300 speller game, where you can spell words
+Where can you take it from here? Check out :ref:`the tutorial on building a P300 speller game <tutorial p300>`, where you can spell words
 through a user interface enabled by the classification of ERP signals.
 
 OR

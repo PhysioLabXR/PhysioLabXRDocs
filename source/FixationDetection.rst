@@ -1,3 +1,5 @@
+.. _tutorial fixation detection:
+
 #############################################
 Real-time Fixation Detection
 #############################################
@@ -40,6 +42,9 @@ Download the data
 ************************
 Download the recording from `here (~3.7 GB) <https://drive.google.com/file/d/1-1YCCO4by9xpYRrz17glX9llAeg__ftZ/view?usp=drive_link>`_.
 It is a rather big file because it contains the video frames from the participant's camera.
+
+
+.. _tutorial fixation detection replay:
 
 Replaying the recording
 ************************
