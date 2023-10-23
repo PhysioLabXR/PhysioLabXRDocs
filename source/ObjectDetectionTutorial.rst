@@ -1,11 +1,11 @@
 ##############################
-Object Detection Tutorial
+WebCam Object Detection
 ##############################
 
 
 (teaser video)
 
-You will need a webcam hooked to your computer to try this demo.
+You will need a webcam hooked to your computer to try this tutorial.
 
 You will run a simple object detection algorithm on the image stream from your webcam.
 
@@ -17,12 +17,17 @@ Connect the webcam
 
 Plug in your webcam to your computer.
 
+Open PhysioLabXR and make sure you are on the ``Stream`` tab.
+
 PhysioLab\ :sup:`XR` automatically detects the video input devices
 connected to your computer. Their name will be listed in the ``Add Stream dropdown`` as ``Camera 'x'``.
-To add an video input stream:
+To add your webcam as an video input stream:
 
-#. Click on the drop down of **Add Stream**  and select the video device you want to add.
-#. Click on **Add** button.
+#. Click on the drop down of **Add Stream**  and select the video device you want to add. If the webcam is the only video device connected to your computer, it will be listed as **Camera 0**.
+#. Click on **Add** button. This may take a minute to load.
+#. You should see the video stream from the webcam.
+#. Check if the color is consistent with the real world. If it is not, click on the settings button on the bottom and change the channel order until the color is consistent with the real world.
+
 
 .. raw:: html
 
@@ -34,25 +39,16 @@ To add an video input stream:
     </div>
 
 
-Open PhysioLabXR and make sure you are on the ``Stream`` tab.
-
-In ``Add Stream``, search for "Camera 0" and click on the add button. This may take a minute to load.
-
-Check if the color is consistent with the real world. If it is not, click on the settings button on the bottom and change the channel order until the color is consistent with the real world.
-
-Then, You are ready to go to the next step.
-
-(video)
-
-Download the source code
+Download the Object Detection Model
 ************************
 
-Download the source code from `here <https://drive.google.com/file/d/1WLWCxxepP8b2Y50280sZJzJ0aeCklE13/view?usp=share_link>`_.
-This is a zipped folder containing both the user script and the object detection model.
+Download the object detection model and the user script from `here <https://drive.google.com/file/d/1WLWCxxepP8b2Y50280sZJzJ0aeCklE13/view?usp=share_link>`_.
 
 Unzip the folder in a location that you can easily access.
 
-Go to the *Scripting Tab* and click the *Locate* button. Navigate to the folder you just unzipped and select the file *ObjectDetection.py*. Click *Open*. You should see the script loaded.
+Go to the ``Scripting`` Tab and click on **Add** button to add a script.
+
+To find the user script you just downloaded, click on ``Locate`` button. Navigate to the folder you just unzipped and select the file *ObjectDetection.py*. Click *Open*. You should see the script loaded.
 
 Here is the code for the user script:
 
