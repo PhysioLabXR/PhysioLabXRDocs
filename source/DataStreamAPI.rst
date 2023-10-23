@@ -372,9 +372,12 @@ Using Video, Audio Input Devices, and Screen Capture
 
 Video and audio input devices recognize by your OS are automatically detected and can be used as data sources.
 
+
+.. _datastreamapi video devices:
+
 Video Devices
 ----------------
-PhysioLab\ :sup:`XR` automatically detects the audio input devices
+PhysioLab\ :sup:`XR` automatically detects the video input devices
 connected to your computer. Their name will be listed in the ``Add Stream dropdown`` as ``Camera 'x'``.
 To add an video input stream:
 
