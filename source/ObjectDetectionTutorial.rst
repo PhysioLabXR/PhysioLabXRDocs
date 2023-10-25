@@ -20,10 +20,10 @@ Plug in your webcam to your computer.
 Open PhysioLabXR and make sure you are on the ``Stream`` tab.
 
 PhysioLab\ :sup:`XR` automatically detects the video input devices
-connected to your computer. Their name will be listed in the ``Add Stream dropdown`` as ``Camera 'x'``.
+connected to your computer. Their name will be listed in the **Add Stream** dropdown as ``Camera 'x'``.
 To add your webcam as an video input stream:
 
-#. Click on the drop down of **Add Stream**  and select the video device you want to add. If the webcam is the only video device connected to your computer, it will be listed as **Camera 0**.
+#. Click on the drop down of **Add Stream**  and select the video device you want to add. If the webcam is the only video device connected to your computer, it should be listed as **Camera 0**.
 #. Click on **Add** button. This may take a minute to load.
 #. You should see the video stream from the webcam.
 #. Check if the color is consistent with the real world. If it is not, click on the settings button on the bottom and change the channel order until the color is consistent with the real world.
