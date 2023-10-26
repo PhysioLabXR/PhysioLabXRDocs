@@ -17,16 +17,16 @@ Connect the webcam
 
 Plug in your webcam to your computer.
 
-Open PhysioLabXR and make sure you are on the ``Stream`` tab.
+Open PhysioLab\ :sup:`XR` and make sure you are on the ``Stream`` tab.
 
 PhysioLab\ :sup:`XR` automatically detects the video input devices
-connected to your computer. Their name will be listed in the **Add Stream** dropdown as ``Camera 'x'``.
+connected to your computer. Their name will be listed in the **Add Stream** dropdown as **Camera 'x'**.
 To add your webcam as an video input stream:
 
 #. Click on the drop down of **Add Stream**  and select the video device you want to add. If the webcam is the only video device connected to your computer, it should be listed as **Camera 0**.
 #. Click on **Add** button. This may take a minute to load.
 #. You should see the video stream from the webcam.
-#. Check if the color is consistent with the real world. If it is not, click on the settings button on the bottom and change the channel order until the color is consistent with the real world.
+#. Check if the color is consistent with the real world. If it is not, click on the **settings** button on the bottom and change the channel order until the color is consistent with the real world.
 
 
 .. raw:: html
@@ -46,14 +46,18 @@ Download the object detection model and the user script from `here <https://driv
 
 Unzip the folder in a location that you can easily access.
 
-Go to the ``Scripting`` Tab and click on **Add** button to add a script.
+To add this user script:
 
-To find the user script you just downloaded, click on ``Locate`` button. Navigate to the folder you just unzipped and select the file *ObjectDetection.py*. Click *Open*. You should see the script loaded.
+#. Go to the ``Scripting`` Tab and click on **Add** button to add a script.
+#. To find the user script you just downloaded, click on ``Locate`` button.
+#. Navigate to the folder you just unzipped and select the file *ObjectDetection.py*. Click **Open**. You should see the script loaded.
+
 
 Here is the code for the user script:
 
     .. code-block:: python
 
+        import warnings
         import warnings
 
         import os
@@ -141,8 +145,11 @@ Here is the code for the user script:
 
             # loop is called <Run Frequency> times per second
             def loop(self):
-                if "Camera 0" in self.inputs: # check if the camera is in the inputs
-                    image_data = self.inputs["Camera 0"][0][:, -1] # get the newest image data from the camera
+                camera_stream_names = [x for x in self.inputs.keys() if x.startswith("Camera")]
+                if len(camera_stream_names) > 0: # check if the camera is in the inputs
+                    # take the first stream whose name starts with camera
+                    stream_name = camera_stream_names[0]
+                    image_data = self.inputs[stream_name][0][:, -1] # get the newest image data from the camera
                     detected_pos, img_w_bbx = process_received_camera_images(image_data, self.ob_model, self.class_names, self.image_shape) # process the image data
                     self.outputs["OutputImg"] = img_w_bbx.reshape(-1) # reshape the output image to send
                     self.inputs.clear_buffer() # clear the input buffer
@@ -156,27 +163,26 @@ Here is the code for the user script:
 Running the user script
 ************************
 
-In "Inputs", type in "Camera 0" and click on the add button. This will add the webcam stream as an input.
+To run this user script:
 
-The user needs to type this in everytime they reload the script for reasons described in :ref:`video device api <datastreamapi video devices>`
+#. In ``Inputs``, type in **Camera 'x'** and click on the add button. This will add the webcam stream as an input. The user needs to type this in everytime they reload the script for reasons described in :ref:`video device api <datastreamapi video devices>`
+#. In ``Outputs``, type in **OutputImg** and click on the add button. We use this name because we named the output that way in the code. Please feel free to play around with it. Adding this here will enable streaming of the output image in the user code.
+#. Change the size of the OutputImg to **921600**. This is the size of the image stream from the webcam, which is 640x480x3.
+#. Make sure you select **ZMQ** as the streaming interface and **uint8** as its datatype. You can use any port number, but here we chose **11000** for the example.
+#. Go back to the ``Stream`` tab. In ``Add Stream``, type in **OutputImg**, make sure you are using the same port number as the one you chose previously. Double check that your datatype is uint8 and that you are using ZMQ as the streaming interface. Then, click on the add button. This will add the output image of the user code as a stream. Please notice that the ``Stream`` tab and the user script are independent from each other, and that adding something in one place does not automatically add it to the other.
 
-In "Outputs", type in "OutputImg" and click on the add button. This will enable streaming of the output image of the user code.
-
-Change the size of the OutputImg to 921600. This is the size of the image stream from the webcam, which is 640x480x3.
-
-Make sure you select ZMQ and the datatype is uint8. You can use any port number, but here we chose 11000 for the example.
-
-Go back to the *Stream* tab. In "Add Stream", search for "OutputImg", make sure you are using the same port number as the one you chose previously. Double check that your datatype is uint8 and that you are using ZMQ. Then, click on the add button. This will add the output image of the user code as a stream.
-
-Now, you are ready to run the code. Go back to the *Scripting* tab and click on the *Run* button. You should see the output image stream from the user code in the *Stream* tab.
+Now, you are ready to run the code. Go back to the ``Scripting`` tab and click on the ``Run`` button. You should see the output image stream from the user code in the ``Stream`` tab.
 
 (video)
 
+Visualize the Output Image Stream
+************************
 
-If you see a black screen, click on the settings button on the bottom of the OutputImg Stream, click on *default group name*, and check that the width and height are 640 and 480 respectively. Also, select rgb under *Image*.
+To see the output image stream from the webcam with object detection boxes:
 
-Drag down the horizontal bar, make sure the channel format is selected as "channel last".
-
-Close the settings window. Go back to the Stream and click on the letter *A* in the lower left corner to see the whole picture. You should see the webcam image stream with object detection boxes.
+#. Adjust the scale of the output image stream in the ``Stream`` tab.
+#. Click on the ``settings`` button on the bottom of the OutputImg Stream, click on ``default group name``, and check that the width and height are **640** and **480** respectively. Also, select **rgb** under ``Image``.
+#. Drag down the horizontal bar, make sure the channel format is selected as **channel last**.
+#. Close the settings window. Go back to the Stream and click on the letter ``A`` in the lower left corner to see the whole picture. You should see the webcam image stream with object detection boxes.
 
 (video)
