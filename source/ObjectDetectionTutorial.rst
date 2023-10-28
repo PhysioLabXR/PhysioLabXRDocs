@@ -5,14 +5,16 @@ WebCam Object Detection
 
 (teaser video)
 
+In this tutorial, you will run a simple object detection algorithm on the image stream from your webcam.
+
+The algorithm will detect objects in the image and draw bounding boxes around them.
+It will also output the classes of the objects detected.
+The algorithm is based on the `MobileNetV3 <https://openaccess.thecvf.com/content_ICCV_2019/html/Howard_Searching_for_MobileNetV3_ICCV_2019_paper.html>`_, and the model was trained on the `COCO dataset <https://cocodataset.org/#home>`_.
+
 You will need a webcam hooked to your computer to try this tutorial.
 
-You will run a simple object detection algorithm on the image stream from your webcam.
 
-The algorithm will detect objects in the image and draw boxes around them.
-
-
-Connect the webcam
+Connect the WebCam
 ************************
 
 Plug in your webcam to your computer.
@@ -49,15 +51,16 @@ Unzip the folder in a location that you can easily access.
 To add this user script:
 
 #. Go to the ``Scripting`` Tab and click on **Add** button to add a script.
-#. To find the user script you just downloaded, click on ``Locate`` button.
+#. To find the user script you just downloaded, click on **Locate** button.
 #. Navigate to the folder you just unzipped and select the file *ObjectDetection.py*. Click **Open**. You should see the script loaded.
+
+(video)
 
 
 Here is the code for the user script:
 
     .. code-block:: python
 
-        import warnings
         import warnings
 
         import os
@@ -165,13 +168,13 @@ Running the user script
 
 To run this user script:
 
-#. In ``Inputs``, type in **Camera 'x'** and click on the add button. This will add the webcam stream as an input. The user needs to type this in everytime they reload the script for reasons described in :ref:`video device api <datastreamapi video devices>`
-#. In ``Outputs``, type in **OutputImg** and click on the add button. We use this name because we named the output that way in the code. Please feel free to play around with it. Adding this here will enable streaming of the output image in the user code.
+#. In ``Inputs``, type in **Camera 'x'** and click on the **Add** button. This will add the webcam stream as an input. The user needs to type this in everytime they reload the script for reasons described in :ref:`Video Device API <datastreamapi video devices>`
+#. In ``Outputs``, type in **OutputImg** and click on the **Add** button. We use this name because we named the output that way in the code. Please feel free to play around with it. Adding this here will enable streaming of the output image in the user code.
 #. Change the size of the OutputImg to **921600**. This is the size of the image stream from the webcam, which is 640x480x3.
 #. Make sure you select **ZMQ** as the streaming interface and **uint8** as its datatype. You can use any port number, but here we chose **11000** for the example.
-#. Go back to the ``Stream`` tab. In ``Add Stream``, type in **OutputImg**, make sure you are using the same port number as the one you chose previously. Double check that your datatype is uint8 and that you are using ZMQ as the streaming interface. Then, click on the add button. This will add the output image of the user code as a stream. Please notice that the ``Stream`` tab and the user script are independent from each other, and that adding something in one place does not automatically add it to the other.
+#. Go back to the ``Stream`` tab. In ``Add Stream``, type in **OutputImg**, make sure you are using the same port number as the one you chose previously. Double check that your datatype is **uint8** and that you are using **ZMQ** as the streaming interface. Then, click on the **Add** button. This will add the output image of the user code as a stream. Please notice that the ``Stream`` tab and the user script are independent from each other, and that adding something in one place does not automatically add it to the other.
 
-Now, you are ready to run the code. Go back to the ``Scripting`` tab and click on the ``Run`` button. You should see the output image stream from the user code in the ``Stream`` tab.
+Now, you are ready to run the code. Go back to the ``Scripting`` tab and click on the ``Run`` button.
 
 (video)
 
@@ -180,7 +183,8 @@ Visualize the Output Image Stream
 
 To see the output image stream from the webcam with object detection boxes:
 
-#. Adjust the scale of the output image stream in the ``Stream`` tab.
+#. Go back to the ``Stream`` tab. Click the **Start All** button to start all the streams or click the **Play** button under the OutputImg stream to start only that stream.
+#. Adjust the scale of the output image stream.
 #. Click on the ``settings`` button on the bottom of the OutputImg Stream, click on ``default group name``, and check that the width and height are **640** and **480** respectively. Also, select **rgb** under ``Image``.
 #. Drag down the horizontal bar, make sure the channel format is selected as **channel last**.
 #. Close the settings window. Go back to the Stream and click on the letter ``A`` in the lower left corner to see the whole picture. You should see the webcam image stream with object detection boxes.
