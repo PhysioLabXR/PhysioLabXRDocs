@@ -1,4 +1,4 @@
-Contribute to PhysioLabXR
+.. _contribute:
 
 ##############################
 How to Contribute
@@ -8,15 +8,16 @@ How to Contribute
 Run from source
 *********************
 
-RealityNavigation App requires python3.8+. Clone the project from `RealityNavigation's repo page <https://github.com/ApocalyVec/RenaLabApp>`_.
+To run PhysioLab\ :sup:`XR` from source, you need to install python3.8+.
+Clone the project from `its repo page <https://github.com/physiolabxr/physiolabxr>`_.
 
-Navigation to the root folder of the downloaded repo, install all the prerequisites with the following command::
+Navigation to the root folder of the downloaded repo, install all the required packages with the following command::
 
    pip install -r requirements.txt
 
 Run main.py to start the app::
 
-   python main.py
+   python physiolabxr/PhysioLabXR.py
 
 Notes for working with PyQt
 ---------------------------------

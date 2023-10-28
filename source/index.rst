@@ -288,6 +288,7 @@ to know where exactly the user's gaze is focused.
     :maxdepth: 1
     :caption: Others:
 
+    Benchmarks
     Releases
     LICENSE
 
