@@ -12,15 +12,16 @@ PhysioLab\ :sup:`XR`
 +-----------------------------------------------+-----------------------------------------------+-----------------------------------------+--------------------------------------------------+
 
 
-PhysioLab\ :sup:`XR` is a pure Python application for running physiological experiments involving EEG, fNIRS, eyetracking, fMRI,
-audiovisual recording from cameras and microphones, and more!
-Designed for both academic researchers and industry practitioners, it supports multiple platforms (screen-based, VR, or AR)
-and offers real-time visualization, synchronization, recording, and data processing (e.g., to apply filters and run machine
-learning models).
+- a pure Python application for running physiological experiments involving EEG, fNIRS, eyetracking, fMRI, audiovisual recording from cameras and microphones, and more!
+- designed for both academic researchers and industry practitioners.
+- supports multiple platforms (screen-based, VR, and AR).
+- offers real-time visualization, synchronization, recording, and data processing (e.g., to apply filters and run machine learning models).
 
-You can easily integrate PhysioLab\ :sup:`XR` into your data pipeline if
-you are already using `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_ or `ZMQ <https://zeromq.org/>`_
-to stream your data. You can also create your own data stream via the `Data Stream API <DataStreamAPI.html>`_.
+Streaming Data:
+
+- if you are already using `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_ or `ZeroMQ (ZMQ) <https://zeromq.org/>`_ to stream your data, then you can easily integrate PhysioLab\ :sup:`XR` into your data pipeline.
+
+- you can also create your own data stream via the `Data Stream API <DataStreamAPI.html>`_.
 
 
 Download
@@ -29,12 +30,12 @@ Download
 Run the executable
 ------------------
 
-Get the latest executable of PhysioLab\ :sup:`XR` from `the release page <https://github.com/ApocalyVec/PhysioLabXR/releases>`_, that supports Windows, MacOS, and Linux.
+Get the latest executable of PhysioLab\ :sup:`XR` from the `release page <https://github.com/ApocalyVec/PhysioLabXR/releases>`_, that supports **Windows**, **MacOS**, and **Linux**.
 
 Install with pip
 ----------------
 
-You can also install PhysioLab\ :sup:`XR` with pip, which will install the latest release version of PhysioLab\ :sup:`XR` and all its dependencies. This is platform-independent and works on Windows, MacOS, and Linux.
+You can also install PhysioLab\ :sup:`XR` with pip, which will install the latest release version of PhysioLab\ :sup:`XR` and all its dependencies. This is platform-independent and works on **Windows**, **MacOS**, and **Linux**.
 
 .. code-block:: bash
 
@@ -49,7 +50,7 @@ Then run the application with:
 Run from source
 ---------------
 
-Alternatively, you can run the application from its source. Refer to *Run from Source* `in the developer page <Contribute.html#run-from-source>`_ for instructions.
+Alternatively, you can run the application from its source. Refer to *Run from Source* in the `developer page <Contribute.html#run-from-source>`_ for instructions.
 
 If you encountered problem installing physiolabxr, please re
 
