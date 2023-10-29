@@ -23,12 +23,15 @@ Open PhysioLab\ :sup:`XR` and make sure you are on the ``Stream`` tab.
 
 PhysioLab\ :sup:`XR` automatically detects the video input devices
 connected to your computer. Their name will be listed in the **Add Stream** dropdown as **Camera 'x'**.
-To add your webcam as an video input stream:
+To add your webcam as a video input stream:
 
-#. Click on the drop down of **Add Stream**  and select the video device you want to add. If the webcam is the only video device connected to your computer, it should be listed as **Camera 0**.
-#. Click on **Add** button. This may take a minute to load.
-#. You should see the video stream from the webcam.
+#. Click on the dropdown of **Add Stream**  and select the video device you want to add. If the webcam is the only video device connected to your computer, it should be listed as **Camera 0**.
+#. Click on the **Add** button. You should see the video stream from the webcam. It may take a minute to load the camera.
 #. Check if the color is consistent with the real world. If it is not, click on the **settings** button on the bottom and change the channel order until the color is consistent with the real world.
+
+.. note::
+
+    Channel maybe out of order (RGB bs. BGR) because of the difference between OpenCV and PhysioLab\ :sup:`XR` channel order.
 
 
 .. raw:: html
@@ -44,20 +47,20 @@ To add your webcam as an video input stream:
 Download the Object Detection Model
 ************************
 
-Download the object detection model and the user script from `here <https://drive.google.com/file/d/1WLWCxxepP8b2Y50280sZJzJ0aeCklE13/view?usp=share_link>`_.
+Download the object detection model and script `here <https://drive.google.com/file/d/1qkbPvPTC5ckApMta5AdEnCAhlPVLb6_f/view?usp=drive_link>`_.
 
-Unzip the folder in a location that you can easily access.
+Unzip the folder to a location that you can easily access.
 
-To add this user script:
+To add this object detection script:
 
-#. Go to the ``Scripting`` Tab and click on **Add** button to add a script.
-#. To find the user script you just downloaded, click on **Locate** button.
+#. Go to the ``Scripting`` Tab and click on the **Add** button to add a script.
+#. To find the user script you just downloaded, click on the **Locate** button.
 #. Navigate to the folder you just unzipped and select the file *ObjectDetection.py*. Click **Open**. You should see the script loaded.
 
 (video)
 
 
-Here is the code for the user script:
+Here is the code for the object detection script (ObjectDetection.py) for your reference:
 
     .. code-block:: python
 
@@ -166,13 +169,13 @@ Here is the code for the user script:
 Running the user script
 ************************
 
-To run this user script:
+To run the object detection:
 
-#. In ``Inputs``, type in **Camera 'x'** and click on the **Add** button. This will add the webcam stream as an input. The user needs to type this in everytime they reload the script for reasons described in :ref:`Video Device API <datastreamapi video devices>`
+#. In ``Inputs``, type in **Camera <your camera number>** and click on the **Add** button. This will add the webcam stream as an input. You will need to type this in everytime they reload the script for reasons described in :ref:`Video Device API <datastreamapi video devices>`
 #. In ``Outputs``, type in **OutputImg** and click on the **Add** button. We use this name because we named the output that way in the code. Please feel free to play around with it. Adding this here will enable streaming of the output image in the user code.
 #. Change the size of the OutputImg to **921600**. This is the size of the image stream from the webcam, which is 640x480x3.
-#. Make sure you select **ZMQ** as the streaming interface and **uint8** as its datatype. You can use any port number, but here we chose **11000** for the example.
-#. Go back to the ``Stream`` tab. In ``Add Stream``, type in **OutputImg**, make sure you are using the same port number as the one you chose previously. Double check that your datatype is **uint8** and that you are using **ZMQ** as the streaming interface. Then, click on the **Add** button. This will add the output image of the user code as a stream. Please notice that the ``Stream`` tab and the user script are independent from each other, and that adding something in one place does not automatically add it to the other.
+#. Make sure you select **ZMQ** as the streaming interface and **uint8** as its data type. You can use any port number, but here we will stick with the default for the newly added ZMQ output **11000**.
+#. Go back to the ``Stream`` tab. In ``Add Stream``, type in **OutputImg**, make sure you are using the same port number as the one you chose previously. Double check that your data type is **uint8** and that you are using **ZMQ** as the streaming interface. Then, click on the **Add** button. This will add the output image of the user code as a stream. Please notice that the ``Stream`` tab and the user script are independent from each other, and that adding something in one place does not automatically add it to the other.
 
 Now, you are ready to run the code. Go back to the ``Scripting`` tab and click on the ``Run`` button.
 

@@ -378,7 +378,7 @@ Video and audio input devices recognize by your OS are automatically detected an
 Video Devices
 ----------------
 PhysioLab\ :sup:`XR` automatically detects the video input devices
-connected to your computer. Their name will be listed in the ``Add Stream dropdown`` as ``Camera 'x'``.
+connected to your computer. Their name will be listed in the ``Add Stream`` dropdown as ``Camera <camera id>``.
 To add an video input stream:
 
 #. Click on the drop down of **Add Stream**  and select the video device you want to add.
