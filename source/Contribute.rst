@@ -1,4 +1,4 @@
-Contribute to PhysioLabXR
+.. _contribute:
 
 ##############################
 How to Contribute
@@ -8,15 +8,17 @@ How to Contribute
 Run from source
 *********************
 
-RealityNavigation App requires python3.8+. Clone the project from `RealityNavigation's repo page <https://github.com/ApocalyVec/RenaLabApp>`_.
+To run PhysioLab\ :sup:`XR` from source, you need to install python3.8+.
+Clone the project from `its repo page <https://github.com/physiolabxr/physiolabxr>`_.
 
-Navigation to the root folder of the downloaded repo, install all the prerequisites with the following command::
+Navigation to the root folder of the downloaded repo, install all the required packages with the following command::
 
    pip install -r requirements.txt
 
-Run main.py to start the app::
+Navigate to the physiolabxr folder. Run PhysioLabXR.py to start the app::
 
-   python main.py
+   cd physiolabxr
+   python PhysioLabXR.py
 
 Notes for working with PyQt
 ---------------------------------
@@ -35,7 +37,7 @@ of doing this is to save the thread's reference to be a permanent object's attri
             thread.start()
 
 The above code would cause the program to silently crash, because the thread object is garbage-collected after the function
-returns. Instead do::
+returns. Instead, do::
 
     Class MyGUIWidget(QtWidgets.QWidget):
         ...
@@ -44,7 +46,7 @@ returns. Instead do::
             self.thread: QThread = create_a_thread()
             self.thread.start()
 
-, by saving the thread object to a permanent attribute, the thread object will not be garbage-collected and lives with
+By saving the thread object to a permanent attribute, the thread object will not be garbage-collected and lives with
 the GUI controller object.
 
 
@@ -55,12 +57,13 @@ Contribute to the documentation
 If you would like to add contents to PhysioLabXR's documentation, you can follow these instructions
 on how to make changes and compile them:
 
-1.Fork the the `RealityNavigationDocs repo <https://github.com/ApocalyVec/RealityNavigationDocs>`_.
+1.Fork the the `PhysioLabXRDocs repo <https://github.com/PhysioLabXR/PhysioLabXRDocs>`_.
+
 2.Clone the forked repo to your local directory:
 
    .. code-block::
 
-       git clone https://github.com/<GitHubUserName>/RealityNavigationDocs
+       git clone https://github.com/<GitHubUserName>/PhysioLabXRDocs
 
 3.Go to <PathToTheClonedRepo>/source, where you can edit existing pages or add new pages. You could include a new
 page in "Further Information" in index.rst for easier navigation.

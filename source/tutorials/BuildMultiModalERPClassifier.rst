@@ -29,17 +29,46 @@ replay the data).
         </video>
     </div>
 
+There are 5 streams in this recording:
+
+- Example-BioSemi-64Chan: 64 channels EEG collected from BioSemi Active 2 headset, already downsampled from 2048 Hz to 128 Hz to reduce file size. This is one of the inputs to our classifier.
+
+- Example-Eyetracking: 6 channels eyetracking data from the built-in eyetracker in Varjo XR-3 headset. First 3 channels
+  are the 3D gaze direction, the 4th channel is the gaze status, where a value of 2 means eyes are tracked and 0 means
+  eyes are not tracked. The last 2 channels are the left and right pupil sizes; they are the second input to our classifier.
+
+- Example-EventMarker-DTN-Block: event marker stream from the stimulus presentation software (Unity in this case). It has two
+  channels. This first is called DTN (with values 1, 2, and 3 for distractor, target, and novelty, respectively). This channel
+  will be our labels for the trials, and in turn, labels for the our data in training the classifier. The second channel is
+  BlockID. It has integer values going from 1 to 9, and each value corresponds to a block of trials. A position value indicates
+  the start of a block and a negative value indicates the end of a block. We will use this information to split the blocks into
+  training and testing blocks.
+
+- Example-Video: the 400 by 400 screen capture from the stimulus presentation software. This is not used in the classifier but
+  we will use it for visualization.
+
+- Example-Video-Gaze-Pixel: two channels of gaze position in pixel coordinates. It tells use where participant's gaze lays in
+  the screen capture. This is not used in the classifier but we will use it for visualization.
+
 
 About the experiment
 ********************
 
-Similar to the simple ERP tutorial, this experiment is a visual oddball task. Different objects are presented to the
+Similar to the :ref:`simple ERP tutorial <Simple ERP tutorial>`, this experiment is a visual oddball task. Different objects are presented to the
 the participant, who is instructed to count the number of times that a predefined target appears. Each appearance of
 an object is called a *trial*. Multiple trials are grouped into a *block*. Each block contains 30 trials, and there
 are a total of 9 blocks. Our goal is to build a classifier that can tell if a trial is a target or a distractor trial.
 We will use the first 6 blocks for training, and the last 3 block for testing.
 
+EEG classifier
+**************
 
+We will start by building a classifier that only uses EEG data. Use the following script,
+
+
+
+Online vs offline inference
+***************************
 
 
 
