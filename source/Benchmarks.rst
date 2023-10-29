@@ -32,9 +32,11 @@ The benchmark is calculated for streams with number of channels ranging from 1 t
 With sampling rate at 1 Hz, the system performs the best regardless of the number of streams and channels.
 When the number of streams increases, the sampling rate of the streams being plotted have a major impact on the visualization fps.
 
-.. image:: media/VizBenchmark.png
+.. image:: media/VizBenchmarkImshows.png
     :width: 1080
 
+.. image:: media/VizBenchmarkAveraged.png
+    :width: 1080
 
 Simulation Benchmark
 --------------------
