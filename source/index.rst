@@ -12,10 +12,13 @@ PhysioLab\ :sup:`XR`
 +-----------------------------------------------+-----------------------------------------------+-----------------------------------------+--------------------------------------------------+
 
 
-- a pure Python application for running physiological experiments involving EEG, fNIRS, eyetracking, fMRI, audiovisual recording from cameras and microphones, and more!
-- designed for both academic researchers and industry practitioners.
-- supports multiple platforms (screen-based, VR, and AR).
+- built with 95%+ Python for running physiological/neuroscience/human-computer interaction experiments involving EEG, fNIRS, eyetracking, fMRI, cameras, microphones, and more!
 - offers real-time visualization, synchronization, recording, and data processing (e.g., to apply filters and run machine learning models).
+- supports multiple experiment platforms (screen-based, VR, and AR).
+- works on all major operating systems (Windows, MacOS, and Linux).
+- easy to install and use: install via pip and run with a single command, download the executable,or run from source.
+- designed for both academic researchers and industry practitioners.
+- open-source and community driven.
 
 Streaming Data:
 
