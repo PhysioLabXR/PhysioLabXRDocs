@@ -3,7 +3,14 @@ WebCam Object Detection
 ##############################
 
 
-(teaser video)
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/WebcamODSpeedTeaser.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
 In this tutorial, you will run a simple object detection algorithm on the image stream from your webcam.
 
