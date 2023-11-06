@@ -20,7 +20,7 @@ of doing this is to save the thread's reference to be a permanent object's attri
             thread.start()
 
 The above code would cause the program to silently crash, because the thread object is garbage-collected after the function
-returns. Instead do::
+returns. Instead, do::
 
     Class MyGUIWidget(QtWidgets.QWidget):
         ...
@@ -29,5 +29,6 @@ returns. Instead do::
             self.thread: QThread = create_a_thread()
             self.thread.start()
 
-, by saving the thread object to a permanent attribute, the thread object will not be garbage-collected and lives with
+By saving the thread object to a permanent attribute, the thread object will not be garbage-collected and lives with
 the GUI controller object.
+

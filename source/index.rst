@@ -38,13 +38,30 @@ Get the latest executable of PhysioLab\ :sup:`XR` from the `release page <https:
 Install with pip
 ----------------
 
-You can also install PhysioLab\ :sup:`XR` with pip, which will install the latest release version of PhysioLab\ :sup:`XR` and all its dependencies. This is platform-independent and works on **Windows**, **MacOS**, and **Linux**.
+You can also install PhysioLab\ :sup:`XR` with pip, which will install the latest release version of PhysioLab\ :sup:`XR` and all its dependencies.
+This is platform-independent and works on Windows, MacOS, and Linux.
+
+PhysioLab\ :sup:`XR` supports Python 3.9, 3.10, and 3.11. Support for 3.12 is coming soon.
+
+If you are using pip, we recommend installing PhysioLab\ :sup:`XR` in a virtual environment. To create a virtual environment, run:
+
+.. code-block:: bash
+
+    python -m venv physiolabxr-env
+
+Then activate the virtual environment:
+
+.. code-block:: bash
+
+    source physiolabxr-env/bin/activate
+
+Install PhysioLab\ :sup:`XR` with:
 
 .. code-block:: bash
 
     pip install physiolabxr
 
-Then run the application with:
+Once installed, you can run the application with:
 
 .. code-block:: bash
 
