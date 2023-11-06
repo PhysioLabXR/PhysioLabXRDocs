@@ -32,11 +32,14 @@ The benchmark is calculated for streams with number of channels ranging from 1 t
 With sampling rate at 1 Hz, the system performs the best regardless of the number of streams and channels.
 When the number of streams increases, the sampling rate of the streams being plotted have a major impact on the visualization fps.
 
+.. image:: media/VizBenchmarkImshows.png
+    :width: 1080
+
+.. image:: media/VizBenchmarkAveraged.png
+    :width: 1080
+
 Simulation Benchmark
 --------------------
-
-.. image:: media/SimulationBenchmark.png
-    :width: 1080
 
 The simulation shows the app's performance on various combinations of data streams commonly found in physiological experiments.
 The following table lists each stream's specification:
@@ -54,6 +57,11 @@ The following table lists each stream's specification:
 +------------+---------------+-------------+-----------+--------------------------+-----------------------------------+
 | fMRI       | 2 Hz          | 64×64×42    | float32   | 14.5                     | Siemens Prisma                    |
 +------------+---------------+-------------+-----------+--------------------------+-----------------------------------+
+
+.. image:: media/SimulationBenchmark.png
+    :width: 1080
+
+
 
 We hope this benchmark can provide a reference for users to estimate the performance of their system. The script for benchmarking
 is `here <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/tests/PerformanceBenchmark.py>`_.  :ref:`Advanced users <contribute>` can use it to
