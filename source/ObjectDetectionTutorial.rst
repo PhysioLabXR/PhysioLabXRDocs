@@ -194,8 +194,8 @@ Running the user script
 
 To run the object detection:
 
-#. In ``Inputs``, type in **Camera <your camera number>** and click on the ``+`` button. This will add the webcam stream as an input. You will need to type this in everytime they reload the script for reasons described in :ref:`Video Device API <datastreamapi video devices>`
-#. In ``Outputs``, type in **OutputImg** and click on the ``+`` button. We use this name because we named the output that way in the code. Please feel free to play around with it. Adding this here will enable streaming of the output image in the user code.
+#. In ``Inputs``, type in **Camera <your camera number>** and click on the ``+`` button. This will add the webcam stream as an input. You will need to type this in everytime you reload the script.
+#. In ``Outputs``, type in **OutputImg** and click on the ``+`` button. We use this name because we named the output that way in the code. Adding this here will enable streaming of the output image in the user code.
 #. Change the size of the OutputImg to **921600**. This is the size of the image stream from the webcam, which is 640x480x3.
 #. Make sure you select **ZMQ** as the streaming interface and **uint8** as its data type. You can use any port number, but here we will stick with the default for the newly added ZMQ output **11000**.
 #. Now, you are ready to run the code. Click on the ``Run`` button.
