@@ -3,15 +3,6 @@ WebCam Object Detection
 ##############################
 
 
-.. raw:: html
-
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-            <source src="_static/WebcamODSpeedTeaser.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
 In this tutorial, you will run a simple object detection algorithm on the image stream from your webcam.
 
 The algorithm will detect objects in the image and draw bounding boxes around them.
@@ -20,6 +11,14 @@ The algorithm is based on the `MobileNetV3 <https://openaccess.thecvf.com/conten
 
 You will need a webcam hooked to your computer to try this tutorial.
 
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/WebcamODSpeedTeaser.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
 Connect the WebCam
 ************************
@@ -35,6 +34,7 @@ To add your webcam as a video input stream:
 #. Click on the dropdown of **Add Stream**  and select the video device you want to add. If the webcam is the only video device connected to your computer, it should be listed as **Camera 0**.
 #. Click on the **Add** button. You should see the video stream from the webcam. It may take a minute to load the camera.
 #. Check if the color is consistent with the real world. If it is not, click on the **settings** button on the bottom and change the channel order until the color is consistent with the real world.
+#. Hold on the right-click button on your mouse and drag to resize the video stream. You can also click on the letter ``A`` in the lower left corner to see the whole picture.
 
 .. note::
 
@@ -45,7 +45,7 @@ To add your webcam as a video input stream:
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-            <source src="_static/video_device.mp4" type="video/mp4">
+            <source src="_static/Webcam1Connect.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
@@ -64,7 +64,14 @@ To add this object detection script:
 #. To find the user script you just downloaded, click on the **Locate** button.
 #. Navigate to the folder you just unzipped and select the file *ObjectDetection.py*. Click **Open**. You should see the script loaded.
 
-(video)
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/Webcam2LoadScript.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
 
 Here is the code for the object detection script (ObjectDetection.py) for your reference:
@@ -178,25 +185,38 @@ Running the user script
 
 To run the object detection:
 
-#. In ``Inputs``, type in **Camera <your camera number>** and click on the **Add** button. This will add the webcam stream as an input. You will need to type this in everytime they reload the script for reasons described in :ref:`Video Device API <datastreamapi video devices>`
-#. In ``Outputs``, type in **OutputImg** and click on the **Add** button. We use this name because we named the output that way in the code. Please feel free to play around with it. Adding this here will enable streaming of the output image in the user code.
+#. In ``Inputs``, type in **Camera <your camera number>** and click on the ``+`` button. This will add the webcam stream as an input. You will need to type this in everytime they reload the script for reasons described in :ref:`Video Device API <datastreamapi video devices>`
+#. In ``Outputs``, type in **OutputImg** and click on the ``+`` button. We use this name because we named the output that way in the code. Please feel free to play around with it. Adding this here will enable streaming of the output image in the user code.
 #. Change the size of the OutputImg to **921600**. This is the size of the image stream from the webcam, which is 640x480x3.
 #. Make sure you select **ZMQ** as the streaming interface and **uint8** as its data type. You can use any port number, but here we will stick with the default for the newly added ZMQ output **11000**.
-#. Go back to the ``Stream`` tab. In ``Add Stream``, type in **OutputImg**, make sure you are using the same port number as the one you chose previously. Double check that your data type is **uint8** and that you are using **ZMQ** as the streaming interface. Then, click on the **Add** button. This will add the output image of the user code as a stream. Please notice that the ``Stream`` tab and the user script are independent from each other, and that adding something in one place does not automatically add it to the other.
+#. Now, you are ready to run the code. Click on the ``Run`` button.
 
-Now, you are ready to run the code. Go back to the ``Scripting`` tab and click on the ``Run`` button.
+.. raw:: html
 
-(video)
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/Webcam3RunScript.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
-Visualize the Output Image Stream
+Visualize the Output Video Stream
 ************************
 
-To see the output image stream from the webcam with object detection boxes:
+To see the output video stream from the webcam with object detection boxes:
 
-#. Go back to the ``Stream`` tab. Click the **Start All** button to start all the streams or click the **Play** button under the OutputImg stream to start only that stream.
-#. Adjust the scale of the output image stream.
+#. Go back to the ``Stream`` tab. In ``Add Stream``, type in **OutputImg**, make sure you are using the same port number as the one you chose previously. Double check that your data type is **uint8** and that you are using **ZMQ** as the streaming interface. Then, click on the **Add** button. This will add the output image of the user code as a stream. Please notice that the ``Stream`` tab and the user script are independent from each other, and that adding something in one place does not automatically add it to the other.
+#. Click the **Start All** button to start all the streams or click the **Play** button under the OutputImg stream to start only that stream.
+#. If a Channel Mismatch message pops up, simply click ``Yes``.
 #. Click on the ``settings`` button on the bottom of the OutputImg Stream, click on ``default group name``, and check that the width and height are **640** and **480** respectively. Also, select **rgb** under ``Image``.
-#. Drag down the horizontal bar, make sure the channel format is selected as **channel last**.
 #. Close the settings window. Go back to the Stream and click on the letter ``A`` in the lower left corner to see the whole picture. You should see the webcam image stream with object detection boxes.
+#. If the image seems wrong, click on the ``settings`` button on the bottom of the OutputImg Stream, drag down the horizontal bar, make sure the channel format is selected as **channel last**.
 
-(video)
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/Webcam4Visualize.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
