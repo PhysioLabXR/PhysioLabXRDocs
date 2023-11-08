@@ -2,6 +2,15 @@
 WebCam Object Detection
 ##############################
 
+.. |ico1| image:: /media/settings_button.png
+   :height: 3.5ex
+
+.. |ico2| image:: /media/add_button.png
+   :height: 3.5ex
+
+.. |ico6| image:: /media/start.svg
+   :width: 20px
+   :height: 20px
 
 In this tutorial, you will run a simple object detection algorithm on the image stream from your webcam.
 
@@ -33,7 +42,7 @@ To add your webcam as a video input stream:
 
 #. Click on the dropdown of **Add Stream**  and select the video device you want to add. If the webcam is the only video device connected to your computer, it should be listed as **Camera 0**.
 #. Click on the **Add** button. You should see the video stream from the webcam. It may take a minute to load the camera.
-#. Check if the color is consistent with the real world. If it is not, click on the **settings** button on the bottom and change the channel order until the color is consistent with the real world.
+#. Check if the color is consistent with the real world. If it is not, click on the |ico1| button on the bottom and change the channel order until the color is consistent with the real world.
 #. Hold on the right-click button on your mouse and drag to resize the video stream. You can also click on the letter ``A`` in the lower left corner to see the whole picture.
 
 .. note::
@@ -203,14 +212,15 @@ To run the object detection:
 Visualize the Output Video Stream
 ************************
 
+
 To see the output video stream from the webcam with object detection boxes:
 
 #. Go back to the ``Stream`` tab. In ``Add Stream``, type in **OutputImg**, make sure you are using the same port number as the one you chose previously. Double check that your data type is **uint8** and that you are using **ZMQ** as the streaming interface. Then, click on the **Add** button. This will add the output image of the user code as a stream. Please notice that the ``Stream`` tab and the user script are independent from each other, and that adding something in one place does not automatically add it to the other.
-#. Click the **Start All** button to start all the streams or click the **Play** button under the OutputImg stream to start only that stream.
+#. Click the **Start All** button to start all the streams or click the |ico6| button under the OutputImg stream to start only that stream.
 #. If a Channel Mismatch message pops up, simply click ``Yes``.
-#. Click on the ``settings`` button on the bottom of the OutputImg Stream, click on ``default group name``, and check that the width and height are **640** and **480** respectively. Also, select **rgb** under ``Image``.
+#. Click on the |ico1| button on the bottom of the OutputImg Stream, click on ``default group name``, and check that the width and height are **640** and **480** respectively. Also, select **rgb** under ``Image``.
 #. Close the settings window. Go back to the Stream and click on the letter ``A`` in the lower left corner to see the whole picture. You should see the webcam image stream with object detection boxes.
-#. If the image seems wrong, click on the ``settings`` button on the bottom of the OutputImg Stream, drag down the horizontal bar, make sure the channel format is selected as **channel last**.
+#. If the image seems wrong, click on the |ico1| button on the bottom of the OutputImg Stream, drag down the horizontal bar, make sure the channel format is selected as **channel last**.
 
 .. raw:: html
 
