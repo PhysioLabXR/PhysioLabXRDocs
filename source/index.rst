@@ -297,6 +297,7 @@ to know where exactly the user's gaze is focused.
     PsychoPy
     tutorials/BuildMultiModalERPClassifier
     PhysioLabXRP300SpellerDemo
+    ObjectDetectionTutorial
 
 .. toctree::
     :maxdepth: 1
