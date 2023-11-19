@@ -688,6 +688,8 @@ You can use the OpenBCI GUI to check the EEG signal quality. Same as the previou
 
 
 
+.. _start the openbci cyton 8 channels board from physiolabxr scripting interface using physiolabxropenbcicyton8channelsscript.py:
+
 Start the OpenBCI Cyton-8-Channel board from PhysioLab\ :sup:`XR` Scripting Interface using PhysioLabXROpenBCICyton8ChannelsScript.py
 ************
 

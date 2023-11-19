@@ -363,8 +363,19 @@ move your cursor to the lower left of the plot, click the *[A]* button that show
     Check :ref:`this page <ZMQInterface port numbers>` for how to choose ZMQ port so that it does not conflict with other applications.
 
 
-Write your data source script
+Write your data source using :ref:`Scripting Interface <feature scripting>`
 ********************************
+
+You can create your own data source using the :ref:`Scripting Interface <feature scripting>` in Physiolab\ :sup:`XR`.
+:ref:`This section <tutorial how to use scripting for device>` in Scripting gives detailed examples on how to write your own data source using the third party device driver API and the Physiolab\ :sup:`XR` scripting interface.
+
+
+
+
+
+
+
+
 
 
 Using Video, Audio Input Devices, and Screen Capture
