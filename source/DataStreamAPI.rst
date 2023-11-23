@@ -71,7 +71,7 @@ In this section, we will show how to create a ZMQ publisher in Python.
 The LSL example allows you to create a stream with 8 channels and 100 Hz sampling rate.
 In the ZMQ example, we will simulate a RGB video stream with 400x400 resolution and 15 fps.
 
-Using LSL
+LSL in Python
 ^^^^^^^^^
 
 To run the example, make sure you have Python installed. Then, install the physiolabxr package by running the following command in your terminal:
@@ -143,7 +143,7 @@ Th script above will send a stream with 8 channels of random data to PhysioLab\ 
 You can find this script in PhysioLab\ :sup:`XR`'s GitHub repository `examples-WriteYourOwnDataSourceExamples <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/physiolabxr/examples/WriteYourOwnDataSourceExamples/LSLExampleOutlet.py>`_.
 
 
-Using ZMQ
+ZMQ in Python
 ^^^^^^^^^
 
 The following code will send image stream with random data to PhysioLab\ :sup:`XR` through ZMQ.
@@ -230,7 +230,7 @@ All the dependencies are already included in the project, so you can just open t
 
 
 
-Using LSL
+LSL in Unity
 ^^^^^^^^^
 
 If you are starting a new project, you will need to install the LSL package in Unity. To do so, follow the instruction in `LSL4Unity <https://github.com/labstreaminglayer/LSL4Unity>`_.
@@ -243,7 +243,8 @@ In the example project, you will find a object called ``LSLOutletController`` in
 You can find the script in the `LSL-ZMQ-4Unity-Example <https://github.com/HaowenWeiJohn/LSL-ZMQ-4Unity-Example/blob/main/Assets/Scripts/LSL/LSLOutletController.cs>`_ repository.
 
 
-Using ZMQ
+.. _zmq data source in unity:
+ZMQ in Unity
 ^^^^^^^^^
 
 Similarly, you have to install the ZMQ package in Unity. To do so, follow the instruction in `NuGetForUnity <https://github.com/GlitchEnzo/NuGetForUnity>`_.
@@ -252,10 +253,13 @@ Then you can search for ``ZMQ`` in the NuGet package manager and install it.
 In the example project, you will find a object called ``ZMQPublisherController`` in the scene. This object contains a script called ``ZMQPublisherController.cs``.
 You can find the script in the `LSL-ZMQ-4Unity-Example <LSL-ZMQ-4Unity-Example <https://github.com/HaowenWeiJohn/LSL-ZMQ-4Unity-Example/blob/main/Assets/Scripts/LSL/ZMQPublisherController.cs>`_ repository.
 
-It is very important to note that you must have the
-        ForceDotNet.Force();
-before you create a socket. Otherwise, the socket would not be created and the application will freeze on exit.
-The detailed implementation can be found in `This Line <https://github.com/HaowenWeiJohn/LSL-ZMQ-4Unity-Example/blob/5d55a8b39be1938d8adf4a5c51de63625af0b46e/Assets/Scripts/ZMQ/ZMQPublisherController.cs#L49>`_ .
+
+.. important::
+    It is very important to note that you must have the ``ForceDotNet.Force()`` line in your code;
+    before you create a socket. Otherwise, the socket would not be created and the application will freeze on exit.
+    The detailed implementation can be found in `This Line <https://github.com/HaowenWeiJohn/LSL-ZMQ-4Unity-Example/blob/5d55a8b39be1938d8adf4a5c51de63625af0b46e/Assets/Scripts/ZMQ/ZMQPublisherController.cs#L49>`_ .
+
+
 
 
 
@@ -288,376 +292,32 @@ Visualize ZMQ Data from Python Or Unity
 ^^^^^^^^^^^^^^^^^^
 
 
-
-
-
-
-Using LSL
-***********************
-
-`LabStreamingLayer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_
-is a network protocol for streaming time series data, mostly used for physiological experiments.
-LSL has the following characteristics:
-
-- Native support for many popular devices (`more information here on how to connect supported device with LSL <https://labstreaminglayer.readthedocs.io/info/supported_devices.html>`_).
-- LSL is a cross-platform protocol, and has bindings for many programming languages. You can create your own data source script in your platform and PhysioLab\ :sup:`XR` will take care of the receiving end.
-- LSL outlets can carry meta information of your stream such as sampling rate and channel names.
-
-.. note::
-
-    LSL is not suited for streams with a large number of channels (e.g., video), because each channel carries its own meta information and
-    transmitting the meta information every frame creates a large overhead. For such streams, we recommend using `ZMQ <DataStreamAPI.html#using-zmq>`_.
-
-
-Write your LSL data source
---------------------------
-
-.. raw:: html
-
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <video id="autoplay-video-lsl" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-            <source src="_static/DataStreamAPI-LSLStream.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
-LSL has API in many programming languages. For a more comprehensive guide, check out the `examples in LSL documentation <https://labstreaminglayer.readthedocs.io/dev/examples.html>`_.
-Here, we will show two simple example of how to create an LSL outlet in Python and Unity.
-
-
-Python
-^^^^^^
-
-
-To run the example, make sure you have Python installed. Then, install the physiolabxr package by running the following command in your terminal:
-
-.. code-block:: bash
-
-    pip install physiolabxr
-
-Alternatively, you can just install the pylsl package by running the following command in your terminal:
-
-.. code-block:: bash
-
-    pip install pylsl
-
-.. note::
-
-    If you installed pylsl, you may need to add liblsl to your site-packages for it to work. Follow the instructions `here <https://github.com/labstreaminglayer/pylsl#liblsl-loading>`_.
-    On the other hand, if you installed physiolabxr, the app will automatically add liblsl to your site-packages first time you run it.
-    Use the command ``physiolabxr`` to run it from your terminal after pip installing it.
-
-
-Now, create a new Python file and copy the following code:
-
-.. code-block:: python
-
-    import time
-    import numpy as np
-    from pylsl import StreamInfo, StreamOutlet
-
-    # create a new stream info and outlet
-    n_channels = 8
-    info = StreamInfo('my_stream_name', 'my_stream_type', n_channels, 100, 'float32', 'my_stream_id')
-    outlet = StreamOutlet(info)
-
-    # send data
-    while True:
-        # make a new random 8-channel sample; this is converted into a pylsl.vectorf (the data type that is expected by push_sample)
-        mysample = np.random.randn(n_channels).tolist()
-        # now send it and wait for a bit
-        outlet.push_sample(mysample)
-        time.sleep(0.01)
-
-Run the above script with:
-
-.. code-block:: bash
-
-    python <your-file-name>.py
-
-
-
-Unity
-^^^^^
-
-Make sure you have Unity installed. You can clone this `example project <
-
-
-Similar to the previous Python example, the following script will create an LSL Outlet in Unity and broadcast the data to the local area network.
-
-
-
-
-
-Visualize the stream in PhysioLab\ :sup:`XR`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Open PhysioLab\ :sup:`XR` (download the App `here <index.html#download>`_ if you haven't already).
-
-Type in the name of the stream you created in the script (``my_stream_name`` in the example above) in ``Add Stream Widget``.
-
-Select ``LSL`` as the stream type in the dropdown just right where you put in the stream name.
-
-Click on the ``Add`` button, a stream widget will be added to the main window. The widget will have |stream_available|
-icon on the bottom. This means that the stream is available on the network. But we are not receiving and plotting any data yet.
-
-Click on the |ico6| button to start streaming the data.
-
-You will be prompted to auto-set the number of channels to what's being streamed from your script above. This is because
-the default number of channels is 1 for newly added stream widget. Click on ``Yes`` to auto-set the number of channels.
-
-The |stream_available| icon will change to |stream_active| icon.
-You will see the data being plotted in line chart (:ref:`explore other visualization method <feature visualization>`).
-
-
-
-
-
-Using ZMQ
-***********************
-
-
-`ZMQ <https://zeromq.org/>`_ is a messaging library for exchanging data between applications. ZMQ has the following characteristics:
-
-* ZMQ is a lightweight messaging library, and it is suited for streaming data with a large number of channels (e.g., video).
-* Like `LSL <DataStreamAPI.html#using-lsl>`_, ZMQ is a cross-platform protocol, and has bindings for many programming languages.
-* ZMQ supports many different socket patterns. PhysioLab\ :sup:`XR` supports the
-  `subscriber-publisher <https://learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/patterns/pubsub.html>`_ socket
-  pattern, because this pattern is more scalable when the cardinality of data is high and less error-prone in case of
-  either the publisher or subscriber process crashes. You can find a more detailed explanation of the socket patterns `here <https://zguide.zeromq.org/docs/chapter2/>`_.
-
-.. _zmq data source:
-
-
-Write your ZMQ data source
---------------------------
-
-.. raw:: html
-
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <video id="autoplay-video-zmq" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-            <source src="_static/DataStreamAPI-ZMQStream.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
-
-Similar to LSL, ZMQ can be used in many programming languages. Here, we will show a simple example of how to create a ZMQ publisher
-to send data in Python and Unity (C#). The following two section will show how to create ZMQ data source in Python and C# for your reference.
-For this example, you can choose your preferred language to create the data source.
-
-
-Python ZMQ data source
-~~~~~~~~~~~~~~~~~~~~~~~
-
-The following code will send image stream with random data to PhysioLab\ :sup:`XR` through ZMQ.
-
-To create the ZMQ data source in Python, first make sure you have Python installed.
-Then, install the pyzmq package by running the following command in your terminal:
-
-.. code-block:: bash
-
-    pip install pyzmq
-
-Now, create a new Python file and copy the following code:
-
-.. code-block:: python
-
-    import time
-    from collections import deque
-
-    import numpy as np
-    import zmq
-
-    topic = "my_stream_name"  # name of the publisher's topic / stream name
-    srate = 15  # we will send 15 frames per second
-    port = "5557"  # ZMQ port number
-
-    # we will send a random image of size 400x400 with 3 color channels
-    c_channels = 3
-    width = 400
-    height = 400
-    n_channels = c_channels * width * height
-
-    context = zmq.Context()
-    socket = context.socket(zmq.PUB)
-    socket.bind("tcp://*:%s" % port)
-
-    # next make an outlet
-    print("now sending data...")
-    send_times = deque(maxlen=srate * 10)
-    start_time = time.time()
-    sent_samples = 0
-    while True:
-        elapsed_time = time.time() - start_time
-        required_samples = int(srate * elapsed_time) - sent_samples
-        if required_samples > 0:
-            samples = np.random.rand(required_samples * n_channels).reshape((required_samples, -1))
-            samples = (samples * 255).astype(np.uint8)
-            for sample_ix in range(required_samples):
-                mysample = samples[sample_ix]
-                socket.send_multipart([bytes(topic, "utf-8"), np.array(time.time()), mysample])  # send frame in the order: topic, timestamp, data
-                send_times.append(time.time())
-            sent_samples += required_samples
-        # now send it and wait for a bit before trying again.
-        time.sleep(0.01)
-        if len(send_times) > 0:
-            fps = len(send_times) / (np.max(send_times) - np.min(send_times))
-            print("Send FPS is {0}".format(fps), end='\r')
-        print(f'current timestamp is {time.time()}', end='\r', flush=True)
-
-
-Run the above script with:
-
-.. code-block:: bash
-
-    python <your-file-name>.py
-
-.. _zmq data source in unity:
-
-C# ZMQ data source (Unity)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The following code will send image stream from a Unity camera to PhysioLab\ :sup:`XR` through ZMQ.
-
-To make the C# script work, you need install NetMQ, the C# binding for ZMQ. NetMQ is distributed with NuGet, which is a package manager for .NET.
-Download the NuGetForUnity package from `this page <https://github.com/GlitchEnzo/NuGetForUnity/releases/>`_. Download the file named
-**NuGetForUnity.<some-version>.unitypackage** and import it to your Unity project.
-
-Once you have NuGetForUnity installed, you will have a new option in your Unity Editor's context menu called NuGet. Go to ``NuGet > Manage NuGet Packages``.
-In the NuGet window, search for NetMQ and install it. This will install NetMQ and its dependencies.
-
-Attach the following script to a game object in your scene. Set the script's public field *captureCamera* to a camera in the scene whose image you want
-to send.
-
-.. code-block:: csharp
-
-    using System.Collections;
-    using UnityEngine;
-    using AsyncIO;
-    using NetMQ;
-    using NetMQ.Sockets;
-    using System;
-
-    public class TestZMQScript : MonoBehaviour
-    {
-        [Header("In-game Objects")]
-        public Camera captureCamera;  // in your editor, set this to the camera you want to capture
-
-        [Header("Camera Capture Image Size")]
-        public int imageWidth = 400;
-        public int imageHeight = 400;
-
-        [Header("Runtime Parameters")]
-        public float srate = 15f;
-
-        // objects to hold the image data;
-        RenderTexture tempRenderColorTexture;
-        Texture2D colorImage;
-
-        [Header("Networking Fields")]
-        public string tcpAddress = "tcp://localhost:5557";
-        public string topicName = "CameraCapture";
-        PublisherSocket socket;
-
-        [Header("Networking Information (View-only)")]
-        public long imageCounter = 0;
-        public float fps = 0;
-
-        private void Start()
-        {
-            // check if capture camera has been set
-            if (captureCamera == null)
-            {
-                Debug.LogError("CameraCaptureServer: captureCamera is not set. Please set it in the editor.");
-                return;
-            }
-
-            tempRenderColorTexture = new RenderTexture(imageWidth, imageHeight, 24, RenderTextureFormat.ARGB32)
-            {
-                antiAliasing = 4
-            };
-
-            colorImage = new Texture2D(imageWidth, imageHeight, TextureFormat.RGB24, false, true);
-
-            ForceDotNet.Force();
-            socket = new PublisherSocket(tcpAddress);
-            StartCoroutine(UploadCapture(1f / srate));
-        }
-
-        IEnumerator UploadCapture(float waitTime)
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(waitTime);
-
-                float frameStartTime = Time.realtimeSinceStartup;
-                byte[] imageBytes = encodeColorCamera();
-
-                double timestamp = Time.unscaledTime;
-                socket.SendMoreFrame(topicName).SendMoreFrame(BitConverter.GetBytes(timestamp)).SendFrame(imageBytes);
-
-                imageCounter++;
-                float frameEndTime = Time.realtimeSinceStartup;
-                fps = 1f / (frameEndTime - frameStartTime);
-            }
-        }
-
-        public byte[] encodeColorCamera()
-        {
-            //render color camera and save bytes
-            captureCamera.targetTexture = tempRenderColorTexture;
-            RenderTexture.active = tempRenderColorTexture;
-            captureCamera.Render();
-
-            colorImage.ReadPixels(new Rect(0, 0, colorImage.width, colorImage.height), 0, 0);
-            colorImage.Apply();
-
-            return colorImage.GetRawTextureData();
-        }
-
-        private void OnDestroy()
-        {
-            socket.Dispose();
-            NetMQConfig.Cleanup();
-        }
-
-    }
-
-
-In both Python and C# scripts, we created an ZMQ publisher socket that sends a random frames with 400 × 400 × 3 (480000) channels, as if it is a video stream
-that has a height of 400, width of 400, and 3 color channels. The publisher sends 15 frames per second. The Python script sends random
-images while the Unity script sends images from a Unity camera.
+In both Python and C# scripts, we created an ZMQ publisher socket that sends a random frames with 400 × 400 × 3 (480000) channels,
+as if it is a video stream that has a height of 400, width of 400, and 3 color channels.
+The publisher sends 15 frames per second. The Python script sends random images while the Unity script sends images from a Unity camera.
 
 .. important::
    A ZMQ frame must have data in the following order: topic, timestamp, data. The topic must be a string, and the timestamp
    must be a 8-byte (64-bit) double or 4-byte (32-bit) float. The data can be one of the supported types listed :ref:`here <zmq data types>`.
 
 
-Now return to PhysioLab\ :sup:`XR` (download the App `here <index.html#download>`_ if you haven't already). In the ``Add Stream`` line edit,
-type in the name of the stream you created in the script (``my_stream_name`` in the example above).
+1. Now return to PhysioLab\ :sup:`XR` (download the App `here <index.html#download>`_ if you haven't already). In the ``Add Stream`` line edit, type in the name of the stream you created in the script (e.g. ``python_zmq_my_stream_name`` or ``unity_zmq_my_stream_name`` in the example above).
 
-Select ``ZMQ`` as the stream type in the dropdown just right where you put in the stream name.
+2. Select ``ZMQ`` as the stream type in the dropdown just right where you put in the stream name.
 
-After ``ZMQ`` is selected, the ``port number`` line edit will show up. Type in the port number you used in the script (``5557`` in the example above).
+3. After ``ZMQ`` is selected, the ``port number`` line edit will show up. Type in the port number you used in the script (``5557`` in the example above).
 
-Click on the ``Add`` button. A stream widget will be added to the main window. Unlike LSL stream, ZMQ stream will not have |stream_available|
-icon on the bottom. This is because ZMQ does not have a mechanism to check if the stream is available on the network.
+4. Click on the ``Add`` button. A stream widget will be added to the main window. Unlike LSL stream, ZMQ stream will not have |stream_available| icon on the bottom. This is because ZMQ does not have a mechanism to check if the stream is available on the network.
 
-Now click on the |ico6| button.
+5. Now click on the |ico6| button.
 
-You will be prompted to auto-set the number of channels to what's being streamed from your script above. This is because
-the default number of channels is 1 for newly added stream widget. Click on ``Yes`` to auto-set the number of channels.
+6. You will be prompted to auto-set the number of channels to what's being streamed from your script above. This is because the default number of channels is 1 for newly added stream widget. Click on ``Yes`` to auto-set the number of channels.
 
-Because the number of channels we set is 12288, greater than the maximum number of channels that can be plotted in a line chart.
-It will automatically switch to image plot (:ref:`explore other visualization method <feature visualization>`).
-You need to set the ``height`` and ``width`` and other image meta info in its to see the image.
+7. Because the number of channels we set is 12288, greater than the maximum number of channels that can be plotted in a line chart. It will automatically switch to image plot (:ref:`explore other visualization method <feature visualization>`). You need to set the ``height`` and ``width`` and other image meta info in its to see the image.
 
-Click on ``...`` button
-to open the plot settings. Set the ``width`` and ``height`` to 64, and ``Image`` to "rgb".
+8. Click on ``...`` button to open the plot settings. Set the ``width`` and ``height`` to 64, and ``Image`` to "rgb".
 
-Return to the plot widget,
-move your cursor to the lower left of the plot, click the *[A]* button that shows up to have the image auto-scale to fit the window.
+9. Return to the plot widget, move your cursor to the lower left of the plot, click the *[A]* button that shows up to have the image auto-scale to fit the window.
 
 
 .. note::
@@ -665,8 +325,11 @@ move your cursor to the lower left of the plot, click the *[A]* button that show
     Check :ref:`this page <ZMQInterface port numbers>` for how to choose ZMQ port so that it does not conflict with other applications.
 
 
+
+
+
 Write your data source using :ref:`Scripting Interface <feature scripting>`
-********************************
+----------------------------------------------------------------------------
 
 You can create your own data source using the :ref:`Scripting Interface <feature scripting>` in Physiolab\ :sup:`XR`.
 :ref:`This section <tutorial how to use scripting for device>` in Scripting gives detailed examples on how to write your own data source using the third party device driver API and the Physiolab\ :sup:`XR` scripting interface.
@@ -681,7 +344,7 @@ You can create your own data source using the :ref:`Scripting Interface <feature
 
 
 Using Video, Audio Input Devices, and Screen Capture
-******************************************************
+----------------------------------------------------
 
 Video and audio input devices recognize by your OS are automatically detected and can be used as data sources.
 
