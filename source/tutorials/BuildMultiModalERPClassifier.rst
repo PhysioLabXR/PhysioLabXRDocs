@@ -54,16 +54,49 @@ There are 5 streams in this recording:
 About the experiment
 ********************
 
-Similar to the :ref:`simple ERP tutorial <Simple ERP tutorial>`, this experiment is a visual oddball task. Different objects are presented to the
-the participant, who is instructed to count the number of times that a predefined target appears. Each appearance of
-an object is called a *trial*. Multiple trials are grouped into a *block*. Each block contains 30 trials, and there
+Similar to the :ref:`simple ERP tutorial <Simple ERP tutorial>`, this experiment is a visual oddball task.
+Participant is instructed to look for a target object (e.g., an red apple) among distractor objects (e.g., other fruits).
+Different objects are presented to the
+the participant, who needs to count the number of times that a target appears. Each appearance of
+an object is called a *trial*. Multiple trials are grouped into a *block*, with a short break in between blocks.
+Each block contains 30 trials, and there
 are a total of 9 blocks. Our goal is to build a classifier that can tell if a trial is a target or a distractor trial.
 We will use the first 6 blocks for training, and the last 3 block for testing.
 
-EEG classifier
-**************
+Change the settings
+*******************
 
-We will start by building a classifier that only uses EEG data. Use the following script,
+Because we will use the built-in real-time filter to process the EEG data, and the high-pass filter takes a while to make
+the data stable, it is important that the data has settled downed
+
+
+Here's the picture of the settings we will use for this experiment:
+
+.. image:: ../_static/mm_cls_example-settings.png
+   :width: 800
+   :alt: mm_cls_example-settings
+
+
+Saving the epochs
+*****************
+
+
+.. _about epochs:
+.. note::
+
+        **What is Epochs:** In neuroscience lingo, an *epoch* is a segment of data that is time-locked to an event. Time-locking means that
+        the data is aligned to the event, so that the event happens at a specific time point in the epoch. For example,
+        we want to find what people's EEG looks like when they see a target object. We will time-lock the EEG data to the
+        event when the target object appears.
+        We assume the response to the event happens between -0.1 to 0.8 seconds before and after seeing the target,
+        so we will take a segment of data before and after the event. We have a negative 0.1 second because we want to
+        see if there's any anticipation of the event before it happens.
+        Say our EEG is has 64 channels and sampled at 128 Hz. Taking a segment of data from -0.1 to 0.8 seconds means we will take 128 * (0.8 + 0.1) = 115 time points per epoch.
+        If we have 100 target trials, we will have 100 epochs, each with 64 channels and 115 time points. The shape of the
+        data array will be (100, 64, 115).
+
+
+We will start by saving the epochs for both EEG and pupil.
 
 
 
@@ -73,7 +106,7 @@ Online vs offline inference
 
 
 
-
+*Coming soon. Real-time decoding of target response from EEG and pupil size.*
 
 
 .. raw:: html
