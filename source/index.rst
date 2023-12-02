@@ -27,6 +27,8 @@ Streaming Data:
 - you can also create your own data stream via the `Data Stream API <DataStreamAPI.html>`_.
 
 
+.. _download:
+
 Download
 ********
 
@@ -277,7 +279,6 @@ to know where exactly the user's gaze is focused.
     :maxdepth: 1
     :caption: Features:
 
-    DataStreamAPI
     Visualization
     Recording
     Replay
@@ -285,9 +286,16 @@ to know where exactly the user's gaze is focused.
     ScriptingAPIReference
     DSP
     ViewInMatlab
-    technical_notes/ZMQInterface
 
+.. toctree::
+    :maxdepth: 1
+    :caption: Stream data:
 
+    DataStreamAPI
+    DataStreamAPI/ZMQStream
+    DataStreamAPI/LSLStream
+    DataStreamAPI/ScriptStream
+    DataStreamAPI/StreamVideoAudioScreenCapture
 
 .. toctree::
     :maxdepth: 1
