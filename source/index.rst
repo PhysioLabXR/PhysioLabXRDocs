@@ -316,6 +316,15 @@ to know where exactly the user's gaze is focused.
 
 .. toctree::
     :maxdepth: 1
+    :caption: API Reference:
+
+    RNStreamAPIReference
+    FixationAPIRef
+    BufferAPIRef
+    ERPAPIRef
+
+.. toctree::
+    :maxdepth: 1
     :caption: Others:
 
     Benchmarks
