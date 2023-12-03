@@ -33,15 +33,15 @@ physiolabxr.utils.buffers
     get keys of the buffer.
 
     :return: keys of the buffer
-    :rtype: ``any``
+    :rtype: ``list``
 
 .. py:method:: get_stream(stream)
 
-    get stream from buffer.
+    return buffer from a specific stream.
 
     :param str stream: stream
 
-    :return: stream from buffer
+    :return: buffer from a specific stream
     :rtype: ``any``
 
 
@@ -52,7 +52,7 @@ physiolabxr.utils.buffers
     :param str stream_name: name of the stream
 
     :return: data from a specific stream name
-    :rtype: ``any``
+    :rtype: ``numpy.ndarray``
 
 .. py:method:: get_timestamps(self, stream_name)
 
@@ -61,7 +61,7 @@ physiolabxr.utils.buffers
     :param str stream_name: name of the stream
 
     :return: timestamps from a specific stream name
-    :rtype: ``any``
+    :rtype: ``numpy.ndarray``
 
 .. py:method:: update_buffer(data_dict)
 
