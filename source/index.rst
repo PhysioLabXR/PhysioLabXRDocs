@@ -322,6 +322,8 @@ to know where exactly the user's gaze is focused.
     FixationAPIRef
     BufferAPIRef
     ERPAPIRef
+    Stream_in_APIRef
+    get_stream_info_APIRef
 
 .. toctree::
     :maxdepth: 1
