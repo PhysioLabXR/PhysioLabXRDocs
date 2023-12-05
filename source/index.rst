@@ -325,11 +325,11 @@ Other Topics
 
     APIReferences/RNStream
     APIReferences/DATSFileFormat
-    FixationAPIRef
-    BufferAPIRef
-    ERPAPIRef
+    APIReferences/FixationAPIRef
+    APIReferences/BufferAPIRef
+    APIReferences/ERPAPIRef
     APIReferences/StreamIn
-    get_stream_info_APIRef
+    APIReferences/get_stream_info_APIRef
 
 .. toctree::
     :maxdepth: 1
