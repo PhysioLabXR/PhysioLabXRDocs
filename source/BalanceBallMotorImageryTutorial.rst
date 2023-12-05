@@ -1,9 +1,7 @@
 ###################################
 Balance Ball Tutorial
 ###################################
-    Last Modified: 10/19/2023
 
-.. contents:: Overview
 
 *************
 Introduction
@@ -11,13 +9,17 @@ Introduction
 
 This tutorial will show you how to use PhysioLab\ :sup:`XR` and Unity to set up a simple balance ball game that
 you can play by only imagining your left or right hand movements.
-In this tutorial we will use the PhysioLabXR as a real-time data acquisition platform and analysis tool, and
-use Unity as a stimulus presentation platform.
+In this tutorial we will use the PhysioLab\ :sup:`XR` as a real-time data acquisition platform and analysis tool, and
+use `Unity <https://unity.com/>`_ as a stimulus presentation platform. The similar setup can be extended to other studies
+that include continuous stream of real-time EEG data and customized
+experiment environment in game engines such as Unity.
+
 
 .. figure:: media/BBall_play.png
    :width: 400
    :align: center
    :alt: balance ball
+
 
 *************
 Unity Paradigm
@@ -29,16 +31,16 @@ The Unity source code is available at: `BalancingBallGame script <https://github
     The Unity Paradigm is developed using `Unity 2021.3.27f1 <https://unity3d.com/get-unity/download/archive>`_
 
 
-This Unity paradigm implements a balance ball BCI game. After a quick training session, The user will
-be able to play the game with a BCI device in real time.
+This Unity paradigm implements a balance ball game, with the controls actuated by `motor imagery <https://en.wikipedia.org/wiki/Motor_imagery>`_.
+After a quick training session, The user will
+be able to play the game with imaged movement captured by `EEG <https://en.wikipedia.org/wiki/Electroencephalography>`_ in real time.
 
 
 =======
 Lab Streaming Layer (LSL) Configuration
 =======
-There is a single-channel LSL stream from Unity Paradigm to RenaScript. The description for each channel is shown below:
-
-P300 Speller Game Unity  LSL  Configuration:
+There is a single-channel LSL stream from Unity Paradigm to `RenaScript <feature scripting>`_.
+The description of the stream is as follows:
 
     **LSL Outlet: "EventMarker_BallGame"**
 
@@ -78,7 +80,8 @@ PhysioLab\ :sup:`XR` Scripting
 Lab Streaming Layer (LSL) Configuration
 =======
 
-There is a single-channel LSL stream from the PhysioLab\ :sup:`XR` to Unity to transfer the predicted side of hand movements from the PhysioLab\ :sup:`XR` to Unity.
+There is a single-channel LSL stream from the PhysioLab\ :sup:`XR` to Unity to send the inference result
+(i.e., predicted side of hand movements) from the PhysioLab\ :sup:`XR` to Unity.
 
 PhysioLab\ :sup:`XR` LSL Configuration:
 
@@ -90,12 +93,13 @@ PhysioLab\ :sup:`XR` LSL Configuration:
                 - Right = 3
 
 
+.. _balance ball script:
 
-=======
+===================================
 Script: MotorImageryBalanceBall.py
-=======
+===================================
 
-The script can be found at: `MotorImageryBalanceBall.py <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/physiolabxr/scripting/Examples/PhysioLabXR_Balanceball_Demo/MotorImageryBalanceBall.py">`_
+The script can be found at: `MotorImageryBalanceBall.py <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/physiolabxr/scripting/Examples/PhysioLabXR_Balanceball_Demo/MotorImageryBalanceBall.py>`_
 
 The configuration file includes the following configurations:
 
@@ -107,40 +111,44 @@ The configuration file includes the following configurations:
 Experiment
 *************
 
-This experiment implemented the Balance Ball Brain Computer Interface using RenaLabApp and a customized Unity Paradigm.
-The similar setup can be extended to other human subject studies that include continuous stream of real time EEG data and customized
-experiment environment.
-
 In the training session, the user will be asked to imagine left or right hand movements while
-looking at an automated ball moving on the screen. After the training session, Unity will communicate with the python
-script XXXX to fit a predictive model based on the training data.
+looking at an ball moving by itself on the screen.
+After the training session, the :ref:`RenaScript <balance ball script>`
+to fit a predictive model based on the training data.
 
-The balance ball game has the following features implemented:
+The balance ball game has the following features:
 - a score counter that keeps track of the remaining lives of the ball (3 lives)
 - a platform that the ball can roll on
-- a ball that will naturally roll down to the side of the platform that is being pressed. When the ball
+- a ball that will naturally roll down to the side of the platform that is being pressed (). When the ball
     reaches the edge of the platform, it will fall off and deduct one life from the player
 - randomly spawned black collectible cubes that the ball can pick up by rolling over
 
-=======
+==============
 Requirements
-=======
+==============
 
-1. PhysioLab\ :sup:`XR`: `physiolabxr <https://github.com/PhysioLabXR/PhysioLabXR/tree/master>`_
+1. PhysioLab\ :sup:`XR`, you can download it from :ref:`here <download>` if you haven't done so.
 2. Unity project download from: `PhysioLabXR_Balance_Ball_Demo <https://github.com/ApocalyVec/ReNaApp_BalancingBallGame>`_
 3. OpenBCI: `Cyton-8-Channel <https://shop.openbci.com/collections/frontpage/products/cyton-biosensing-board-8-channel?variant=38958638540>`_
-    Channel Selection: F3, Fz, F4, C3, Cz, C4, P3, P4.
+    We use the follow channels for motor imagery inference: F3, Fz, F4, C3, Cz, C4, P3, P4.
 
-=======
+=====================
 Experiment Setup
-=======
-In this experiment, all the required scripts are included in your local directory: physiolabxr/scripting/Examples/PhysioLabXR_BalanceBall_Demo.
+=====================
+
+In this experiment, all the required scripts are included in your local
+directory: physiolabxr/scripting/Examples/PhysioLabXR_BalanceBall_Demo.
 
 Get the OpenBCI Cyton-8-Channel board and connect it to the computer.
-For this step, please refer to: `OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_. It is very important to complete the `FTDI Driver Installation <https://docs.openbci.com/Troubleshooting/FTDI_Fix_Windows/>`_ before starting the experiment. The Latency timer should be set to 1 ms (the default value is 16 ms) to reduce the latency.
+For this step, please refer to:
+`OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_.
+It is very important to complete
+the `FTDI Driver Installation <https://docs.openbci.com/Troubleshooting/FTDI_Fix_Windows/>`_ before
+starting the experiment.
+The Latency timer should be set to 1 ms (the default value is 16 ms) to reduce the latency.
 
 Check EEG Signal Quality
-************
+************************
 
 You can use the OpenBCI GUI to check the EEG signal quality. Same as the previous step, please refer to `OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_ to use OpenBCI GUI to check the impedance of each channel.
 
@@ -155,7 +163,7 @@ You can use the OpenBCI GUI to check the EEG signal quality. Same as the previou
 
 
 Start the OpenBCI Cyton-8-Channel board from PhysioLab\ :sup:`XR` Scripting Interface using PhysioLabXROpenBCICyton8ChannelsScript.py
-************
+************************************************************************************************************************************************
 
 The script can be downloaded from `PhysioLabXROpenBCICyton8ChannelsScript.py <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/physiolabxr/scripting/Examples/PhysioLabXR_P300Speller_Demo/PhysioLabXROpenBCICyton8ChannelsScript.py>`_.
 
@@ -251,7 +259,8 @@ The script can be downloaded from `PhysioLabXROpenBCICyton8ChannelsScript.py <ht
                 print('Stop OpenBCI Cyton 8 Channels. Sensor Stop.')
 
 
-1. Go to the `Script Tab <Scripting.html>`_ and click the *Add* button to start the script. You can either create a new script and replace the content provided above, or select *PhysioLabXROpenBCICyton8ChannelsScript.py* located in the *physiolabxr/scripting/Examples/PhysioLabXR_P300Speller_Demo* directory. After adding the script, you will need to add the output stream in the *Output Widget* and parameters in the *Parameters Widget*.
+
+1. Go to the :ref:`Script Tab <feature scripting>` and click the *Add* button. You can either create a new script and replace the content provided above, or select *PhysioLabXROpenBCICyton8ChannelsScript.py* located in the *physiolabxr/scripting/Examples/PhysioLabXR_P300Speller_Demo* directory. After adding the script, you will need to add the output stream in the *Output Widget* and parameters in the *Parameters Widget*.
 
 2. Type the output stream name: *OpenBCICyton8Channels* in the *Output Widget* and click the *Add* button.
 
@@ -265,6 +274,8 @@ The script can be downloaded from `PhysioLabXROpenBCICyton8ChannelsScript.py <ht
 
 7. Click the *Run* button to start the script.
 
+
+
 Start Unity
 ************
 
@@ -276,7 +287,7 @@ Start Unity
 
 
 Add PysioLabP300SpellerDemoScript.py
-************
+*************************************
 
 1. Go to the `Script Tab <Scripting.html>`_ and click the *Add* button to start the script. You can either create a new script and replace with *MotorImageryBalanceBall.py* we mentioned above, or select *MotorImageryBalanceBall.py* located in the *physiolabxr/scripting/Examples/PhysioLabXR_BalanceBall_Demo* directory.
 
@@ -309,6 +320,10 @@ Three Streams are running in the **Stream Tab**:
 
 3. *MotorImageryInference*: This stream is sent from the *MotorImageryBalanceBall.py* for visualization purpose. Indicate the predicted hand side of imaginary hand movements in evaluation process.
 
+.. figure:: media/balanceBall_ScriptingTab.png
+   :width: 400
+   :align: center
+   :alt: balance ball scripting tab config
 
 .. figure:: media/balanceBall_StreamTab.png
    :width: 400
@@ -320,10 +335,6 @@ Three Streams are running in the **Stream Tab**:
    :align: center
    :alt: balance ball openbci cyton 8 channels config
 
-.. figure:: media/balanceBall_ScriptingTab.png
-   :width: 400
-   :align: center
-   :alt: balance ball scripting tab config
 
 
 Set up the Experiment Parameters
