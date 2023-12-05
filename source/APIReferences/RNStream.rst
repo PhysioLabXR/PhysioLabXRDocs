@@ -12,12 +12,20 @@ physiolabxr.utils.RNStream
 
 .. py:class:: physiolabxr.utils.RNStream
 
+RNStream is a class that provides a simple interface for serialization and deserialization of multimodal data streams.
+You can read more about its usage in the :ref:`Recording <feature recording>` section.
+
 .. py:function:: __init__(file_path)
 
-        Constructor
+        Create a RNStream object, associate it with a file path.
 
-        :param str file_path: the file path
+        :param str file_path: the file path to which the stream will be written to or read from.
+                              When :ref:`stream_out <RNStreams.stream_out>` is called.
+                              If the file exists, calling :ref:`stream_out <RNStreams.stream_out>` will append data to the
+                              end of the file. If the file does not exist, it will be created.
 
+
+.. _RNStreams.stream_out:
 
 .. py:method:: stream_out(buffer)
 

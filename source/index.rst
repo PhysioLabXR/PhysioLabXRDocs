@@ -323,11 +323,12 @@ Other Topics
     :maxdepth: 1
     :caption: API Reference:
 
-    RNStreamAPIReference
+    APIReferences/RNStream
+    APIReferences/DATSFileFormat
     FixationAPIRef
     BufferAPIRef
     ERPAPIRef
-    Stream_in_APIRef
+    APIReferences/StreamIn
     get_stream_info_APIRef
 
 .. toctree::
