@@ -5,9 +5,7 @@
 PhysioLab\ :sup:`XR` + Unity P300 Speller Tutorial
 #############
 
-    Last Modified: 09/09/2023
 
-.. contents:: Overview
 
 *************
 Introduction
@@ -20,11 +18,15 @@ The P300 is one of the most important Event-related potentials(ERP) components t
 In this tutorial we will use the PhysioLab\ :sup:`XR` as a real-time data acquisition platform and analysis tool, and use **Unity** as a stimulus presentation platform.
 
 
-.. image:: media/PhysioLabXRP300SpellerDemo-IntroductionImage.png
-    :width: 1080
 
 
 
+
+.. raw :: html
+
+    <p align="center">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/owTSQAcJNaM?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>
+    </p>
 
 *************
 Unity Paradigm
@@ -45,14 +47,16 @@ After the training process, the user can use the system to spell words by focusi
 =======
 Lab Streaming Layer (LSL) Configuration
 =======
-There is a 6 channel LSL stream from Unity Paradigm to RenaScript and the description for each channel is shown below:
+There is a 6 channel LSL stream from Unity Paradigm to RenaScript..
+
+The description for each channel is shown below:
 
 P300 Speller Game Unity  LSL  Configuration:
 
     **LSL Outlet: "PhysioLabXRP300SpellerDemoPredictionProbability"**
 
         *Channel[0]: (StateEnterExitMarker)*
-            Indicates the selected game states (Train/Test/Interrupt)
+            Indicates the selected game states (Train/Test/Interrupt). The Unity paradigm will send the following values to indicate the start and end of each state:
                 - StartStateEnter: 1, StartStateExit: -1
                 - TrainIntroductionStateEnter: 2, TrainIntroductionStateExit: -2
                 - TrainStateEnter: 3, TrainStateExit: -3
@@ -917,9 +921,7 @@ Run the Experiment
     The participant can press the *Escape* key to exit the game at any time. This will return the participant to the *Start State*.
 
 
-Here is the video for the complete experiment:
 
-.. raw:: html
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/owTSQAcJNaM?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>
+
 

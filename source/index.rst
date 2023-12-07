@@ -277,6 +277,16 @@ to know where exactly the user's gaze is focused.
 
 .. toctree::
     :maxdepth: 1
+    :caption: Stream data:
+
+    DataStreamAPI
+    DataStreamAPI/ZMQStream
+    DataStreamAPI/LSLStream
+    DataStreamAPI/ScriptStream
+    DataStreamAPI/StreamVideoAudioScreenCapture
+
+.. toctree::
+    :maxdepth: 1
     :caption: Features:
 
     Visualization
@@ -286,16 +296,6 @@ to know where exactly the user's gaze is focused.
     ScriptingAPIReference
     DSP
     ViewInMatlab
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Stream data:
-
-    DataStreamAPI
-    DataStreamAPI/ZMQStream
-    DataStreamAPI/LSLStream
-    DataStreamAPI/ScriptStream
-    DataStreamAPI/StreamVideoAudioScreenCapture
 
 .. toctree::
     :maxdepth: 1
