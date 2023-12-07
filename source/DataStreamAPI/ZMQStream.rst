@@ -112,7 +112,7 @@ Similarly, you have to install the ZMQ package in Unity. To do so, follow the in
 Then you can search for ``ZMQ`` in the NuGet package manager and install it.
 
 In the example project, you will find a object called ``ZMQPublisherController`` in the scene. This object contains a script called ``ZMQPublisherController.cs``.
-You can find the script in the `LSL-ZMQ-4Unity-Example <LSL-ZMQ-4Unity-Example <https://github.com/HaowenWeiJohn/LSL-ZMQ-4Unity-Example/blob/main/Assets/Scripts/LSL/ZMQPublisherController.cs>`_ repository.
+You can find the script in the `LSL-ZMQ-4Unity-Example <https://github.com/HaowenWeiJohn/LSL-ZMQ-4Unity-Example/blob/main/Assets/Scripts/LSL/ZMQPublisherController.cs>`_ repository.
 
 
 .. important::
