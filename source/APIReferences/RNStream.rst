@@ -13,7 +13,7 @@ physiolabxr.utils.RNStream
 .. py:class:: physiolabxr.utils.RNStream
 
 RNStream is a class that provides a simple interface for serialization and deserialization of multimodal data streams.
-You can read more about its usage in the :ref:`Recording <feature recording>` section.
+You can read more about its usage in the :ref:`Recording <feature recording>` page.
 
 .. py:function:: __init__(file_path)
 
@@ -32,7 +32,7 @@ You can read more about its usage in the :ref:`Recording <feature recording>` se
         serialize the content of the buffer to the file path pointed by self.fn
 
         :param dict buffer: a dictionary, key is a string for stream name, value is a iterable of two ndarray the first of the two ndarray is the data samples, the second of the two ndarray are the timestamps of the data samples. The time axis for the data array must be the last. The timestamp array must have exactly one dimension (the time dimension). The data and timestamps rray must have the same length in their time dimensions. The timestamps array must also in a increasing order, otherwise a warning will be raised
-        :return: the total number of bytes that has been streamed out
+        :return: the total number of bytes that has been streamed out.
         :rtype: int
 
 .. py:method:: stream_in(ignore_stream=None, only_stream=None, jitter_removal=True, reshape_stream_dict=None)
