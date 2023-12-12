@@ -1,3 +1,5 @@
+.. _feature recording:
+
 ###############
 Recording Data
 ###############
@@ -26,13 +28,15 @@ The platform supports various data formats to best fit your donwstream pipeline:
 What is saved
 *************
 
-Regardless of the data format, for all streams, PhysioLab\ :sup:`XR` saves data by each frame and the time when it captured
-that frame. When loaded
+Regardless of the data format, for all streams, PhysioLab\ :sup:`XR` saves data by each frame and the time
+when it captured that frame. When loaded
 back, if you are in *Python*,
-the data is returned as **a dictionary of arrays and timestamps**. The keys of the dictionary are the stream names. The values
+the data is returned as **a dictionary of arrays and timestamps**.
+The keys of the dictionary are the stream names. The values
 are a tuple of (data, timestamps). If you are in MATLAB, the data is returned as a struct with the same fields.
+Check out this :ref:`section <use the recorded file>` for more details on how to use the recorded file.
 
-Learn From a Simple Example How to Record Data
+Simple Example: How to Record Data
 *******************************************************
 In this example, we will record two data streams: a randomly generated stream and screen capturing.
 
@@ -174,49 +178,32 @@ duration and file size as they increase.
         </video>
     </div>
 
-If you are using recorded file
+.. _use the recorded file:
+
+Using the recorded file
 --------------------------------
 
 You can use the load functions from PhysioLab\ :sup:`XR`, first install the pip package ``pip install PhysioLabXR``
 
 And simply import the load function, here is an example
+
 .. code-block:: python
 
     from physiolabxr.utils.user_utils import stream_in
 
     data = stream_in('path/to/dats/file')
 
+Check out the :ref:'stream_in API reference <Stream_in>' for more details.
 
-Advanced
+
+Further Reading
 ****************
 
-.dats serialization and eviction interval
-------------------------------------------
-The recording is enabled by a serialization interface (RNStream) optimized for data with timestamps from multiple
-sources (i.e., EEG, eyetracking and video recorded simultaneously)
+.. toctree::
+    :maxdepth: 1
 
-Recording files is created by RealityNavigation uses .dats file format. .dats (dictionary of array and timestamps) is a binary file format used by RealityNavitaion to log the recorded data.
-The structure of .dats is shown in the figure below
-
-.. image:: media/RN_Stream.png
-    :width: 1080
-
-The file content is first segmented by eviction intervals. Within each interval, each type-length-
-value (TLV) packet contains the data for individual streams. The figure shows the anatomy of a TLV packet. Starting with a delimiter sequence
-called magic, the packet contains the data array and timestamps preceded by meta information: stream name, data type, number of dimensions, and
-the shape of the data. When loading .dats back, the loader uses the dimension information to determine the number of bytes to read as data and
-timestamp
-
-Once recording starts, all the data streams are routed to a specialized buffer.
-The buffer’s content is retained in the host’s memory until the eviction interval is hit. Default at one second, the
-eviction interval controls how often we offload the buffer to the disk. When the data throughput are high, it is important
-to evict the buffer in time to prevent out-of-memory. User may adjust the eviction interval in the settings to optimize
-for their use case. During an eviction, each stream’s data and timestamps is appended to the file as a TLV packet
-
-Developer
-#########
-
-`Go To Developer Page <Developer.html>`_
+    APIReferences/RNStream
+    APIReferences/DATSFileFormat
 
 
 .. |stream_available| image:: /media/streamwidget_stream_available.svg
@@ -226,3 +213,6 @@ Developer
 .. |stream_active| image:: /media/streamwidget_stream_viz_active.svg
    :width: 20px
    :height: 20px
+
+
+

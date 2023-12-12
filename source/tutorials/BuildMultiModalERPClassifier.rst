@@ -66,8 +66,10 @@ We will use the first 6 blocks for training, and the last 3 block for testing.
 Change the settings
 *******************
 
-Because we will use the built-in real-time filter to process the EEG data, and the high-pass filter takes a while to make
-the data stable, it is important that the data has settled downed
+Because we will use the built-in real-time filter to process the EEG data, and the high-pass filter takes a while to stabilize
+the data, we need to make sure of two things
+
+*. the filter is turned on before the experiment starts. To do this, go to the `Stream` tab
 
 
 Here's the picture of the settings we will use for this experiment:
@@ -84,7 +86,7 @@ Saving the epochs
 .. _about epochs:
 .. note::
 
-        **What is Epochs:** In neuroscience lingo, an *epoch* is a segment of data that is time-locked to an event. Time-locking means that
+        **What is an Epoch:** In neuroscience lingo, an *epoch* is a segment of data that is time-locked to an event. Time-locking means that
         the data is aligned to the event, so that the event happens at a specific time point in the epoch. For example,
         we want to find what people's EEG looks like when they see a target object. We will time-lock the EEG data to the
         event when the target object appears.
@@ -102,8 +104,6 @@ We will start by saving the epochs for both EEG and pupil.
 
 Online vs offline inference
 ***************************
-
-
 
 
 *Coming soon. Real-time decoding of target response from EEG and pupil size.*
