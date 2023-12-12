@@ -313,6 +313,7 @@ to know where exactly the user's gaze is focused.
 
     BuildGuide
     Contribute
+    DeveloperNotes
 
 .. toctree::
     :maxdepth: 1

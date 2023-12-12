@@ -1,7 +1,8 @@
-Developer Notes
+Engineering WIKI
 #####################################################
 
-This is a collection of notes for developers of this project, with tips and cautions when developing this project.
+This is the engineering WIKI of this project,
+with tips and cautions when developing this project.
 
 Working with PyQt
 *********************
@@ -32,3 +33,28 @@ returns. Instead, do::
 By saving the thread object to a permanent attribute, the thread object will not be garbage-collected and lives with
 the GUI controller object.
 
+Combobox
+^^^^^^^^
+
+For pyqt combobox that are created in .ui files and empty, do NOT define the field “CurrrentIndex” in PyQt .ui files,
+Otherwise, you may get this::
+
+    Terminating app due to uncaught exception 'NSRangeException', reason: '*** -[__NSArrayM objectAtIndexedSubscript:]: index 0 beyond bounds for empty array'
+
+, when adding items to this combobox.
+
+This is a known issue with macOS, some times you will get this issue event when you do not define the field “CurrrentIndex”.
+When this happens, you can try add a *placeholderText* property to your combobox in the .ui file. Thought this seems to
+be irrelevant, it does solve the problem, for some reason.
+
+For example, if adding items to this combobox causes the `NSRangeException`::
+
+  <widget class="QComboBox" name="SomeComboBox"/>
+
+You can change it to::
+
+  <widget class="QComboBox" name="SomeComboBox">
+   <property name="placeholderText">
+    <string>Some Placeholder Text</string>
+   </property>
+  </widget>
