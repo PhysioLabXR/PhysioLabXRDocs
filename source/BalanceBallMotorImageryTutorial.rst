@@ -64,7 +64,6 @@ State Diagram
    :align: center
    :alt: balance ball
 
-
 Train State
 ************
 
@@ -97,12 +96,6 @@ Script: MotorImageryBalanceBall.py
 
 The script can be found at: `MotorImageryBalanceBall.py <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/physiolabxr/scripting/Examples/PhysioLabXR_Balanceball_Demo/MotorImageryBalanceBall.py">`_
 
-The configuration file includes the following configurations:
-
-    * **EEG_STREAM_NAME**: The name of the EEG stream.
-    * **EVENT_MARKER_CHANNEL_NAME**: The name of the event marker channel.
-
-
 *************
 Experiment
 *************
@@ -113,7 +106,12 @@ experiment environment.
 
 In the training session, the user will be asked to imagine left or right hand movements while
 looking at an automated ball moving on the screen. After the training session, Unity will communicate with the python
-script XXXX to fit a predictive model based on the training data.
+script MotorImageryBalanceBall.py to fit a predictive model based on the training data.
+
+.. figure:: media/balanceball_training_process.gif
+   :width: 400
+   :align: center
+   :alt: balance ball
 
 The balance ball game has the following features implemented:
 - a score counter that keeps track of the remaining lives of the ball (3 lives)
@@ -134,7 +132,7 @@ Requirements
 =======
 Experiment Setup
 =======
-In this experiment, all the required scripts are included in your local directory: physiolabxr/scripting/Examples/PhysioLabXR_BalanceBall_Demo.
+In this experiment, all the required scripts are included in your local directory: physiolabxr/scripting/Examples/PhysioLabXR_BalanceBall_Demo. Or, you can download the scripts from this repository: .
 
 Get the OpenBCI Cyton-8-Channel board and connect it to the computer.
 For this step, please refer to: `OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_. It is very important to complete the `FTDI Driver Installation <https://docs.openbci.com/Troubleshooting/FTDI_Fix_Windows/>`_ before starting the experiment. The Latency timer should be set to 1 ms (the default value is 16 ms) to reduce the latency.
