@@ -171,3 +171,5 @@ on building data processing script for experiments and BCI, check out these tuto
 `FixationDetection <FixationDetection.html>`_
 
 :ref:`Multi-modal Event-related Potential Classifier <tutorial multi-modal erp Classifier>`
+
+

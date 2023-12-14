@@ -621,13 +621,13 @@ should be imported into the script file. The configuration file includes the fol
 Experiment
 *************
 
-This experiment implemented the P300 Speller Brain Computer Interface using RenaLabApp and a customized Unity Paradigm.
+This experiment implemented the P300 Speller Brain Computer Interface using PhysioLab\ :sup:`XR` and a customized Unity Paradigm.
 The similar setup can be extended to other human subject studies that include real time data acquisition and customized
 experiment environment. The P300 is one of the most important Event-related potentials(ERP)
 components that is used to evaluate cognitive function, such as attention, working memory , and concentration.
 A peak occurs 300 ms after the expected event happened.
 
-The Unity Paradigm hosts a six by five board that includes 26 alphabets, from A to Z, and 10 numbers, from 0 to 9.
+The Unity Paradigm hosts a six by six board that includes 26 alphabets, from A to Z, and 10 numbers, from 0 to 9.
 
 
 During the training period, the user is instructed to focus on a particular letter(instructed in green),
@@ -687,6 +687,8 @@ You can use the OpenBCI GUI to check the EEG signal quality. Same as the previou
         </div>
 
 
+
+.. _start the openbci cyton 8 channels board from physiolabxr scripting interface using physiolabxropenbcicyton8channelsscript.py:
 
 Start the OpenBCI Cyton-8-Channel board from PhysioLab\ :sup:`XR` Scripting Interface using PhysioLabXROpenBCICyton8ChannelsScript.py
 ************
