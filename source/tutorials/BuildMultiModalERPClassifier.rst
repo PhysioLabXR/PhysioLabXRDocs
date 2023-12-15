@@ -508,10 +508,10 @@ In our example, the script generates the cross-window weights for the EEG and pu
 
 Here's the cross-window weights for the EEG and pupil at the last block:
 
-+-------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
-| .. image:: ../media/multimodal_eeg_lassifier_crossbin_weights_final_block.png | .. image:: ../media/multimodal_pupil_classifier_crossbin_weights_final_block.png  |
-|    :width: 400                                                                |    :width: 400                                                                    |
-+-------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| .. image:: ../media/multimodal_eeg_classifier_crossbin_weights_final_block.png | .. image:: ../media/multimodal_pupil_classifier_crossbin_weights_final_block.png  |
+|    :width: 400                                                                 |    :width: 400                                                                    |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
 
 You will see the EEG window that contribute the most to the classification is 300-400 ms after the target appears.
 For the pupil, the window that contribute the most is between 1000ms to 1500 ms after the target appears.
