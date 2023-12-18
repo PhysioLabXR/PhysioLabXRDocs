@@ -14,10 +14,6 @@ you can play by only imagining your left or right hand movements.
 In this tutorial we will use the PhysioLabXR as a real-time data acquisition platform and analysis tool, and
 use Unity as a stimulus presentation platform.
 
-.. figure:: media/BBall_play.png
-   :width: 400
-   :align: center
-   :alt: balance ball
 
 *************
 Unity Paradigm
@@ -55,12 +51,12 @@ State Diagram
 =======
 
 .. figure:: media/balanceBall_train_diagram.png
-   :width: 400
+   :width: 800
    :align: center
    :alt: balance ball
 
 .. figure:: media/balanceBall_eval_diagram.png
-   :width: 400
+   :width: 800
    :align: center
    :alt: balance ball
 
@@ -109,7 +105,7 @@ looking at an automated ball moving on the screen. After the training session, U
 script MotorImageryBalanceBall.py to fit a predictive model based on the training data.
 
 .. figure:: media/balanceball_training_process.gif
-   :width: 400
+   :width: 800
    :align: center
    :alt: balance ball
 
@@ -135,7 +131,9 @@ Experiment Setup
 In this experiment, all the required scripts are included in your local directory: physiolabxr/scripting/Examples/PhysioLabXR_BalanceBall_Demo. Or, you can download the scripts from this repository: .
 
 Get the OpenBCI Cyton-8-Channel board and connect it to the computer.
-For this step, please refer to: `OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_. It is very important to complete the `FTDI Driver Installation <https://docs.openbci.com/Troubleshooting/FTDI_Fix_Windows/>`_ before starting the experiment. The Latency timer should be set to 1 ms (the default value is 16 ms) to reduce the latency.
+Follow this document to set up the OpenBCI Cyton-8-channel: :ref:`doc<openbci cyton stream>`.
+For trouble-shooting, please refer to: `OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_. It is very important to complete the `FTDI Driver Installation <https://docs.openbci.com/Troubleshooting/FTDI_Fix_Windows/>`_ before starting the experiment. The Latency timer should be set to 1 ms (the default value is 16 ms) to reduce the latency.
+
 
 Check EEG Signal Quality
 ************
@@ -231,8 +229,6 @@ The script can be downloaded from `PhysioLabXROpenBCICyton8ChannelsScript.py <ht
             def loop(self):
                 timestamp_channel = self.board.get_timestamp_channel(0)
                 eeg_channels = self.board.get_eeg_channels(0)
-                # print(timestamp_channel)
-                # print(eeg_channels)
 
                 data = self.board.get_board_data()
 
@@ -272,11 +268,20 @@ Start Unity
 
 3. Go to **Stream Tab**. Type **EventMarker_BallGame** in the *Add Widget* and click the *Start Button* to start the stream.
 
+.. figure:: media/balanceBall_EventMarker.png
+   :width: 800
+   :align: center
+   :alt: balance ball scripting tab config
 
-Add PysioLabP300SpellerDemoScript.py
+Add MotorImageryBalanceBall.py
 ************
 
-1. Go to the `Script Tab <Scripting.html>`_ and click the *Add* button to start the script. You can either create a new script and replace with *MotorImageryBalanceBall.py* we mentioned above, or select *MotorImageryBalanceBall.py* located in the *physiolabxr/scripting/Examples/PhysioLabXR_BalanceBall_Demo* directory.
+1. Go to the `Script Tab <Scripting.html>`_ and click the *Add* button to add MotorImageryBalanceBall. You can either create a new script and replace with *MotorImageryBalanceBall.py* we mentioned above, or select *MotorImageryBalanceBall.py* located in the *physiolabxr/scripting/Examples/PhysioLabXR_BalanceBall_Demo* directory.
+
+.. figure:: media/balanceBall_AddScript.png
+   :width: 800
+   :align: center
+   :alt: balance ball scripting tab config
 
 2. We need to add the Event Marker stream and EEG Stream as an input to the script. Type the stream name: *OpenBCICyton8Channels* in the *Input Widget* and click the *Add* button. Repeat this step for the *EventMarker_BallGame* stream.
 
@@ -309,17 +314,17 @@ Three Streams are running in the **Stream Tab**:
 
 
 .. figure:: media/balanceBall_StreamTab.png
-   :width: 400
+   :width: 800
    :align: center
    :alt: balance ball stream tab config
 
 .. figure:: media/options_OpenBCICyton8Channels.png
-   :width: 400
+   :width: 800
    :align: center
    :alt: balance ball openbci cyton 8 channels config
 
 .. figure:: media/balanceBall_ScriptingTab.png
-   :width: 400
+   :width: 800
    :align: center
    :alt: balance ball scripting tab config
 
@@ -332,7 +337,7 @@ Set up the Experiment Parameters
         - Break Time: The interval between each animation.
 
 .. figure:: media/balanceBall_Unity_config.png
-   :width: 400
+   :width: 800
    :align: center
    :alt: balance ball unity config
 
@@ -342,7 +347,7 @@ Run the Experiment
 1. Start by double-clicking the Scene *GameMenu* under the path Assets/Scenes/GameMenu.unity. In this menu page, you can move to the training section by clicking on "TRAIN".
 
 .. figure:: media/balanceBall_Menu.png
-   :width: 400
+   :width: 800
    :align: center
    :alt: balance ball menu
 
