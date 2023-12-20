@@ -13,35 +13,34 @@ called `motor imagery <https://en.wikipedia.org/wiki/Motor_imagery>`_.
 We will use the PhysioLab\ :sup:`XR` as a real-time data processing platform where we can deploy an machine learning
 model to make predictions in real-time, and play the game in Unity.
 
-This is a common use case of pairing PhysioLab\ :sup:`XR` and Unity as a stimulus presentation platform.
+This is a common use case of pairing PhysioLab\ :sup:`XR` and Unity as a stimulus presentation platform. Check out
+the :ref:`Stream API <DataStreamAPI>` page for more information about how to use PhysioLab\ :sup:`XR` to communicate with Unity.
 
 
 ***************
-Unity Paradigm
+Unity Project
 ***************
 
-The Unity source code is available at: `BalancingBallGame script <https://github.com/ApocalyVec/ReNaApp_BalancingBallGame>`_.
+The Unity project is available at: `BalancingBallGame script <https://github.com/ApocalyVec/ReNaApp_BalancingBallGame>`_.
 
 .. note::
     The Unity Paradigm is developed using `Unity 2021.3.27f1 <https://unity3d.com/get-unity/download/archive>`_
 
 
-This Unity paradigm implements a balance ball BCI game. After a quick training session, The user will
-be able to play the game with a BCI device in real time.
+This Unity paradigm implements a balance ball BCI game. The user can control a rolling ball on a platform
+using motor imagery. After a quick training session, the user will be able to play the game with imaged movement in real time.
 
 
 ==========================================
 Lab Streaming Layer (LSL) Configuration
 ==========================================
 
-There is a single-channel LSL stream from Unity Paradigm to RenaScript. The description for each channel is shown below:
+There is a single-channel LSL stream from the Unity Paradigm to :ref:`PhysioLabXR script <feature scripting>`:
 
-P300 Speller Game Unity  LSL  Configuration:
-
-    **LSL Outlet: "EventMarker_BallGame"**
+    **LSL Stream Name: "EventMarker_BallGame"**
 
         *Channel[0]: (EventMarker_BallGame)*
-            Indicates the selected game states (Train/Evaluation)
+            Indicates the change of game states (Train/Evaluation) with the following values:
                 - TrainStart = 1, TrainEnd = -1
                 - LeftHandTrialStart = 2, LeftHandTrialEnd = -2
                 - RightHandTrialStart = 3, RightHandTrialEnd = -3
