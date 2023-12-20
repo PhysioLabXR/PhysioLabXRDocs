@@ -125,6 +125,8 @@ You can find the script in the `LSL-ZMQ-4Unity-Example <https://github.com/Haowe
 Check out :ref:`this page <create zmq stream>` on how to create a stream to receive the data in PhysioLab\ :sup:`XR`.
 
 
+.. _use zmq to stream camera image from Unity:
+
 Stream Camera Data from Unity
 -------------------------------------
 

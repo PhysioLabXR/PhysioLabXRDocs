@@ -10,7 +10,8 @@ over time. PhysioLab\ :sup:`XR` has the following hooks to connect to data sourc
    the network is the quickest way to get started with PhysioLab\ :sup:`XR`, if you have
    a data source that supports one of the network APIs that PhysioLab\ :sup:`XR` supports.
    PhysioLab\ :sup:`XR` supports two popular network APIs for streaming experiment data: :ref:`LSL <stream over LSL>`
-   and :ref:`ZMQ <stream over ZMQ>`.
+   and :ref:`ZMQ <stream over ZMQ>`. This is also the recommended way to stream data to and from other software such as
+   game engines (e.g., :ref:`Unity <lsl data source in unity>`).
 
 .. note::
 

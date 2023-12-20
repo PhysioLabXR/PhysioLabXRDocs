@@ -20,6 +20,7 @@ LSL has API in many programming languages. For a more comprehensive guide, check
 Here, we give two simple example for Python and Unity, respectively. We will show how to stream data between PhysioLabXR and your own data source in Python and Unity (C#), via LSL.
 
 
+
 LSL in Python
 ^^^^^^^^^^^^^
 
@@ -111,6 +112,10 @@ script called ``LSLOutletController.cs``.
 You can find the script in the `LSL-ZMQ-4Unity-Example <https://github.com/HaowenWeiJohn/LSL-ZMQ-4Unity-Example/blob/main/Assets/Scripts/LSL/LSLOutletController.cs>`_ repository.
 
 Check out :ref:`this page <create lsl stream>` on how to create a stream to receive the data in PhysioLab\ :sup:`XR`.
+
+As an alternative to LSL, you can also use :ref:`ZMQ <zmq data source in unity>` to stream data between Unity and PhysioLab\ :sup:`XR`,
+which is recommended if your data has a large number of channels such as Unity camera video. See this example
+on how to `stream camera data from Unity to PhysioLab\ :sup:`XR` <use zmq to stream camera image from Unity>`.
 
 
 

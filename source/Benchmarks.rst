@@ -66,3 +66,5 @@ The following table lists each stream's specification:
 We hope this benchmark can provide a reference for users to estimate the performance of their system. The script for benchmarking
 is `here <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/tests/PerformanceBenchmark.py>`_.  :ref:`Advanced users <contribute>` can use it to
 benchmark their own system.
+
+
