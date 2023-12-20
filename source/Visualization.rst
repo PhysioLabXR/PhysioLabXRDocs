@@ -83,6 +83,7 @@ researcher is interested in observing changes in amplitude over a period.
 
 
 
+.. _visualization-image:
 
 Image
 ~~~~~~

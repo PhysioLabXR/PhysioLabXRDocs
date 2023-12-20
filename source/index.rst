@@ -74,7 +74,9 @@ Run from source
 
 Alternatively, you can run the application from its source. Refer to *Run from Source* in the `developer page <Contribute.html#run-from-source>`_ for instructions.
 
-If you encountered problem installing physiolabxr, please re
+If you encountered problem installing physiolabxr,
+please report your issue `here <https://github.com/PhysioLabXR/PhysioLabXR/issues>`_.
+We will get back to you as soon as possible.
 
 Get Started with a Simple Example
 *********************************
@@ -275,6 +277,19 @@ how to build a multimodal classifier with PhysioLab\ :sup:`XR`, and `this one <F
 to know where exactly the user's gaze is focused.
 
 
+Other Topics
+-------------------
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Stream data:
+
+    DataStreamAPI
+    DataStreamAPI/ZMQStream
+    DataStreamAPI/LSLStream
+    DataStreamAPI/ScriptStream
+    DataStreamAPI/StreamVideoAudioScreenCapture
+
 .. toctree::
     :maxdepth: 1
     :caption: Features:
@@ -286,16 +301,6 @@ to know where exactly the user's gaze is focused.
     ScriptingAPIReference
     DSP
     ViewInMatlab
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Stream data:
-
-    DataStreamAPI
-    DataStreamAPI/ZMQStream
-    DataStreamAPI/LSLStream
-    DataStreamAPI/ScriptStream
-    DataStreamAPI/StreamVideoAudioScreenCapture
 
 .. toctree::
     :maxdepth: 1
@@ -314,6 +319,19 @@ to know where exactly the user's gaze is focused.
 
     BuildGuide
     Contribute
+    DeveloperNotes
+
+.. toctree::
+    :maxdepth: 1
+    :caption: API Reference:
+
+    APIReferences/RNStream
+    APIReferences/DATSFileFormat
+    APIReferences/FixationAPIRef
+    APIReferences/BufferAPIRef
+    APIReferences/ERPAPIRef
+    APIReferences/StreamIn
+    APIReferences/get_stream_info_APIRef
 
 .. toctree::
     :maxdepth: 1
@@ -322,6 +340,7 @@ to know where exactly the user's gaze is focused.
     Benchmarks
     Releases
     LICENSE
+
 
 
 .. raw:: html
