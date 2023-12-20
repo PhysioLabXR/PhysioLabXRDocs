@@ -1,23 +1,24 @@
-###################################
-Balance Ball Tutorial
-###################################
-    Last Modified: 10/19/2023
+##############################################
+Motor Imagery: Balance Ball Game in Unity
+##############################################
 
-.. contents:: Overview
 
 *************
 Introduction
 *************
 
-This tutorial will show you how to use PhysioLab\ :sup:`XR` and Unity to set up a simple balance ball game that
-you can play by only imagining your left or right hand movements.
-In this tutorial we will use the PhysioLabXR as a real-time data acquisition platform and analysis tool, and
-use Unity as a stimulus presentation platform.
+This tutorial will show you how to use PhysioLab\ :sup:`XR` and Unity to set up a balance ball game that
+you can play by only imagining your left or right hand movements. This is a popular brain computer interface (BCI) paradigm
+called `motor imagery <https://en.wikipedia.org/wiki/Motor_imagery>`_.
+We will use the PhysioLab\ :sup:`XR` as a real-time data processing platform where we can deploy an machine learning
+model to make predictions in real-time, and play the game in Unity.
+
+This is a common use case of pairing PhysioLab\ :sup:`XR` and Unity as a stimulus presentation platform.
 
 
-*************
+***************
 Unity Paradigm
-*************
+***************
 
 The Unity source code is available at: `BalancingBallGame script <https://github.com/ApocalyVec/ReNaApp_BalancingBallGame>`_.
 
@@ -29,9 +30,10 @@ This Unity paradigm implements a balance ball BCI game. After a quick training s
 be able to play the game with a BCI device in real time.
 
 
-=======
+==========================================
 Lab Streaming Layer (LSL) Configuration
-=======
+==========================================
+
 There is a single-channel LSL stream from Unity Paradigm to RenaScript. The description for each channel is shown below:
 
 P300 Speller Game Unity  LSL  Configuration:
@@ -46,9 +48,9 @@ P300 Speller Game Unity  LSL  Configuration:
                 - EvalStart = 6, EvalEnd = -6
 
 
-=======
+==============
 State Diagram
-=======
+==============
 
 .. figure:: media/balanceBall_train_diagram.png
    :width: 800
@@ -64,14 +66,14 @@ Train State
 ************
 
 
-*************
+****************************************************
 PhysioLab\ :sup:`XR` Scripting
-*************
+****************************************************
 
 
-=======
+==========================================
 Lab Streaming Layer (LSL) Configuration
-=======
+==========================================
 
 There is a single-channel LSL stream from the PhysioLab\ :sup:`XR` to Unity to transfer the predicted side of hand movements from the PhysioLab\ :sup:`XR` to Unity.
 
@@ -86,9 +88,8 @@ PhysioLab\ :sup:`XR` LSL Configuration:
 
 
 
-=======
 Script: MotorImageryBalanceBall.py
-=======
+===================================
 
 The script can be found at: `MotorImageryBalanceBall.py <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/physiolabxr/scripting/Examples/PhysioLabXR_Balanceball_Demo/MotorImageryBalanceBall.py">`_
 
@@ -116,18 +117,19 @@ The balance ball game has the following features implemented:
     reaches the edge of the platform, it will fall off and deduct one life from the player
 - randomly spawned black collectible cubes that the ball can pick up by rolling over
 
-=======
+==============
 Requirements
-=======
+==============
 
 1. PhysioLab\ :sup:`XR`: `physiolabxr <https://github.com/PhysioLabXR/PhysioLabXR/tree/master>`_
 2. Unity project download from: `PhysioLabXR_Balance_Ball_Demo <https://github.com/ApocalyVec/ReNaApp_BalancingBallGame>`_
 3. OpenBCI: `Cyton-8-Channel <https://shop.openbci.com/collections/frontpage/products/cyton-biosensing-board-8-channel?variant=38958638540>`_
     Channel Selection: F3, Fz, F4, C3, Cz, C4, P3, P4.
 
-=======
+=====================
 Experiment Setup
-=======
+=====================
+
 In this experiment, all the required scripts are included in your local directory: physiolabxr/scripting/Examples/PhysioLabXR_BalanceBall_Demo. Or, you can download the scripts from this repository: .
 
 Get the OpenBCI Cyton-8-Channel board and connect it to the computer.
@@ -136,7 +138,7 @@ For trouble-shooting, please refer to: `OpenBCI Cyton Getting Started Guide <htt
 
 
 Check EEG Signal Quality
-************
+************************************
 
 You can use the OpenBCI GUI to check the EEG signal quality. Same as the previous step, please refer to `OpenBCI Cyton Getting Started Guide <https://docs.openbci.com/GettingStarted/Boards/CytonGS/>`_ to use OpenBCI GUI to check the impedance of each channel.
 
@@ -151,7 +153,7 @@ You can use the OpenBCI GUI to check the EEG signal quality. Same as the previou
 
 
 Start the OpenBCI Cyton-8-Channel board from PhysioLab\ :sup:`XR` Scripting Interface using PhysioLabXROpenBCICyton8ChannelsScript.py
-************
+************************************************************************************************************************************************************************************************
 
 The script can be downloaded from `PhysioLabXROpenBCICyton8ChannelsScript.py <https://github.com/PhysioLabXR/PhysioLabXR/blob/master/physiolabxr/scripting/Examples/PhysioLabXR_P300Speller_Demo/PhysioLabXROpenBCICyton8ChannelsScript.py>`_.
 
@@ -274,7 +276,7 @@ Start Unity
    :alt: balance ball scripting tab config
 
 Add MotorImageryBalanceBall.py
-************
+************************************
 
 1. Go to the `Script Tab <Scripting.html>`_ and click the *Add* button to add MotorImageryBalanceBall. You can either create a new script and replace with *MotorImageryBalanceBall.py* we mentioned above, or select *MotorImageryBalanceBall.py* located in the *physiolabxr/scripting/Examples/PhysioLabXR_BalanceBall_Demo* directory.
 
@@ -330,7 +332,8 @@ Three Streams are running in the **Stream Tab**:
 
 
 Set up the Experiment Parameters
-************
+************************************
+
 1. Double-click the Scene *Training* under the path Assets/Scenes/Training.unity
 2. In the hierarchy tab, click on *PlayerPlane* GameObject. In its inspector panel, find *Training_PlayerPlane* component attached to the gameoebjct. Here, you can customize the following parameters in the Unity Editor:
         - Max Session Num: The number of times to play animation for each side of hand movements.
@@ -342,7 +345,7 @@ Set up the Experiment Parameters
    :alt: balance ball unity config
 
 Run the Experiment
-************
+************************
 
 1. Start by double-clicking the Scene *GameMenu* under the path Assets/Scenes/GameMenu.unity. In this menu page, you can move to the training section by clicking on "TRAIN".
 
