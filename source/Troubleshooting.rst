@@ -1,8 +1,8 @@
 .. _troubleshooting:
 
-#####################################################
+################
 Troubleshooting
-#####################################################
+################
 
 This page covers the common issues that you may encounter while installing and using PhysioLabXR.
 If you encounter any other issues not covered here, please feel free to report your
