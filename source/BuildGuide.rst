@@ -32,18 +32,58 @@ Windows and Ubuntu
    .. image:: media/auto_py_to_exe.png
       :width: 540px
 
-3. Download the build configuration here:
+3. Enter your PhysioLab\ :sup:`XR` source code's path (e.g.,C:\PythonProjects\PhysioLabXR) and click the download button
+   to download the build configuration file.
 
 .. raw:: html
 
+    <style>
+        #path {
+            border: 1px solid #ccc; /* light grey border */
+            background-color: #f8f8f8; /* slightly off-white background */
+        }
+
+        #path {
+            color: #333; /* dark grey text */
+        }
+
+        #path:focus {
+            border-color: #4a90e2; /* blue border for focus */
+            outline: none; /* removes the default focus outline */
+        }
+
+        #path {
+            padding: 8px 12px; /* top & bottom, left & right padding */
+            width: 100%; /* full-width input field */
+        }
+
+        #download-windows, #download-ubuntu {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            padding: 15px 32px; /* Top and bottom padding, left and right padding */
+            text-align: center; /* Centered text */
+            text-decoration: none; /* No underline */
+            display: inline-block; /* Inline-block display */
+            font-size: 16px; /* Text size */
+            margin: 4px 2px; /* Margin around the button */
+            cursor: pointer; /* Pointer cursor on hover */
+            border: none; /* No border */
+            border-radius: 4px; /* Rounded corners */
+        }
+
+        #download-windows:hover, #download-ubuntu:hover {
+            background-color: #45a049; /* Darker shade of green for hover state */
+        }
+    </style>
+
     <form id="myForm">
-        <label for="path">Enter your PhysioLab\ :sup:`XR` source code's path (e.g.,C:\PythonProjects\PhysioLabXR) and click the download button:</label>
-        <input type="text" id="path" name="path">
-        <input type="submit" value="Download for Windows">
-        <input type="submit" value="Download for Ubuntu">
+        <input type="text" id="path" name="path" placeholder="Enter the project root path">
+        <button id="download-windows">Download for Windows</button>
+        <button id="download-ubuntu">Download for Ubuntu</button>
     </form>
     <script>
-    document.getElementById('myForm').addEventListener('submit', function(event) {
+
+    document.getElementById('download-windows').addEventListener('click', function() {
         event.preventDefault(); // Prevent form submission
 
         fetch("./_static/build_configuration.json")
@@ -77,7 +117,42 @@ Windows and Ubuntu
             .catch(error => {
                 console.log('Error fetching JSON file:', error);
             });
+    });
 
+    document.getElementById('download-ubuntu').addEventListener('click', function() {
+        event.preventDefault(); // Prevent form submission
+
+        fetch("./_static/build_configuration_ubuntu.json")
+            .then(response => response.json())
+            .then(jsonData => {
+
+                console.log(jsonData);
+                var user_path = document.getElementById('path').value;
+                function replaceValue(obj, path) {
+                    for (var key in obj) {
+                        if (typeof obj[key] === "object") {
+                            replaceValue(obj[key], path); // Recursive call for nested objects
+                        } else if (typeof obj[key] === "string") {
+                            if (obj[key].includes(path))
+                                obj[key] = obj[key].replace(path, user_path); // Replace the root path
+                        }
+                    }
+                }
+                replaceValue(jsonData, "<Your/Project/Root/Path>");
+                var modifiedJson = JSON.stringify(jsonData, null, 2);
+
+                // Create a download link for the modified JSON
+                var element = document.createElement('a');
+                element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(modifiedJson));
+                element.setAttribute('download', 'build_configuration.json');
+                element.style.display = 'none';
+                document.body.appendChild(element);
+                element.click();
+                document.body.removeChild(element);
+            })
+            .catch(error => {
+                console.log('Error fetching JSON file:', error);
+            });
     });
     </script>
 
