@@ -74,9 +74,12 @@ Run from source
 
 Alternatively, you can run the application from its source. Refer to *Run from Source* in the `developer page <Contribute.html#run-from-source>`_ for instructions.
 
-If you encountered problem installing physiolabxr,
-please report your issue `here <https://github.com/PhysioLabXR/PhysioLabXR/issues>`_.
-We will get back to you as soon as possible.
+
+Troubleshooting
+---------------
+
+If you run into any trouble installing or running PhysioLab\ :sup:`XR`, please refer to
+the :ref:`troubleshooting page <troubleshotting>` for common issues and solutions.
 
 Get Started with a Simple Example
 *********************************
@@ -337,6 +340,7 @@ Other Topics
     :maxdepth: 1
     :caption: Others:
 
+    Troubleshooting
     Benchmarks
     Releases
     LICENSE
