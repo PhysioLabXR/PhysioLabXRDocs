@@ -81,6 +81,23 @@ researcher is interested in observing changes in amplitude over a period.
         </video>
     </div>
 
+Add offsets to the channels
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Sometimes when you have many channels, the channels will overlap with each other, and it is hard to see the details of each channel.
+You can add offsets to the channels to separate them from each other. The offset is a constant added to the channel data before plotting. This offset
+will NOT change the original data. The offset is only used for plotting.
+
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <video id="autoplay-video4" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <source src="_static/time_series_offset.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
 
 
 .. _visualization-image:

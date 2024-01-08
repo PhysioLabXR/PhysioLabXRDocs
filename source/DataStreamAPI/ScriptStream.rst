@@ -14,6 +14,8 @@ The :ref:`Scripting Interface <feature scripting>` in Physiolab\ :sup:`XR` can b
 In general, you can initialize third party device driver for the target device in the **init()** function and get the data in the **loop()** function and boardcast it to LSL or ZMQ streams.
 
 
+.. _openbci cyton stream:
+
 OpenBCI Cyton 8 channels EEG device
 ************************************
 
