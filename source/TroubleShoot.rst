@@ -12,7 +12,7 @@ there will always be someone there to help.
 
 Issue:
 *******
-***PhysioLabXR doesn't start on Linux. Gives error: qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in "/tmp/_MEIYcBbKq/cv2/qt/plugins" even though it was found.***
+**PhysioLabXR doesn't start on Linux. Gives error: qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in "/tmp/_MEIYcBbKq/cv2/qt/plugins" even though it was found.**
 
 **Solution:** This issue is because of the compatibility issue between PyQT and open-cv. To solve this issue, please run the following command in the terminal:
 

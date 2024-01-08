@@ -79,7 +79,7 @@ Troubleshooting
 ---------------
 
 If you run into any trouble installing or running PhysioLab\ :sup:`XR`, please refer to
-the :ref:`troubleshooting page <troubleshotting>` for common issues and solutions.
+the :ref:`troubleshooting page <troubleshooting>` for common issues and solutions.
 
 Get Started with a Simple Example
 *********************************
