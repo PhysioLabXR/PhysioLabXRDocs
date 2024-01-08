@@ -72,7 +72,7 @@ Once installed, you can run the application with:
 Run from source
 ---------------
 
-Alternatively, you can run the application from its source. Refer to *Run from Source* in the `developer page <Contribute.html#run-from-source>`_ for instructions.
+Alternatively, you can run the application from its source. Instructions are :ref:`here <run from source>`.
 
 
 Troubleshooting

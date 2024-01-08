@@ -1,38 +1,46 @@
 ###################################
-Build PhysioLabXR
+Build PhysioLabXR Executable
 ###################################
 
-In this guide, you will learn how to build PhysioLab\ :sup:`XR` from source code.
-You can build PhysioLabXR on Windows, MacOS, and Linux.
+This guide is about how to create executable files from PhysioLab\ :sup:`XR` from the source code.
+You can build PhysioLabXR executable for Windows, MacOS, and Linux.
+
+PhysioLab\ :sup:`XR` uses two packages to build the executable: `pyinstaller <https://pyinstaller.org/en/stable/>`_ and
+`auto-py-to-exe <https://pypi.org/project/auto-py-to-exe/>`_, where
+the later is a GUI for ``pyinstaller`` that make editing the build configuration easier. In either case, complete
+build configuration is included in this guide and you can use it to build the executable directly without modifying them.
+
+Should you encounter any issues during the build process. Please visit the `Troubleshooting <https://physiolabxr.readthedocs.io/en/latest/troubleshooting.html>`_ page for help.
 
 
+General Step
+******************
 
-Windows
+First you need to have a local copy of PhysioLab\ :sup:`XR` source code, and make sure you can run the App from source code.
+Follow :ref:`the run from source guide <run from source>` for a step-by-step instruction on how to do it.
+
+Then, follow the platform specific guide to build the executable.
+
+
+Windows and Ubuntu
 ***********************************
 
-How to build an executable
-################################
+1. We will use auto-py-to-exe to build the executable. Install it with the command ``pip install auto-py-to-exe``.
 
-
-1. Use auto-py-to-exe library to build the executable
-
-   Install: ``pip install auto-py-to-exe``
-
-   Run: ``auto-py-to-exe``
-
-   Once run, the following looking window will be opened.
+2. Open auto-py-to-exe by typing ``auto-py-to-exe`` in the terminal. You will see the following window.
 
    .. image:: media/auto_py_to_exe.png
       :width: 540px
 
-2. Import the following build configuration. You can Specify the root path of your project and download the file here
+3. Download the build configuration here:
 
 .. raw:: html
 
     <form id="myForm">
-        <label for="path">Enter Your Project Root Path:</label>
+        <label for="path">Enter your PhysioLab\ :sup:`XR` source code's path (e.g.,C:\PythonProjects\PhysioLabXR) and click the download button:</label>
         <input type="text" id="path" name="path">
-        <input type="submit" value="Download">
+        <input type="submit" value="Download for Windows">
+        <input type="submit" value="Download for Ubuntu">
     </form>
     <script>
     document.getElementById('myForm').addEventListener('submit', function(event) {
@@ -74,32 +82,24 @@ How to build an executable
     </script>
 
 
+3. You may change where the final executable is saved under `Settings-> Output Directory`. The default output directory
+    is a folder named "output" under source code directory.
 
-.. literalinclude:: _static/build_configuration.json
+   .. image:: media/auto-py-to-exe-output-path.png
+      :width: 540px
 
-3. Select appropriate output directory and script location, and click on the “Convert .Py to Exe” button.
 
-#. Check if the executable has been created successfully in the desired location.
+4. To start the build process, click on the “CONVERT .PY to EXE” button at the bottom of the window.
 
-How to run the executable
-################################
-Your root directory structure will look like this after a successful build.
 
-.. image:: media/build_directory_example.png
+5. Once the build completes, you can find the executable in the output directory you specified in step 3.
 
-Go into the target build directory. Click on the circled icon in the following image to run the executable.
-
-The executable is named “main” in this example, but it will have different names if you chose different name options as you were building the executable.
-
-.. image:: media/build_executable_directory_example.png
 
 MacOS
 ***********************************
 
-
-How to build an executable
-################################
-
+We will not use auto-py-to-exe to build the executable on MacOS. Instead, we will use ``pyinstaller`` directly, the
+following step explains why.
 
 #. Use pyinstaller library to build the executable
 
@@ -181,5 +181,19 @@ How to build an executable
    }
    </script>
 
-Once run, a ``build`` and a ``disk`` folder will be generated in the root path. The stand alone app is in the ``disk/PhysioLabXR`` folder.
+Two folders, "build" and "dist" will be created in the source code directory when the build runs.
+Once the build finishes, the Mac executable is in the ``dist/PhysioLabXR`` folder.
 
+
+How to run the executable
+################################
+
+Your root directory structure will look like this after a successful build.
+
+.. image:: media/build_directory_example.png
+
+Go into the target build directory. Click on the circled icon in the following image to run the executable.
+
+The executable is named “main” in this example, but it will have different names if you chose different name options as you were building the executable.
+
+.. image:: media/build_executable_directory_example.png

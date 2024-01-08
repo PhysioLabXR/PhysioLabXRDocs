@@ -10,18 +10,31 @@ guide you through the process of running the app from source.
 if you want to contribute to the documentation,
 please refer to the :ref:`contribute to the docs <contribute to the docs>` section on this page
 
+
+.. _run from source:
+
 Run from source
 *********************
 
-To run PhysioLab\ :sup:`XR` from source, you need python 3.9, 3.10, or 3.11 installed on your computer. You can
-download python from `python.org <https://www.python.org/downloads/>`_.
+Running PhysioLab\ :sup:`XR` from source is the best way to develop and test the app. Follow these steps to run the app
+from source:
 
-Clone the project from `its repo page <https://github.com/physiolabxr/physiolabxr>`_.
+1. You need python 3.9, 3.10, or 3.11 installed on your computer. You can download python from `python.org <https://www.python.org/downloads/>`_.
 
-Navigation to the root folder of the downloaded repo, install all the required packages with the following command::
+2. Clone the project from `its repo page <https://github.com/physiolabxr/physiolabxr>`_. Unzip it.
 
-   pip install -r requirements.txt
+3. Install the required packages, we recommend using a virtual environment so that the packages installed for PhysioLab\ :sup:`XR`
+don't conflict with other python projects on your computer. Here's how to do it with ``pip``
+and `venv <https://docs.python.org/3/library/venv.html>`_.
 
+    * In terminal, cd to the root directory of cloned PhysioLab\ :sup:`XR` and run ``python -m venv venv``
+      This will create a virtual environment named ``venv`` in the root directory of PhysioLab\ :sup:`XR`.
+    * Note that you don't have to create the venv in the root directory of PhysioLab\ :sup:`XR`, you can create it anywhere
+      you want. If you do, you need to change the path in the following steps accordingly.
+    * Activate the virtual environment by running ``source venv/bin/activate`` on MacOS/Linux or ``venv\Scripts\activate.bat`` on Windows.
+    * Install the required packages by running ``pip install -r requirements.txt``.
+
+4. With packages installed and (optional) the virtual environment activated.
 Navigate to the physiolabxr folder. Run PhysioLabXR.py to start the app::
 
    cd physiolabxr
