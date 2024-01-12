@@ -27,6 +27,24 @@ Streaming Data:
 - you can also create your own data stream via the `Data Stream API <DataStreamAPI.html>`_.
 
 
+Read the paper on the `Journal of Open Source Software <https://joss.theoj.org/papers/10.21105/joss.05854>`_:
+
+.. image:: https://joss.theoj.org/papers/10.21105/joss.05854/status.svg
+   :target: https://doi.org/10.21105/joss.05854
+
+Cite the paper:
+
+.. code-block:: latex
+
+    @article{Li2024,
+            doi = {10.21105/joss.05854},
+            url = {https://doi.org/10.21105/joss.05854},
+            year = {2024},
+            publisher = {The Open Journal}, volume = {9}, number = {93}, pages = {5854},
+            author = {Ziheng 'Leo' Li and Haowen 'John' Wei and Ziwen Xie and Yunxiang Peng and June Pyo Suh and Steven Feiner and Paul Sajda},
+            title = {PhysioLabXR: A Python Platform for Real-Time, Multi-modal, Brain–Computer Interfaces and Extended Reality Experiments},
+            journal = {Journal of Open Source Software} }
+
 .. _download:
 
 Download
