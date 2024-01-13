@@ -99,6 +99,12 @@ Troubleshooting
 If you run into any trouble installing or running PhysioLab\ :sup:`XR`, please refer to
 the :ref:`troubleshooting page <troubleshooting>` for common issues and solutions.
 
+Community
+---------
+
+Join our `Community Slack <https://join.slack.com/t/physiolabxr/shared_invite/zt-29bb90kpe-GVlo~4_3zlJYsdaAmJrRZw>`_
+to ask questions and get help from the community.
+
 Get Started with a Simple Example
 *********************************
 
