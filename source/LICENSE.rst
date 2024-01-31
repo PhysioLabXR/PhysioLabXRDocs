@@ -2,6 +2,8 @@
 License Information
 ###################
 
+© 2023 The Trustees of Columbia University in the City of New York.  This work may be reproduced, distributed, and otherwise exploited for academic non-commercial purposes only.  To obtain a license to this work for commercial purposes, please contact Columbia Technology Ventures at techventures@columbia.edu.
+
 BSD 3-Clause License
 
 Copyright (c) 2021-2023, authors of PhysioLabXR. All rights reserved.
