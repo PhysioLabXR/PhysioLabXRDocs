@@ -116,11 +116,9 @@ You can find the script in the `LSL-ZMQ-4Unity-Example <https://github.com/Haowe
 
 
 .. important::
-    It is very important to have the ``ForceDotNet.Force()`` in your code,
-    before you create a socket. Otherwise , the socket will fail to instantiate and Unity will freeze when exiting play mode.
-    For example, if you create a socket in Unity's ``Start()``, call ``ForceDotNet.Force()``
-    before creating the socket.
-    See the example `here  <https://github.com/HaowenWeiJohn/LSL-ZMQ-4Unity-Example/blob/5d55a8b39be1938d8adf4a5c51de63625af0b46e/Assets/Scripts/ZMQ/ZMQPublisherController.cs#L49>`_ .
+
+    - It is very important to have the ``ForceDotNet.Force()`` in your code, before you create a socket. Otherwise , the socket will fail to instantiate and Unity will freeze when exiting play mode. For example, if you create a socket in Unity's ``Start()``, call ``ForceDotNet.Force()`` before creating the socket. See the example `here  <https://github.com/HaowenWeiJohn/LSL-ZMQ-4Unity-Example/blob/5d55a8b39be1938d8adf4a5c51de63625af0b46e/Assets/Scripts/ZMQ/ZMQPublisherController.cs#L49>`_ .
+    - You cannot replace ``localhost`` with ``*`` in tcp address in Unity C#  (e.g. ``tcp://localhost:5557``) for both publisher and subscriber socket. (e.g. Instead of using  ``socket = new PublisherSocket("tcp://*:YourPortNumber")``, you must use ``socket = new PublisherSocket("tcp://localhost:YourPortNumber")``).
 
 Check out :ref:`this page <create zmq stream>` on how to create a stream to receive the data in PhysioLab\ :sup:`XR`.
 
