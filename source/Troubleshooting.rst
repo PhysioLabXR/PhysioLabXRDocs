@@ -21,3 +21,30 @@ apt install libxcb-cursor0
 ```
 
 
+Issue:
+*******
+When attempting to execute ```pip install -r requirements.dev.txt``` within the PycharmProjects/PhysioLabXR directory, such an error occurs:
+**'Error: distutils.errors.DistutilsPlatformError: Microsoft Visual C++ 14.0 or greater is required.'**
+
+**Solution:** Please follow the `link <https://visualstudio.microsoft.com/visual-cpp-build-tools/_>`_ to download the "vs_Build Tools" and run the installer to complete the installation. Open Windows PowerShell and navigate to the directory where PhysioLabXR is located. If the error **'running scripts is disabled on this system'** occurs when attempting to run the command ```./venv/Scripts/activate```,  resolve this issue by following these steps:
+
+Open PowerShell as an Administrator.
+
+Enter the following command:
+```Set-ExecutionPolicy -ExecutionPolicy RemoteSigned```.
+
+When prompted with the question, 'Do you want to change the execution policy?', type **'A'** and press **Enter**.
+
+Next, navigate to the directory where PhysioLabXR is located. Input the command: ```./venv/Scripts/activate```. Then, execute: ```pip install -r requirements.dev.txt```.
+
+If encountering the error **'Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/'**, refer to this guide on `Stack Overflow <https://stackoverflow.com/questions/64261546/how-to-solve-error-microsoft-visual-c-14-0-or-greater-is-required-when-inst_>`_ or to the solution provided below.
+
+Execute the previously downloaded **vc_buildTools installer**. Click on **"Modify"**. In the **"Individual Components"** tab,
+search for **"windows"**, and select **"Windows 11 SDK"** (or "Windows 10 SDK" depending on your system).
+Next, search for **"C++ x64/x86 build tools"**, ensure that only **"C++ x64/x86 build tools"** is selected. Click on **"Modify"** and allow vc_build tools to install. Once the installation is successful, it's recommended to reboot your computer. After restarting, the issue should be resolved.
+
+
+
+
+
+ 
