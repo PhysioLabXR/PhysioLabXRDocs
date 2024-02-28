@@ -26,7 +26,12 @@ Issue:
 When attempting to execute ```pip install -r requirements.dev.txt``` within the PycharmProjects/PhysioLabXR directory, such an error occurs:
 **'Error: distutils.errors.DistutilsPlatformError: Microsoft Visual C++ 14.0 or greater is required.'**
 
-**Solution:** Please follow the `link <https://visualstudio.microsoft.com/visual-cpp-build-tools/_>`_ to download the "vs_Build Tools" and run the installer to complete the installation. Open Windows PowerShell and navigate to the directory where PhysioLabXR is located. If the error **'running scripts is disabled on this system'** occurs when attempting to run the command ```./venv/Scripts/activate```,  resolve this issue by following these steps:
+**Solution:** Please follow the `link <https://visualstudio.microsoft.com/visual-cpp-build-tools/>`_ to download the "vs_Build Tools" and run the installer to complete the installation.
+Look for an option similar to "C++ build tools" or "Visual C++ build tools" in the list of available components. Make sure this option is checked. It's usually part of the workload named "Desktop development with C++".
+
+Then open Windows PowerShell and navigate to the directory where PhysioLabXR is located. If the error **'running scripts is disabled on this system'** occurs when attempting to run the command ```./venv/Scripts/activate```,  resolve this issue by following these steps:
+
+
 
 Open PowerShell as an Administrator.
 
