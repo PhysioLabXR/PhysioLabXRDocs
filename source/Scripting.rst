@@ -1,37 +1,32 @@
 
 .. _feature scripting:
 
-###################################
+##########################################################
 Scripting
-###################################
+##########################################################
 
-The scripting interface, or RenaScript, is one of the most extensible features PhysioLabXR offers.
-It empowers researchers to run user-defined Python scripts (Python is the only language supported right now), providing full agency for creating and deploying custom data processing pipelines.
-With Python's versatility and vast array of fast-growing open-source libraries, users are encouraged to
-creatively explore and experiment with novel applications such as close-loop neurofeedback.
-Users can implement DSP algorithms, run ML models with real-time data streams,
-or communicate with external applications such as a cloud-computing platform through Python APIs.
+The scripting interface is one of the most extensible features PhysioLab\ :sup:`XR` offers.
+You can run your own Python scripts to create and deploy custom data processing pipelines.
+For example, you can write script to
 
-Learn From a Simple Example How to Create and Run a Processing Script
---------
+- Stream data from a custom hardware device
+- Implement a custom algorithm (e.g., a digital signal processing algorithm)
+- Run a machine learning model with real-time data streams
+- Communicate with external applications such as a cloud-computing platform through Python APIs
+
+Get started with a simple example
+-----------------------------------------------------------------------------------
 
 .. automodule:: module_a
    :members:
    :undoc-members:
    :show-inheritance:
 
-In this example, we will write a script to process our ``Dummy-8Chan`` stream: a randomly generated stream.
-
-First, make sure you have the following packages installed in your Python environment:
-
-- pylsl
-- numpy
-
-You can install them with ``pip install pylsl numpy``, or if you use a conda environment, you can install them with
-``conda install -c conda-forge pylsl numpy``.
+In this example, we will write a script to process a simulated EEG stream
+named ``Dummy-8Chan``: a randomly generated stream.
 
 Create Stream
-************
+**************
 
 We will create a dummy stream to record. Create a new python file, put in the following snippet.
 
@@ -45,7 +40,7 @@ stream with stream name 'Dummy-8Chan' and stream type 'EEG'. The stream will gen
 a sampling rate of 250 Hz. The stream will keep running until you stop the script.
 
 Create Script
-************
+***************
 
 Now we will create a new python script to process out Dummy stream. Go to ``Scripting`` tab and click on the ``Add`` button.
 A script widget containing some informations of the script should show up. It should look like this:
@@ -157,10 +152,16 @@ The final script should look like this:
         def cleanup(self):
             print('Cleanup function is called')
 
+.. _feature scripting - running the script:
+
 Run the script
 **************
 
-After you finish writing the script, go back to the ``scripting`` tab, type *Dummy-8Chan* in the input stream box, and click the add button. Then type *Dummy-8Chan-add-X* in the output stream box, and click the add button. Now you should see the input stream and output stream in the input and output pane respectively. You can also add parameters in the parameters pane. In this example, we will add a parameter called *x* with data type *float* and default value *0*. Now you can click the run button and see the output stream in the stream tab. Change the parameter value and you will see the output stream change accordingly.
+After you finish writing the script, go back to the ``scripting`` tab, type *Dummy-8Chan* in the input stream box,
+and click the add button. Then type *Dummy-8Chan-add-X* in the output stream box, and click the add button. Now you
+should see the input stream and output stream in the input and output pane respectively. You can also add parameters in
+the parameters pane. In this example, we will add a parameter called *x* with data type *float* and default value *0*.
+Now you can click the run button and see the output stream in the stream tab. Change the parameter value and you will see the output stream change accordingly.
 
 More Examples
 *************

@@ -326,6 +326,9 @@ Other Topics
     Replay
     Scripting
     ScriptingAPIReference
+    RPCs/RPC
+    RPCs/RPC-Python
+    RPCs/RPC-Unity
     DSP
     ViewInMatlab
 
