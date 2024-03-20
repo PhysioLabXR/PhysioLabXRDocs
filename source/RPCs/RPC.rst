@@ -45,4 +45,6 @@ in the :ref:`compiler documentation <RPC-compiler>`.
 Get started with a simple example
 ==================================
 
+lease
+
 

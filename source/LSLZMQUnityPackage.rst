@@ -1,11 +1,17 @@
 .. _LSLZMQUnityPackage:
 
 ##########################################################
-Unity Package for LSL and ZMQ by PhysioLab\ :sup:`XR`
+Unity Package for LSL, ZMQ, GRPC by PhysioLab\ :sup:`XR`
 ##########################################################
 
-We provide a preconfigured `Unity package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git>`_ to manage LSL and ZMQ streams. 
-Install the package in your Unity project directly, `via its Git URL <https://docs.unity3d.com/Manual/upm-ui-giturl.html>`_:
+We provide a preconfigured `Unity package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git>`_ that wraps LSL, ZMQ and GRPC
+dependencies.
+
+
+Installation
+*************
+
+You can install the package by following these steps:
 
 .. raw:: html
 
@@ -239,3 +245,10 @@ In this example, we will show you how to write your own data source in Unity (C#
 5. Enter Play Mode.
 6. The resulting component will broadcast a 400-by-400-pixel, 15Hz stream of camera data via ZMQ.
 7. Check out :ref:`this page <create zmq stream>` on how to receive this data by listening for the stream in PhysioLab\ :sup:`XR`!
+
+
+gRPC (Remote Procedure Call)
+-----------------------------
+
+Please refer to the :ref:`RPC feature <feature rpc>` page for a comprehensive guide on using RPC from PhysioLabXR.
+

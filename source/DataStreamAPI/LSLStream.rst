@@ -94,4 +94,27 @@ Check out :ref:`this page <create lsl stream>` on how to create a stream to rece
 LSL in Unity
 ^^^^^^^^^^^^
 
-We provide a preconfigured `Unity package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git>`_ to manage LSL (and ZMQ) streams. For more information, go to its :ref:`documentation <LSLZMQUnityPackage>`.
+To use LSL with Unity, you need to install the LSL package in your Unity project:
+
+Method 1: Use the PhysiolabXR-Unity-Package (Recommended):
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+We provide a preconfigured `Unity package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git>`_ to manage LSL dependencies.
+To install it, go to Window -> Package Manager, click on the "+" button, and select "Add package from git URL".
+Then, paste the following URL: `https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git>`_.
+
+For more information, go to its :ref:`documentation <LSLZMQUnityPackage>`.
+
+Method 2: Install LSL package manually:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Follow the instruction in `LSL4Unity <https://github.com/labstreaminglayer/LSL4Unity>`_.
+We recommend using the *Install a package from a Git URL* to install the LSL package.
+
+Once you have the LSL package installed in your Unity project,
+please refer to the :ref:`docs for LSL data source in Unity <lsl data source in unity>` to learn how to create stream
+data with LSL in Unity.
+
+.. note::
+
+    As an alternative to LSL, you can also use :ref:`ZMQ <stream ZMQ in Unity>` to stream data between Unity and
+    PhysioLabXR, which is recommended if your data has a large number of channels such as Unity camera video. See this
+    example on how to stream camera data from Unity to PhysioLab:sup:`XR <use zmq to stream camera image from Unity>`.

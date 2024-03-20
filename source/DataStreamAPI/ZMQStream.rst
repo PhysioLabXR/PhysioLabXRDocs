@@ -20,9 +20,8 @@ You can find more technical details of ZMQ towards the :ref:`end of this page <z
 Examples
 ************************
 
-Here, we will show a simple example of how to create a ZMQ publisher
-to send data in Python and Unity (C#). The following two section will show how to create ZMQ data source in Python and C# for your reference.
-For this example, you can choose your preferred language to create the data source.
+Here, we will show a simple example of how to create a ZMQ data source (publisher)
+to send data in *Python* and *C# (Unity)*.
 
 ZMQ in Python
 -----------------------
@@ -99,10 +98,33 @@ You can find this script in PhysioLab\ :sup:`XR`'s GitHub repository `examples-W
 
 Check out :ref:`this page <create zmq stream>` on how to create a stream to receive the data in PhysioLab\ :sup:`XR`.
 
+.. _stream ZMQ in Unity:
+
+
 ZMQ in Unity
 -----------------------
 
-We provide a preconfigured `Unity package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git>`_ to manage LSL (and ZMQ) streams. For more information, go to its :ref:`documentation <LSLZMQUnityPackage>`.
+To use ZMQ with Unity, you need to install the ZMQ package in your Unity project:
+
+Method 1: Use the PhysiolabXR-Unity-Package (Recommended):
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+You can install ZMQ in Unity with `the PhysioLabXR's Unity package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git>`_
+to manage LSL (and ZMQ) streams. To install it, go to Window -> Package Manager, click on the "+" button, and select "Add package from git URL".
+Then, paste the following URL: `https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git>`_.
+
+To learn more, go to package's :ref:`documentation <LSLZMQUnityPackage>`.
+
+Method 2: Install ZMQ package through NuGetForUnity:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NuGet is a package manager for .NET and Unity. You can use it to install the ZMQ package in your Unity project.
+To add NuGet to your Unity project, follow the instruction in `NuGetForUnity <https://github.com/GlitchEnzo/NuGetForUnity>`_.
+Then you can search for ``ZMQ`` in the NuGet package manager and install it.
+
+Once you have ZMQ installed in your Unity
+project, please refer to the :ref:`docs for ZMQ data source in Unity <zmq data source in unity>` to learn how to create stream
+data with ZMQ in Unity.
 
 .. _zmq technicality:
 
