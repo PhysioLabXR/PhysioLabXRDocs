@@ -1,5 +1,5 @@
 
-.. _feature rpc-python:
+.. _rpc-python:
 
 #############################################################
 RPC with Python

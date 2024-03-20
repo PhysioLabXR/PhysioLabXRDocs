@@ -13,6 +13,9 @@ to process the physiological data and provide feedback to the Unity environment.
 classification, you can call a *PhyRPC function* defined in :ref:`PhyScript <feature scripting>` from Unity to perform the classification
 and return the result to Unity.
 
+Why RPC?
+========
+
 More generally, RPC promotes stateless programming, which is a good practice for parallel programming.
 It simplifies data processing pipelines, if you have an close-loop experiment with external stimulus presentation software,
 instead of keeping track of the state of the experiment in :ref:`PhyScript <feature scripting>`,
@@ -22,7 +25,8 @@ to be performed on the data such as training a machine learning model, or reques
 Basic Concept
 =============
 
-PhysioLab\ :sup:`XR` comes with a compiler that compiles the any functions defined in :ref:`a PhyScript <feature scripting>`
+PhysioLab\ :sup:`XR` builds on top of `gRPC <https://grpc.io/>`_, a mature and language-agnostic RPC framework.
+It comes with a compiler that compiles the any functions defined in :ref:`a PhyScript <feature scripting>`
 into a remote procedure call (RPC) server. Any functions decorated with the `@rpc` decorator are compiled to RPC functions.
 
 For example, the following function is defined in a PhyScript:
@@ -39,12 +43,23 @@ in the :ref:`compiler documentation <RPC-compiler>`.
 
 .. important::
 
-   Functions
+   Functions decorated with `@rpc` has some requirements such as 1) all its argument must have type hints.
+   2) must be declared as a method in PhyScript class 3) the first argument must be `self`. Read more about
+    the requirements in the :ref:`RPC compiler docs <RPC-compiler>`.
+
+Supported Languages
+===================
+Currently, PhysioLab\ :sup:`XR`'s native RPC compiler supports Python and C# as the client language.
+The client-side code is automatically generated when PhyScript with RPC functions is executed from the :ref:`scripting interface <feature scripting>`.
 
 
 Get started with a simple example
 ==================================
 
-lease
+Examples are available for server in PhyScript, and clients in Python and C#.
 
+Please find their documentation in the following links:
+
+- :ref:`Python example <rpc-python>`
+- :ref:`C# (Unity) example <rpc-unity>`
 
