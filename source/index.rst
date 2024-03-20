@@ -312,8 +312,9 @@ Other Topics
     :caption: Stream data:
 
     DataStreamAPI
-    DataStreamAPI/ZMQStream
     DataStreamAPI/LSLStream
+    DataStreamAPI/ZMQStream
+    LSLZMQUnityPackage
     DataStreamAPI/ScriptStream
     DataStreamAPI/StreamVideoAudioScreenCapture
 

@@ -17,14 +17,11 @@ Similar to :ref:`LSL <stream over LSL>`, ZMQ can be used in many programming lan
 
 You can find more technical details of ZMQ towards the :ref:`end of this page <zmq technicality>`.
 
-
 Examples
 ************************
 
-Here, we will show a simple example of how to create a ZMQ publisher
-to send data in Python and Unity (C#). The following two section will show how to create ZMQ data source in Python and C# for your reference.
-For this example, you can choose your preferred language to create the data source.
-
+Here, we will show a simple example of how to create a ZMQ data source (publisher)
+to send data in *Python* and *C# (Unity)*.
 
 ZMQ in Python
 -----------------------
@@ -42,7 +39,6 @@ Then, install the pyzmq package by running the following command in your termina
 Now we are ready to run the example.
 
 1. Create a new Python file and copy the following code into it. It will send image stream with random data to PhysioLab\ :sup:`XR` through ZMQ.
-
 
 .. code-block:: python
 
@@ -102,55 +98,49 @@ You can find this script in PhysioLab\ :sup:`XR`'s GitHub repository `examples-W
 
 Check out :ref:`this page <create zmq stream>` on how to create a stream to receive the data in PhysioLab\ :sup:`XR`.
 
+.. _stream ZMQ in Unity:
 
-.. _zmq data source in unity:
 
 ZMQ in Unity
 -----------------------
 
-Similarly, you have to install the ZMQ package in Unity. To do so, follow the instruction in `NuGetForUnity <https://github.com/GlitchEnzo/NuGetForUnity>`_.
+To use ZMQ with Unity, you need to install the ZMQ package in your Unity project:
+
+Method 1: Use the PhysiolabXR-Unity-Package (Recommended):
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+You can install ZMQ in Unity with `the PhysioLabXR's Unity package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git>`_
+to manage LSL (and ZMQ) streams. To install it, go to Window -> Package Manager, click on the "+" button, and select "Add package from git URL".
+Then, paste the following URL: `https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git>`_.
+
+To learn more, go to package's :ref:`documentation <LSLZMQUnityPackage>`.
+
+Method 2: Install ZMQ package through NuGetForUnity:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NuGet is a package manager for .NET and Unity. You can use it to install the ZMQ package in your Unity project.
+To add NuGet to your Unity project, follow the instruction in `NuGetForUnity <https://github.com/GlitchEnzo/NuGetForUnity>`_.
 Then you can search for ``ZMQ`` in the NuGet package manager and install it.
 
-In the example project, you will find a object called ``ZMQPublisherController`` in the scene. This object contains a script called ``ZMQPublisherController.cs``.
-You can find the script in the `LSL-ZMQ-4Unity-Example <https://github.com/HaowenWeiJohn/LSL-ZMQ-4Unity-Example/blob/main/Assets/Scripts/LSL/ZMQPublisherController.cs>`_ repository.
-
-
-.. important::
-
-    - It is very important to have the ``ForceDotNet.Force()`` in your code, before you create a socket. Otherwise , the socket will fail to instantiate and Unity will freeze when exiting play mode. For example, if you create a socket in Unity's ``Start()``, call ``ForceDotNet.Force()`` before creating the socket. See the example `here  <https://github.com/HaowenWeiJohn/LSL-ZMQ-4Unity-Example/blob/5d55a8b39be1938d8adf4a5c51de63625af0b46e/Assets/Scripts/ZMQ/ZMQPublisherController.cs#L49>`_ .
-    - You cannot replace ``localhost`` with ``*`` in tcp address in Unity C#  (e.g. ``tcp://localhost:5557``) for both publisher and subscriber socket. (e.g. Instead of using  ``socket = new PublisherSocket("tcp://*:YourPortNumber")``, you must use ``socket = new PublisherSocket("tcp://localhost:YourPortNumber")``).
-
-Check out :ref:`this page <create zmq stream>` on how to create a stream to receive the data in PhysioLab\ :sup:`XR`.
-
-
-.. _use zmq to stream camera image from Unity:
-
-Stream Camera Data from Unity
--------------------------------------
-
-
-In this example, we will show you how to write your own data source in Unity (C#) with the same functionality as the Python example above.
-However, instead of sending random data in the ZMQ example above, we will send the camera data from Unity to PhysioLab\ :sup:`XR`.
-
-To run both the LSL and ZMQ examples, you will need to have Unity installed. This project is made with Unity version 2023.3.10f1.
-
-You can clone our example repository `here <https://github.com/HaowenWeiJohn/LSL-ZMQ-4Unity-Example>`_ and open it in Unity.
-
-All the dependencies are already included in the project, so you can just open the project and run it.
-
-
-Because ZMQ is a more generic messaging library compared to LSL, we will show you how to create a ZMQ publisher in Unity.
-
+Once you have ZMQ installed in your Unity
+project, please refer to the :ref:`docs for ZMQ data source in Unity <zmq data source in unity>` to learn how to create stream
+data with ZMQ in Unity.
 
 .. _zmq technicality:
 
-Using ZMQ, things to note
+ZMQ Notes
 **************************
 
-PhysioLab\ :sup:`XR` uses `subscriber-publisher sockets <https://learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/patterns/pubsub.html>`_
-for ZMQ streams, because this pattern is more scalable when the cardinality of data is high and less error-prone in case of
-either the publisher or subscriber process crashes.
+.. important::
 
+    - It is very important to have the ``ForceDotNet.Force()`` in your code, before you create a socket. Otherwise , the socket will fail to instantiate and Unity will freeze when exiting play mode. For example, if you create a socket in Unity's ``Start()``, call ``ForceDotNet.Force()`` before creating the socket. See the example code below.
+    - You cannot replace ``localhost`` with ``*`` in tcp address in Unity C#  (e.g. ``tcp://localhost:5557``) for both publisher and subscriber socket. (e.g. Instead of using  ``socket = new PublisherSocket("tcp://*:YourPortNumber")``, you must use ``socket = new PublisherSocket("tcp://localhost:YourPortNumber")``).
+
+.. _use zmq to stream camera image from Unity:
+
+PhysioLab\ :sup:`XR` uses `subscriber-publisher sockets <https://learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/patterns/pubsub.html>`_
+for ZMQ streams, because this pattern is more scalable when the cardinality of data is high, and less error-prone in case of
+either the publisher or subscriber process crashes.
 
 Unlike LSL, ZMQ is a messaging library for general use. We define a specific message format for PhysioLab\ :sup:`XR` to use.
 When you are creating a ZMQ data source, make sure that you are sending the data in one of the following forms:
@@ -164,19 +154,16 @@ When you are creating a ZMQ data source, make sure that you are sending the data
    The timestamp must be 8-byte (64-bit) double or 4-byte (32-bit) float, indicating when the data was acquired. You
    can set the timestamp to any value that suits your application. Refer to :ref:`this page <time in physiolab>` for more information on time.
 
-
 .. _ZMQInterface port numbers:
 
 Port numbers
 ^^^^^^^^^^^^^
 
 When choosing ports for ZMQ sockets, it is important to note that some ports are reserved for system use, and should not be used. For example, ports 0-1023 are typically reserved for system use.
+
 Also, some ports are reserved for specific applications. For example, port 80 is reserved for HTTP.
 
-Reserved ports
-
-
-some ports are reserved by PhysioLab\ :sup:`XR`. These ports are listed below:
+Some ports are reserved by PhysioLab\ :sup:`XR`. These ports are listed below:
 
 +------------------+---------------------------------------+
 | Port             | Used by                               |
@@ -189,7 +176,6 @@ some ports are reserved by PhysioLab\ :sup:`XR`. These ports are listed below:
 Default ports
 ^^^^^^^^^^^^^
 
-
 When creating ZMQ streams from :ref:`Replay <replay stream interface>` and Scripting, their port numbers are chosen
 from this list. You can always change these ports in the :ref:`user interface <replay stream interface port line edit>`.
 
@@ -201,12 +187,10 @@ from this list. You can always change these ports in the :ref:`user interface <r
 | 10000                | :ref:`replay streams <feature replay>`        |
 +----------------------+-----------------------------------------------+
 
-
 .. _zmq data types:
 
 ZMQ Data types
 ^^^^^^^^^^^^^^^^
-
 
 The ZMQ interface supports the following data types:
 
