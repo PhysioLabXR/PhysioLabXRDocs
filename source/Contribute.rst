@@ -53,8 +53,8 @@ Contribute to the documentation
 ********************************
 
 
-If you would like to add contents to PhysioLabXR's documentation, you can follow these instructions
-on how to make changes and compile them:
+If you would like to change PhysioLab\ :sup:`XR`'s documentation, you can follow these instructions
+on how to make changes, compile them, and bring them online.:
 
 1.Fork the the `PhysioLabXRDocs repo <https://github.com/PhysioLabXR/PhysioLabXRDocs>`_.
 
