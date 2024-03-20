@@ -49,7 +49,14 @@ search for **"windows"**, and select **"Windows 11 SDK"** (or "Windows 10 SDK" d
 Next, search for **"C++ x64/x86 build tools"**, ensure that only **"C++ x64/x86 build tools"** is selected. Click on **"Modify"** and allow vc_build tools to install. Once the installation is successful, it's recommended to reboot your computer. After restarting, the issue should be resolved.
 
 
+Issue:
+*******
+When attempting to run PhysioLabXR, this error occurs:
+**PyQT6 could not find QT platform plugin "cocoa" in ""**
 
+**Solution:** This issue occurs from time to time on macOS.
+It is a problem related to the PyQT6 library. It is not entirely clear why this happens, but it is a known issue.
+There's a few online threads on this issue, which we recommend checking out for more information.
 
-
- 
+- `Locate the libqcocoa.dylib <https://stackoverflow.com/questions/76898551/qt-qpa-plugin-could-not-find-the-qt-platform-plugin-cocoa-in>`_
+- `Install opencv-python-headless instead of opencv-python <https://github.com/ageitgey/face_recognition/issues/1041>`_
