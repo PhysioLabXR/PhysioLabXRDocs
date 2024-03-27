@@ -64,6 +64,11 @@ for the `SayHello` function will be as follows:
 Once the server is running, you can call the `SayHello` function from a client in :ref:`other languages <rpc supported languages>`.
 Check out the follow simple example to see how to call the `SayHello` function from a Python client.
 
+Supported Languages
+===================
+Currently, PhysioLab\ :sup:`XR`'s native RPC compiler supports Python and C# as the client language.
+The client-side code is automatically generated when PhyScript with RPC functions is executed from the :ref:`scripting interface <feature scripting>`.
+
 
 Quick Start with an Example
 ============================
@@ -135,7 +140,7 @@ Here's a video showing the above example in action:
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-            <source src="_static/rpc-simple-python-client.mp4" type="video/mp4">
+            <source src="../_static/rpc-simple-python-client.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
@@ -143,10 +148,6 @@ Here's a video showing the above example in action:
 
 .. _rpc supported languages:
 
-Supported Languages
-===================
-Currently, PhysioLab\ :sup:`XR`'s native RPC compiler supports Python and C# as the client language.
-The client-side code is automatically generated when PhyScript with RPC functions is executed from the :ref:`scripting interface <feature scripting>`.
 
 Setup for C Sharp (Unity)
 =========================
