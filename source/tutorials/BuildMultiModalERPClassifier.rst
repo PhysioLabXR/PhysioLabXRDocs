@@ -38,7 +38,7 @@ You can take this tutorial as a starting point to build your own pipeline involv
 Data in this experiment
 ************************
 
-Download the recording from `here (~5.3 GB) <https://drive.google.com/file/d/1MDPxC77SIx5UG5JK0PUslDZ92Eqv21sD/view?usp=sharing>`_.
+Download the recording from `here (~5.3 GB) <https://drive.google.com/file/d/1nn0UZoY6OlwiDhkNM25QfXr9tWa_HTkN/view?usp=sharing>`_.
 Here's how the data looks like when replayed.
 
 .. note::
