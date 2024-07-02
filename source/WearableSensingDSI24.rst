@@ -1,14 +1,7 @@
-
-
-
-==================================================
-
 PhysioLab\ :sup:`XR` + Wearable Sensing's DSI-24
-
-==================================================
+================================================
 
 This tutorial will demonstrate how to connect the DSI-24 to your computer and PhysioLab\ :sup:`XR`.
-<<<<<<< HEAD
 The `DSI-24 <https://wearablesensing.com/dsi-24/>`_ is `Wearable Sensing's <https://wearablesensing.com/>`_ dry electrode EEG system.
 This tutorial will be primarily focused on the Windows platform
 
@@ -19,25 +12,12 @@ This tutorial will be primarily focused on the Windows platform
 3. Expand the Bluetooth section.
 
 4. Disable Intel(R) Wireless Bluetooth(R) or whatever is your default Bluetooth driver.
-=======
-The DSI-24 is Wearable Sensing's dry electrode EEG system.
-This tutorial will be primarily focused on the Windows platform
 
-1. Turn on the DSI-24
-
-2. Go to Device Manager
-
-3. Expand the Bluetooth section
-
-4. Disable Intel(R) Wireless Bluetooth(R) or whatever is your default Bluetooth driver
->>>>>>> e4aec3299112339547fa9c7d0b53279af19cbc39
-
-.. figure:: media/BluetoothDisable.gif
+.. figure:: media/WearableSensing_BluetoothDisable.gif
    :width: 800
    :align: center
-   :alt: Disabling Bluetooth
+   :alt: Turning off native Bluetooth
 
-<<<<<<< HEAD
 5. Plug in the Bluetooth adapter provided by `Wearable Sensing's <https://wearablesensing.com/>`_.
 
 6. Go to Bluetooth settings.
@@ -45,7 +25,7 @@ This tutorial will be primarily focused on the Windows platform
 7. Scroll down to device settings.
 
 8. Turn the Bluetooth devices discovery setting from Default to Advanced. (If you are on Windows 10, this step can be ignored).
-=======
+
 5. Plug in the Bluetooth adapter provided by Wearable Sensing
 
 6. Go to Bluetooth settings
@@ -53,14 +33,13 @@ This tutorial will be primarily focused on the Windows platform
 7. Scroll down to device settings
 
 8. Turn the Bluetooth devices discovery setting from Default to Advanced. (If you are on Windows 10, this step can be ignored)
->>>>>>> e4aec3299112339547fa9c7d0b53279af19cbc39
 
-.. figure:: media/BluetoothDeviceDiscovery.gif
+.. figure:: media/WearableSensing_BluetoothDeviceDiscovery.gif
    :width: 800
    :align: center
    :alt: Turning on Bluetooth Device Discovery
 
-<<<<<<< HEAD
+
 9. Connect the `DSI-24 <https://wearablesensing.com/dsi-24/>`_ to your device as if you would connect a mouse or headphones. (Should be named DSI24-{*serial number*}).
 
 10. Go back to Bluetooth Settings.
@@ -70,30 +49,27 @@ This tutorial will be primarily focused on the Windows platform
 12. Click on more Bluetooth Settings.
 
 13. Click on COM Ports and make note of the COM port number that has the name: DSI24-{*serial number*} "Bluetooth Serial Port".
-=======
-9. Connect the DSI-24 to your device as if you would connect a mouse or headphones. (Should be named DSI24-{*serial number*})
 
-10. Go back to Bluetooth Settings
+14. Connect the DSI-24 to your device as if you would connect a mouse or headphones. (Should be named DSI24-{*serial number*})
 
-11. Scroll down to more Related Settings
+15. Go back to Bluetooth Settings
 
-12. Click on more Bluetooth Settings
+16. Scroll down to more Related Settings
 
-13. Click on COM Ports and make note of the COM port number that has the name: DSI24-{*serial number*} "Bluetooth Serial Port"
->>>>>>> e4aec3299112339547fa9c7d0b53279af19cbc39
+17. Click on more Bluetooth Settings
 
-.. figure:: media/BluetoothCOMPort.gif
+18. Click on COM Ports and make note of the COM port number that has the name: DSI24-{*serial number*} "Bluetooth Serial Port"
+
+.. figure:: media/WearableSensing_BluetoothCOMPort.gif
    :width: 800
    :align: center
    :alt: Finding the COM Port
 
-<<<<<<< HEAD
-14. Open PhysioLab\ :sup:`XR`.
+19. Open PhysioLab\ :sup:`XR`.
 
+20. Go to `Script Tab <Scripting.html>`_.
 
-15. Go to `Script Tab<Scripting.html>`_.
-
-16. Click Locate and find the WearableSensingScript.py.
+21. Click *Locate* and find the WearableSensingScript.py.
 
 The script can be downloaded from `WearableSensingScript.py <https://github.com/LommyTea/WearableSensingXPhysioLabXR/blob/main/WearableSensingScript.py>`_.
 
@@ -195,64 +171,50 @@ The script can be downloaded from `WearableSensingScript.py <https://github.com/
             #Disconnect the headset
             data_buffer.clear_buffer()
 
-17. Add an output and name it "DSI-24".
+22. *Add* an output and name it "DSI-24".
 
-18. Change the number of channels to 24.
+23. Change the number of channels to 24.
 
-17. Add a parameter to the script by clicking on the + sign.
+24. *Add* a **Parameter Widget** to the script by clicking on the + sign.
 
-18. Switch the type of input to "str" so that we can input the COM port.
+25. Switch the type of input to "str" so that we can input the COM port you can leave the name of the parameter as is.
 
-19. Input the name of the COM port that you noted earlier. This will allow for PhysioLabXR to connect to the DSI-24.
+26. Input the name of the COM port that you noted earlier. This will allow for PhysioLabXR to connect to the DSI-24.
 
-20. Press run.
-=======
-14. Open PhysioLab\ :sup:`XR`
+27. Press *Run*.
 
-15. Go to Scripting
-
-16. Click Locate and find the WearableSensingScript.py
-
-17. Add an output and name it DSI-24
-
-18. Change the number of channels to 24
-
-17. Add a parameter to the script by clicking on the + sign
-
-18. Switch the type of input to "str"
-
-19. Input the name of the COM port that you noted earlier
-
-20. Press run
->>>>>>> e4aec3299112339547fa9c7d0b53279af19cbc39
-
-.. figure:: media/PhysioLabXR_DSI24.gif
+.. figure:: media/WearableSensing_Scripting.gif
    :width: 800
    :align: center
    :alt: Running in PhysioLabXR
 
-<<<<<<< HEAD
 Now the data stream is available as an LSL stream named DSI-24.
 
-21. To view the data stream, go to the **Stream Tab**.
+28. To view the data stream, go to the **Stream Tab**.
 
-22. Input "DSI-24" in the Add Stream box and press the *Add* button.
+29. Input *DSI-24* in the Add Stream box and press the *Add Widget* button.
 
-23. Click the *Start Button* to start data stream.
+30. Click the *Start Button* to start data stream.
 
-.. figure:: media/StreamingTab.gif
+.. figure:: media/WearableSensing_Stream.gif
    :width: 800
    :align: center
    :alt: Viewing the stream on the Stream Tab
 
+It is recommended that you change some of the settings for your stream. You can follow the steps `here <https://physiolabxrdocs.readthedocs.io/en/latest/Visualization.html#line-chart>`_ to change the settings.
+
+31. To see the FFT of the signals from the `DSI-24 <https://wearablesensing.com/dsi-24/>`_ right-click on the stream and select *FFT*.
+
+.. figure:: media/WearableSensing_FFT.gif
+   :width: 800
+   :align: center
+   :alt: Showing FFT of data stream
 
 Now that you have the data streaming: check out these docs:
 
 - `How to record the data <https://physiolabxrdocs.readthedocs.io/en/latest/Recording.html>`_
 - `How to run a classification model on the data <https://physiolabxrdocs.readthedocs.io/en/latest/tutorials/BuildMultiModalERPClassifier.html>`_
 
-=======
->>>>>>> e4aec3299112339547fa9c7d0b53279af19cbc39
 (Future updates on impedance checks and other features explained further down)
 
 
