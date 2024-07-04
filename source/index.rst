@@ -317,6 +317,7 @@ Other Topics
     LSLZMQUnityPackage
     DataStreamAPI/ScriptStream
     DataStreamAPI/StreamVideoAudioScreenCapture
+    WearableSensingDSI24
 
 .. toctree::
     :maxdepth: 1
