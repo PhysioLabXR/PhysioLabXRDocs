@@ -199,12 +199,13 @@ Now the data stream is available as an LSL stream named DSI-24.
 
 30. Click the *Start Button* to start data stream.
 
+It is recommended that you change some of the settings for your stream. You can follow the steps `here <https://physiolabxrdocs.readthedocs.io/en/latest/Visualization.html#line-chart>`_ to change the settings.
+For this tutorial, we added a Butterworth High Pass Filter with a cutoff frequency of 0.01 Hz, Nominal Sampling Rate of 250 and Group Channels Constant Offset to 50 by first pressing on the Gear icon and then on the top Default Group name.
+
 .. figure:: media/WearableSensing_Stream.gif
    :width: 800
    :align: center
    :alt: Viewing the stream on the Stream Tab
-
-It is recommended that you change some of the settings for your stream. You can follow the steps `here <https://physiolabxrdocs.readthedocs.io/en/latest/Visualization.html#line-chart>`_ to change the settings.
 
 31. To see the FFT of the signals from the `DSI-24 <https://wearablesensing.com/dsi-24/>`_ right-click on the stream and select *FFT*.
 
