@@ -1,5 +1,8 @@
+.. _Wearable Sensing Stream and FFT:
+
+##################################################
 PhysioLab\ :sup:`XR` + Wearable Sensing's DSI-24
-================================================
+##################################################
 
 This tutorial will demonstrate how to connect the DSI-24 to your computer and PhysioLab\ :sup:`XR`.
 The `DSI-24 <https://wearablesensing.com/dsi-24/>`_ is `Wearable Sensing's <https://wearablesensing.com/>`_ dry electrode EEG system.
@@ -139,7 +142,7 @@ The script can be downloaded from `WearableSensingScript.py <https://github.com/
             #Retrieves the command line arguments
             args = getattr(sys, 'argv', [''])
             #Set the default port to the first command line argument based on the parameter provided by user
-            default_port = self.params['param1']
+            default_port = self.params['COM Port']
             #Connect the headset
             self.headset.Connect(default_port)
             #Start the data acquisition based on the parameter provided by user
@@ -177,7 +180,7 @@ The script can be downloaded from `WearableSensingScript.py <https://github.com/
 
 24. *Add* a **Parameter Widget** to the script by clicking on the + sign.
 
-25. Switch the type of input to "str" so that we can input the COM port you can leave the name of the parameter as is.
+25. Change the name of the parameter to *COM Port* and switch the type of input to "str" so that we can input the COM port.
 
 26. Input the name of the COM port that you noted earlier. This will allow for PhysioLabXR to connect to the DSI-24.
 
@@ -196,12 +199,13 @@ Now the data stream is available as an LSL stream named DSI-24.
 
 30. Click the *Start Button* to start data stream.
 
+It is recommended that you change some of the settings for your stream. You can follow the steps `here <https://physiolabxrdocs.readthedocs.io/en/latest/Visualization.html#line-chart>`_ to change the settings.
+For this tutorial, we added a Butterworth High Pass Filter with a cutoff frequency of 0.01 Hz, Nominal Sampling Rate of 250 and Group Channels Constant Offset to 50 by first pressing on the Gear icon and then on the top Default Group name.
+
 .. figure:: media/WearableSensing_Stream.gif
    :width: 800
    :align: center
    :alt: Viewing the stream on the Stream Tab
-
-It is recommended that you change some of the settings for your stream. You can follow the steps `here <https://physiolabxrdocs.readthedocs.io/en/latest/Visualization.html#line-chart>`_ to change the settings.
 
 31. To see the FFT of the signals from the `DSI-24 <https://wearablesensing.com/dsi-24/>`_ right-click on the stream and select *FFT*.
 
