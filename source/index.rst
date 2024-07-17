@@ -336,14 +336,16 @@ Other Topics
 
 .. toctree::
     :maxdepth: 1
-    :caption: Tutorials:
+    :caption: Tutorials and Examples:
 
+    Bandpower
     FixationDetection
     PsychoPy
     tutorials/BuildMultiModalERPClassifier
     PhysioLabXRP300SpellerDemo
     ObjectDetectionTutorial
     BalanceBallMotorImageryTutorial
+
 
 .. toctree::
     :maxdepth: 1
