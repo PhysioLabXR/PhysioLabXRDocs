@@ -366,6 +366,7 @@ Other Topics
     APIReferences/ERPAPIRef
     APIReferences/StreamIn
     APIReferences/get_stream_info_APIRef
+    APIReferences/ScriptingAPI
 
 .. toctree::
     :maxdepth: 1
