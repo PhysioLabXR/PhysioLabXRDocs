@@ -99,7 +99,7 @@ in PhysioLab\ :sup:`XR`.
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-            <source src="_static/grpc-unity.mp4" type="video/mp4">
+            <source src="../_static/grpc-unity.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
