@@ -13,6 +13,16 @@ to process the physiological data and provide feedback to the Unity environment.
 classification, you can call a *PhyRPC function* defined in :ref:`PhyScript <feature scripting>` from Unity to perform the classification
 and return the result to Unity.
 
+.. note::
+
+        Normally, to make an RPC work, you also need to create protocol buffer (protobuf) request and response messages.
+        They are wrappers around the input arguments and output returns to and from the RPC function.
+        Conveniently, PhysioLab\ :sup:`XR` automatically generate the protobuf messages for you when you define an RPC
+        function in PhyScript. The protobuf messages are generated based on python *type hints*, which should be familiar
+        to Python intermediate users. If you are not, you can learn more about type hints in Python
+        `here <https://docs.python.org/3/library/typing.html>`_.
+
+
 Why RPC?
 ========
 
@@ -152,7 +162,6 @@ Here's a video showing the above example in action:
 Setup for C Sharp (Unity)
 =========================
 You will need some additional setups for C# clients. Please refer to the :ref:`C# (Unity) example <rpc-unity>` for more details.
-
 
 More examples
 ==================================
