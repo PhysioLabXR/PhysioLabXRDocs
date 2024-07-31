@@ -7,6 +7,12 @@ Unity Package for LSL, ZMQ, GRPC by PhysioLab\ :sup:`XR`
 We provide a preconfigured `Unity package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git>`_ that wraps LSL, ZMQ and GRPC
 dependencies.
 
+Prerequisites
+*************
+
+- Unity 2022.3.0f1 or later.
+- PhysioLab\ :sup:`XR` installed and running.
+
 
 Installation
 *************
@@ -29,14 +35,18 @@ You can install the package by following these steps:
 - Click "Add".
 - The package will be installed automatically.
 
-Check out the following example implementations, or import them directly into your project in the "Samples" section of the installed package, and head to :ref:`this page <create lsl stream>` once you're ready to create a stream to receive the data in PhysioLab\ :sup:`XR`.
+Check out the following example implementations, or import them directly into your project in the "Samples" section of
+the installed package, and head to :ref:`this page <create lsl stream>` once you're ready to create a stream to receive
+the data in PhysioLab\ :sup:`XR`.
 
 .. _lsl data source in unity:
 
 Lab Streaming Layer (LSL)
 --------------------------
 
-Here is an example of how to use the LSL functionality in the package to broadcast a stream of data via LSL. A preconfigured scene is also available in the "Samples" section of the installed package, and clicking "Import" will add it to your project directly.
+Here is an example of how to use the LSL functionality in the package to broadcast a stream of data via LSL.
+A preconfigured scene is also available in the "Samples" section of the installed package, and clicking "Import"
+will add it to your project directly.
 
 .. raw:: html
 
