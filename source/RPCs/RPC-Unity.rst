@@ -87,14 +87,6 @@ The sample PhyScript that contains the server code is named `VariousArgsAndRetur
 You can find the example `here <https://github.com/PhysioLabXR/PhysioLabXR-Community/blob/rpc/physiolabxr/examples/rpc/VariousArgsAndReturns/VariousArgsAndReturnsRPCExample.py>`_.
 
 Here's a video that shows how to run the example. It includes the following steps.
-The time in the brackets indicates the time in the video when the step is shown:
-
-1. (0:00) Add the `PhysioLabXR package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Package.git>`_ into Unity.
-2. (0:22) Import the GRPC samples from the package into the Unity assets, and opens the sample scene.
-3. (0:42) Load the PhyScript `VariousArgsAndReturnsRPCExample.py <https://github.com/PhysioLabXR/PhysioLabXR-Community/blob/rpc/physiolabxr/examples/rpc/VariousArgsAndReturns/VariousArgsAndReturnsRPCExample.py>`_ in PhysioLab\ :sup:`XR`.
-4. (1:01) Set the output path of the C# protobuf files to *where the Unity project is*.
-5. (1:15) Start the PhyScript to compile and start the RPC server.
-4. (1:31) Start the Play Mode in Unity to call the server from the client by pressing the `Press Me` button.
 
 .. raw:: html
 
@@ -104,3 +96,23 @@ The time in the brackets indicates the time in the video when the step is shown:
             Your browser does not support the video tag.
         </video>
     </div>
+
+The time in the brackets indicates the time in the video when the step is shown:
+
+1. (0:00) Add the `PhysioLabXR package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Package.git>`_ into Unity.
+2. (0:22) Import the GRPC samples from the package into the Unity assets, and opens the sample scene.
+3. (0:42) Load the PhyScript `VariousArgsAndReturnsRPCExample.py <https://github.com/PhysioLabXR/PhysioLabXR-Community/blob/rpc/physiolabxr/examples/rpc/VariousArgsAndReturns/VariousArgsAndReturnsRPCExample.py>`_ in PhysioLab\ :sup:`XR`.
+4. (1:01) Set the output path of the C# protobuf files to *where the Unity project is*.
+5. (1:15) Start the PhyScript to compile and start the RPC server.
+6. (1:31) Start the Play Mode in Unity to call the server from the client by pressing the `Press Me` button.
+
+.. note::
+
+        Before you enter Play Mode in step 6, you may need to adjust the port number in Unity to match that of the server.
+        In the GameObject "RPCClient", you can find the `ExampleClient.cs` script. In the script, you must change the "Host"
+        to match the server's port number. PhysioLab\ :sup:`XR` uses the localhost by default, meaning the server and client
+        are on the same machine. In this case, the port number on the Unity side should be `http://localhost:<port number>`.
+        See example below:
+
+.. image:: ../media/grpc_unity_ports.png
+   :width: 1080
