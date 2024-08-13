@@ -32,6 +32,9 @@ instead of keeping track of the state of the experiment in :ref:`PhyScript <feat
 you can simply call the function in the external software to update the state of the experiment, or request specific processing
 to be performed on the data such as training a machine learning model, or request an inference from a trained model.
 
+
+.. _feature rpc basic concept:
+
 Basic Concept
 =============
 

@@ -57,6 +57,9 @@ Add the following URL to the package manager:
 
 PhysioLabXR's Unity Package has more than just the grpc package. Read more about it :ref:`here <LSLZMQUnityPackage>`.
 
+
+.. _rpc-unity-manual-grpc-installation:
+
 Method 2: Manually installing the packages
 ++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -102,7 +105,20 @@ The time in the brackets indicates the time in the video when the step is shown:
 1. (0:00) Add the `PhysioLabXR package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Package.git>`_ into Unity.
 2. (0:22) Import the GRPC samples from the package into the Unity assets, and opens the sample scene.
 3. (0:42) Load the PhyScript `VariousArgsAndReturnsRPCExample.py <https://github.com/PhysioLabXR/PhysioLabXR-Community/blob/rpc/physiolabxr/examples/rpc/VariousArgsAndReturns/VariousArgsAndReturnsRPCExample.py>`_ in PhysioLab\ :sup:`XR`.
-4. (1:01) Set the output path of the C# protobuf files to *where the Unity project is*.
+4. (1:01) Set the output path of the C# protobuf files to *where the Unity project is*. This will generate the client C# files in the Unity project when you run the PhyScript.
+
+.. note::
+
+    You only need to set the output path when you
+
+    * add new RPC functions
+    * change the name of existing RPC functions
+    * change the arguments or return values of existing RPC functions
+
+    because the above changes will change how the client calls RPCs from the server, there the client files
+    (C# in this case) need to be regenerated.
+
+
 5. (1:15) Start the PhyScript to compile and start the RPC server.
 6. (1:31) Start the Play Mode in Unity to call the server from the client by pressing the `Press Me` button.
 
@@ -116,3 +132,8 @@ The time in the brackets indicates the time in the video when the step is shown:
 
 .. image:: ../media/grpc_unity_ports.png
    :width: 1080
+
+Further Information
+--------------------
+
+If your RPC is long-running, you may want to consider using :ref:`Async RPC <feature rpc-unity-async>` to prevent blocking the Unity application.
