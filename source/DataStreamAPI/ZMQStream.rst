@@ -159,19 +159,10 @@ When you are creating a ZMQ data source, make sure that you are sending the data
 Port numbers
 ^^^^^^^^^^^^^
 
-When choosing ports for ZMQ sockets, it is important to note that some ports are reserved for system use, and should not be used. For example, ports 0-1023 are typically reserved for system use.
+When choosing ports for ZMQ sockets, it is important to note that some ports are reserved for system use,
+and should not be used. For example, ports 0-1023 are typically reserved by the os.
 
-Also, some ports are reserved for specific applications. For example, port 80 is reserved for HTTP.
-
-Some ports are reserved by PhysioLab\ :sup:`XR`. These ports are listed below:
-
-+------------------+---------------------------------------+
-| Port             | Used by                               |
-+==================+=======================================+
-| 8000-8100        | :ref:`scripting <feature scripting>`  |
-+------------------+---------------------------------------+
-| 9980-9990        | :ref:`replay <feature replay>`        |
-+------------------+---------------------------------------+
+Also, some ports are reserved for specific applications. For example, port 80 is usually reserved for HTTP.
 
 Default ports
 ^^^^^^^^^^^^^
