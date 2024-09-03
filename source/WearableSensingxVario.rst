@@ -1,4 +1,4 @@
-.. _WearableSensing's DSI24 and Compatibility with Varjo's XR-3 (Potentially other models as well):
+.. _WearableSensing's DSI24 and Compatibility with Varjo's XR-3:
 
 ###############################################################################################
 Wearable Sensing's DSI-24 and Compatibility with Varjo's XR-3 (Potentially other models as well)
