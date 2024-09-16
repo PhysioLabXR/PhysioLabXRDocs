@@ -11,15 +11,16 @@ data analysis in PhysioLab\ :sup:`XR`.
 Setup
 =====
 
-To use RPC with C#, PhysioLab\ :sup:`XR` needs grpc plugin to compile protobuf into C# code. Additionally, you need the grpc
-packages in Unity to use the generated C# code. This section will guide you through the entire setup process.
+To use RPC with C#, PhysioLab\ :sup:`XR` needs **the grpc plugin** to compile protobuf into C# code. Additionally, you need the grpc
+packages in Unity to use the generated C# code. This section will guide you through the setup process.
 
-Normally, PhysioLab\ :sup:`XR` will try to set up the grpc plugin automatically.
-But some times it requires your involvement because some of the packages
-that needs to be installed requires admin privileges.
+Install dotnet SDK on MacOS
+----------------------------
 
-MacOS
------
+On MacOS, part of the installation (i.e., homebrew) requires admin privileges. So PhysioLab\ :sup:`XR` will not
+be able to install the dotnet-sdk automatically.
+
+Please follow these steps to install the dotnet-sdk manually:
 
 1. You will need to install home brew, a package manager for MacOS, following `the instructions here <https://brew.sh/>`_.
 2. Once home brew is install, install the dotnet-sdk using this command:
@@ -30,19 +31,18 @@ MacOS
 
 3. Once the dotnet-sdk is installed, restart PhysioLab\ :sup:`XR` and it should automatically install and configure the grpc plugin.
 
-Windows
--------
+Install dotnet SDK on Windows
+------------------------------
 
 The setup for Windows involve install `dotnet SDK <https://learn.microsoft.com/en-us/dotnet/core/install/windows?tabs=net80>`_ via `winget`.
 The process is handled automatically by PhysioLab\ :sup:`XR` when it starts. Should you run into any problems, please
 refer to the :ref:`troubleshooting page <troubleshooting>`.
 
 
-Unity
-------
+Set GRPC dependencies in Unity
+------------------------------
 
 On the Unity side, you can setup the grpc dependencies using one of the following methods.
-
 
 Method 1: Using the Unity-PhysiolabXR-Package
 ++++++++++++++++++++++++++++++++++++++++++++++
@@ -56,6 +56,9 @@ Add the following URL to the package manager:
     https://github.com/PhysioLabXR/Unity-PhysioLabXR-Package.git
 
 PhysioLabXR's Unity Package has more than just the grpc package. Read more about it :ref:`here <LSLZMQUnityPackage>`.
+
+
+.. _rpc-unity-manual-grpc-installation:
 
 Method 2: Manually installing the packages
 ++++++++++++++++++++++++++++++++++++++++++++++
@@ -74,8 +77,8 @@ To install the grpc package:
 To install the HTTP2 handler, follow `the instructions here <https://github.com/Cysharp/YetAnotherHttpHandler?tab=readme-ov-file#installation>`_.
 
 
-Quick Start
-===========
+Start Using RPC in Unity
+==========================
 
 If you installed the package with the `Unity-PhysiolabXR-Package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Package.git>`_,
 you can import the samples from the package. In Unity's package manager, you can find the samples if you select the PhysioLabXR package and click on the `Samples` tab.
@@ -86,20 +89,51 @@ server in PhysioLab\ :sup:`XR`.
 The sample PhyScript that contains the server code is named `VariousArgsAndReturnsRPCExample.py`.
 You can find the example `here <https://github.com/PhysioLabXR/PhysioLabXR-Community/blob/rpc/physiolabxr/examples/rpc/VariousArgsAndReturns/VariousArgsAndReturnsRPCExample.py>`_.
 
-Here's a video that shows how to run the example. It includes
-
-1. Add the `PhysioLabXR package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Package.git>`_ into Unity.
-2. Import the GRPC samples from the package into the Unity assets, and opens the sample scene.
-3. Run the server `VariousArgsAndReturnsRPCExample.py <https://github.com/PhysioLabXR/PhysioLabXR-Community/blob/rpc/physiolabxr/examples/rpc/VariousArgsAndReturns/VariousArgsAndReturnsRPCExample.py>`_
-in PhysioLab\ :sup:`XR`.
-4. Start the Play Mode in Unity to call the server from the client by pressing the `Press Me` button.
-
+Here's a video that shows how to run the example. It includes the following steps.
 
 .. raw:: html
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         <video id="autoplay-video1" autoplay controls loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-            <source src="_static/grpc-unity.mp4" type="video/mp4">
+            <source src="../_static/grpc-unity.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
+
+The time in the brackets indicates the time in the video when the step is shown:
+
+1. (0:00) Add the `PhysioLabXR package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Package.git>`_ into Unity.
+2. (0:22) Import the GRPC samples from the package into the Unity assets, and opens the sample scene.
+3. (0:42) Load the PhyScript `VariousArgsAndReturnsRPCExample.py <https://github.com/PhysioLabXR/PhysioLabXR-Community/blob/rpc/physiolabxr/examples/rpc/VariousArgsAndReturns/VariousArgsAndReturnsRPCExample.py>`_ in PhysioLab\ :sup:`XR`.
+4. (1:01) Set the output path of the C# protobuf files to *where the Unity project is*. This will generate the client C# files in the Unity project when you run the PhyScript.
+
+.. note::
+
+    You only need to set the output path when you
+
+    * add new RPC functions
+    * change the name of existing RPC functions
+    * change the arguments or return values of existing RPC functions
+
+    because the above changes will change how the client calls RPCs from the server, there the client files
+    (C# in this case) need to be regenerated.
+
+
+5. (1:15) Start the PhyScript to compile and start the RPC server.
+6. (1:31) Start the Play Mode in Unity to call the server from the client by pressing the `Press Me` button.
+
+.. note::
+
+        Before you enter Play Mode in step 6, you may need to adjust the port number in Unity to match that of the server.
+        In the GameObject "RPCClient", you can find the `ExampleClient.cs` script. In the script, you must change the "Host"
+        to match the server's port number. PhysioLab\ :sup:`XR` uses the localhost by default, meaning the server and client
+        are on the same machine. In this case, the port number on the Unity side should be `http://localhost:<port number>`.
+        See example below:
+
+.. image:: ../media/grpc_unity_ports.png
+   :width: 1080
+
+Further Information
+--------------------
+
+If your RPC is long-running, you may want to consider using :ref:`Async RPC <feature rpc-unity-async>` to prevent blocking the Unity application.

@@ -60,3 +60,21 @@ There's a few online threads on this issue, which we recommend checking out for 
 
 - `Locate the libqcocoa.dylib <https://stackoverflow.com/questions/76898551/qt-qpa-plugin-could-not-find-the-qt-platform-plugin-cocoa-in>`_
 - `Install opencv-python-headless instead of opencv-python <https://github.com/ageitgey/face_recognition/issues/1041>`_
+
+
+Issue:
+*******
+When trying to plot a streaming data, you encounter error regarding "legend, unable to make color from ...", and the
+plots is not showing.
+
+**Solution:** This issue is highly likely due to the version of package pyqtgraph. PhysioLabXR
+uses a `custom version <https://github.com/PhysioLabXR/pyqtgraph/tree/physio>`_ of the `original pyqtgraph package <https://github.com/pyqtgraph/pyqtgraph>`_.
+This version support plotting matrix of data as multiple line charts as opposed to the original version, which only
+support plotting one line at a time, adding significant overhead to plotting streams with a large number of channels.
+
+To fix this, you will want to uninstall the original pyqtgraph package and install the custom version.
+
+.. code-block:: bash
+
+    pip uninstall pyqtgraph
+    pip install git+https://github.com/physiolabxr/pyqtgraph.git@physio

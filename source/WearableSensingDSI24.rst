@@ -1,4 +1,4 @@
-.. _Wearable Sensing Stream and FFT:
+.. _Wearable Sensing Stream:
 
 ##################################################
 PhysioLab\ :sup:`XR` + Wearable Sensing's DSI-24

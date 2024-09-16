@@ -22,9 +22,19 @@ PhysioLab\ :sup:`XR`
 
 Streaming Data:
 
-- if you are already using `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_ or `ZeroMQ (ZMQ) <https://zeromq.org/>`_ to stream your data, then you can easily integrate PhysioLab\ :sup:`XR` into your data pipeline.
+- if you are already using `Lab Streaming Layer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_ or `ZeroMQ (ZMQ) <https://zeromq.org/>`_ to stream your data, then you can easily integrate PhysioLab\ :sup:`XR` into your data pipeline. Check out LSL's supported device list `here <https://labstreaminglayer.readthedocs.io/info/supported_devices.html>`_.
 
-- you can also create your own data stream via the `Data Stream API <DataStreamAPI.html>`_.
+- you can also create your own data stream via the :ref:`Data Stream API <DataStreamAPI>`.
+
+- PhysioLab\ :sup:`XR` supports :ref:`streaming video and audio data, as well as screen capture <stream video, audio, screen capture>`.
+
+- Native support for these devices (more are coming! Or make a request on our `issue tracker <https://github.com/PhysioLabXR/PhysioLabXR-Community/issues>`_)
+
+    - :ref:`Wearable Sensing tutorial <Wearable Sensing Stream>`(`wearablesensing.com <https://wearablesensing.com/>`_)
+    - :ref:`OpenBCI <openbci cyton stream>`(`openbci.com <openbci.com>`_)
+    - Unicorn Hybrid Black (`unicorn-bi.com <unicorn-bi.com>`_)
+    - Varjo XR-3 Eyetracker (`varjo.com <varjo.com>`_)
+    - Tobii Fusion Eyetracker (`tobii.com <tobii.com>`_)
 
 
 Read the paper on the `Journal of Open Source Software <https://joss.theoj.org/papers/10.21105/joss.05854>`_:
@@ -332,19 +342,22 @@ Other Topics
     RPCs/RPC
     RPCs/RPC-Python
     RPCs/RPC-Unity
+    RPCs/Async-Unity
     DSP
     ViewInMatlab
 
 .. toctree::
     :maxdepth: 1
-    :caption: Tutorials:
+    :caption: Tutorials and Examples:
 
+    Bandpower
     FixationDetection
     PsychoPy
     tutorials/BuildMultiModalERPClassifier
     PhysioLabXRP300SpellerDemo
     ObjectDetectionTutorial
     BalanceBallMotorImageryTutorial
+
 
 .. toctree::
     :maxdepth: 1
@@ -365,6 +378,7 @@ Other Topics
     APIReferences/ERPAPIRef
     APIReferences/StreamIn
     APIReferences/get_stream_info_APIRef
+    APIReferences/ScriptingAPI
 
 .. toctree::
     :maxdepth: 1
