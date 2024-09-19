@@ -328,6 +328,7 @@ Other Topics
     DataStreamAPI/ScriptStream
     DataStreamAPI/StreamVideoAudioScreenCapture
     WearableSensingDSI24
+    WearableSensingxVario
 
 .. toctree::
     :maxdepth: 1
