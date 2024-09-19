@@ -78,3 +78,54 @@ To fix this, you will want to uninstall the original pyqtgraph package and insta
 
     pip uninstall pyqtgraph
     pip install git+https://github.com/physiolabxr/pyqtgraph.git@physio
+
+
+
+Issue:
+*******
+When attempting to execute ```pip install -r requirements.txt``` within the PhysioLabXR-Community directory after activating the virtual environment, such errors occurs:
+
+- **'Error compiling Cython file: src/numpy_formathandler.pyx:22:42: 'Py_intptr_t' is not a type identifier'**
+- Additionally, there are multiple warnings about the Cython directive `'language_level'` not being set, which could lead to compatibility issues.
+- **ERROR: Failed building wheel for PyOpenGL_accelerate**
+- **ERROR: Could not build wheels for PyOpenGL_accelerate, which is required to install pyproject.toml-based projects**
+
+
+Example Snapshot:
+
+.. image:: media/Troubleshooting_PyOpenGLIssue.png
+   :alt: Troubleshooting_PyOpenGLIssue
+   :width: 600px
+   :height: 600px
+   :align: center
+
+
+
+**Solution:**
+This issue appears to have been fixed in version 3.1.8 of `PyOpenGL-accelerate`, specifically in commit `f897b0e`. Details about this release can be found here: `PyOpenGL Release 3.1.8 <https://github.com/mcfletch/pyopengl/releases/tag/release-3.1.8>`_.
+
+However, this version has not yet been published on PyPI, so it is not available for direct installation via `pip install`.
+
+Likely Workarounds Until the Release on PyPI:
+
+1. **Install from Git Tag**:
+
+   You can install the package directly from the GitHub repository using the release tag `release-3.1.8`:
+
+   ```bash
+   pip install git+https://github.com/mcfletch/pyopengl@release-3.1.8
+   ```
+
+2. **Install from Tarball**:
+
+   Download the tarball for release 3.1.8 from the release page and install it manually. The tarball can be found in the list of assets on the release page.
+
+   Example command to install from the tarball:
+
+   ```bash
+   pip install https://github.com/mcfletch/pyopengl/archive/refs/tags/release-3.1.8.tar.gz
+   ```
+
+For further information, refer to the related discussion on GitHub: `Issue #118 <https://github.com/mcfletch/pyopengl/issues/118#issuecomment-2342054510>`_.
+
+
