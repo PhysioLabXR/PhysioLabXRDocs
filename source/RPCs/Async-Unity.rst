@@ -93,9 +93,9 @@ string as input and returns a string.
 
 .. code-block:: python
 
-    from physiolabxr.rpc.decorator import rpc, async_rpc
+   from physiolabxr.rpc.decorator import rpc, async_rpc
     from physiolabxr.scripting.RenaScript import RenaScript
-
+    from google.protobuf.empty_pb2 import Empty
     class AsyncRPCExample(RenaScript):
         def __init__(self, *args, **kwargs):
             """Please do not edit this function"""
@@ -120,21 +120,40 @@ string as input and returns a string.
 
             It is an async rpc method. The input protobuf is called AsyncOneArgOneReturnRequest,
 
-            The input protobuf is called AsyncOneArgOneReturnRequest,
-            and the output is called AsyncOneArgOneReturnResponse.
-
-            All
+            The input protobuf is called ExampleOneArgOneReturnRequest,
+            and the output is called ExampleOneArgOneReturnResponse
             Args:
                 input0 (str): the input
-            Returns:
-                str: the output
             """
             cycle = 100000
             for i in range(cycle):
                 print(f"Spinning {i}/{cycle}")
             return f"received: {input0}"
 
+        @async_rpc
+        def AsyncRPCOneArgNoReturn(self, input0: str) -> None:
+            """
+            This is an async RPC method that takes one argument but returns no value
+            Args:
+                input0 (str): the input string
+            """
+            print(f"Received input: {input0}")
+            return Empty()
+        @async_rpc
+        def AsyncRPCNoArgNoReturn(self, empty:Empty) -> Empty:
+            """
+            Tgus us ab example of an RPC method that takes no arguments and returns nothing.
+            Args:
+                empty (Empty): no input expected just passing Empty.
+            """
+            print("Server received the no-input call")
+            return Empty()
+
+
 This function has a for loop that runs 100,000 times to simulate a long-running task.
+
+There are times where you may have a function that does not have a return value, say if you want to initiate training but do not have anything to return after it is done.
+You can also see the two  scripts involving if you have an input without an output or return value as functions named AsyncRPCOneArgNoReturn and AsyncRPCNoArgNoReturn respectively.
 
 Add this script to the `Scripting tab` in PhysioLab\ :sup:`XR`.
 
@@ -163,12 +182,15 @@ Here's the complete client code for your reference:
 
     using System;
     using System.Collections;
+    using System.Diagnostics;
+    using System.Runtime.InteropServices;
     using Cysharp.Net.Http;
     using Grpc.Core;
     using Grpc.Net.Client;
     using TMPro;
     using UnityEngine;
     using UnityEngine.UI;
+    from google.protobuf.empty_pb2 import Empty
 
     public class AsyncExampleClient : MonoBehaviour
     {
@@ -199,6 +221,7 @@ Here's the complete client code for your reference:
 
         }
 
+
         public void OnCallRPC()
         {
             Debug.Log("Calling RPC");
@@ -211,7 +234,7 @@ Here's the complete client code for your reference:
         private IEnumerator CallLongAsyncRPC(string message)
         {
             var request = new AsyncOneArgOneReturnRequest() { Input0 = userInputField.text ?? " " };  // The argument cannot be an empty string
-            var call = client.AsyncOneArgOneReturnAsync(request);  // The method name in the client is "<method name in RenaScript>Async"
+            var call = client.AsyncOneArgOneREturnAsync(request);  // The method name in the client is "<method name in RenaScript>Async"
             yield return new WaitUntil(() => call.ResponseAsync.IsCompleted);
 
             if (call.ResponseAsync.IsCompletedSuccessfully)
@@ -224,6 +247,55 @@ Here's the complete client code for your reference:
                 Debug.LogError("gRPC call failed: " + call.ResponseAsync.Exception);
             }
         }
+
+        // The following is the code for if your RPC function has an input value but no output value
+        public void OnCallRPCNoReturn(string variable)
+        {
+            Debug.Log($"Calling RPC with input: {variable}")
+            StartCoroutine(CallLongRPCNoReturnWithInput(variable))
+        }
+        private IEnumerator CallLongAsyncRPCNoReturnwithInput(string input)
+        {
+            var request = new InputMesssage() { input0 = input{ } };=
+            var call = client.AsyncRPCOneArgNoReturnAsync(request);
+            yield return new DuplicateWaitObjectExceptionUntil(() => call.ResponseAsync.IsCompleted);
+
+            if (call.ResponseAsync.IsCompletedSuccessfully)
+            {
+                Debug.Log("RPC call with no return completed successfully.")
+            }
+            else
+            {
+                Debug.LogError($"RPC call failed": { call.ResponseAsync.Exception}"")
+            }
+
+        }
+
+
+        // The following is the code for if your RPC function has no value input and no value output.
+        public void OnCallRPCNoReturnNoInput()
+        {
+            Debug.Log("Calling RPC with no input")
+            StartCoroutine(CallLongAsyncRPCNoReturnNo());
+        }
+        private IEnumerator CallLongAsyncRPCNoReturn()
+        {
+            var request = new Empty();
+            var call = client.AsyncRPCNoArgNoReturnAync(request);
+            yield return new DuplicateWaitObjectExceptionUntil(() => call.ResponseAsync.IsCompleted);
+
+            if (call.ResponseAsync.IsCompletedSuccessfully)
+            {
+                Debug.Log("RPC call with no return completed successfully.")
+            }
+            else
+            {
+                Debug.LogError($"RPC call failed": { call.ResponseAsync.Exception} "")
+            }
+
+        }
+
+
     }
 
 4. Compile the client code, start the server
