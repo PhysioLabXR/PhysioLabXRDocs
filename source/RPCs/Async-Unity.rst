@@ -88,8 +88,14 @@ for all its arguments and return value, if there is any.
     If you are not familiar with scripting in PhysioLab\ :sup:`XR`, you can learn more about it :ref:`here <feature scripting>`.
 
 
-In the following example script, we define an async RPC function ``AsyncOneArgOneReturn`` that takes a
-string as input and returns a string.
+In the following example script, we define two async RPC functions:
+
+* ``AsyncOneArgOneReturn`` that takes a string as an argument and returns a string. 
+* ``AsyncRPCOneArgNoReturn`` that takes a string as an argument and returns nothing. 
+* ``AsyncRPCNoArgNoReturn`` that takes no arguments and returns nothing. 
+
+There are times when you may have a function (rpc) that does not have a *return value*. This is helpful when you want to initiate a long-running async function (e.g., train a ML model), but do not have anything to return after it is done.
+
 
 .. code-block:: python
 
@@ -125,9 +131,7 @@ string as input and returns a string.
             Args:
                 input0 (str): the input
             """
-            cycle = 100000
-            for i in range(cycle):
-                print(f"Spinning {i}/{cycle}")
+            self.LongRunningTask()
             return f"received: {input0}"
 
         @async_rpc
@@ -137,24 +141,28 @@ string as input and returns a string.
             Args:
                 input0 (str): the input string
             """
+            self.LongRunningTask()
             print(f"Received input: {input0}")
             return Empty()
+
         @async_rpc
         def AsyncRPCNoArgNoReturn(self, empty:Empty) -> Empty:
             """
-            Tgus us ab example of an RPC method that takes no arguments and returns nothing.
+            This is an async RPC method that takes no arguments and returns nothing.
             Args:
                 empty (Empty): no input expected just passing Empty.
             """
+            self.LongRunningTask()
             print("Server received the no-input call")
             return Empty()
 
+        def LongRunningTask(self):
+            cycle = 100000
+            for i in range(cycle):
+                print(f"Spinning {i}/{cycle}")
 
-This function has a for loop that runs 100,000 times to simulate a long-running task.
 
-There are times where you may have a function that does not have a return value, say if you want to initiate training but do not have anything to return after it is done.
-You can also see the two  scripts involving if you have an input without an output or return value as functions named AsyncRPCOneArgNoReturn and AsyncRPCNoArgNoReturn respectively.
-
+In all these functions, we run a ``LongRunningTask``, where we have a for loop that runs 100,000 times to simulate a long-running task.
 Add this script to the `Scripting tab` in PhysioLab\ :sup:`XR`.
 
 3. Create a Unity client.
