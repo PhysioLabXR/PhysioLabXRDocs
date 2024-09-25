@@ -358,7 +358,6 @@ Other Topics
     ObjectDetectionTutorial
     BalanceBallMotorImageryTutorial
 
-
 .. toctree::
     :maxdepth: 1
     :caption: Developers:
@@ -366,6 +365,7 @@ Other Topics
     BuildGuide
     Contribute
     DeveloperNotes
+    NativeDeviceStreamPlugin
 
 .. toctree::
     :maxdepth: 1
