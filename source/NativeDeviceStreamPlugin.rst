@@ -83,7 +83,7 @@ Files you need to create for this step:
 * ``physiolabxr/interfaces/MyAwesomeDevice/__init__.py``
 * ``physiolabxr/interfaces/MyAwesomeDevice/MyAwesomeDevice_Interface.py``
 
-In the file, physiolabxr/interfaces/MyAwesomeDevice/__init__.py, include the following code to expose the device interface class:
+In the file, ``physiolabxr/interfaces/MyAwesomeDevice/__init__.py``, include the following code to expose the device interface class:
 
 .. code-block:: python
 
