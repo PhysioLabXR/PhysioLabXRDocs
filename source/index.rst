@@ -364,6 +364,7 @@ Other Topics
 
     BuildGuide
     Contribute
+    RepositoryStandards
     DeveloperNotes
     NativeDeviceStreamPlugin
 

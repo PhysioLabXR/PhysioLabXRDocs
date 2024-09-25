@@ -441,13 +441,15 @@ Once you’ve successfully implemented and tested your device interface, conside
 submitting a pull request (PR) to the PhysioLab\ :sup:XR repository. This helps other users benefit from your work and
 allows your device plugin to be maintained and improved by the broader community.
 
-Checklist before submitting a pull request:
+Please reivew the :ref:`Contribute to PhysioLabXR <contribute>` guide for detailed instructions on how to submit a pull request.
+
+Here's a checklist before submitting a pull request for your device plugin:
 #. Device Interface: Ensure your device interface works correctly and passes all standalone tests.
 #. Device Options (optional): If you have added a device options class, verify it works as expected and integrates properly with the UI.
 #. Preset File: Add the JSON preset file for your device in the physiolabxr/_presets/DevicePresets/ directory.
 #. Test Cases: Include test cases in the tests/ directory to cover key functionality like connection, data reading, timestamps, and platform integration.
 #. Documentation: Add or update documentation (if necessary) to help other users understand how to use your plugin.
-#. Code Style: Ensure that your code adheres to the project’s coding standards and style guidelines.
+#. Code Style: Ensure that your code adheres to the project’s :ref:`coding standards <repository-standards>`.
 
 Once your pull request is submitted, the community and maintainers will review your plugin, and after approval, it
 will be merged into the official PhysioLabXR codebase.

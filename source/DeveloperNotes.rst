@@ -1,8 +1,10 @@
-Engineering WIKI
+.. _engineering-tips-and-notes:
+
+
+Engineering Tips and Notes
 #####################################################
 
-This is the engineering WIKI of this project,
-with tips and cautions when developing this project.
+This is the engineering Tips and Notes of this project, which contains useful information for developers working on this project.
 
 Working with PyQt
 *********************
