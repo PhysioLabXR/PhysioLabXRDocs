@@ -198,7 +198,7 @@ Here's the complete client code for your reference:
     using TMPro;
     using UnityEngine;
     using UnityEngine.UI;
-    from google.protobuf.empty_pb2 import Empty
+    using Google.Protobuf.WellKnownTypes;
 
     public class AsyncExampleClient : MonoBehaviour
     {
