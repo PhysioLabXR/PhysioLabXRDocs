@@ -175,5 +175,14 @@ are available for server in PhyScript, and clients in Python and C#.
 Please find their documentation in the following links:
 
 - :ref:`Python example <rpc-python>`
-- :ref:`C# (Unity) example <rpc-unity>`
+- :ref:`C# (Unity) example <rpc-Unity>`
+- :ref:`C# Async (Unity) example <rpc-Async-Unity>`
+.. toctree::
+    :max depth: 1
+    :hidden:
+
+    RPC/RPC-API
+    RPC/RPC-Python
+    RPC/RPC-Unity
+    RPC/RPC-Async-Unity
 
