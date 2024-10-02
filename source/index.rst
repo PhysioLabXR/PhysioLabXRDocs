@@ -331,7 +331,7 @@ Other Topics
 
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :caption: Features:
 
     Visualization
@@ -339,9 +339,17 @@ Other Topics
     Replay
     Scripting
     ScriptingAPIReference
-    RPCs/RPC
     DSP
     ViewInMatlab
+
+.. toctree::
+    :maxdepth: 1
+    :caption: New Feature (RPC):
+
+    RPCs/RPC
+    RPCs/RPC-Python
+    RPCs/RPC-Unity
+    RPCs/Async-Unity
 
 .. toctree::
     :maxdepth: 1
