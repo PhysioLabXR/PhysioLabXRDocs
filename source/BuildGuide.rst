@@ -32,7 +32,7 @@ Windows and Ubuntu
    .. image:: media/auto_py_to_exe.png
       :width: 540px
 
-3. Enter your PhysioLab\ :sup:`XR` source code's path (e.g.,C:\PythonProjects\PhysioLabXR) and click the download button
+3. Enter your PhysioLab\ :sup:`XR` source code's path below (e.g.,C:\\PythonProjects\\PhysioLabXR) and click the download button
    to download the build configuration file.
 
 .. raw:: html
@@ -156,18 +156,23 @@ Windows and Ubuntu
     });
     </script>
 
+3. After you got the build configuration file, click **Import Config From JSON File** and select the configuration file you just got.
 
-3. You may change where the final executable is saved under `Settings-> Output Directory`. The default output directory
+   .. image:: media/auto_py_to_exe_step3.png
+      :width: 540px
+
+
+4. You may change where the final executable is saved under `Settings-> Output Directory`. The default output directory
     is a folder named "output" under source code directory.
 
    .. image:: media/auto-py-to-exe-output-path.png
       :width: 540px
 
 
-4. To start the build process, click on the “CONVERT .PY to EXE” button at the bottom of the window.
+5. To start the build process, click on the “CONVERT .PY to EXE” button at the bottom of the window.
 
 
-5. Once the build completes, you can find the executable in the output directory you specified in step 3.
+6. Once the build completes, you can find the executable in the output directory you specified in step 3.
 
 
 MacOS
