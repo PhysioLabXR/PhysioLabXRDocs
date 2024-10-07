@@ -1,9 +1,9 @@
 
 .. _stream video, audio, screen capture:
 
-#####################################################
-Using Video, Audio Input Devices, and Screen Capture
-#####################################################
+#########################################################
+Streaming Video, Audio Input Devices, and Screen Capture
+#########################################################
 
 
 Video and audio input devices recognize by your OS are automatically detected and can be used as data sources.

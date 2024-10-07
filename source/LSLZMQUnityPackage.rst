@@ -1,8 +1,8 @@
 .. _LSLZMQUnityPackage:
 
-##########################################################
-Unity Package for LSL, ZMQ, GRPC by PhysioLab\ :sup:`XR`
-##########################################################
+############################################
+Stream Data from Unity via LSL, ZMQ, or GRPC
+############################################
 
 We provide a preconfigured `Unity package <https://github.com/PhysioLabXR/Unity-PhysioLabXR-Plugin.git>`_ that wraps LSL, ZMQ and GRPC
 dependencies.

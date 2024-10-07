@@ -1,9 +1,9 @@
 
 .. _stream using scripting interface:
 
-##################################################
-Create data source using Scripting Interface
-##################################################
+####################################################
+Stream Custom Data source using Scripting Interface
+####################################################
 
 Most of the sensors and devices connect to your computer via USB or Bluetooth, and you can print the data to the console using the SDK provided by the device manufacturer.
 This is a good way to test the device and get familiar with the data.

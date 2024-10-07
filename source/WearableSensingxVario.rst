@@ -1,8 +1,8 @@
-.. _WearableSensing's DSI24 and Compatibility with Varjo's XR-3:
+.. _WearableSensing's DSI-24 X Varjo's XR-3:
 
-###############################################################################################
-Wearable Sensing's DSI-24 and Compatibility with Varjo's XR-3 (Potentially other models as well)
-###############################################################################################
+############################################################
+Wearable Sensing's DSI-24 Compatibility with Varjo's XR-3
+############################################################
 
 This tutorial will demonstrate how to adapt the Varjo XR-3 to the DSI-24.
 The `DSI-24 <https://wearablesensing.com/dsi-24/>`_ is `Wearable Sensing's <https://wearablesensing.com/>`_ dry electrode EEG system.
