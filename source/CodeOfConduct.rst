@@ -68,7 +68,7 @@ Instances of unacceptable behavior may be reported by contacting the maintainers
 
 .. code-block::
 
-   conduct@physiolabxr.org
+   admin@physiolabxr.org
 
 All complaints will be reviewed and investigated promptly. Community members who violate the **Code of Conduct** will be subject to appropriate consequences, which may include:
 
@@ -90,6 +90,6 @@ If you have any questions or need further clarification, feel free to reach out 
 
 .. code-block::
 
-   contact@physiolabxr.org
+   admin@physiolabxr.org
 
 We thank you for helping us create a safe and inclusive space for everyone to contribute!
