@@ -357,6 +357,7 @@ Other Topics
     PhysioLabXRP300SpellerDemo
     ObjectDetectionTutorial
     BalanceBallMotorImageryTutorial
+    TobiiProFusion
 
 .. toctree::
     :maxdepth: 1
