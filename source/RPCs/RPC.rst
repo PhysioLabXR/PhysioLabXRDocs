@@ -164,7 +164,7 @@ Here's a video showing the above example in action:
 
 Setup for C Sharp (Unity)
 =========================
-You will need some additional setups for C# clients. Please refer to the :ref:`C# (Unity) example <rpc-unity>` for more details.
+You will need some additional setups for C# clients. Please refer to the :ref:`C# (Unity) example <feature rpc-unity>` for more details.
 
 More examples
 ==================================
@@ -175,7 +175,7 @@ are available for server in PhyScript, and clients in Python and C#.
 Please find their documentation in the following links:
 
 - :ref:`Python example <rpc-python>`
-- :ref:`C# (Unity) example <rpc-Unity>`
-- :ref:`C# Async (Unity) example <rpc-Async-Unity>`
+- :ref:`C# (Unity) example <feature rpc-unity>`
+- :ref:`C# Async (Unity) example <feature rpc-unity-async>`
 
 
