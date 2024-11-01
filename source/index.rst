@@ -329,6 +329,7 @@ Other Topics
     DataStreamAPI/StreamVideoAudioScreenCapture
     WearableSensingDSI24
     WearableSensingxVario
+    TobiiProFusion
 
 .. toctree::
     :maxdepth: 1
@@ -357,7 +358,6 @@ Other Topics
     PhysioLabXRP300SpellerDemo
     ObjectDetectionTutorial
     BalanceBallMotorImageryTutorial
-    TobiiProFusion
 
 .. toctree::
     :maxdepth: 1
