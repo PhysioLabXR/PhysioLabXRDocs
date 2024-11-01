@@ -18,8 +18,9 @@ This tutorial will be primarily focused on the Windows platform.
     <iframe width="560" height="315" src="https://www.youtube.com/embed/j63mmHf7muo"
     frameborder="0" allowfullscreen></iframe>
 
-7. (Optional) Calibrate your device by entering the address of the Tobii Pro Eye Tracker Manager on your local computer, and clicking on the **Calibration** button.
-    **Note**: You only need to enter the address of manager once, and the app will save the configuration for future use, i.e., for the following calibration, you don't need to enter the address again, just click on the **Calibration** button directly.
+7. (Optional) Calibrate your device by entering the path to the `Tobii Pro Eye Tracker Manager <https://connect.tobii.com/s/etm-downloads?language=en_US>`_ on your local computer, and clicking on the **Calibration** button.
+
+.. note:: You only need to enter the address of manager once, and the app will save the configuration for future use, i.e., for the following calibration, you don't need to enter the address again, just click on the **Calibration** button directly.
 
 .. raw:: html
 
