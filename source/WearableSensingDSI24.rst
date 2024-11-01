@@ -1,7 +1,7 @@
 .. _Wearable Sensing Stream:
 
 ##################################################
-PhysioLab\ :sup:`XR` + Wearable Sensing's DSI-24
+Stream data from Wearable Sensing's DSI-24
 ##################################################
 
 This tutorial will demonstrate how to connect the DSI-24 to your computer and PhysioLab\ :sup:`XR`.
@@ -219,9 +219,9 @@ For this tutorial, we added a Butterworth High Pass Filter with a cutoff frequen
 
 Now that you have the data streaming: check out these docs:
 
-- `How to record the data <https://physiolabxrdocs.readthedocs.io/en/latest/Recording.html>`_
-- `How to run a classification model on the data <https://physiolabxrdocs.readthedocs.io/en/latest/tutorials/BuildMultiModalERPClassifier.html>`_
-
+- :ref: `How to save the data <Recording>`_
+- :ref: `How to run a classification model on the data <tutorials/BuildMultiModalERPClassifier>`_
+- :ref: `Need help connecting the DSI-24 with Varjo's XR-3? <WearableSensingxVario>`_
 
 
 
