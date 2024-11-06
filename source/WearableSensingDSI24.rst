@@ -1,7 +1,7 @@
 .. _Wearable Sensing Stream:
 
 ##################################################
-PhysioLab\ :sup:`XR` + Wearable Sensing's DSI-24
+Stream data from Wearable Sensing's DSI-24
 ##################################################
 
 This tutorial will demonstrate how to connect the DSI-24 to your computer and PhysioLab\ :sup:`XR`.
@@ -78,6 +78,7 @@ The script can be downloaded from `WearableSensingScript.py <https://github.com/
 
 .. code-block:: python
 
+    from pylsl import local_clock
     from physiolabxr.scripting.RenaScript import RenaScript
     from physiolabxr.thirdparty.WearableSensing.DSI_py3 import *
     import numpy as np
@@ -87,25 +88,34 @@ The script can be downloaded from `WearableSensingScript.py <https://github.com/
     #Creating a data buffer with the DataBuffer class
     data_buffer = DataBuffer()
 
-    @MessageCallback
-    def ExampleMessageCallback(msg, lvl=0):
-        if lvl <= 3:  # ignore messages at debugging levels higher than 3
-            print("DSI Message (level %d): %s" % (lvl, IfStringThenNormalString(msg)))
-        return 1
-
-
+    is_first_time = True
+    time_offset = 0  # time offset for the first packet to the local_clock()
     @SampleCallback
     def ExampleSampleCallback_Signals(headsetPtr, packetTime, userData):
         #This is the function that will be called every time a new packet is received
         global data_buffer
+        global is_first_time
+        global time_offset
+
         #Grab the headset by using a pointer
         h = Headset(headsetPtr)
         #Get the signal from each channel and format it so that it can be created into an array
         new_data = np.array(['%+08.2f' % (ch.GetSignal()) for ch in h.Channels()])
         #Reshapes the array into a 24x1 array so that it can be inputted into the data_buffer
         new_data = new_data.reshape(24,1)
+        #Rearrange new_data to fit with desired output format
+        new_data = new_data[[9, 10, 3, 2, 4, 17, 18, 7, 1, 5, 11, 22, 12, 21, 8, 0, 6, 13, 14, 20, 23, 19, 15, 16], :]
         #Get the time of the packet as a temporary solution to timestamps
-        t = [packetTime]
+        if is_first_time:
+            time_offset = local_clock() - float(packetTime)
+            is_first_time = False
+
+        t = [float(packetTime) + time_offset]
+        if new_data.shape[1] != len(t):
+            print('Data and timestamp mismatch')
+            print(new_data.shape)
+            print(len(t))
+
         #Create a dictionary with the stream name, data, and timestamps
         new_data_dict = {
             'stream_name': 'DSI-24',
@@ -114,19 +124,6 @@ The script can be downloaded from `WearableSensingScript.py <https://github.com/
         }
         #Update the data buffer with the new data
         data_buffer.update_buffer(new_data_dict)
-
-
-    @SampleCallback
-    def ExampleSampleCallback_Impedances(headsetPtr, packetTime, userData):
-        #Not yet used
-        h = Headset(headsetPtr)
-        fmt = '%s = %5.3f'
-        strings = [fmt % (IfStringThenNormalString(src.GetName()), src.GetImpedanceEEG()) for src in h.Sources() if
-                   src.IsReferentialEEG() and not src.IsFactoryReference()]
-        strings.append(fmt % ('CMF @ ' + h.GetFactoryReferenceString(), h.GetImpedanceCMF()))
-        print(('%8.3f:   ' % packetTime) + ', '.join(strings))
-        sys.stdout.flush()
-
     class DSI24(RenaScript):
         def __init__(self, *args, **kwargs):
             """
@@ -157,6 +154,7 @@ The script can be downloaded from `WearableSensingScript.py <https://github.com/
             #Start the data acquisition
             self.headset.StartBackgroundAcquisition()
 
+
         def loop(self):
             #Called every loop based on the user's chosen frequency
             global data_buffer
@@ -169,9 +167,14 @@ The script can be downloaded from `WearableSensingScript.py <https://github.com/
         def cleanup(self):
             #Called when the script is stopped
             global data_buffer
+            global is_first_time
+            global time_offset
             #Stop the data acquisition
-            self.headset.StopDataAcquisition()
+            self.headset.StopBackgroundAcquisition()
             #Disconnect the headset
+            time_offset = 0
+            is_first_time = True
+            self.headset.Disconnect()
             data_buffer.clear_buffer()
 
 22. *Add* an output and name it "DSI-24".
@@ -216,10 +219,9 @@ For this tutorial, we added a Butterworth High Pass Filter with a cutoff frequen
 
 Now that you have the data streaming: check out these docs:
 
-- `How to record the data <https://physiolabxrdocs.readthedocs.io/en/latest/Recording.html>`_
-- `How to run a classification model on the data <https://physiolabxrdocs.readthedocs.io/en/latest/tutorials/BuildMultiModalERPClassifier.html>`_
-
-(Future updates on impedance checks and other features explained further down)
+- :ref: `How to save the data <Recording>`_
+- :ref: `How to run a classification model on the data <tutorials/BuildMultiModalERPClassifier>`_
+- :ref: `Need help connecting the DSI-24 with Varjo's XR-3? <WearableSensingxVario>`_
 
 
 

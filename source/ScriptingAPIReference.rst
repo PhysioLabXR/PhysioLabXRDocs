@@ -1,12 +1,8 @@
 .. _scripting api reference:
 
 #######################
-Scripting API Reference
-#######################
-
-
 Eyetracking
-===========
+#######################
 
 .. _scripting api gap fill:
 

@@ -1,8 +1,8 @@
 .. _DataStreamAPI:
 
-###############
-Data Stream API
-###############
+##############################################################
+How to send data to PhysioLab\ :sup:`XR` (Data Stream API)
+##############################################################
 
 
 Streams are the basic building blocks of any PhysioLab\ :sup:`XR` paradigm. Streams are connected to data sources that produces data
@@ -30,7 +30,8 @@ over time. PhysioLab\ :sup:`XR` has the following hooks to connect to data sourc
 3. **Video and audio devices**: for devices recognized by the OS as webcams or microphones, they will automatically
    appear on the list of devices available to stream in PhysioLab\ :sup:`XR`.　:ref:`More information here <stream video, audio, screen capture>`.
 
-
+4. **[for advanced users] Create a Native Plugin**: for devices that do not have a Python API or if you want to optimize the performance,
+   to stream data to PhysioLab\ :sup:`XR`. Check out :ref:`this page <stream using native plugin>` on how to do it.
 
 
 

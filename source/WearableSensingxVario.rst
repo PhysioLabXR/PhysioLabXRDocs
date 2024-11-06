@@ -1,8 +1,8 @@
-.. _WearableSensing's DSI24 and Compatibility with Varjo's XR-3:
+.. _WearableSensing's DSI-24 X Varjo's XR-3:
 
-###############################################################################################
-Wearable Sensing's DSI-24 and Compatibility with Varjo's XR-3 (Potentially other models as well)
-###############################################################################################
+############################################################
+Wearable Sensing's DSI-24 Compatibility with Varjo's XR-3
+############################################################
 
 This tutorial will demonstrate how to adapt the Varjo XR-3 to the DSI-24.
 The `DSI-24 <https://wearablesensing.com/dsi-24/>`_ is `Wearable Sensing's <https://wearablesensing.com/>`_ dry electrode EEG system.
@@ -57,15 +57,20 @@ After removing the headstrap from the `XR-3 <https://varjo.com/products/varjo-xr
         <iframe width="560" height="315" src="https://www.youtube.com/embed/IdBzOD8t-vM?si=6KZy29UzO7afI1ZX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </p>
 
-7. Use the front provided straps from `DSI-24 <https://wearablesensing.com/dsi-24/>`_ to attach the `DSI-24 <https://wearablesensing.com/dsi-24/>`_ to the adapter. The strap provided by Wearable Sensing for the Meta Quest will also work.
+7. Apply `Velcro's Sleek and Thin <https://a.co/d/3UoSrVQ>`_ to the 3D printed part so that you can attach the cushion back on.
 
-8. You will also need to have additional straps to secure the DSI-24 on the sides.
+8. Attach the cushion back on to the `XR-3 <https://varjo.com/products/varjo-xr-3/>`_.
 
-9. Apply `Velcro's Sleek and Thin <https://a.co/d/3UoSrVQ>`_ to the 3D printed part so that you can attach the cushion back on.
+9. Use the front provided straps from `DSI-24 <https://wearablesensing.com/dsi-24/>`_ to attach the `DSI-24 <https://wearablesensing.com/dsi-24/>`_ to the adapter. The strap provided by Wearable Sensing for the Meta Quest will also work.
 
-10. Attach the cushion back on to the `XR-3 <https://varjo.com/products/varjo-xr-3/>`_.
+10. You will also need to have additional straps to secure the DSI-24 on the sides.
 
-11. It is also recommended that you add some foam between the `XR-3 <https://varjo.com/products/varjo-xr-3/>`_ and the 3D printed piece to prevent any light from coming into the view area. An alternative would be to drape a piece of clothing over the seams.
+.. raw :: html
+
+    <p align="center">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/j7wa5-27RCc?si=Gn-6NvKWBpMZnjQn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </p>
+
 
 Now that you have a working DSI-24 with the XR-3 you can now use PhysioLabXR to integrate the two hardware devices in software.
 
