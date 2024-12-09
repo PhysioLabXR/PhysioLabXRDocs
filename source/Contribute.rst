@@ -23,6 +23,13 @@ We look forward to seeing your contributions and helping to improve **PhysioLab\
 Run from source
 *********************
 
+.. raw :: html
+
+    <p align="center">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-r-ccR6MEIg?si=soU8sm7zDAn3j4ho" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </p>
+
+
 To get started with PhysioLab\ :sup:`XR` development, you will want to run the app from source. The following section will
 guide you through the process of running the app from source.
 

@@ -178,7 +178,7 @@ Visualize LSL Data
 
 
 Using LSL
-***********************
+*********
 
 `LabStreamingLayer (LSL) <https://labstreaminglayer.readthedocs.io/info/intro.html>`_
 is a network protocol for streaming time series data, mostly used for physiological experiments.
@@ -299,7 +299,7 @@ You will see the data being plotted in line chart (:ref:`explore other visualiza
 
 
 Using ZMQ
-***********************
+*********
 
 
 `ZMQ <https://zeromq.org/>`_ is a messaging library for exchanging data between applications. ZMQ has the following characteristics:
@@ -551,7 +551,7 @@ move your cursor to the lower left of the plot, click the *[A]* button that show
 
 
 Write your data source using :ref:`Scripting Interface <feature scripting>`
-********************************
+***************************************************************************
 
 You can create your own data source using the :ref:`Scripting Interface <feature scripting>` in Physiolab\ :sup:`XR`.
 :ref:`This section <tutorial how to use scripting for device>` in Scripting gives detailed examples on how to write your own data source using the third party device driver API and the Physiolab\ :sup:`XR` scripting interface.

@@ -1,4 +1,4 @@
-.. include:: .special.rst
+
 
 PhysioLab\ :sup:`XR`
 #####################################################
@@ -63,10 +63,24 @@ Download
 Run the executable
 ------------------
 
+.. raw :: html
+
+    <p align="center">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/KdFrwYsrflE?si=dn3URQ8BN6i-vEH8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </p>
+
+
 Get the latest executable of PhysioLab\ :sup:`XR` from the `release page <https://github.com/ApocalyVec/PhysioLabXR/releases>`_, that supports **Windows**, **MacOS**, and **Linux**.
 
 Install with pip
 ----------------
+
+.. raw :: html
+
+    <p align="center">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/rY81CarnWgM?si=bx_BbmD7-kenzSBp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </p>
+
 
 You can also install PhysioLab\ :sup:`XR` with pip, which will install the latest release version of PhysioLab\ :sup:`XR` and all its dependencies.
 This is platform-independent and works on Windows, MacOS, and Linux.
@@ -79,11 +93,17 @@ If you are using pip, we recommend installing PhysioLab\ :sup:`XR` in a virtual 
 
     python -m venv physiolabxr-env
 
-Then activate the virtual environment:
+Then activate the virtual environment: (If your OS is Linux or OSX (Apple))
 
 .. code-block:: bash
 
     source physiolabxr-env/bin/activate
+
+(If your OS is Windows)
+
+.. code-block:: bash
+
+    physiolabxr-env/Scripts/activate
 
 Install PhysioLab\ :sup:`XR` with:
 
