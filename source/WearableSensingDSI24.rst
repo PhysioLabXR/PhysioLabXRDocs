@@ -10,6 +10,13 @@ This tutorial will be primarily focused on the Windows platform.
 This tutorial currently only works with the latest stable developmental version of PhysioLabXR. If you would like to know how to download the latest stable version of PhysioLabXR, you can check that out
 `Here <https://physiolabxrdocs.readthedocs.io/en/latest/Contribute.html#run-from-source>`_.
 
+
+.. raw :: html
+
+    <p align="center">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ExMdOJoQMc4?si=gM_J_3OZhBbGYdTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </p>
+
 If you would like to be more hands on and work with the data from DSI-24 as well as implement other functions from the DSI-24 you can check out `this <Wearable Sensing Stream Old>`_.
 
 1. Ensure you have the batteries installed the DIS-24.
