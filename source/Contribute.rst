@@ -42,18 +42,31 @@ and `venv <https://docs.python.org/3/library/venv.html>`_.
     * Note that you don't have to create the venv in the root directory of PhysioLab\ :sup:`XR`, you can create it anywhere
       you want. If you do, you need to change the path in the following steps accordingly.
     * Activate the virtual environment by running ``source venv/bin/activate`` on MacOS/Linux or ``venv\Scripts\activate.bat`` on Windows.
-    * Install the required packages by running ``pip install -r requirements.txt``.
+    * Install the required packages by running ``pip install -r requirements.txt``. If you run into troubles installing the packages, please refer to the :ref:`Troubleshooting <troubleshooting>` page.
 
-4. With packages installed and (optional) the virtual environment activated.
-Navigate to the physiolabxr folder. Run PhysioLabXR.py to start the app::
+.. note::
 
-   cd physiolabxr
-   python PhysioLabXR.py
+    There is a known issue on installing on Windows. If you encounter the error **'Microsoft Visual C++ 14.0 or greater is required.'**,
+    please refer to the :ref:`this troubleshoot topic <ms visual c++>` for a solution.
 
-Some test cases such as the benchmarking test cases require additional packages. To install these additional packages,
-you need to run the following command::
+4. With packages installed (either in your base or in the virtual environment), from inside the cloned directory, run the following command to navigate to the physiolabxr directory:
 
-   pip install -r requirements.dev.txt
+    .. code-block::
+
+        cd physiolabxr
+
+5. Run the following command to start the app:
+
+    .. code-block::
+
+        python PhysioLabXR.py
+
+.. note::
+
+    Some test cases such as the benchmarking test cases require additional packages. To install these additional packages,
+    you need to run the following command::
+
+       pip install -r requirements.dev.txt
 
 
 Submit a pull request

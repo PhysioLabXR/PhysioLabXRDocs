@@ -362,6 +362,7 @@ Other Topics
     PhysioLabXRP300SpellerDemo
     ObjectDetectionTutorial
     BalanceBallMotorImageryTutorial
+    TobiiProFusion
     WearableSensingxVario
 
 .. toctree::

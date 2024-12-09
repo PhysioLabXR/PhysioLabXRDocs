@@ -20,6 +20,7 @@ Issue:
 apt install libxcb-cursor0
 ```
 
+.. _ms visual c++:
 
 Issue:
 *******
