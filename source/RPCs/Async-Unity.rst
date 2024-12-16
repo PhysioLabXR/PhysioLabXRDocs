@@ -146,11 +146,11 @@ There are times when you may have a function (rpc) that does not have a *return 
             return Empty()
 
         @async_rpc
-        def AsyncRPCNoArgNoReturn(self, empty:Empty) -> Empty:
+        def AsyncRPCNoArgNoReturn(self):
             """
             This is an async RPC method that takes no arguments and returns nothing.
-            Args:
-                empty (Empty): no input expected just passing Empty.
+
+            To call this RPC from client, you need to pass an Empty protobuf object.
             """
             self.LongRunningTask()
             print("Server received the no-input call")
