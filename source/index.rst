@@ -328,7 +328,12 @@ Other Topics
     DataStreamAPI/ScriptStream
     DataStreamAPI/StreamVideoAudioScreenCapture
     WearableSensingDSI24
+<<<<<<< HEAD
+    WearableSensingxVario
+    TobiiProFusion
+=======
 
+>>>>>>> be81d92285a5b4486ff340767c30b079ee171f28
 
 .. toctree::
     :maxdepth: 1
@@ -364,6 +369,7 @@ Other Topics
     BalanceBallMotorImageryTutorial
     TobiiProFusion
     WearableSensingxVario
+
 
 .. toctree::
     :maxdepth: 1
