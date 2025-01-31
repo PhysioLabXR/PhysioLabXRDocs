@@ -27,7 +27,7 @@ This tutorial will be primarily focused on the Windows platform.
     <iframe width="560" height="315" src="https://www.youtube.com/embed/qHrlWp9ET0U"
     frameborder="0" allowfullscreen></iframe>
 
-8. (Optional) Add more groups to see data more clearly.
+.. note:: If you need to change the frame rate of your eyetracker. You can change it in `Tobii Pro Eye Tracker Manager <https://connect.tobii.com/s/etm-downloads?language=en_US>`_.
 
 .. raw:: html
 
