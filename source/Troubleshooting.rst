@@ -133,6 +133,6 @@ For further information, refer to the related discussion on GitHub: `Issue #118 
 
 Issue:
 *******
-When running async gRPC on the Unity client, the console reports "(Status(StatusCode = "Cancelled", Detail = "No grpc-status found on response."))" even though the Python server is working correctly. 
+When running async gRPC on the Unity client, the console reports ```(Status(StatusCode = "Cancelled", Detail = "No grpc-status found on response."))``` even though the Python server is working correctly. 
 
-**Solution:** This is usually caused by conflicting gRPC libraries—PhysioLabXR’s bundled gRPC plugin and additional gRPC packages installed via NuGet for Unity. Uninstall the NuGet-installed gRPC packages and keep only the PhysioLabXR plugin: go to "Unity -> NuGet -> Manage NuGet Packages -> Installed" and remove all gRPC-related packages. Restart Unity and try again.
+**Solution:** This is usually caused by conflicting gRPC libraries—PhysioLabXR’s bundled gRPC plugin and additional gRPC packages installed via NuGet for Unity. Uninstall the NuGet-installed gRPC packages and keep only the PhysioLabXR plugin: go to ```Unity -> NuGet -> Manage NuGet Packages -> Installed``` and remove all gRPC-related packages. Restart Unity and try again.
