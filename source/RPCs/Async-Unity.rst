@@ -63,7 +63,7 @@ Here's the step-by-step guide to using Async RPC in Unity, with more contextual 
 1. Setting things up
 ---------------------
 
-First, if you haven't already, you need to install the GROC dependency in Unity.
+First, if you haven't already, you need to install the GRPC dependency in Unity.
 
 In the Unity Editor, open the Package Manager, click on the `+s` button and select `Add package from git URL <https://docs.unity3d.com/Manual/upm-git.html>`_.
 Add the following URL to the package manager:
